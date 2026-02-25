@@ -49,7 +49,7 @@ const navVariants = {
   animate: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.6, ease: "easeOut" },
   },
 };
 
@@ -59,7 +59,7 @@ const dropdownVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.22, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.22, ease: "easeOut" },
   },
   exit: {
     opacity: 0,
@@ -74,7 +74,7 @@ const mobileMenuVariants = {
   animate: {
     opacity: 1,
     height: 'auto',
-    transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.35, ease: "easeOut" },
   },
   exit: {
     opacity: 0,
@@ -94,7 +94,7 @@ function GoldRule() {
       className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[rgba(201,168,76,0.5)] to-transparent"
       initial={{ scaleX: 0, opacity: 0 }}
       animate={{ scaleX: 1, opacity: 1 }}
-      transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
       style={{ transformOrigin: 'center' }}
     />
   );
@@ -348,7 +348,7 @@ export default function Navbar() {
                     key={link.href}
                     initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.06 + 0.1, duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ delay: i * 0.06 + 0.1, duration: 0.3, ease: "easeOut" }}
                   >
                     <Link
                       href={link.href}
@@ -427,3 +427,4 @@ export default function Navbar() {
     </>
   );
 }
+
