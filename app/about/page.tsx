@@ -283,7 +283,7 @@ export default function AboutPage() {
                 </div>
                 <div style={{ width: '1px', height: '2.5rem', background: 'rgba(255,255,255,0.08)' }} />
                 <div>
-                  <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: MUTED, marginBottom: '2px' }}>Est. 2022</p>
+                  <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: MUTED, marginBottom: '2px' }}>Est. 2025</p>
                   <p style={{ fontSize: '0.7rem', color: MUTED }}>Glendora, California</p>
                 </div>
               </motion.div>
@@ -606,7 +606,7 @@ export default function AboutPage() {
                 {[
                   { label: 'School Districts', sub: 'Bring YIC to your schools', href: '/partner', icon: BookOpen },
                   { label: 'Explore the Curriculum', sub: 'View the 8-week CEO Track', href: '/curriculum', icon: Star },
-                  { label: 'See Our Impact', sub: 'Read the 2024 impact report', href: '/impact', icon: ChevronRight },
+                  { label: 'See Our Impact', sub: 'Read the 2026 impact report', href: '/impact', icon: ChevronRight },
                 ].map(({ label, sub, href, icon: Icon }) => (
                   <Link key={label} href={href} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.25rem', background: 'rgba(15,23,42,0.5)', border: '1px solid rgba(37,99,235,0.12)', borderRadius: '3px', textDecoration: 'none', transition: 'all 0.2s' }}
                     onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(37,99,235,0.3)'; e.currentTarget.style.background = 'rgba(30,41,59,0.6)'; }}
