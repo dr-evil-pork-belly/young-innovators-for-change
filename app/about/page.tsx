@@ -153,18 +153,18 @@ export default function AboutPage() {
     <div style={{ background: SLATE, minHeight: '100vh', color: WHITE, fontFamily: SANS }}>
 
       {/* Load Playfair Display */}
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&display=swap');
 
         .drop-cap::first-letter {
-          font-family: ${SERIF};
+          font-family: 'Playfair Display', Georgia, serif;
           font-size: 5.5rem;
           font-weight: 900;
           line-height: 0.75;
           float: left;
           margin-right: 0.12em;
           margin-top: 0.08em;
-          color: ${WHITE};
+          color: #F8FAFC;
           letter-spacing: -0.02em;
         }
         .editorial-rule {
@@ -181,7 +181,7 @@ export default function AboutPage() {
           0%   { background-position: -200% center; }
           100% { background-position:  200% center; }
         }
-      `}</style>
+      ` }} />
 
       {/* ══════════════════════════════════════════════════════
           MAGAZINE COVER HERO
