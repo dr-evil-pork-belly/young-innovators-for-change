@@ -19,7 +19,7 @@ const NAV_LINKS = [
       { label: 'Leadership', href: '/programs/leadership',  desc: 'Building tomorrows CEOs today'     },
       { label: 'Venture Lab',        href: '/programs/venture-lab', desc: 'From idea to pitch in 8 weeks'    },
       { label: 'Financial Literacy', href: '/programs/financial-literacy',     desc: 'Money mastery for young minds'    },
-      { label: 'Alumni Network',     href: '/programs/alumni',      desc: 'Lifelong community and mentorship' },
+      { label: 'Alumni Network',     href: '/programs/alumni-network',      desc: 'Lifelong community and mentorship' },
     ],
   },
   { label: 'Impact', href: '/impact', dropdown: null },
