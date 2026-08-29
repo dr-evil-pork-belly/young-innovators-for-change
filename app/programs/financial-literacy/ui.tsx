@@ -73,7 +73,7 @@ const MODULES = [
     icon:   Wallet,
     title:  'Money Fundamentals',
     accent: ROYAL_L,
-    desc:   'Income, expenses, assets, and liabilities — the four words that determine every financial outcome. Students learn to categorize, measure, and act on each.',
+    desc:   'Income, expenses, assets, and liabilities: the four words that determine every financial outcome. Students learn to categorize, measure, and act on each.',
     skills: ['Reading a paycheck', 'Fixed vs variable expenses', 'Net worth calculation', 'Cash flow basics'],
   },
   {
@@ -81,7 +81,7 @@ const MODULES = [
     icon:   Calculator,
     title:  'The Budget Blueprint',
     accent: GREEN,
-    desc:   'The 50/30/20 rule adapted for real student contexts. Students build their first personal budget using real numbers — not hypotheticals.',
+    desc:   'The 50/30/20 rule adapted for real student contexts. Students build their first personal budget using real numbers, not hypotheticals.',
     skills: ['50/30/20 framework', 'Zero-based budgeting intro', 'Needs vs wants analysis', 'Monthly budget simulation'],
   },
   {
@@ -89,7 +89,7 @@ const MODULES = [
     icon:   TrendingUp,
     title:  'Compound Interest',
     accent: GOLD,
-    desc:   'The single most powerful concept in personal finance — and the one most adults were never taught. Students run real compound interest simulations starting at age 10.',
+    desc:   'The single most powerful concept in personal finance, and the one most adults were never taught. Students run real compound interest simulations starting at age 10.',
     skills: ['Simple vs compound interest', 'The Rule of 72', 'Starting early vs starting late', 'Real investment projections'],
   },
   {
@@ -97,7 +97,7 @@ const MODULES = [
     icon:   CreditCard,
     title:  'Credit & Debt',
     accent: ROYAL_L,
-    desc:   'Credit scores, interest rates, and the true cost of debt. Students learn how credit works before they ever have a credit card — so they never become a statistic.',
+    desc:   'Credit scores, interest rates, and the true cost of debt. Students learn how credit works before they ever have a credit card, so they never become a statistic.',
     skills: ['How credit scores are calculated', 'APR and the true cost of debt', 'Good debt vs bad debt', 'Building credit responsibly'],
   },
   {
@@ -113,7 +113,7 @@ const MODULES = [
     icon:   Building2,
     title:  'Entrepreneurial Finance',
     accent: GOLD,
-    desc:   'Revenue models, gross margin, CAC, and LTV — the financial vocabulary of business. Students apply these concepts to their own venture ideas.',
+    desc:   'Revenue models, gross margin, CAC, and LTV: the financial vocabulary of business. Students apply these concepts to their own venture ideas.',
     skills: ['Revenue vs profit distinction', 'Unit economics: CAC and LTV', 'Break-even analysis', 'Reading a simple P&L'],
   },
   {
@@ -121,7 +121,7 @@ const MODULES = [
     icon:   ShieldCheck,
     title:  'Financial Protection',
     accent: ROYAL_L,
-    desc:   'Insurance, emergency funds, and the psychology of financial decision-making. Why smart people make bad money decisions — and how to build systems that prevent it.',
+    desc:   'Insurance, emergency funds, and the psychology of financial decision-making. Why smart people make bad money decisions, and how to build systems that prevent it.',
     skills: ['Emergency fund sizing', 'Insurance fundamentals', 'Behavioral finance basics', 'Avoiding lifestyle inflation'],
   },
   {
@@ -129,7 +129,7 @@ const MODULES = [
     icon:   Award,
     title:  'The Financial Pitch',
     accent: GOLD,
-    desc:   'Students present a personal financial plan to a panel — showing their budget, investment strategy, and 10-year wealth projection. Real numbers. Real accountability.',
+    desc:   'Students present a personal financial plan to a panel, showing their budget, investment strategy, and 10-year wealth projection. Real numbers. Real accountability.',
     skills: ['Personal financial plan', '10-year wealth projection', 'Live panel presentation', 'Financial literacy certification'],
   },
 ];
@@ -252,7 +252,7 @@ const FAQS = [
   },
   {
     q: 'How is this different from standard financial literacy programs?',
-    a: 'Most programs teach financial vocabulary. We teach financial behavior. Every concept is applied immediately through simulations, mock portfolios, and real budgeting exercises. Students leave with a completed personal financial plan — not a completed worksheet.',
+    a: 'Most programs teach financial vocabulary. We teach financial behavior. Every concept is applied immediately through simulations, mock portfolios, and real budgeting exercises. Students leave with a completed personal financial plan, not a completed worksheet.',
   },
   {
     q: 'Do students need any prior math knowledge?',
@@ -260,7 +260,7 @@ const FAQS = [
   },
   {
     q: 'What do students take home after the program?',
-    a: 'Every graduate receives a completed personal budget template, a 10-year wealth projection model, their mock investment portfolio summary, and a YIC Financial Literacy Certification — a credential they can include in future applications.',
+    a: 'Every graduate receives a completed personal budget template, a 10-year wealth projection model, their mock investment portfolio summary, and a YIC Financial Literacy Certification, a credential they can include in future applications.',
   },
 ];
 
@@ -378,8 +378,8 @@ function WorkshopForm() {
           <label style={lStyle}>Grade Level</label>
           <select name="grade" value={form.grade} onChange={handle} style={{ ...iStyle, cursor: 'pointer' }} {...focus}>
             <option value="" style={{ background: SLATE }}>Select...</option>
-            <option value="10u"  style={{ background: SLATE }}>10U — Ages 8-10</option>
-            <option value="14u"  style={{ background: SLATE }}>14U — Ages 11-14</option>
+            <option value="10u"  style={{ background: SLATE }}>10U (ages 8 to 10)</option>
+            <option value="14u"  style={{ background: SLATE }}>14U (ages 11 to 14)</option>
             <option value="both" style={{ background: SLATE }}>Both tracks</option>
           </select>
         </div>
@@ -441,7 +441,7 @@ export default function FinancialLiteracyPage() {
 
         <div className="absolute inset-0 pointer-events-none">
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(145deg, #060C10 0%, #0F172A 55%, #091510 100%)' }} />
-          {/* Green glow — money energy */}
+          {/* Green glow, money energy */}
           <div style={{ position: 'absolute', top: '10%', left: '-5%', width: '55%', height: '70%', background: 'radial-gradient(ellipse, rgba(16,185,129,0.1) 0%, transparent 65%)' }} />
           <div style={{ position: 'absolute', bottom: '5%', right: '-5%', width: '40%', height: '50%', background: 'radial-gradient(ellipse, rgba(37,99,235,0.08) 0%, transparent 65%)' }} />
           {/* Grid */}
@@ -495,9 +495,8 @@ export default function FinancialLiteracyPage() {
               </motion.div>
 
               <motion.p variants={fadeUp} style={{ fontSize: '1.1rem', lineHeight: 1.8, color: MUTED, maxWidth: '580px', marginBottom: '2.5rem' }}>
-                The financial knowledge most adults were never taught —
-                compound interest, budgeting, investing, credit — delivered
-                to K-12 students before they ever have a bank account.
+                The financial knowledge most adults were never taught (compound interest,
+                budgeting, investing, credit) delivered to K-12 students before they ever have a bank account.
                 Because the best time to learn money is before you need it.
               </motion.p>
 
@@ -567,8 +566,7 @@ export default function FinancialLiteracyPage() {
             <p style={{ fontSize: '0.95rem', lineHeight: 1.8, color: MUTED }}>
               The difference between starting at 10 and starting at 35 is not
               discipline, income, or intelligence. It is time. Our simulator shows
-              students exactly what 25 extra years of compounding looks like —
-              in real dollars. Drag the slider to see the impact of your choices.
+              students exactly what 25 extra years of compounding looks like, in real dollars. Drag the slider to see the impact of your choices.
             </p>
           </div>
         </FadeIn>
@@ -692,8 +690,7 @@ export default function FinancialLiteracyPage() {
                   her this. I did not have a good answer. That is exactly why this
                   program exists."
                 </p>
-                <cite style={{ fontSize: '0.68rem', fontStyle: 'normal', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: GREEN }}>
-                  — YIC Financial Literacy Instructor
+                <cite style={{ fontSize: '0.68rem', fontStyle: 'normal', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: GREEN }}>, YIC Financial Literacy Instructor
                 </cite>
               </div>
             </FadeIn>

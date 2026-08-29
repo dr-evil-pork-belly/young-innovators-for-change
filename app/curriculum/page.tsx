@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Curriculum',
   description:
     'The full K–12 scope: mathematics and science across Grades 1–12, plus leadership, ' +
-    'entrepreneurship and financial literacy from Grade 3 up — with an honest status on every cell.',
+    'entrepreneurship and financial literacy from Grade 3 up, with an honest status on every cell.',
   alternates: { canonical: '/curriculum' },
   openGraph: {
     title: 'Curriculum',

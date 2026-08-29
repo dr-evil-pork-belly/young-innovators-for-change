@@ -66,9 +66,9 @@ const ALUMNI = [
   { initials:'PE', name:'Priya E.',     cohort:'2023 · Glendora',   now:'Founder, ReVerde Labs',             type:'Founder',     accent:GOLD,    icon:Rocket,        venture:'$8K pre-seed raised at age 16'  },
   { initials:'DK', name:'David K.',     cohort:'2023 · Pasadena',   now:'Goldman Sachs Summer Analyst',      type:'Career',      accent:ROYAL_L, icon:Briefcase,     venture:'First YIC corporate placement'  },
   { initials:'SM', name:'Sofia M.',     cohort:'2022 · Glendora',   now:'YIC Advisory Council Member',      type:'Mentor',      accent:GOLD,    icon:Crown,         venture:'Youngest council member, age 17' },
-  { initials:'LC', name:'Liam C.',      cohort:'2024 · LA Unified', now:'Gates Scholarship Finalist',       type:'Scholarship', accent:ROYAL_L, icon:Award,         venture:'TutorBlock — 47 beta users'     },
+  { initials:'LC', name:'Liam C.',      cohort:'2024 · LA Unified', now:'Gates Scholarship Finalist',       type:'Scholarship', accent:ROYAL_L, icon:Award,         venture:'TutorBlock, 47 beta users'     },
   { initials:'NW', name:'Nadia W.',     cohort:'2024 · LA Unified', now:'First-Gen College Student, USC',   type:'University',  accent:GOLD,    icon:GraduationCap, venture:'Presented to 3 city officials'   },
-  { initials:'RO', name:'Rohan O.',     cohort:'2023 · Pasadena',   now:'YIC Lead Instructor (part-time)',   type:'Mentor',      accent:ROYAL_L, icon:Handshake,     venture:'PixelMentor — 12 active mentors' },
+  { initials:'RO', name:'Rohan O.',     cohort:'2023 · Pasadena',   now:'YIC Lead Instructor (part-time)',   type:'Mentor',      accent:ROYAL_L, icon:Handshake,     venture:'PixelMentor, 12 active mentors' },
   { initials:'EV', name:'Elena V.',     cohort:'2024 · Glendora',   now:'Barnard College, Early Decision',  type:'University',  accent:GOLD,    icon:GraduationCap, venture:'Thesis: EQ in K-12 education'   },
   { initials:'TN', name:'Tyler N.',     cohort:'2022 · Glendora',   now:'Seed Investor, age 19',            type:'Founder',     accent:ROYAL_L, icon:DollarSign,    venture:'Invested in 2 YIC alumni startups'},
   { initials:'KP', name:'Kezia P.',     cohort:'2024 · LA Unified', now:'Harvard HPAIR Delegate',           type:'Scholarship', accent:GOLD,    icon:Globe,         venture:'International business delegate' },
@@ -95,19 +95,19 @@ const DESTINATIONS = [
 ];
 
 const MENTOR_BENEFITS = [
-  { icon: Users,         title: 'Lifetime Community',   desc: 'Access to a growing network of YIC alumni, instructors, investors, and corporate partners — for life.' },
+  { icon: Users,         title: 'Lifetime Community',   desc: 'Access to a growing network of YIC alumni, instructors, investors, and corporate partners, for life.' },
   { icon: GraduationCap, title: 'College Prep Access',  desc: 'Dedicated college counseling, application review, and essay workshops from YIC advisors.' },
   { icon: Rocket,        title: 'Venture Credits',      desc: 'Alumni founders receive introductions to our investor network, mentors, and seed resources.' },
   { icon: Briefcase,     title: 'Career Pathways',      desc: 'Corporate partner internship pipeline, resume workshops, and direct introductions to hiring partners.' },
-  { icon: Handshake,     title: 'Pay It Forward',       desc: 'Become a YIC Mentor — return to lead workshops, guest lecture, or co-instruct future cohorts.' },
-  { icon: Crown,         title: 'Legacy Recognition',   desc: 'Top alumni join the Founders Circle — a permanent directory of YIC graduates shaping the world.' },
+  { icon: Handshake,     title: 'Pay It Forward',       desc: 'Become a YIC Mentor, return to lead workshops, guest lecture, or co-instruct future cohorts.' },
+  { icon: Crown,         title: 'Legacy Recognition',   desc: 'Top alumni join the Founders Circle, a permanent directory of YIC graduates shaping the world.' },
 ];
 
 const PILLARS = [
   { val:'100%', lbl:'of alumni have access to lifetime mentorship',    accent:GOLD    },
   { val:'3',    lbl:'alumni enrolled in top-20 universities',          accent:ROYAL_L },
   { val:'$8K+', lbl:'raised by alumni founders post-graduation',       accent:GOLD    },
-  { val:'2022', lbl:'first cohort — already making history',           accent:ROYAL_L },
+  { val:'2022', lbl:'first cohort',           accent:ROYAL_L },
 ];
 
 function AlumniCard({ alumni, delay }: { alumni: typeof ALUMNI[0]; delay: number }) {
@@ -196,7 +196,7 @@ function WorldMap() {
       <div style={{ padding: '1rem 2rem 1.5rem', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap', borderTop: '1px solid rgba(201,168,76,0.08)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: ROYAL_L }} />
-          <span style={{ fontSize: '0.68rem', color: MUTED, fontWeight: 600 }}>Origin — Glendora, CA</span>
+          <span style={{ fontSize: '0.68rem', color: MUTED, fontWeight: 600 }}>Origin: Glendora, CA</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: GOLD, opacity: 0.7 }} />
@@ -213,7 +213,7 @@ function WorldMap() {
 
 function MentorForm() {
   const { form, handle, submit, submitted, loading, error, trap, setTrap } =
-    useContactForm({ name:'', email:'', cohort:'', role:'', expertise:'', message:'' }, 'Alumni Network enquiry', '/programs/alumni-network');
+    useContactForm({ name:'', email:'', cohort:'', role:'', expertise:'', message:'' }, 'Alumni Network inquiry', '/programs/alumni-network');
 
 
   const iStyle: React.CSSProperties = { width:'100%', background:'rgba(15,23,42,0.7)', border:'1px solid rgba(201,168,76,0.2)', borderRadius:'3px', padding:'0.8rem 0.875rem', color:WHITE, fontSize:'0.85rem', outline:'none', transition:'border-color 0.2s, box-shadow 0.2s', fontFamily:SANS };
@@ -252,7 +252,7 @@ function MentorForm() {
           <label style={lStyle}>YIC Cohort Year</label>
           <select name="cohort" value={form.cohort} onChange={handle} style={{ ...iStyle, cursor:'pointer' }} {...focus}>
             <option value="" style={{ background:SLATE }}>Select year...</option>
-            <option value="2022" style={{ background:SLATE }}>2022 — Founding Cohort</option>
+            <option value="2022" style={{ background:SLATE }}>2022 Founding Cohort</option>
             <option value="2023" style={{ background:SLATE }}>2023 Cohort</option>
             <option value="2024" style={{ background:SLATE }}>2024 Cohort</option>
             <option value="external" style={{ background:SLATE }}>External Mentor</option>
@@ -378,7 +378,7 @@ export default function AlumniNetworkPage() {
               <p style={{ fontSize:'0.65rem', fontWeight:800, letterSpacing:'0.22em', textTransform:'uppercase' as const, color:GOLD, marginBottom:'0.5rem' }}>The Legacy Program</p>
               <h2 style={{ fontFamily:DISPLAY, fontSize:'clamp(2rem, 4.5vw, 3.8rem)', lineHeight:0.95, letterSpacing:'0.02em', color:WHITE }}>WHAT COMES<br /><span style={{ color:GOLD }}>AFTER PITCH DAY.</span></h2>
             </div>
-            <p style={{ fontSize:'0.95rem', lineHeight:1.8, color:MUTED }}>Graduating is the beginning. Every YIC alumnus receives lifetime access to three pillars: mentorship, college prep, and venture support — for as long as they need it.</p>
+            <p style={{ fontSize:'0.95rem', lineHeight:1.8, color:MUTED }}>Graduating is the beginning. Every YIC alumnus receives lifetime access to three pillars: mentorship, college prep, and venture support, for as long as they need it.</p>
           </div>
         </FadeIn>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(280px, 1fr))', gap:'1.25rem' }}>
@@ -435,9 +435,9 @@ export default function AlumniNetworkPage() {
               <div style={{ position:'absolute', inset:'0 0 0 0', borderLeft:`3px solid ${GOLD}`, borderRadius:'4px 0 0 4px', pointerEvents:'none' }} />
               <div>
                 <p style={{ fontFamily:SERIF, fontStyle:'italic', fontSize:'1.1rem', color:WHITE, lineHeight:1.6, marginBottom:'0.5rem' }}>
-                  "The Founders Circle is not a trophy wall. It is a living directory of proof — proof that where you grow up does not determine where you end up."
+                  "The Founders Circle is not a trophy wall. It is a living directory of proof, proof that where you grow up does not determine where you end up."
                 </p>
-                <cite style={{ fontSize:'0.7rem', fontStyle:'normal', fontWeight:700, letterSpacing:'0.14em', textTransform:'uppercase' as const, color:GOLD }}>— Cindy Ha, Founder</cite>
+                <cite style={{ fontSize:'0.7rem', fontStyle:'normal', fontWeight:700, letterSpacing:'0.14em', textTransform:'uppercase' as const, color:GOLD }}>Cindy Ha, Founder</cite>
               </div>
               <Link href="#mentor" style={{ display:'inline-flex', alignItems:'center', gap:'0.5rem', padding:'0.875rem 1.5rem', background:`linear-gradient(135deg, ${GOLD_D}, ${GOLD_L})`, borderRadius:'3px', color:SLATE, fontSize:'0.75rem', fontWeight:800, letterSpacing:'0.1em', textTransform:'uppercase' as const, textDecoration:'none', flexShrink:0 }}>
                 Add Your Story <ArrowUpRight size={13} />

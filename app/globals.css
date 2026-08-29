@@ -16,7 +16,7 @@
 
 /* Wrapped in @layer base so Tailwind's utility layer can still win.
    Unlayered CSS beats every cascade layer in Tailwind v4 regardless of
-   specificity — with this reset unlayered, px-*, py-* and mx-auto were
+   specificity, with this reset unlayered, px-*, py-* and mx-auto were
    silently doing nothing anywhere on the site. */
 @layer base {
   *, *::before, *::after {

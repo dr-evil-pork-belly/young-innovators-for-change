@@ -3,15 +3,15 @@ import { NextRequest, NextResponse } from 'next/server';
 /**
  * Contact endpoint for every form on the site.
  *
- * Setup — three environment variables, then it works:
+ * Setup, three environment variables, then it works:
  *
  *   RESEND_API_KEY=re_...                 from resend.com (free tier is ample)
  *   CONTACT_TO=hello@innovateyouth.org    the monitored inbox
  *   CONTACT_FROM=site@innovateyouth.org   a verified sender on your domain
  *
  * If the key is missing the route returns 503 and the form shows a real error.
- * It never pretends to have sent something it did not send — the previous
- * implementation faked success and silently dropped every enquiry.
+ * It never pretends to have sent something it did not send, the previous
+ * implementation faked success and silently dropped every inquiry.
  */
 
 export const runtime = 'nodejs';
@@ -20,7 +20,7 @@ type Payload = {
   formName?: string;
   page?: string;
   fields?: Record<string, string>;
-  /** honeypot — real users never fill this */
+  /** honeypot, real users never fill this */
   company_website?: string;
 };
 
@@ -102,7 +102,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const label = body.formName ?? 'Website enquiry';
+  const label = body.formName ?? 'Website inquiry';
   const rows = Object.entries(clean)
     .map(([k, v]) =>
       `<tr><td style="padding:6px 14px 6px 0;color:#6B7280;font:600 12px system-ui;` +
@@ -114,7 +114,7 @@ export async function POST(req: NextRequest) {
     `<div style="font:14px/1.6 system-ui;color:#111;max-width:640px">` +
     `<p style="font:600 12px system-ui;letter-spacing:.14em;text-transform:uppercase;color:#6B7280">` +
     `${esc(label)}</p>` +
-    `<h2 style="font:700 20px system-ui;margin:4px 0 16px">New enquiry from ${esc(body.page ?? 'the site')}</h2>` +
+    `<h2 style="font:700 20px system-ui;margin:4px 0 16px">New inquiry from ${esc(body.page ?? 'the site')}</h2>` +
     `<table style="border-collapse:collapse">${rows}</table>` +
     `<p style="margin-top:22px;color:#6B7280;font-size:12px">Sent from innovateyouth.org</p></div>`;
 
@@ -129,7 +129,7 @@ export async function POST(req: NextRequest) {
         from,
         to: [to],
         reply_to: clean.email,
-        subject: `${label}${clean.name ? ` — ${clean.name}` : ''}`,
+        subject: `${label}${clean.name ? `: ${clean.name}` : ''}`,
         html,
       }),
     });

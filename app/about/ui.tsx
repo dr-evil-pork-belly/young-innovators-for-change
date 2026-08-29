@@ -46,14 +46,13 @@ function PullQuote({ children, accent = GOLD }: { children: React.ReactNode; acc
         {children}
       </p>
       <cite style={{ fontSize: '0.7rem', fontStyle: 'normal', fontWeight: 700,
-        letterSpacing: '0.16em', textTransform: 'uppercase' as const, color: accent }}>
-        — {FOUNDER.name}
+        letterSpacing: '0.16em', textTransform: 'uppercase' as const, color: accent }}>, {FOUNDER.name}
       </cite>
     </div>
   );
 }
 
-/** Person tile. No portrait placeholder — an empty frame reads as a missing photo. */
+/** Person tile. No portrait placeholder, an empty frame reads as a missing photo. */
 function PersonCard({ person }: { person: Person }) {
   return (
     <Card accent={ROYAL_L} pad="1.6rem">
@@ -95,10 +94,10 @@ export default function AboutUi() {
               {FOUNDER.name} grew up in {FOUNDER.raisedIn}, went through Los Angeles public
               schools doing exactly what was asked of her, and came out the other side without
               ever having been told how a business actually works. She found out by opening
-              one — nine hundred square feet, renovated by hand.
+              one: nine hundred square feet, renovated by hand.
             </p>
             <p style={{ margin: 0 }}>
-              She went back for {mba} afterwards, and discovered a whole field she had spent
+              She went back for {mba} afterward, and discovered a whole field she had spent
               years improvising against. Young Innovators for Change exists because of the
               order of those two things.
             </p>
@@ -127,13 +126,12 @@ export default function AboutUi() {
         >
           <p style={BODY}>
             There was not much. Cramped living quarters, both parents working, and afternoons
-            that belonged to the neighbourhood kids and whatever could be done with a patch
+            that belonged to the neighborhood kids and whatever could be done with a patch
             of dirt.
           </p>
           <p style={BODY}>
             School had one thing she stayed late for. Teachers in her LAUSD elementary put out
-            board games and table games at the end of the day, and she stayed to play them —
-            not because anyone made her, and not for a grade.
+            board games and table games at the end of the day, and she stayed to play them, not because anyone made her, and not for a grade.
           </p>
           <div style={{ marginTop: '1.75rem', padding: '1.35rem 1.6rem',
             background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.2)',
@@ -161,14 +159,14 @@ export default function AboutUi() {
           title={<>SHE DID EVERY<br />SINGLE THING<br />THE SYSTEM ASKED.</>}
         >
           <p style={BODY}>
-            She mastered what was taught, in the order it was taught. The honours track. The AP
+            She mastered what was taught, in the order it was taught. The honors track. The AP
             classes. The SAT, studied for the hard way. It got her into {FOUNDER.college}, and a
             term abroad in {FOUNDER.studiedAbroad} widened the frame further. She worked through
             most of high school and college, because the money had to come from somewhere.
           </p>
           <p style={BODY}>
             That is thirteen years of doing it right, followed by four more. And none of it
-            included how money works — not how a price gets set, not what a margin is, not what
+            included how money works. Not how a price gets set, not what a margin is, not what
             it costs to borrow, not why one shop survives its third year and the one beside it
             does not.
           </p>
@@ -209,7 +207,7 @@ export default function AboutUi() {
       {/* ── The MBA ────────────────────────────────────── */}
       <Section>
         <Spread
-          eyebrow="What she found out afterwards"
+          eyebrow="What she found out afterward"
           title={<>THE WHOLE FIELD<br />WAS ALREADY<br />THERE.</>}
         >
           <p style={BODY}>
@@ -217,9 +215,9 @@ export default function AboutUi() {
             not taught her, and went back for {mba}.
           </p>
           <p style={BODY}>
-            What she found was not a set of tricks. It was a discipline — pricing, capital,
-            operations, strategy, the structure of how firms actually behave — a body of
-            knowledge she had been improvising against, blind, for years — and had beaten it anyway.
+            What she found was not a set of tricks. It was a discipline, pricing, capital,
+            operations, strategy, the structure of how firms actually behave, a body of
+            knowledge she had been improvising against, blind, for years, and had beaten it anyway.
           </p>
           <PullQuote accent={ROYAL_L}>{FOUNDER.quotes.theMBA}</PullQuote>
           <p style={{ ...BODY, marginBottom: 0, color: WHITE }}>
@@ -242,7 +240,7 @@ export default function AboutUi() {
           <FadeIn>
             <p style={BODY}>
               Every kid on her block could have used this. Not so they would all become
-              founders — most will not, and that was never the goal. Understanding how money,
+              founders, most will not, and that was never the goal. Understanding how money,
               pricing, ownership and risk actually work changes what a person is able to see,
               and it changes it permanently.
             </p>
@@ -295,8 +293,8 @@ export default function AboutUi() {
                + 'curriculum is built against published standards and published research, and '
                + 'both are cited so you can check the work rather than trust the author.' },
             { t: 'She has not run a school', a: GREEN_L,
-              d: 'No cohort has completed a programme and no outcome has been measured. What we '
-               + 'would count, and what would tell us the programme does not work, is written '
+              d: 'No cohort has completed a program and no outcome has been measured. What we '
+               + 'would count, and what would tell us the program does not work, is written '
                + 'down in advance on the evidence page.' },
             { t: 'One business is not a proof', a: GREEN_L,
               d: 'That she built and sold a company says she can operate. It does not establish '
@@ -316,8 +314,8 @@ export default function AboutUi() {
           <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginTop: '2rem',
             maxWidth: '70ch' }}>
             A founder&rsquo;s story is the easiest place on a website to quietly inflate, which is
-            why this section exists. The materials are published in full — workbook, answer key,
-            research paper, adoption packet — so that the argument rests on them and not on the
+            why this section exists. The materials are published in full, workbook, answer key,
+            research paper, adoption packet, so that the argument rests on them and not on the
             biography above.{' '}
             <Link href="/resources" style={{ color: ROYAL_L, textDecoration: 'none',
               borderBottom: '1px solid rgba(59,130,246,0.4)' }}>Read them yourself</Link>.
@@ -383,7 +381,7 @@ export default function AboutUi() {
                 </p>
                 <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED }}>
                   A California public benefit corporation needs a board, and most funders expect
-                  at least three unrelated directors. Ours is not seated yet — we say so here and
+                  at least three unrelated directors. Ours is not seated yet. We say so here and
                   on the governance page rather than leaving you to work it out from a filing.
                   Educators, school administrators, operators and finance people are exactly who
                   we are looking for.
@@ -407,7 +405,7 @@ export default function AboutUi() {
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '54ch',
               marginTop: '1rem' }}>
               {ORG.legalName} was incorporated in {ORG.incorporation.state} on{' '}
-              {fmtDate(ORG.incorporation.initialFilingDate)} and recognised by the IRS as a
+              {fmtDate(ORG.incorporation.initialFilingDate)} and recognized by the IRS as a
               501(c)(3) public charity on {fmtDate(ORG.taxStatus.determinationDate)}. Both records
               are public and both are linked from the governance page, along with the things we
               have not done yet.

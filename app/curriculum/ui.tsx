@@ -147,8 +147,7 @@ export default function CurriculumUi() {
         <FadeIn delay={0.3}>
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '1.25rem', maxWidth: '72ch' }}>
             Most of this grid says <em>planned</em>, and that is the point of publishing it. An
-            organization two years old with one finished year of curriculum is exactly what we are
-            — the grid is the plan for turning that into a K&ndash;12 programme, one honest cell at
+            organization two years old with one finished year of curriculum is exactly what we are. The grid is the plan for turning that into a K&ndash;12 program, one honest cell at
             a time.
           </p>
         </FadeIn>
@@ -178,8 +177,7 @@ export default function CurriculumUi() {
                 reinforces the standard the class is already teaching.
               </p>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED }}>
-                Starts in Grade 1 because that is where mathematical identity starts forming —
-                and where a child first decides whether this subject is for them.
+                Starts in Grade 1 because that is where mathematical identity starts forming, and where a child first decides whether this subject is for them.
               </p>
             </Card>
           </FadeIn>
@@ -230,13 +228,13 @@ export default function CurriculumUi() {
               d: 'Nothing else is built until one teacher completes a year. What we learn there '
                + 'changes how every later grade gets written.' },
             { n: '02', a: GOLD_L, t: 'Assessment and teacher materials',
-              d: 'The pre/post instrument and the training deck the evaluation needs — and the '
+              d: 'The pre/post instrument and the training deck the evaluation needs, and the '
                + 'thing a district asks for before adopting anything.' },
             { n: '03', a: ROYAL_L, t: 'Grade 3, then Grade 1',
               d: 'Outward from the tested year in both directions, using the same generator, so '
                + 'a second year takes months rather than a year.' },
             { n: '04', a: ROYAL_L, t: 'Write the Enterprise materials',
-              d: 'The three older-student programmes are designed but not written out. Turning '
+              d: 'The three older-student programs are designed but not written out. Turning '
                + 'a syllabus into materials a volunteer can teach from is the work.' },
             { n: '05', a: SLATE_3, t: 'Science, and the upper grades',
               d: 'The largest part of the grid and the furthest out. We would rather say that '

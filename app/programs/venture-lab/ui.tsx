@@ -30,7 +30,7 @@ const ROYAL_D = '#1D4ED8';
 const ROYAL_XL= '#93C5FD';
 const GOLD    = '#C9A84C';
 const GOLD_L  = '#E8C94F';
-const VIOLET  = '#7C3AED';   // venture energy — ambition purple
+const VIOLET  = '#7C3AED';   // venture energy, ambition purple
 const VIOLET_L= '#A78BFA';
 const VIOLET_D= '#5B21B6';
 const EMBER   = '#F97316';
@@ -77,7 +77,7 @@ const PHASES = [
     accentBg: 'rgba(124,58,237,0.08)',
     accentBorder: 'rgba(124,58,237,0.22)',
     tagline: 'Great ventures start with an obsession, not an idea.',
-    desc:   'Students learn the design thinking process — observing the world like a founder, identifying real unmet needs, and separating symptoms from root causes. No brainstorming. No "just think of an idea." Structured discovery.',
+    desc:   'Students learn the design thinking process, observing the world like a founder, identifying real unmet needs, and separating symptoms from root causes. No brainstorming. No "just think of an idea." Structured discovery.',
     deliverable: 'Problem Statement Canvas',
     tools:  ['Empathy interviews', 'Problem-solution fit map', 'Customer journey sketch', '5 Whys root cause analysis'],
   },
@@ -90,7 +90,7 @@ const PHASES = [
     accentBg: 'rgba(59,130,246,0.08)',
     accentBorder: 'rgba(59,130,246,0.22)',
     tagline: 'Build for one person, not everyone.',
-    desc:   'The ICP (Ideal Customer Profile) framework. Students define their exact customer — demographics, psychographics, buying behavior, and the emotional job-to-be-done. They then validate with real mini-interviews outside the classroom.',
+    desc:   'The ICP (Ideal Customer Profile) framework. Students define their exact customer: demographics, psychographics, buying behavior, and the emotional job-to-be-done. They then validate with real mini-interviews outside the classroom.',
     deliverable: 'Ideal Customer Profile',
     tools:  ['ICP framework', 'Mini customer interviews', 'Jobs-to-be-done theory', 'TAM/SAM/SOM sizing'],
   },
@@ -102,7 +102,7 @@ const PHASES = [
     accent: EMBER,
     accentBg: 'rgba(249,115,22,0.08)',
     accentBorder: 'rgba(249,115,22,0.22)',
-    tagline: 'MVP means minimum viable — not minimum effort.',
+    tagline: 'MVP means minimum viable, not minimum effort.',
     desc:   'The Business Model Canvas applied to a real student venture. Students design their value proposition, revenue model, and cost structure. Every team builds a paper prototype or mock product and gets peer feedback.',
     deliverable: 'Business Model Canvas + MVP Prototype',
     tools:  ['Business Model Canvas', 'Value proposition design', 'Paper prototyping', 'Peer feedback panels'],
@@ -129,7 +129,7 @@ const PHASES = [
     accentBg: 'rgba(124,58,237,0.08)',
     accentBorder: 'rgba(124,58,237,0.22)',
     tagline: 'A great product with no distribution is a hobby.',
-    desc:   'Channel strategy, customer acquisition, and the concept of product-market fit. Students design a 30-day go-to-market plan for their venture — identifying their first 10 customers, acquisition channel, and retention hook.',
+    desc:   'Channel strategy, customer acquisition, and the concept of product-market fit. Students design a 30-day go-to-market plan for their venture, identifying their first 10 customers, acquisition channel, and retention hook.',
     deliverable: '30-Day Go-to-Market Plan',
     tools:  ['Channel selection matrix', 'CAC and LTV basics', 'First 10 customers exercise', 'Product-market fit indicators'],
   },
@@ -142,7 +142,7 @@ const PHASES = [
     accentBg: 'rgba(59,130,246,0.08)',
     accentBorder: 'rgba(59,130,246,0.22)',
     tagline: 'Investors do not fund businesses. They fund stories with numbers.',
-    desc:   'The full 10-slide pitch deck — built from scratch using the YIC Pitch Framework. Problem, solution, market, business model, traction, team, financials, competition, roadmap, and the ask. One slide per session. Reviewed by instructors.',
+    desc:   'The full 10-slide pitch deck, built from scratch using the YIC Pitch Framework. Problem, solution, market, business model, traction, team, financials, competition, roadmap, and the ask. One slide per session. Reviewed by instructors.',
     deliverable: '10-Slide Investor Pitch Deck',
     tools:  ['YIC Pitch Framework', 'Slide design principles', 'Narrative arc construction', 'Instructor deck review'],
   },
@@ -155,7 +155,7 @@ const PHASES = [
     accentBg: 'rgba(201,168,76,0.08)',
     accentBorder: 'rgba(201,168,76,0.25)',
     tagline: 'The room is yours. Use it.',
-    desc:   'Live pitch to a panel of real investors, executives, and entrepreneurs. 5-minute presentation followed by 5 minutes of investor Q&A. The same format used in real Series A pitches — adapted for students who are more than ready for it.',
+    desc:   'Live pitch to a panel of real investors, executives, and entrepreneurs. 5-minute presentation followed by 5 minutes of investor Q&A. The same format used in real Series A pitches, adapted for students who are more than ready for it.',
     deliverable: 'Live Investor Pitch + Certification',
     tools:  ['Formal boardroom setting', 'Real investor panel', 'Live Q&A session', 'YIC Venture Builder Certificate'],
   },
@@ -205,7 +205,7 @@ const VENTURES = [
 const DECK_SLIDES = [
   { num: '01', title: 'The Problem',      desc: 'One sentence. One statistic. One undeniable truth.',           accent: VIOLET_L },
   { num: '02', title: 'The Solution',     desc: 'Your product in plain English. What it does, not how.',         accent: ROYAL_L  },
-  { num: '03', title: 'Market Size',      desc: 'TAM, SAM, SOM — the three numbers every investor asks for.',    accent: GOLD     },
+  { num: '03', title: 'Market Size',      desc: 'TAM, SAM, SOM: the three numbers every investor asks for.',    accent: GOLD     },
   { num: '04', title: 'Business Model',   desc: 'How you make money. Revenue streams and pricing logic.',        accent: VIOLET_L },
   { num: '05', title: 'Traction',         desc: 'What you have already done. Evidence beats projections.',       accent: ROYAL_L  },
   { num: '06', title: 'The Team',         desc: 'Why you are the right people to solve this problem.',           accent: GOLD     },
@@ -296,8 +296,8 @@ function WorkshopForm() {
           <label style={lStyle}>Grade Track</label>
           <select name="grade" value={form.grade} onChange={handle} style={{ ...iStyle, cursor: 'pointer' }} {...focus}>
             <option value="" style={{ background: SLATE }}>Select...</option>
-            <option value="10u"  style={{ background: SLATE }}>10U Founders — Ages 8-10</option>
-            <option value="14u"  style={{ background: SLATE }}>14U Executives — Ages 11-14</option>
+            <option value="10u"  style={{ background: SLATE }}>10U Founders (ages 8 to 10)</option>
+            <option value="14u"  style={{ background: SLATE }}>14U Executives (ages 11 to 14)</option>
             <option value="both" style={{ background: SLATE }}>Both tracks</option>
           </select>
         </div>
@@ -409,7 +409,7 @@ export default function VentureLabPage() {
               </motion.div>
 
               <motion.p variants={fadeUp} style={{ fontSize: '1.1rem', lineHeight: 1.8, color: MUTED, maxWidth: '580px', marginBottom: '2.5rem' }}>
-                Not a case study. Not a simulation. A real venture — with a real
+                Not a case study. Not a simulation. A real venture, with a real
                 problem, a real customer, a real financial model, and a real pitch
                 to real investors. Built in 8 weeks by kids who were told it was
                 impossible.
@@ -510,7 +510,7 @@ export default function VentureLabPage() {
                         </div>
                         <div>
                           <h3 style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '0.04em', color: WHITE, lineHeight: 1, marginBottom: '0.5rem' }}>
-                            {phase.num} — {phase.title.toUpperCase()}
+                            {phase.num}. {phase.title.toUpperCase()}
                           </h3>
                           <p style={{ fontSize: '0.82rem', fontStyle: 'italic', color: phase.accent }}>{phase.tagline}</p>
                         </div>
@@ -618,7 +618,7 @@ export default function VentureLabPage() {
                 </h2>
               </div>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '300px', lineHeight: 1.7 }}>
-                These are real ventures built by real students — not case studies, not examples. Every business below was pitched live to an investor panel.
+                These are real ventures built by real students, not case studies, not examples. Every business below was pitched live to an investor panel.
               </p>
             </div>
           </FadeIn>
@@ -667,11 +667,10 @@ export default function VentureLabPage() {
               <div style={{ position: 'absolute', inset: '0 0 auto 0', height: '1px', background: `linear-gradient(90deg, transparent, ${VIOLET_L}40, transparent)` }} />
               <p style={{ fontFamily: SERIF, fontSize: 'clamp(1rem, 2vw, 1.35rem)', fontStyle: 'italic', color: WHITE, lineHeight: 1.6, marginBottom: '0.875rem' }}>
                 "Maya asked me after Pitch Day if she could apply for a real business
-                license. She was 12. I looked it up. The answer is yes — with a
+                license. She was 12. I looked it up. The answer is yes, with a
                 parent co-signer. That question is why I built this program."
               </p>
-              <cite style={{ fontSize: '0.7rem', fontStyle: 'normal', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: VIOLET_L }}>
-                — Cindy Ha, Founder
+              <cite style={{ fontSize: '0.7rem', fontStyle: 'normal', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: VIOLET_L }}>, Cindy Ha, Founder
               </cite>
             </div>
           </FadeIn>

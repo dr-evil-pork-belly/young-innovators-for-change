@@ -126,7 +126,7 @@ const FAQS = [
   },
   {
     q: 'How is this different from existing financial literacy programs?',
-    a: 'Most financial literacy programs are worksheet-based and passive. Ours are experiential -- students build and pitch real ventures, make real financial decisions, and receive feedback from working professionals. The Grade 2 mathematics programme is a full 36-week year mapped to California standards. We have not yet run a cohort, so we make no claim about engagement or outcomes; the evaluation design we have committed to is published on our evidence page.',
+    a: 'Most financial literacy programs are worksheet-based and passive. Ours are experiential -- students build and pitch real ventures, make real financial decisions, and receive feedback from working professionals. The Grade 2 mathematics program is a full 36-week year mapped to California standards. We have not yet run a cohort, so we make no claim about engagement or outcomes; the evaluation design we have committed to is published on our evidence page.',
   },
   {
     q: 'Which districts are currently served?',
@@ -305,7 +305,7 @@ function FAQItem({ faq, index }: { faq: typeof FAQS[number]; index: number }) {
 // ─── Contact Form ─────────────────────────────────────────────────────────────
 function ContactForm() {
   const { form, handle, submit, submitted, loading, error, trap, setTrap } =
-    useContactForm({ name: '', title: '', org: '', email: '', phone: '', tier: '', message: '' }, 'Partner enquiry', '/partner');
+    useContactForm({ name: '', title: '', org: '', email: '', phone: '', tier: '', message: '' }, 'Partner inquiry', '/partner');
 
 
 

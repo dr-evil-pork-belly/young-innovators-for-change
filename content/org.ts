@@ -3,9 +3,9 @@
  *
  * Rule: if a claim is not in this file, it does not belong on the site.
  *
- * Everything below marked "verified" is documented in a public record — the IRS
+ * Everything below marked "verified" is documented in a public record, the IRS
  * Tax Exempt Organization Search or the California Secretary of State business
- * search — and can be checked by anyone, which is exactly the point.
+ * search, and can be checked by anyone, which is exactly the point.
  *
  * Empty arrays and null values render nothing. A section with nothing true to
  * say disappears rather than falling back to something invented.
@@ -19,43 +19,43 @@ export const ORG = {
   domain:    'innovateyouth.org',
   url:       'https://innovateyouth.org',
 
-  /** verified — CA Secretary of State, entity 6427957 */
+  /** verified, CA Secretary of State, entity 6427957 */
   incorporation: {
     state:            'California',
     entityNumber:     '6427957',
-    entityType:       'Nonprofit Corporation — CA — Public Benefit',
+    entityType:       'Nonprofit Corporation (CA), Public Benefit',
     initialFilingDate: '2024-10-17',
     status:           'Active',
     standings:        ['Secretary of State', 'Franchise Tax Board', 'Agent', 'VCFCF'],
     statementOfInfoDue: '2026-10-31',
   },
 
-  /** verified — IRS Tax Exempt Organization Search */
+  /** verified, IRS Tax Exempt Organization Search */
   taxStatus: {
     status: 'determined' as 'determined' | 'pending' | 'fiscally-sponsored' | 'none',
     ein: '33-1544346',
     determinationDate: '2024-10-20',
-    /** IRS deductibility code PC — public charity */
+    /** IRS deductibility code PC, public charity */
     deductibilityCode: 'PC',
     onPub78: true,
     fiscalSponsor: null as string | null,
   },
 
   /** Registered office of the corporation. This is the legal address of record,
-   *  not where programs are delivered — see `serviceArea`. */
+   *  not where programs are delivered, see `serviceArea`. */
   registeredAddress: {
     line1: '28 Geary Street, Suite 650',
     line2: 'San Francisco, CA 94108',
     country: 'United States',
   },
 
-  /** TODO — CONFIRM. The corporation is registered in San Francisco; the programs
+  /** TODO, CONFIRM. The corporation is registered in San Francisco; the programs
    *  described on this site are aimed at schools in the San Gabriel Valley. Grant
    *  applications ask for both, and they ask separately. Make sure this line
    *  matches what you put on an application. */
   serviceArea: 'San Gabriel Valley, California',
 
-  /** TODO — a monitored inbox. This address receives every form submission and
+  /** TODO, a monitored inbox. This address receives every form submission and
    *  appears on the governance page. Without it the contact route cannot deliver. */
   contactEmail: '',
 } as const;
@@ -65,18 +65,18 @@ export const PUBLIC_RECORDS = {
   irsSearchUrl:
     'https://apps.irs.gov/app/eos/detailsPage?ein=33-1544346&name=Young%20Innovators%20for%20Change&resultsPerPage=25&indexOfFirstRow=0&search=Advanced&dispatchMethod=searchAll',
   caBusinessSearchUrl: 'https://bizfileonline.sos.ca.gov/search/business',
-  /** verified — determination letter is published by the IRS at this filename */
+  /** verified, determination letter is published by the IRS at this filename */
   determinationLetterFile:
     'FinalLetter_33-1544346_YOUNGINNOVATORSFORCHANGE_10202024_00.pdf',
 };
 
 /** Claims about transparency and oversight. Each requires an artifact behind it. */
 export const TRANSPARENCY = {
-  /** verified — Form 990-N (e-Postcard) filed for tax period 2025 */
+  /** verified, Form 990-N (e-Postcard) filed for tax period 2025 */
   form990Filed: true,
   form990Form: '990-N (e-Postcard)' as string | null,
   form990LatestPeriod: '2025',
-  /** verified — gross receipts attestation on the 990-N */
+  /** verified, gross receipts attestation on the 990-N */
   grossReceiptsUnder: 50000,
 
   /** Not yet true. A 990-N filer is below the threshold that would normally
@@ -85,7 +85,7 @@ export const TRANSPARENCY = {
   annualReportUrl: null as string | null,
   candidProfileUrl: null as string | null,
 
-  /** TODO — California charities that solicit donations register separately with
+  /** TODO, California charities that solicit donations register separately with
    *  the Attorney General's Registry of Charities and Fundraisers and file annually.
    *  Confirm standing, then set this to true so it appears on /governance. */
   caRegistryConfirmed: false,
@@ -97,7 +97,7 @@ export const TRANSPARENCY = {
 export type Stat = { value: string; label: string; note?: string };
 
 /**
- * OUTCOME claims — students served, districts reached, measured change.
+ * OUTCOME claims, students served, districts reached, measured change.
  * Add an entry ONLY when you can produce the roster, the district agreement or
  * the dataset behind it. Intentionally empty: no cohort has run.
  */
@@ -127,7 +127,7 @@ export type Person = {
  * Leadership. Only people whose role is documented.
  *
  * Cindy Ha is listed as Principal Officer on the organization's Form 990-N and
- * as agent for service of process with the California Secretary of State — both
+ * as agent for service of process with the California Secretary of State, both
  * public records.
  *
  * TODO: add other officers and staff here as their roles are settled. Write the
@@ -145,16 +145,16 @@ export const LEADERSHIP: Person[] = [
 ];
 
 /**
- * FOUNDER — biography.
+ * FOUNDER, biography.
  *
  * PROVENANCE, and read this before editing: unlike everything above, none of
  * this is a public record. It is Cindy's own account of her life, and it is on
  * the site because she chose to put it there. That makes it a different kind of
- * claim from the EIN — not weaker, but checkable by a different method, which is
+ * claim from the EIN, not weaker, but checkable by a different method, which is
  * asking her.
  *
  * The rule that follows from that: every line here should be one she would say
- * out loud, unedited, to a programme officer sitting across a table. Nothing
+ * out loud, unedited, to a program officer sitting across a table. Nothing
  * here is rounded up. No institution is named that she did not attend, no title
  * is inflated, and no number appears that she did not give.
  */
@@ -169,7 +169,7 @@ export const FOUNDER = {
   studiedAbroad: 'Italy',
 
   /**
-   * TODO — she holds an MBA. Put the school here and the About page names it;
+   * TODO. She holds an MBA. Put the school here and the About page names it;
    * leave it empty and the page says "an MBA" and names nothing.
    *
    * Do not fill this in from memory or from an older draft of the site. A named
@@ -178,7 +178,7 @@ export const FOUNDER = {
    */
   mbaSchool: '',
 
-  /** founder-attested — the business she built and exited */
+  /** founder-attested, the business she built and exited */
   business: {
     startedFrom: '900-square-foot retail storefront',
     grewInto:    'retail, wholesale, import and e-commerce',
@@ -188,12 +188,12 @@ export const FOUNDER = {
   /**
    * Direct quotes. These are Cindy's words, lightly punctuated.
    *
-   * If she would not say a sentence in this shape, change the sentence — do not
+   * If she would not say a sentence in this shape, change the sentence, do not
    * keep it because it reads well.
    */
   quotes: {
     theBusiness:
-      'Looking back, those were the best moments — the ideas, and the sweat. '
+      'Looking back, those were the best moments: the ideas, and the sweat. '
       + 'It is the unknown. That combination.',
     theMBA:
       'If only I had known all of this at a much younger age.',
@@ -211,7 +211,7 @@ export const FOUNDER = {
 export const ADVISORS: Person[] = [];
 
 /**
- * Board of directors — distinct from advisors, and the thing grantmakers ask for
+ * Board of directors, distinct from advisors, and the thing grantmakers ask for
  * by name. California public benefit corporations must have a board, and most
  * foundations expect at least three unrelated members.
  *
@@ -272,7 +272,7 @@ export function trustBadges(): string[] {
   const out: string[] = [];
   if (ORG.taxStatus.status === 'determined') out.push('501(c)(3) Determined');
   if (ORG.taxStatus.onPub78) out.push('IRS Publication 78 Listed');
-  if (ORG.incorporation.status === 'Active') out.push('CA Nonprofit — Active, Good Standing');
+  if (ORG.incorporation.status === 'Active') out.push('CA Nonprofit, Active and in Good Standing');
   if (TRANSPARENCY.form990Filed) out.push(`Form ${TRANSPARENCY.form990Form} Filed`);
   if (TRANSPARENCY.caRegistryConfirmed) out.push('CA Registry of Charities');
   if (TRANSPARENCY.independentlyAudited) out.push('Independently Audited');
@@ -293,10 +293,10 @@ export function fmtDate(iso: string): string {
  * The full K–12 scope the organization is building, and the honest status of
  * every cell in it.
  *
- *   published — written in full, downloadable today
- *   designed  — syllabus and module structure complete, materials not yet written
- *   planned   — on the roadmap, not started
- *   n/a       — this strand does not run at this grade band
+ *   published, written in full, downloadable today
+ *   designed, syllabus and module structure complete, materials not yet written
+ *   planned, on the roadmap, not started
+ *   n/a. This strand does not run at this grade band
  *
  * The distinction matters more than it looks. A funder reading "Grades 1–12"
  * next to a single published year needs to see which is which, and a school
@@ -320,8 +320,8 @@ export const CURRICULUM: Strand[] = [
   {
     key: 'math', name: 'Mathematics', track: 'Academics',
     blurb: 'Reasoning-first mathematics that sits beside the state curriculum rather than '
-         + 'repeating it — discrete mathematics in the early grades, widening into proof, '
-         + 'modelling and applied problem solving.',
+         + 'repeating it. Discrete mathematics in the early grades, widening into proof, '
+         + 'modeling and applied problem solving.',
     bands: [
       { band: 'Grades 1–2',  status: 'published',
         note: 'Grade 2 complete: 36 weeks, standards-mapped, free. Grade 1 in development.' },
@@ -347,9 +347,9 @@ export const CURRICULUM: Strand[] = [
          + 'scenarios rather than textbooks.',
     bands: [
       { band: 'Grades 1–2',  status: 'n/a' },
-      { band: 'Grades 3–5',  status: 'designed', note: 'Founders Track — 8 weeks.' },
+      { band: 'Grades 3–5',  status: 'designed', note: 'Founders Track, 8 weeks.' },
       { band: 'Grades 6–8',  status: 'designed' },
-      { band: 'Grades 9–12', status: 'designed', note: 'Executives Track — 8 weeks.' },
+      { band: 'Grades 9–12', status: 'designed', note: 'Executives Track, 8 weeks.' },
     ],
   },
   {
@@ -365,7 +365,7 @@ export const CURRICULUM: Strand[] = [
   },
   {
     key: 'finance', name: 'Financial Literacy', track: 'Enterprise',
-    blurb: 'Budgeting, credit, compounding and unit economics — the money knowledge most '
+    blurb: 'Budgeting, credit, compounding and unit economics: the money knowledge most '
          + 'adults were never taught, at an age where it still changes decisions.',
     bands: [
       { band: 'Grades 1–2',  status: 'n/a' },
@@ -380,7 +380,7 @@ export const STATUS_LABEL: Record<Status, string> = {
   published: 'Published',
   designed:  'Designed',
   planned:   'Planned',
-  'n/a':     '—',
+  'n/a':     ', ',
 };
 
 export function countByStatus(s: Status): number {
@@ -388,4 +388,4 @@ export function countByStatus(s: Status): number {
 }
 
 /** Where a school can actually start today. */
-export const AVAILABLE_NOW = 'Grade 2 mathematics — Discrete Math Adventures, 36 weeks.';
+export const AVAILABLE_NOW = 'Discrete Math Adventures, a 36-week Grade 2 mathematics year.';

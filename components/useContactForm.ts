@@ -18,7 +18,7 @@ export function useContactForm<T extends Record<string, string>>(
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading]     = useState(false);
   const [error, setError]         = useState<string | null>(null);
-  /** honeypot — hidden from people, filled by bots */
+  /** honeypot, hidden from people, filled by bots */
   const [trap, setTrap]           = useState('');
 
   const handle = (

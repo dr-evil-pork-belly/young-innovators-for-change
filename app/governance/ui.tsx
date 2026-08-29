@@ -61,21 +61,21 @@ export default function GovernanceUi() {
             <FactRow label="EIN" value={ORG.taxStatus.ein}
               source="Verifiable in the IRS Tax Exempt Organization Search" />
             <FactRow label="Federal status"
-              value="501(c)(3) public charity — determination letter issued"
+              value="501(c)(3) public charity, determination letter issued"
               source={`Determined ${fmtDate(ORG.taxStatus.determinationDate)} · IRS deductibility code ${ORG.taxStatus.deductibilityCode}`} />
             <FactRow label="IRS Publication 78"
-              value={ORG.taxStatus.onPub78 ? 'Listed — contributions are deductible' : 'Not listed'} />
+              value={ORG.taxStatus.onPub78 ? 'Listed; contributions are deductible' : 'Not listed'} />
             <FactRow label="State of incorporation"
               value={`${inc.entityType}, ${inc.state}`}
               source={`Entity number ${inc.entityNumber} · first filed ${fmtDate(inc.initialFilingDate)}`} />
             <FactRow label="Entity status"
-              value={`${inc.status} — good standing`}
+              value={`${inc.status}, good standing`}
               source={`Good standing with: ${inc.standings.join(', ')}`} />
             <FactRow label="Most recent filing"
               value={`Form ${TRANSPARENCY.form990Form}, tax period ${TRANSPARENCY.form990LatestPeriod}`}
               source={`Gross receipts attested at or below $${TRANSPARENCY.grossReceiptsUnder.toLocaleString()}`} />
             <FactRow label="Next filing due"
-              value={`California Statement of Information — ${fmtDate(inc.statementOfInfoDue)}`} />
+              value={`California Statement of Information, due ${fmtDate(inc.statementOfInfoDue)}`} />
             <FactRow label="Registered office"
               value={<>{ORG.registeredAddress.line1}<br />{ORG.registeredAddress.line2}</>}
               source="Registered office of the corporation; programs are delivered in the service area below" />
@@ -95,7 +95,7 @@ export default function GovernanceUi() {
             </a>
           </div>
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '0.9rem', maxWidth: '62ch' }}>
-            The California search is by entity name or number — ours is {inc.entityNumber}.
+            The California search is by entity name or number. Ours is {inc.entityNumber}.
             We link the search rather than a session URL because those expire.
           </p>
         </FadeIn>
@@ -212,7 +212,7 @@ export default function GovernanceUi() {
                 <li>No independent audit. At our size the 990-N threshold does not trigger one,
                 and we will not imply otherwise.</li>
                 <li>No published annual report yet. The first one follows the first pilot.</li>
-                <li>No measured programme outcomes. No cohort has completed.</li>
+                <li>No measured program outcomes. No cohort has completed.</li>
                 {!TRANSPARENCY.caRegistryConfirmed && (
                   <li>California Registry of Charities standing is being confirmed and will be
                   posted here with the registration number.</li>

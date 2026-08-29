@@ -3,8 +3,8 @@
 /**
  * Shared tokens and primitives.
  *
- * Before this file, every page redeclared its own colour constants and its own
- * FadeIn. That is why the same eight colours appeared in eight places and why
+ * Before this file, every page redeclared its own color constants and its own
+ * FadeIn. That is why the same eight colors appeared in eight places and why
  * stale content could hide in plain sight. New pages import from here.
  */
 
@@ -62,7 +62,7 @@ export function FadeIn({ children, delay = 0, className = '', style, v = fadeUp 
 /**
  * Layout is done with inline styles rather than Tailwind utilities on purpose.
  * The global reset sets margin/padding on `*`, and for a long time it sat
- * outside any cascade layer — which silently killed every px-*, py-* and
+ * outside any cascade layer, which silently killed every px-*, py-* and
  * mx-auto on the site. That is fixed in globals.css now, but these components
  * should not depend on it.
  */
@@ -115,7 +115,7 @@ export function Card({ children, accent = ROYAL_L, pad = '1.5rem' }: {
   );
 }
 
-/** A labelled fact with its source. Used wherever a claim needs provenance. */
+/** A labeled fact with its source. Used wherever a claim needs provenance. */
 export function FactRow({ label, value, source }: {
   label: string; value: React.ReactNode; source?: string;
 }) {

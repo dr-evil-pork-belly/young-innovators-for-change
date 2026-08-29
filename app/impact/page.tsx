@@ -4,12 +4,12 @@ import Ui from './ui';
 export const metadata: Metadata = {
   title: 'Evidence & Accountability',
   description:
-    'What we have built, what it costs, how we intend to measure it, and what we will publish — including results that do not favour us.',
+    'What we have built, what it costs, how we intend to measure it, and what we will publish, including results that do not favor us.',
   alternates: { canonical: '/impact' },
   openGraph: {
     title: 'Evidence & Accountability',
     description:
-      'What we have built, what it costs, how we intend to measure it, and what we will publish — including results that do not favour us.',
+      'What we have built, what it costs, how we intend to measure it, and what we will publish, including results that do not favor us.',
     url: '/impact',
   },
 };

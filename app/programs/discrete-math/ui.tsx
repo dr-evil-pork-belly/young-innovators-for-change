@@ -24,7 +24,7 @@ const MUTED   = '#94A3B8';
 const WHITE   = '#F8FAFC';
 const GOLD    = '#C9A84C';
 
-// Pip sub-brand accents — the three map colors from Week 17.
+// Pip sub-brand accents, the three map colors from Week 17.
 const CONNECT = '#2D5BE3';
 const CONNECT_L = '#7CA6F5';
 const SPARK   = '#FF7A3D';
@@ -85,7 +85,7 @@ const STRANDS = [
     icon:   Sigma,
     title:  'Counting Carefully',
     accent: GROW_L,
-    desc:   'Counting every case without missing one or repeating one. Handshakes, combinations, choice trees, tilings, and lattice paths — organized listing as a discipline.',
+    desc:   'Counting every case without missing one or repeating one. Handshakes, combinations, choice trees, tilings, and lattice paths, organized listing as a discipline.',
     skills: ['Systematic enumeration', 'The double-counting correction', 'Arrays as a picture of a count', 'Pascal’s triangle, built by hand'],
   },
   {
@@ -93,7 +93,7 @@ const STRANDS = [
     icon:   Map,
     title:  'Maps & Colors',
     accent: CONNECT_L,
-    desc:   'Graph coloring, and the moment a child proves that fewer colors is not merely hard but impossible. Ends with the Four Color Theorem — by name.',
+    desc:   'Graph coloring, and the moment a child proves that fewer colors is not merely hard but impossible. Ends with the Four Color Theorem, by name.',
     skills: ['Coloring with a shared-border constraint', 'Finding the structure that forces a third color', 'Reading a graph as dots and edges', 'Building a bar graph from graph data'],
   },
   {
@@ -110,7 +110,7 @@ const STRANDS = [
     title:  'Algorithms & Codes',
     accent: GROW_L,
     desc:   'Instructions precise enough for a machine: robot programs, loops as repeated addition, greedy change-making, clock arithmetic, and ciphers.',
-    skills: ['Writing and shortening a program', 'Loops as repeated addition', 'A greedy rule — and where it fails', 'Shift ciphers and binary decoding'],
+    skills: ['Writing and shortening a program', 'Loops as repeated addition', 'A greedy rule, and where it fails', 'Shift ciphers and binary decoding'],
   },
 ];
 
@@ -118,7 +118,7 @@ const STRANDS = [
 const WEEK_SHAPE = [
   { n: '01', label: 'In class this week', accent: CONNECT_L, text: 'A line naming the standard the class is already working on, so the sheet reinforces Tuesday’s lesson.' },
   { n: '02', label: 'Number Warm-Up',     accent: SPARK_L,   text: 'Two minutes of ordinary grade-level fluency. The page starts on familiar ground.' },
-  { n: '03', label: 'The Adventure',      accent: CONNECT_L, text: 'The main activity, with every map, grid, and diagram printed on the page — nothing to prepare.' },
+  { n: '03', label: 'The Adventure',      accent: CONNECT_L, text: 'The main activity, with every map, grid, and diagram printed on the page, nothing to prepare.' },
   { n: '04', label: 'Talk About It',      accent: GROW_L,    text: 'One question answered out loud. Most weeks have short answers and long reasons.' },
   { n: '05', label: '★ Challenge Zone',   accent: SPARK_L,   text: 'Genuinely harder, and not expected of everyone. Where the student who finishes in eight minutes goes.' },
 ];
@@ -150,7 +150,7 @@ const STANDARDS = [
 const FAQS = [
   {
     q: 'Does this replace the math curriculum?',
-    a: 'No. It sits beside it. The year is sequenced against a typical California Grade 2 pacing guide so that each week’s puzzle lands near the standard the class is already teaching — money week on coin counting, time week on clock arithmetic, the array weeks at the end where multiplication begins.',
+    a: 'No. It sits beside it. The year is sequenced against a typical California Grade 2 pacing guide so that each week’s puzzle lands near the standard the class is already teaching, money week on coin counting, time week on clock arithmetic, the array weeks at the end where multiplication begins.',
   },
   {
     q: 'How much does a teacher have to prepare?',
@@ -158,11 +158,11 @@ const FAQS = [
   },
   {
     q: 'Will it print on a classroom copier?',
-    a: 'Yes. The whole book is proofed in grayscale. Structure lives in the linework and color is accent only — nothing stops working when the copier strips it.',
+    a: 'Yes. The whole book is proofed in grayscale. Structure lives in the linework and color is accent only, nothing stops working when the copier strips it.',
   },
   {
     q: 'Is discrete math too hard for second graders?',
-    a: 'It needs almost no computational fluency, which is exactly why it works as enrichment — a student still shaky on regrouping can reason beautifully about a map coloring. What it does demand is explanation, and that is the point.',
+    a: 'It needs almost no computational fluency, which is exactly why it works as enrichment, a student still shaky on regrouping can reason beautifully about a map coloring. What it does demand is explanation, and that is the point.',
   },
   {
     q: 'Can it go home as homework?',
@@ -237,7 +237,7 @@ export default function DiscreteMathPage() {
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(145deg, #060C10 0%, #0F172A 55%, #0A1428 100%)' }} />
           <div style={{ position: 'absolute', top: '8%', right: '-6%', width: '55%', height: '70%', background: 'radial-gradient(ellipse, rgba(45,91,227,0.13) 0%, transparent 65%)' }} />
           <div style={{ position: 'absolute', bottom: '4%', left: '-5%', width: '42%', height: '52%', background: 'radial-gradient(ellipse, rgba(255,122,61,0.07) 0%, transparent 65%)' }} />
-          {/* Graph-paper grid — the subject, as texture */}
+          {/* Graph-paper grid, the subject, as texture */}
           <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(45,91,227,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(45,91,227,0.035) 1px, transparent 1px)', backgroundSize: '56px 56px' }} />
         </div>
 
@@ -279,7 +279,7 @@ export default function DiscreteMathPage() {
                   </motion.h1>
 
                   <motion.p variants={fadeUp} style={{ fontSize: '1rem', lineHeight: 1.75, color: MUTED, maxWidth: '52ch', marginBottom: '2.25rem' }}>
-                    A full year of maps, robots, secret codes and bridges — for seven-year-olds.
+                    A full year of maps, robots, secret codes and bridges, for seven-year-olds.
                     Discrete mathematics needs almost no computational fluency, which is exactly
                     why it works as enrichment. A student still shaky on regrouping can reason
                     beautifully about a map coloring, and be asked to prove it.
@@ -310,7 +310,7 @@ export default function DiscreteMathPage() {
                       Meet Pip
                     </p>
                     <p style={{ textAlign: 'center', fontSize: '0.75rem', color: MUTED, lineHeight: 1.6, marginTop: '0.4rem' }}>
-                      One dot, five lines. Pip is a graph — the exact object the students
+                      One dot, five lines. Pip is a graph: the exact object the students
                       spend the year proving things about.
                     </p>
                   </div>
@@ -352,7 +352,7 @@ export default function DiscreteMathPage() {
               Discrete mathematics asks how things connect, how many arrangements exist,
               and whether something is possible at all. Because it leans on reasoning
               rather than computation, it reaches students that arithmetic practice
-              leaves behind — and it stretches the ones who finish early.
+              leaves behind, and it stretches the ones who finish early.
             </p>
           </FadeIn>
 
@@ -360,7 +360,7 @@ export default function DiscreteMathPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {[
                 { icon: Lightbulb, accent: CONNECT_L, title: 'It gives them proof',
-                  text: 'Three weeks of the year end in something being impossible — two colors cannot work, five dots cannot each have three lines, the bridge walk cannot be done. Explaining why is a kind of thinking the regular curriculum rarely asks for at this age.' },
+                  text: 'Three weeks of the year end in something being impossible: two colors cannot work, five dots cannot each have three lines, the bridge walk cannot be done. Explaining why is a kind of thinking the regular curriculum rarely asks for at this age.' },
                 { icon: Shapes, accent: GROW_L, title: 'It feeds the pacing guide',
                   text: 'Loops are repeated addition. Grids are arrays. Binary is place value. Weeks 32 through 35 are 2.OA.4 and 2.G.2 in disguise, and some students arrive at arrays through the loop who never got there through the array.' },
                 { icon: Sparkles, accent: SPARK_L, title: 'It needs almost nothing',
@@ -471,7 +471,7 @@ export default function DiscreteMathPage() {
               <div style={{ flex: '1 1 260px' }}>
                 <h3 style={{ fontFamily: DISPLAY, fontSize: '1.3rem', letterSpacing: '0.04em', color: WHITE, marginBottom: '0.5rem' }}>CALIFORNIA STANDARDS TOUCHED</h3>
                 <p style={{ fontSize: '0.78rem', lineHeight: 1.7, color: MUTED }}>
-                  This is enrichment — it reinforces and extends these standards rather than
+                  This is enrichment: it reinforces and extends these standards rather than
                   delivering them. No standard here is taught to mastery by this program alone.
                 </p>
               </div>
@@ -502,7 +502,7 @@ export default function DiscreteMathPage() {
                   { icon: FileText, accent: CONNECT_L, title: 'Student workbook', sub: '77 printable pages',
                     text: 'Cover, how-to, a year-at-a-glance spread, 36 two-page assignments, and a certificate. Proofed in grayscale.' },
                   { icon: School, accent: GROW_L, title: 'Teacher guide', sub: 'every week, every answer',
-                    text: 'Answer keys for the activity, the practice set, and the Challenge Zone — plus a running note and the standards tie for all 36 weeks.' },
+                    text: 'Answer keys for the activity, the practice set, and the Challenge Zone, plus a running note and the standards tie for all 36 weeks.' },
                   { icon: Sparkles, accent: SPARK_L, title: 'Classroom kit', sub: 'crayons, counters, number cards',
                     text: 'The only physical materials the year asks for. Most classrooms already have them.' },
                 ].map(m => {
@@ -573,8 +573,7 @@ export default function DiscreteMathPage() {
               </h2>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '48ch', marginBottom: '2rem' }}>
                 We are placing <em>Discrete Math Adventures</em> in Grade 2 classrooms across
-                the San Gabriel Valley. A pilot is one teacher, one class, one school year —
-                materials and support provided. Tell us about your school and we will send the
+                the San Gabriel Valley. A pilot is one teacher, one class, one school year, materials and support provided. Tell us about your school and we will send the
                 adoption packet.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>

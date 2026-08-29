@@ -29,7 +29,7 @@ const SOURCES = [
     cite: 'Hamkins, 2013',
     title: 'Math for seven-year-olds',
     where: 'Second-grade classroom account',
-    says: 'Vertex colouring, chromatic numbers, Eulerian paths and the Seven Bridges of '
+    says: 'Vertex coloring, chromatic numbers, Eulerian paths and the Seven Bridges of '
         + 'Königsberg taught to seven- and eight-year-olds, who went on to build their own '
         + 'challenge graphs. Almost exactly the content of Weeks 17, 18, 26 and 27.',
     strength: 'Existence proof',
@@ -38,10 +38,10 @@ const SOURCES = [
     cite: 'Blanco & García-Moya, 2021',
     title: 'Graph theory for primary school students with high skills in mathematics',
     where: 'Mathematics 9(13), 1567',
-    says: 'Map colouring, the four-colour theorem, Eulerian paths, the handshake problem and '
+    says: 'Map coloring, the four-color theorem, Eulerian paths, the handshake problem and '
         + 'vertex degree with primary students aged 6–11. Reports increased motivation and the '
         + 'emergence of real problem-solving strategies.',
-    strength: 'Small study — seven gifted students',
+    strength: 'Small study, seven gifted students',
   },
   {
     cite: 'Ferrarello, Gionfriddo, Grasso & Mammana, 2022',
@@ -49,7 +49,7 @@ const SOURCES = [
     where: 'ZDM – Mathematics Education 54, 847–864',
     says: 'A careful study within the Teaching for Robust Understanding framework showing '
         + 'students can model real situations as graphs and reason about constrained arrangements.',
-    strength: 'Strong method — but eighth grade',
+    strength: 'Strong method, but eighth grade',
   },
 ];
 
@@ -65,7 +65,7 @@ const DISCONFIRM = [
 const MEASURES = [
   { c: 'Mathematical disposition', i: 'Established elementary attitude scale, administered orally', t: 'Pre and post' },
   { c: 'Reasoning and justification', i: 'Task-based interview on two unfamiliar problems, scored by rubric', t: 'Pre and post' },
-  { c: 'Grade-level achievement', i: 'The district’s existing benchmark — no additional testing', t: 'District schedule' },
+  { c: 'Grade-level achievement', i: 'The district’s existing benchmark, no additional testing', t: 'District schedule' },
   { c: 'Participation breadth', i: 'Teacher log: which students volunteer explanations, by week', t: 'Continuous' },
   { c: 'Feasibility', i: 'Weeks completed, minutes spent, teacher exit interview', t: 'Continuous, then post' },
 ];
@@ -85,7 +85,7 @@ export default function ImpactUi() {
               were wrong.
             </p>
             <p style={{ margin: 0 }}>
-              When there are outcomes, they will appear here — favourable or not.
+              When there are outcomes, they will appear here, favorable or not.
             </p>
           </>
         }
@@ -135,7 +135,7 @@ export default function ImpactUi() {
           <Eyebrow color={GOLD}>The research base</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">WHAT THE LITERATURE<br />DOES AND DOES NOT SUPPORT.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
-            Four sources carry most of the argument. Each is summarised with its actual weight,
+            Four sources carry most of the argument. Each is summarized with its actual weight,
             including where a study is too small or at the wrong grade to prove what we would like
             it to prove.
           </p>
@@ -172,8 +172,8 @@ export default function ImpactUi() {
                   There is no efficacy trial at this grade level.
                 </p>
                 <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: MUTED, maxWidth: '70ch' }}>
-                  We could locate no randomised or quasi-experimental study of a discrete
-                  mathematics enrichment programme in the early elementary grades with measured
+                  We could locate no randomized or quasi-experimental study of a discrete
+                  mathematics enrichment program in the early elementary grades with measured
                   outcomes. Anyone who tells you the evidence base here is strong is overstating
                   it. That gap is the reason the study below exists.
                 </p>
@@ -200,7 +200,7 @@ export default function ImpactUi() {
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
             A matched-classroom quasi-experiment across four to eight Grade 2 classrooms, run over
             a single school year, with classrooms rather than students as the unit of assignment.
-            A randomised design is not realistic at this scale and we will report it as what it is.
+            A randomized design is not realistic at this scale and we will report it as what it is.
           </p>
         </FadeIn>
 
@@ -215,7 +215,7 @@ export default function ImpactUi() {
         <FadeIn delay={0.2}>
           <p style={{ fontSize: '0.88rem', lineHeight: 1.8, color: MUTED, maxWidth: '66ch', marginTop: '1.75rem' }}>
             The participation-breadth measure is the one we care about most, because it
-            operationalises the actual hypothesis: that a different kind of content changes{' '}
+            operationalizes the actual hypothesis: that a different kind of content changes{' '}
             <em style={{ color: WHITE }}>who</em> gets to be the child explaining something to the
             class.
           </p>
@@ -228,7 +228,7 @@ export default function ImpactUi() {
           <Eyebrow color="#FDA29B">Pre-committed</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">WHAT WOULD SHOW<br />WE ARE WRONG.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '62ch', marginTop: '1rem' }}>
-            Published before data collection, so it cannot be moved afterwards.
+            Published before data collection, so it cannot be moved afterward.
           </p>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
@@ -260,8 +260,8 @@ export default function ImpactUi() {
             <div style={{ background: 'rgba(15,23,42,0.7)', border: '1px solid rgba(201,168,76,0.16)',
               borderRadius: '4px', padding: '1.6rem 1.8rem' }}>
               {[
-                ['Student workbooks — 77 pages, B&W, bound', '$96', '24 copies at $4.00'],
-                ['Teacher guide — printed and bound', '$9', 'One copy; also free online'],
+                ['Student workbooks, 77 pages, B&W, bound', '$96', '24 copies at $4.00'],
+                ['Teacher guide, printed and bound', '$9', 'One copy; also free online'],
                 ['Classroom kit', '$0', 'Already in the room'],
                 ['Orientation and year-long support', '$0', 'Volunteer-delivered'],
               ].map(([a, b, c]) => (
@@ -284,8 +284,7 @@ export default function ImpactUi() {
               </div>
             </div>
             <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '1rem' }}>
-              A school with its own reprographics can run the programme for the cost of paper —
-              every file is free to download.
+              A school with its own reprographics can run the program for the cost of paper, since every file is free to download.
             </p>
           </FadeIn>
         </div>
@@ -300,8 +299,8 @@ export default function ImpactUi() {
               <Eyebrow>Voices from the field</Eyebrow>
               <Title size="clamp(1.7rem, 3.4vw, 2.8rem)">THIS SPACE IS FOR<br />OUR FIRST COHORT.</Title>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '58ch', marginTop: '1rem' }}>
-                When students, teachers and families have something to say about the programmes,
-                their words will appear here with their permission and their real names — and not
+                When students, teachers and families have something to say about the programs,
+                their words will appear here with their permission and their real names, and not
                 before.
               </p>
             </div>
@@ -334,7 +333,7 @@ export default function ImpactUi() {
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '0.02em',
                 color: WHITE, marginBottom: '0.4rem' }}>CHECK US BEFORE YOU FUND US.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '56ch' }}>
-                Our registration, filings and open gaps are published in full — including a board
+                Our registration, filings and open gaps are published in full, including a board
                 seat we have not filled. {ORG.legalName} · EIN {ORG.taxStatus.ein}.
               </p>
             </div>

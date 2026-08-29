@@ -74,7 +74,7 @@ const PILLARS = [
     accentBg: 'rgba(59,130,246,0.08)',
     accentBorder: 'rgba(59,130,246,0.22)',
     tagline: 'Know yourself before you lead anyone else.',
-    desc:   'Students develop self-awareness, empathy, emotional regulation, and social fluency — the four pillars of executive EQ that distinguish good managers from great leaders.',
+    desc:   'Students develop self-awareness, empathy, emotional regulation, and social fluency: the four pillars of executive EQ that distinguish good managers from great leaders.',
     modules: [
       'Self-awareness mapping & personal SWOT',
       'Reading the room: social and emotional cues',
@@ -91,7 +91,7 @@ const PILLARS = [
     accentBg: 'rgba(201,168,76,0.08)',
     accentBorder: 'rgba(201,168,76,0.28)',
     tagline: 'Your idea is only as powerful as your ability to communicate it.',
-    desc:   'From classroom participation to the main stage — students master vocal presence, body language, structured argumentation, and the ability to hold a room through a 5-minute investor pitch.',
+    desc:   'From classroom participation to the main stage, students master vocal presence, body language, structured argumentation, and the ability to hold a room through a 5-minute investor pitch.',
     modules: [
       'Vocal projection, pace, and deliberate silence',
       'Body language and non-verbal dominance',
@@ -112,7 +112,7 @@ const PILLARS = [
     modules: [
       'The authority stance: posture, space, and stillness',
       'Decision-making language: "I will" vs "I think maybe"',
-      'First-impression engineering — 7 seconds and beyond',
+      'First-impression engineering, 7 seconds and beyond',
       'Leading up: speaking to adults as an equal',
     ],
     stat: { val: '4.8/5', lbl: 'instructor-rated presence growth' },
@@ -126,7 +126,7 @@ const CEO_TRAITS = [
   { icon: Shield,       label: 'Composure Under Fire',    desc: 'Responding to hard questions, unexpected setbacks, and hostile audiences without visible anxiety.' },
   { icon: MessageSquare,label: 'Precision Language',      desc: 'Eliminating filler words. Saying exactly what is meant. Never using vagueness as a shield.' },
   { icon: Heart,        label: 'Genuine Conviction',      desc: 'The audience can feel when you believe in what you are saying. We help students find and project that belief.' },
-  { icon: Lightbulb,    label: 'Adaptive Intelligence',   desc: 'Pivoting a pitch, adjusting a message, and reading when the plan needs to change — in real time.' },
+  { icon: Lightbulb,    label: 'Adaptive Intelligence',   desc: 'Pivoting a pitch, adjusting a message, and reading when the plan needs to change, in real time.' },
 ];
 
 // ── Student Growth Timeline ───────────────────────────────────────────────────
@@ -137,7 +137,7 @@ const TIMELINE = [
     icon:   BookOpen,
     accent: SLATE_3,
     title:  'Where You Start',
-    desc:   'Every student completes a 10-minute video self-assessment. Most speak quietly, avoid eye contact, and use filler words an average of 22 times per minute. This is the baseline — and it is completely normal.',
+    desc:   'Every student completes a 10-minute video self-assessment. Most speak quietly, avoid eye contact, and use filler words an average of 22 times per minute. This is the baseline, and it is completely normal.',
     milestone: 'Baseline EQ score established. Video recorded for Week 8 comparison.',
     student: '"I had never heard my own voice on camera before. I was embarrassed."',
   },
@@ -167,7 +167,7 @@ const TIMELINE = [
     icon:   Crown,
     accent: EMBER,
     title:  'Building the CEO Persona',
-    desc:   'The full CEO Persona framework is introduced. Students work with mirrors, video playback, and peer feedback to engineer their executive presence — posture, eye contact patterns, authority language, and controlled movement.',
+    desc:   'The full CEO Persona framework is introduced. Students work with mirrors, video playback, and peer feedback to engineer their executive presence: posture, eye contact patterns, authority language, and controlled movement.',
     milestone: 'CEO Persona blueprint finalized. Mid-program confidence assessment shows avg. 2.1x improvement.',
     student: '"I stood differently. I walked differently. I did not even notice until my mom pointed it out."',
   },
@@ -177,7 +177,7 @@ const TIMELINE = [
     icon:   Flame,
     accent: EMBER,
     title:  'Controlled Pressure',
-    desc:   'Mock boardroom scenarios: hostile investor Q&A, unexpected topic changes, technical failures mid-pitch. Students learn that composure is a skill, not a personality trait — and it is trained, not inherited.',
+    desc:   'Mock boardroom scenarios: hostile investor Q&A, unexpected topic changes, technical failures mid-pitch. Students learn that composure is a skill, not a personality trait, and it is trained, not inherited.',
     milestone: 'Mock pitch to external evaluator completed. Written feedback received and actioned.',
     student: '"The investor asked a question I had no answer for. I used the pause. It worked."',
   },
@@ -296,7 +296,7 @@ function TimelineNode({ item, index, isLast }: {
                 <div style={{ display: 'flex', gap: '0.625rem', paddingLeft: '0.75rem', borderLeft: `2px solid ${item.accent}40` }}>
                   <p style={{ fontSize: '0.78rem', fontStyle: 'italic', color: MUTED, lineHeight: 1.6 }}>
                     {item.student}
-                    <span style={{ display: 'block', fontSize: '0.65rem', fontStyle: 'normal', fontWeight: 600, color: SLATE_3, marginTop: '4px', letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>— Student Voice</span>
+                    <span style={{ display: 'block', fontSize: '0.65rem', fontStyle: 'normal', fontWeight: 600, color: SLATE_3, marginTop: '4px', letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>Student Voice</span>
                   </p>
                 </div>
               </div>
@@ -381,7 +381,7 @@ export default function LeadershipAcademyPage() {
 
               <motion.p variants={fadeUp} style={{ fontFamily: SANS, fontSize: '1.1rem', lineHeight: 1.8, color: MUTED, maxWidth: '580px', marginBottom: '2.5rem' }}>
                 EQ. Public speaking. Executive presence. The three skills that separate
-                the people who lead from everyone else — taught to K-12 students who
+                the people who lead from everyone else, taught to K-12 students who
                 have never been told they are allowed to lead.
               </motion.p>
 
@@ -522,7 +522,7 @@ export default function LeadershipAcademyPage() {
               <p style={{ fontSize: '0.95rem', lineHeight: 1.8, color: MUTED }}>
                 Executive presence is not a personality type. It is not something
                 you are born with. It is a set of six learnable behaviors that we
-                systematically teach — and it transforms how every person in a room
+                systematically teach, and it transforms how every person in a room
                 responds to a student before they speak a single word.
               </p>
             </div>
@@ -558,12 +558,10 @@ export default function LeadershipAcademyPage() {
               <div style={{ position: 'absolute', inset: '0 0 0 0', borderLeft: '3px solid rgba(249,115,22,0.6)', borderRadius: '4px 0 0 4px', pointerEvents: 'none' }} />
               <div className="absolute inset-x-0 top-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(249,115,22,0.4), transparent)' }} />
               <p style={{ fontFamily: SERIF, fontSize: 'clamp(1.1rem, 2.5vw, 1.7rem)', fontStyle: 'italic', color: WHITE, lineHeight: 1.4, marginBottom: '1rem' }}>
-                "We use video playback from Day 1 versus Week 8. No rubric, no grade —
-                just the student watching themselves transform. That moment of recognition
+                "We use video playback from Day 1 versus Week 8. No rubric, no grade, just the student watching themselves transform. That moment of recognition
                 is more powerful than any certificate we could give."
               </p>
-              <cite style={{ fontSize: '0.72rem', fontStyle: 'normal', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: EMBER }}>
-                — YIC Lead Instructor, Leadership Academy
+              <cite style={{ fontSize: '0.72rem', fontStyle: 'normal', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: EMBER }}>, YIC Lead Instructor, Leadership Academy
               </cite>
             </div>
           </FadeIn>
@@ -613,7 +611,7 @@ export default function LeadershipAcademyPage() {
               </h2>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.8, color: MUTED, marginBottom: '1.75rem', maxWidth: '480px' }}>
                 Whether you are a principal, a district administrator, or a
-                corporate sponsor — the Leadership Academy can be in your school
+                corporate sponsor, the Leadership Academy can be in your school
                 within 30 days of a signed agreement. No upfront cost to students.
                 Full support from our instructor team.
               </p>

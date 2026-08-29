@@ -18,7 +18,7 @@ const CHAIN = [
   {
     stage: 'Activities',
     accent: ROYAL_L,
-    items: ['Weekly maths and science enrichment, Grades 1–12', 'Eight-week enterprise intensives, Grades 3–12',
+    items: ['Weekly math and science enrichment, Grades 1–12', 'Eight-week enterprise intensives, Grades 3–12',
             'Teacher orientation and support', 'Everything published free'],
   },
   {
@@ -62,10 +62,10 @@ export default function MissionUi() {
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              We build rigorous curriculum &mdash; mathematics and science across Grades
-              1&ndash;12, and leadership, entrepreneurship and financial literacy from Grade 3
-              up &mdash; and we give it away. The barrier for most children was never
-              capability. It was whether anyone handed them the material.
+              We build rigorous curriculum and give it away: mathematics and science across
+              Grades 1&ndash;12, and leadership, entrepreneurship and financial literacy from
+              Grade 3 up. The barrier for most children was never capability. It was whether
+              anyone handed them the material.
             </p>
             <p style={{ margin: 0 }}>
               This page sets out what we think the problem is, exactly what we do about it, what
@@ -87,7 +87,7 @@ export default function MissionUi() {
           <FadeIn delay={0.1}>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
               By the end of second grade a child is expected to add and subtract fluently within
-              twenty. The standards also ask for argument, structure and perseverance — but in
+              twenty. The standards also ask for argument, structure and perseverance, but in
               most classrooms those are carried on the back of computational work.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
@@ -115,7 +115,7 @@ export default function MissionUi() {
           {[
             { t: 'Write the curriculum ourselves', a: ROYAL_L,
               d: 'Not a workshop series or a licensed kit. Full years of material, week by week, '
-               + 'mapped to the standards a class is already teaching that month — with an honest '
+               + 'mapped to the standards a class is already teaching that month, with an honest '
                + 'status published on every grade band we have not reached yet.' },
             { t: 'Publish all of it, free', a: GOLD,
               d: 'Workbook, answer key, research paper, adoption packet. No email wall. A school '

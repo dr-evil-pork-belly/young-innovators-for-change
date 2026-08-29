@@ -20,7 +20,7 @@ type Resource = {
 const RESOURCES: Resource[] = [
   {
     file: '/downloads/discrete-math-adventures-workbook.pdf',
-    label: 'Discrete Math Adventures — Student Workbook',
+    label: 'Discrete Math Adventures: Student Workbook',
     kind: 'Curriculum', meta: 'PDF · 77 pages · Grade 2', accent: ROYAL_L, icon: BookOpen,
     desc: '36 weekly assignments, two pages each, plus a contents spread and a certificate. '
         + 'Sequenced against a typical California Grade 2 pacing guide and proofed in grayscale '
@@ -28,7 +28,7 @@ const RESOURCES: Resource[] = [
   },
   {
     file: '/downloads/discrete-math-teacher-guide.html',
-    label: 'Discrete Math Adventures — Teacher Guide',
+    label: 'Discrete Math Adventures: Teacher Guide',
     kind: 'Curriculum', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
     desc: 'Answer keys for the main activity, the practice set and the Challenge Zone, plus a '
         + 'running note and the standards tie for every week. Written so a teacher needs no '
@@ -39,7 +39,7 @@ const RESOURCES: Resource[] = [
     label: 'Structure Before Fluency',
     kind: 'Research', meta: 'PDF · working paper · 10 pages', accent: GOLD, icon: FlaskConical,
     desc: 'The case for discrete mathematics as early-elementary enrichment: the literature, the '
-        + 'standards argument, the equity case — and an explicit account of what the evidence '
+        + 'standards argument, the equity case, plus an explicit account of what the evidence '
         + 'does not support, including the absence of any efficacy trial at this grade.',
   },
   {
@@ -62,9 +62,9 @@ export default function ResourcesUi() {
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              Everything we build is published in full — the student workbook, the complete answer
+              Everything we build is published in full, the student workbook, the complete answer
               key, the research behind it, and the packet we hand to principals. No email wall, no
-              licence, no partial preview.
+              license, no partial preview.
             </p>
             <p style={{ margin: 0 }}>
               Use it in your classroom, adapt it for your district, or read it to decide whether we
@@ -117,11 +117,11 @@ export default function ResourcesUi() {
             <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">THE MATERIALS ARE<br />THE ARGUMENT.</Title>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '54ch', marginTop: '1rem' }}>
               A curriculum you cannot read is a claim you have to take on trust. Publishing the
-              whole thing — including the answer key and the research caveats — is the fastest way
+              whole thing, including the answer key and the research caveats, is the fastest way
               to show a teacher, a principal or a funder exactly what they would be getting.
             </p>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '54ch' }}>
-              It also means a school that never talks to us can still run the programme. That is a
+              It also means a school that never talks to us can still run the program. That is a
               feature, not a leak.
             </p>
           </FadeIn>
@@ -134,11 +134,11 @@ export default function ResourcesUi() {
               </p>
               <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: MUTED, marginBottom: '0.75rem' }}>
                 Teachers and schools may print, copy and use everything here at no cost. Attribution
-                is appreciated but not required — we would rather it get used.
+                is appreciated but not required. We would rather it get used.
               </p>
               <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: MUTED, marginBottom: '1.25rem' }}>
                 If you adapt it for another grade or another district, we would genuinely like to
-                hear how it went — including if it did not work.
+                hear how it went, including if it did not work.
               </p>
               <Link href="/partner" className="btn-ghost">Tell us how it went <ArrowUpRight size={13} /></Link>
             </div>
@@ -154,7 +154,7 @@ export default function ResourcesUi() {
               <p style={{ fontFamily: DISPLAY, fontSize: '1.9rem', letterSpacing: '0.02em',
                 color: WHITE, marginBottom: '0.4rem' }}>MORE IS COMING.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '54ch' }}>
-                Assessment instruments, a teacher training deck, then Grade 3 and Grade 1 — after
+                Assessment instruments, a teacher training deck, then Grade 3 and Grade 1, after
                 the first pilot, so they are shaped by a real classroom rather than a guess about
                 one. Science and the Grades 3–12 enterprise materials follow. The full map, with
                 an honest status on every grade band, is on the curriculum page.

@@ -234,14 +234,14 @@ export default function HomePage() {
           {/* Deep navy base */}
           <div className="absolute inset-0" style={{ background: SLATE }} />
 
-          {/* Royal blue radial glow — top left */}
+          {/* Royal blue radial glow, top left */}
           <div className="absolute" style={{
             top: '-10%', left: '-5%',
             width: '60%', height: '70%',
             background: `radial-gradient(ellipse, rgba(37,99,235,0.18) 0%, transparent 70%)`,
           }} />
 
-          {/* Slate glow — bottom right */}
+          {/* Slate glow, bottom right */}
           <div className="absolute" style={{
             bottom: '-10%', right: '-5%',
             width: '50%', height: '60%',
@@ -329,8 +329,8 @@ export default function HomePage() {
               style={{ fontSize: '1.05rem', lineHeight: 1.7, color: MUTED }}
             >
               Mathematics and science for Grades 1&ndash;12. Leadership, entrepreneurship
-              and financial literacy from Grade 3 up. We are early &mdash; one full year
-              is written and free to download today &mdash; but everything we build gets
+              and financial literacy from Grade 3 up. We are early. One full year
+              is written and free to download today, and everything we build gets
               published the same way: in full, to anyone, at no cost.
             </motion.p>
 
@@ -388,10 +388,10 @@ export default function HomePage() {
                   color:         GOLD,
                   lineHeight:    1,
                 }}>
-                  100%
+                  $0
                 </span>
                 <span style={{ fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: MUTED, marginTop: '0.25rem' }}>
-                  Engagement
+                  Cost to schools
                 </span>
               </div>
             </motion.div>
@@ -437,7 +437,7 @@ export default function HomePage() {
             <div className="max-w-sm">
               <p style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED }}>
                 Top business schools charge $200K for an MBA. We deliver the same
-                frameworks — venture building, financial literacy, leadership — to
+                frameworks (venture building, financial literacy, leadership) to
                 kids in underserved districts. For free. Because access shouldn't
                 be a privilege.
               </p>
@@ -445,13 +445,13 @@ export default function HomePage() {
           </div>
         </RevealSection>
 
-        {/* Four strands — two tracks */}
+        {/* Four strands, two tracks */}
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
           {[
             { num: '01', title: 'Mathematics', body: 'Reasoning-first weekly enrichment beside the state curriculum, Grades 1–12. The Grade 2 year is written, standards-mapped and free to download today.' },
             { num: '02', title: 'Science', body: 'Investigation-led, low materials cost, printable in black and white. Grades 1–12, and the largest part of the roadmap still to write.' },
             { num: '03', title: 'Leadership & Venture', body: 'Executive presence, decision-making, and building a real micro-business over eight weeks. Grades 3–12, designed and being written.' },
-            { num: '04', title: 'Financial Literacy', body: 'Budgeting, credit, compounding and unit economics — the money knowledge that usually arrives through a family rather than a school.' },
+            { num: '04', title: 'Financial Literacy', body: 'Budgeting, credit, compounding and unit economics: the money knowledge that usually arrives through a family rather than a school.' },
           ].map((pillar, i) => (
             <RevealSection key={pillar.num} delay={i * 0.1}>
               <div
@@ -506,7 +506,7 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          FOUNDER SPOTLIGHT — CINDY HA
+          FOUNDER SPOTLIGHT, CINDY HA
       ══════════════════════════════════════════════════════ */}
       <section style={{ background: 'rgba(15,23,42,0.6)', borderTop: '1px solid rgba(37,99,235,0.1)', borderBottom: '1px solid rgba(37,99,235,0.1)' }}>
         <div className="mx-auto max-w-7xl px-6 py-28 lg:px-12">
@@ -518,7 +518,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-start">
 
-            {/* Left — Text */}
+            {/* Left, Text */}
             <div>
               <RevealSection>
                 <h2 style={{
@@ -529,9 +529,9 @@ export default function HomePage() {
                   color:         WHITE,
                   marginBottom:  '1.5rem',
                 }}>
-                  MEET THE<br />
-                  <span style={{ color: ROYAL_L }}>VISIONARY</span><br />
-                  BEHIND IT ALL.
+                  THE FOUNDER<br />
+                  LEARNED THIS<br />
+                  <span style={{ color: ROYAL_L }}>THE HARD WAY.</span>
                 </h2>
               </RevealSection>
 
@@ -567,16 +567,16 @@ export default function HomePage() {
 
               <RevealSection delay={0.15}>
                 <p style={{ fontSize: '1rem', lineHeight: 1.8, color: MUTED, marginBottom: '1.5rem' }}>
-                  As a USC MBA graduate and mother of four, Cindy Ha knows firsthand
-                  the gap between the education elite families access and what
-                  underserved communities receive. She built Young Innovators for
-                  Change to close that gap — permanently.
+                  Cindy Ha grew up in Highland Park and went through Los Angeles public
+                  schools doing everything they asked of her. None of it covered how a
+                  business works. She found that out by opening one: a 900-square-foot
+                  storefront she renovated herself, grown into a retail, wholesale, import
+                  and e-commerce business, and later sold.
                 </p>
                 <p style={{ fontSize: '1rem', lineHeight: 1.8, color: MUTED, marginBottom: '2rem' }}>
-                  Her vision is radical in its simplicity: every child, regardless of
-                  zip code or household income, deserves the same business acumen that
-                  top MBA programs charge $200,000 to teach. And she is delivering it —
-                  one district at a time.
+                  The MBA came afterward, and with it the discovery that a whole field had
+                  been sitting there the entire time. This organization is the attempt to
+                  hand that to children two decades earlier than she got it.
                 </p>
               </RevealSection>
 
@@ -587,35 +587,33 @@ export default function HomePage() {
                   marginBottom: '2.5rem',
                 }}>
                   <p style={{ fontSize: '1.05rem', fontStyle: 'italic', lineHeight: 1.7, color: WHITE }}>
-                    "The zip code a child is born into should never determine the ceiling
-                    of their ambition. We are here to remove that ceiling entirely."
+                    "If only I had known all of this at a much younger age."
                   </p>
-                  <cite style={{ display: 'block', marginTop: '0.75rem', fontSize: '0.8rem', fontStyle: 'normal', fontWeight: 600, color: ROYAL_L, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                    — Cindy Ha, Founder
+                  <cite style={{ display: 'block', marginTop: '0.75rem', fontSize: '0.8rem', fontStyle: 'normal', fontWeight: 600, color: ROYAL_L, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Cindy Ha, Founder &amp; Executive Director
                   </cite>
                 </blockquote>
               </RevealSection>
 
               <RevealSection delay={0.25}>
                 <Link href="/about" className="btn-gold" style={{ fontSize: '0.8rem', display: 'inline-flex' }}>
-                  Read Cindy's Story
+                  Read her story
                   <ArrowUpRight size={13} />
                 </Link>
               </RevealSection>
             </div>
 
-            {/* Right — Credential Cards */}
+            {/* Right, Credential Cards */}
             <div className="flex flex-col gap-4">
               <CredentialCard
                 icon={<GraduationCap size={18} />}
-                title="USC Marshall MBA"
-                subtitle="Master of Business Administration from the University of Southern California's top-ranked Marshall School of Business."
+                title="Operator, then student"
+                subtitle="Built a 900-square-foot storefront into a retail, wholesale, import and e-commerce business, sold it, and went back for an MBA afterward."
                 delay={0.1}
               />
               <CredentialCard
                 icon={<Users size={18} />}
-                title="Mother of Four"
-                subtitle="A firsthand understanding of child development, education gaps, and what it truly means to invest in a child's future."
+                title="Los Angeles public schools"
+                subtitle="Raised in Highland Park and taught in LAUSD classrooms, which is the gap this curriculum was written to close."
                 delay={0.2}
               />
               <CredentialCard
@@ -627,7 +625,7 @@ export default function HomePage() {
               <CredentialCard
                 icon={<Star size={18} />}
                 title="Everything Published Free"
-                subtitle="Workbooks, answer keys and the research behind them are downloadable in full — no licence, no email wall, no partial preview."
+                subtitle="Workbooks, answer keys and the research behind them are downloadable in full, no license, no email wall, no partial preview."
                 delay={0.4}
               />
 

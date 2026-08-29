@@ -15,7 +15,7 @@ const STEPS = [
   { when: 'Step one', icon: MessageSquare, accent: ROYAL_L, title: 'A twenty-minute call',
     text: 'With the teacher, and the principal if you want them there. We answer questions and confirm which class.' },
   { when: 'Step two', icon: Download, accent: GREEN_L, title: 'Materials arrive',
-    text: 'Printed workbooks for the class, the teacher guide, and a 45-minute orientation — in person or by video.' },
+    text: 'Printed workbooks for the class, the teacher guide, and a 45-minute orientation, in person or by video.' },
   { when: 'Step three', icon: CalendarCheck, accent: GOLD, title: 'One page a week',
     text: 'The teacher runs the weekly assignment. We check in monthly and are reachable the same day for anything urgent.' },
   { when: 'Step four', icon: FileText, accent: ROYAL_L, title: 'What we learned',
@@ -24,7 +24,7 @@ const STEPS = [
 
 const PROVIDE = [
   'Printed student workbooks for every child in the class',
-  'The teacher guide — every answer, every week, plus running notes',
+  'The teacher guide: every answer, every week, plus running notes',
   'A 45-minute orientation and a named person to email',
   'Replacement copies at any point in the year',
   'All measurement instruments and the consent materials',
@@ -33,20 +33,20 @@ const PROVIDE = [
 const SCHOOL_PROVIDES = [
   'One classroom and a willing teacher',
   'About 35 minutes of instructional time a week',
-  'Crayons, counters and number cards — almost certainly already in the room',
+  'Crayons, counters and number cards, almost certainly already in the room',
   'Permission for a brief pre and post activity with students',
   'Access to the benchmark data the district already collects',
 ];
 
 const HONEST = [
   { q: 'Has this been proven to raise scores?',
-    a: 'No. No cohort has run yet, and we have not measured anything. The research base is published on our evidence page, including a section on what the literature does not support. Anyone telling you an unproven programme raises scores is guessing.' },
+    a: 'No. No cohort has run yet, and we have not measured anything. The research base is published on our evidence page, including a section on what the literature does not support. Anyone telling you an unproven program raises scores is guessing.' },
   { q: 'What does it cost the school?',
-    a: 'Nothing. Our internal cost is about $105 per classroom of 24 — roughly $4.40 per student for the year — and we cover it. If you would rather print it yourself, every file is free to download.' },
+    a: 'Nothing. Our internal cost is about $105 per classroom of 24, roughly $4.40 per student for the year, and we cover it. If you would rather print it yourself, every file is free to download.' },
   { q: 'Does the teacher need to know graph theory?',
     a: 'No. The guide carries every answer, the common misconceptions, and what to say when a student is stuck. The orientation is about how to run a week, not about mathematics.' },
   { q: 'Will it print on our copier?',
-    a: 'Yes. The whole book was proofed in grayscale. Structure lives in the linework and colour is accent only.' },
+    a: 'Yes. The whole book was proofed in grayscale. Structure lives in the linework and color is accent only.' },
   { q: 'What happens if it is not working?',
     a: 'You stop. There is no contract and no invoice. A teacher who tells us in November that this is not working is giving us better information than one who quietly finishes the year.' },
   { q: 'What data leaves the school?',
@@ -62,7 +62,7 @@ export default function ForSchoolsUi() {
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              We built a 36-week discrete mathematics enrichment programme for Grade 2 and we are
+              We built a 36-week discrete mathematics enrichment program for Grade 2 and we are
               placing it in classrooms. Thirty-five minutes a week, sequenced against the
               California pacing guide so it reinforces what you are already teaching.
             </p>
@@ -71,8 +71,8 @@ export default function ForSchoolsUi() {
             </p>
             <p style={{ margin: 0, fontSize: '0.88rem' }}>
               Grade 2 mathematics is what is finished and available for the coming year. Science,
-              the other maths grades, and the Grades 3&ndash;12 enterprise programmes are on the
-              build map &mdash; <Link href="/curriculum" style={{ color: GREEN_L }}>see exactly
+              the other math grades, and the Grades 3&ndash;12 enterprise programs are on the
+              build map. <Link href="/curriculum" style={{ color: GREEN_L }}>See exactly
               where each one stands</Link>.
             </p>
           </>
@@ -83,7 +83,7 @@ export default function ForSchoolsUi() {
             Start a conversation <ArrowUpRight size={14} />
           </Link>
           <Link href="/programs/discrete-math" className="btn-ghost">
-            See the programme <ArrowUpRight size={13} />
+            See the program <ArrowUpRight size={13} />
           </Link>
         </div>
       </Hero>
@@ -117,7 +117,7 @@ export default function ForSchoolsUi() {
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">FOUR STEPS.<br />NO COMMITTEE.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '58ch', marginTop: '1rem' }}>
             We have deliberately made this small. A pilot that needs a planning committee will
-            not happen, and a programme that cannot survive one busy teacher trying it is not
+            not happen, and a program that cannot survive one busy teacher trying it is not
             ready anyway.
           </p>
         </FadeIn>
