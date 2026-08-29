@@ -1,0 +1,783 @@
+<title>Discrete Math Adventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Public+Sans:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#F7F9FC; --surface:#FFFFFF; --surface-2:#F1F5FB;
+  --ink:#16233A; --ink-2:#41506B; --muted:#64748B; --rule:#DDE4EE;
+  --accent:#2D5BE3; --accent-soft:#E8EEFD;
+  --amber:#C24E12; --amber-soft:#FFF2EA;
+  --sage:#12795A; --sage-soft:#E7F6F0;
+  --shadow:0 1px 2px rgba(22,35,58,.05), 0 8px 24px -16px rgba(22,35,58,.4);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1420; --surface:#161E2E; --surface-2:#1B2437;
+    --ink:#E8EDF6; --ink-2:#B4C0D6; --muted:#8794AC; --rule:#26314A;
+    --accent:#7CA6F5; --accent-soft:#182642;
+    --amber:#FF9A69; --amber-soft:#2A1D14;
+    --sage:#4FCBA3; --sage-soft:#12251E;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 24px -16px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1420; --surface:#161E2E; --surface-2:#1B2437;
+  --ink:#E8EDF6; --ink-2:#B4C0D6; --muted:#8794AC; --rule:#26314A;
+  --accent:#7CA6F5; --accent-soft:#182642;
+  --amber:#FF9A69; --amber-soft:#2A1D14;
+  --sage:#4FCBA3; --sage-soft:#12251E;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 24px -16px rgba(0,0,0,.9);
+}
+
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink);
+  font-family:'Public Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;}
+.wrap{max-width:1060px; margin:0 auto; padding:0 24px}
+
+.bar{position:sticky; top:0; z-index:20; background:var(--ground); border-bottom:1px solid var(--rule);}
+.bar .wrap{display:flex; align-items:center; gap:20px; min-height:56px; flex-wrap:wrap}
+.bar .brandmark{display:flex; align-items:center}
+.bar .brandmark svg{width:26px; height:26px; display:block}
+.herolock{width:290px; margin:0 0 26px}
+.herolock svg{width:100%; height:auto; display:block}
+.bar .mark{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--muted); white-space:nowrap;}
+.bar nav{display:flex; gap:3px; margin-left:auto; flex-wrap:wrap}
+.bar nav a{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px; letter-spacing:.05em;
+  color:var(--ink-2); text-decoration:none; padding:5px 9px; border-radius:5px;}
+.bar nav a:hover{background:var(--accent-soft); color:var(--accent)}
+.bar nav a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+header.hero{padding:60px 0 38px; border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px; letter-spacing:.19em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 18px;}
+h1{font-family:'Baloo 2','Trebuchet MS',Verdana,sans-serif; font-weight:800; font-size:clamp(38px,6.2vw,60px);
+  line-height:1.04; letter-spacing:-.015em; margin:0 0 18px; text-wrap:balance;}
+.lede{font-size:19px; line-height:1.6; color:var(--ink-2); max-width:60ch; margin:0}
+.facts{display:flex; flex-wrap:wrap; margin:36px 0 0; border-top:1px solid var(--rule)}
+.fact{flex:1 1 170px; padding:18px 22px 18px 0; border-right:1px solid var(--rule)}
+.fact:last-child{border-right:0}
+.fact dt{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:10.5px; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--muted); margin:0 0 6px;}
+.fact dd{margin:0; font-size:15px; color:var(--ink-2)}
+.fact dd b{color:var(--ink); font-weight:600}
+
+section.block{padding:44px 0; border-bottom:1px solid var(--rule)}
+h2{font-family:'Baloo 2','Trebuchet MS',Verdana,sans-serif; font-weight:800; font-size:30px; letter-spacing:-.01em;
+  margin:0 0 14px; text-wrap:balance;}
+h3{font-size:15px; font-weight:700; margin:0 0 8px; letter-spacing:-.005em}
+p{margin:0 0 14px; max-width:66ch}
+p:last-child{margin-bottom:0}
+.two{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px}
+.note{background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:20px 22px}
+.note p{font-size:15px; color:var(--ink-2)}
+ul.plain{margin:0; padding:0; list-style:none}
+ul.plain li{padding:9px 0; border-bottom:1px solid var(--rule); font-size:15px; color:var(--ink-2)}
+ul.plain li:last-child{border-bottom:0}
+code.std{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:12.5px; color:var(--accent);
+  background:var(--accent-soft); padding:2px 7px; border-radius:4px; white-space:nowrap;
+  margin-right:10px; font-variant-numeric:tabular-nums;}
+
+.tri{padding:56px 0 8px}
+.tri-head{display:flex; gap:24px; align-items:baseline; flex-wrap:wrap;
+  border-bottom:2px solid var(--ink); padding-bottom:14px; margin-bottom:8px}
+.tri-n{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--muted); padding-top:8px;}
+.tri-head h2{margin:0; font-size:33px}
+.tri-sub{color:var(--muted); font-size:15px; margin-left:auto}
+.tri-intro{font-size:16px; color:var(--ink-2); max-width:70ch; margin:16px 0 30px}
+
+.wk{background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:24px 26px;
+  margin-bottom:18px; box-shadow:var(--shadow);
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); gap:30px;}
+@media (max-width:820px){ .wk{grid-template-columns:1fr; gap:22px} }
+.wk-n{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px; letter-spacing:.16em;
+  color:var(--muted); margin:0 0 6px; font-variant-numeric:tabular-nums;}
+.wk h3.t{font-family:'Baloo 2','Trebuchet MS',Verdana,sans-serif; font-weight:800; font-size:25px; line-height:1.15;
+  margin:0 0 10px; letter-spacing:-.01em;}
+.teaches{font-size:15px; color:var(--ink-2); margin:0 0 14px}
+.inclass{font-size:13.5px; color:var(--muted); margin:0 0 14px; padding:8px 12px;
+  background:var(--surface-2); border-radius:7px; border-left:3px solid var(--accent);}
+.inclass b{display:block; font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:9.5px;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--accent); margin-bottom:3px;}
+.stds{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 14px}
+.stds span{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11px; letter-spacing:.04em;
+  color:var(--accent); background:var(--accent-soft); border-radius:4px; padding:3px 8px;
+  font-variant-numeric:tabular-nums;}
+.prep{border-left:2px solid var(--rule); padding:2px 0 2px 14px; font-size:14.5px; color:var(--muted)}
+.prep b{display:block; font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:10px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:5px;}
+
+.panel{border-radius:9px; padding:16px 18px; margin-bottom:12px}
+.panel:last-child{margin-bottom:0}
+.panel .hd{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:10px; letter-spacing:.17em;
+  text-transform:uppercase; margin:0 0 10px; font-weight:600;}
+.panel ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px}
+.panel li{font-size:14.5px; line-height:1.55; color:var(--ink-2)}
+.panel li b{color:var(--ink)}
+.ans{background:var(--sage-soft)} .ans .hd{color:var(--sage)}
+.ext{background:var(--amber-soft)} .ext .hd{color:var(--amber)}
+
+footer{padding:44px 0 70px; color:var(--muted); font-size:14px; border-top:1px solid var(--rule); margin-top:40px}
+footer p{max-width:70ch}
+a{color:var(--accent)}
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+</style>
+
+<div class="bar"><div class="wrap">
+  <span class="brandmark"><svg viewBox="0 0 64 64" width="26" height="26" xmlns="http://www.w3.org/2000/svg"><line x1="32" y1="18" x2="22" y2="8" stroke="#16233A" stroke-width="6" stroke-linecap="round"/><circle cx="22" cy="8" r="6.5" fill="#FF7A3D"/><circle cx="32" cy="36" r="22" fill="#FFFFFF" stroke="#16233A" stroke-width="5.5"/><circle cx="24" cy="32" r="3.6" fill="#16233A"/><circle cx="40" cy="32" r="3.6" fill="#16233A"/><path d="M24 43 Q32 51 40 43" fill="none" stroke="#16233A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  <span class="mark">Discrete Math Adventures &middot; Teacher Guide</span>
+  <nav>
+    <a href="#how">How to run it</a>
+    <a href="#pacing">Pacing</a>
+    <a href="#t1">Trimester 1</a>
+    <a href="#t2">Trimester 2</a>
+    <a href="#t3">Trimester 3</a>
+    <a href="#standards">Standards</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="herolock"><svg viewBox="0 0 760 190" xmlns="http://www.w3.org/2000/svg"><g transform="translate(8,4) scale(0.60)"><line x1="120" y1="56" x2="96" y2="16" stroke="#16233A" stroke-width="9" stroke-linecap="round"/><circle cx="96" cy="16" r="13" fill="#FF7A3D" stroke="#16233A" stroke-width="5"/><line x1="66" y1="128" x2="24" y2="78" stroke="#16233A" stroke-width="9" stroke-linecap="round"/><circle cx="24" cy="78" r="12" fill="#2D5BE3" stroke="#16233A" stroke-width="5"/><line x1="174" y1="128" x2="214" y2="158" stroke="#16233A" stroke-width="9" stroke-linecap="round"/><circle cx="214" cy="158" r="12" fill="#2D5BE3" stroke="#16233A" stroke-width="5"/><line x1="100" y1="160" x2="88" y2="244" stroke="#16233A" stroke-width="9" stroke-linecap="round"/><circle cx="88" cy="244" r="12" fill="#2D5BE3" stroke="#16233A" stroke-width="5"/><line x1="140" y1="160" x2="156" y2="244" stroke="#16233A" stroke-width="9" stroke-linecap="round"/><circle cx="156" cy="244" r="12" fill="#2D5BE3" stroke="#16233A" stroke-width="5"/><circle cx="120" cy="108" r="58" fill="#FFFFFF" stroke="#16233A" stroke-width="8"/><circle cx="100" cy="98" r="7.5" fill="#16233A"/><circle cx="140" cy="98" r="7.5" fill="#16233A"/><path d="M101 124 Q120 142 139 124" fill="none" stroke="#16233A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><text x="168" y="86" font-family='"Baloo 2", "Trebuchet MS", Verdana, sans-serif' font-size="54" font-weight="800" fill="#16233A" text-anchor="start" letter-spacing="-1">Young Innovators</text><text x="172" y="126" font-family='"Baloo 2", "Trebuchet MS", Verdana, sans-serif' font-size="27" font-weight="700" fill="#2D5BE3" text-anchor="start" letter-spacing="6.5">FOR CHANGE</text><text x="173" y="160" font-family='"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace' font-size="19" font-weight="400" fill="#64748B" text-anchor="start" letter-spacing="0.5">innovateyouth.org</text></svg></div>
+  <p class="eyebrow">Grade 2 enrichment &middot; 36 weekly assignments &middot; one school year</p>
+  <h1>Discrete Math Adventures</h1>
+  <p class="lede">A full year in the mathematics of structure &mdash; sorting, counting, graphs,
+  and algorithms &mdash; sequenced so that each week&rsquo;s puzzle lands near the standard the class
+  is already working on. Every answer, teaching note, and extension is here.</p>
+  <dl class="facts">
+    <div class="fact"><dt>Cadence</dt><dd><b>One assignment a week</b>, two pages</dd></div>
+    <div class="fact"><dt>Time</dt><dd><b>30&ndash;40 minutes</b>, or split in two</dd></div>
+    <div class="fact"><dt>Setting</dt><dd>In class or take-home</dd></div>
+    <div class="fact"><dt>Prep</dt><dd><b>None</b> beyond photocopying</dd></div>
+  </dl>
+</div></header>
+
+<section class="block" id="how"><div class="wrap">
+  <h2>How to run it</h2>
+  <div class="two">
+    <div>
+      <p>One assignment a week, in order. Page 1 opens with a line naming what the class is doing that
+      week, then a two-minute grade-level warm-up, then the main activity. Page 2 has a practice set,
+      a <strong>Talk About It</strong> prompt, a hint, and the <strong>&#9733; Challenge Zone</strong>.</p>
+      <p>The pages are written to the student, clearly enough to go home in a backpack. Everything a
+      teacher needs to launch one &mdash; what to say, what to watch for, what the answers are &mdash;
+      lives here rather than on the page, so the sheet works either way.</p>
+      <p>The order matters more than it looks. Week 3&rsquo;s parity is the tool that cracks Week 26.
+      Week 7&rsquo;s sorting method returns in Week 14 on lengths. Weeks 8 and 30 are the same strategy
+      on numbers and then on shapes. Where a week leans on an earlier one, the page says so by name.</p>
+    </div>
+    <div>
+      <div class="note">
+        <h3>Four things worth protecting</h3>
+        <p><b>Let the stuck moments happen.</b> Weeks 18, 26, and 27 are built around tasks that cannot
+        be done. Rescuing a student early costs them the discovery.</p>
+        <p><b>Ask &ldquo;how do you know?&rdquo;</b> more than &ldquo;what&rsquo;s the answer?&rdquo;
+        Most weeks have short answers and long reasons; the reasons are the content.</p>
+        <p><b>Accept multiple correct answers.</b> Map colorings, robot programs, schedules, and Venn
+        placements often have many. Have students check against the rule, not against a neighbor.</p>
+        <p><b>Skipping a week is fine.</b> Nothing except the named callbacks depends on continuity,
+        and the review weeks (13 and 25) absorb a missed week without damage.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="pacing"><div class="wrap">
+  <h2>Why the year is ordered this way</h2>
+  <div class="two">
+    <div>
+      <p>The sequence follows a typical California Grade 2 pacing guide rather than the internal logic
+      of discrete mathematics. Money week lands on coin counting. Time week lands on clock arithmetic.
+      Geometry weeks land on map coloring and partitioning. The arrays that lead toward multiplication
+      sit in the last month, where the class meets them.</p>
+      <p>That costs a little elegance &mdash; graph theory is split across Weeks 23, 26, 27, and 28
+      instead of running together &mdash; and buys something more useful: the enrichment sheet almost
+      always reinforces what was taught on Tuesday.</p>
+      <p>If your district&rsquo;s pacing differs, the year still works in order. The tie-ins are a bonus,
+      not a dependency.</p>
+    </div>
+    <div>
+      <div class="note">
+        <h3>The strongest curriculum ties</h3>
+        <p><b>Week 3</b> is 2.OA.3 outright &mdash; odd and even developed by pairing, and even numbers
+        written as two equal addends.</p>
+        <p><b>Week 32</b> is 2.G.2 outright, and can substitute for a regular lesson on rows and columns.</p>
+        <p><b>Weeks 33&ndash;35</b> are 2.OA.4 three times over: combinations as an array, choice trees,
+        and loops as repeated addition. Students who have stalled on arrays sometimes arrive through the loop.</p>
+        <p><b>Weeks 9, 12, 16, and 28</b> carry heavy grade-level addition &mdash; good weeks to schedule
+        when the computation practice needs to be visible.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+
+<section class="tri" id="t1">
+  <div class="wrap">
+    <div class="tri-head">
+      <span class="tri-n">Weeks 1&ndash;13</span>
+      <h2>Trimester 1</h2>
+      <span class="tri-sub">Sorting, number structure, and the beginnings of proof.</span>
+    </div>
+    <p class="tri-intro">The class is on fluency within 20, place value, and adding within 100. These thirteen weeks shadow that: parity by pairing, binary as a second base, sorting and searching as ways of comparing numbers, and magic squares and balances as missing-addend practice with a puzzle wrapped around it.</p>
+    
+<article class="wk" id="week1">
+  <div>
+    <p class="wk-n">Week 01</p>
+    <h3 class="t">What&rsquo;s My Rule?</h3>
+    <p class="teaches">Classification by attribute, and inferring a rule from examples <em>and</em> non-examples.</p>
+    <div class="inclass"><b>In class this week</b>Adding &amp; subtracting within 20</div>
+    <div class="stds"><span>2.OA.3</span><span>2.G.1</span><span>MP7</span></div>
+    <div class="prep"><b>Running it</b>Vague rules (&ldquo;they&rsquo;re boxy&rdquo;) get sharpened by holding up a new shape and asking &ldquo;would this one count?&rdquo;</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Shapes:</b> the shape has 4 sides. The <em>no</em> box holds triangles, circles, pentagons, hexagons.</li><li><b>A:</b> even numbers. <b>B:</b> multiples of 5 (ends in 5 or 0). <b>C:</b> both digits are the same.</li><li>For A, some students say &ldquo;add 4 each time&rdquo; &mdash; also consistent with the four examples shown. Both are defensible <em>given this data</em>, and noticing that is worth more than the answer.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>3, 13, 23, 30, 31:</b> the number contains the digit <b>3</b>.</li><li>Student-made rules: check that the <em>no</em> box actually rules things out. A random no-box means a weak rule.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week2">
+  <div>
+    <p class="wk-n">Week 02</p>
+    <h3 class="t">Two Circles, One Middle</h3>
+    <p class="teaches">Two-attribute sorting, the overlap, and the often-forgotten region outside both circles.</p>
+    <div class="inclass"><b>In class this week</b>Sorting; even and odd</div>
+    <div class="stds"><span>2.OA.3</span><span>2.G.1</span><span>2.MD.10</span></div>
+    <div class="prep"><b>Running it</b>The classic error is treating the overlap as a third category. Ask: &ldquo;is C red? is C a star?&rdquo; Two yeses is what the middle means.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Red only:</b> A, E. &nbsp; <b>Stars only:</b> B, F. &nbsp; <b>Both:</b> C, G (so 2).</li><li><b>Stars in all:</b> B, C, F, G = 4. Answering 2 means the middle was forgotten.</li><li><b>Outside both:</b> D (green circle) and H (blue square).</li><li><b>Numbers &mdash; middle:</b> 12, 20, 18. <b>Outside both:</b> 7, 3. They are odd <em>and</em> 10 or less.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>Squares and circles:</b> nothing can be both, so the middle is empty. An empty region is a legitimate answer.</li><li><b>No.</b> Outside both means odd <em>and</em> not bigger than 10. A student answering &ldquo;yes, 101&rdquo; dropped one condition.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week3">
+  <div>
+    <p class="wk-n">Week 03</p>
+    <h3 class="t">Pair Them Up</h3>
+    <p class="teaches">Parity built from pairing rather than memorized last digits &mdash; which is what makes odd + odd explainable.</p>
+    <div class="inclass"><b>In class this week</b>Odd and even numbers (2.OA.3)</div>
+    <div class="stds"><span>2.OA.3</span></div>
+    <div class="prep"><b>Running it</b>Counters help enormously. Two odd groups each have one lonely counter; the two lonely ones pair with each other.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>7 is odd. 8 is even.</b></li><li><b>even + even = even</b> (10) &nbsp;&middot;&nbsp; <b>even + odd = odd</b> (11) &nbsp;&middot;&nbsp; <b>odd + odd = even</b> (12)</li><li><b>Equal parts:</b> 8 = 4 + 4, 12 = 6 + 6, 16 = 8 + 8, 20 = 10 + 10.</li><li><b>9</b> cannot split into two equal parts &mdash; the closest is 4 + 5, and they are not equal. That <em>is</em> what odd means.</li><li><b>Even numbers circled:</b> 24, 46, 68, 70.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>15 cookies:</b> not fair between 2 (odd); fair between 3 (5 each); fair between 5 (3 each). Parity settles the 2 case only &mdash; worth naming.</li><li><b>7 + 7 + 7 is odd</b> (21). odd + odd = even, then even + odd = odd. Ask for the reasoning before the arithmetic.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week4">
+  <div>
+    <p class="wk-n">Week 04</p>
+    <h3 class="t">Always, Sometimes, Never</h3>
+    <p class="teaches">The difference between an example and a reason. &ldquo;Sometimes&rdquo; requires producing a case both ways.</p>
+    <div class="inclass"><b>In class this week</b>Fluency within 20</div>
+    <div class="stds"><span>2.OA.3</span><span>2.G.1</span><span>MP3</span></div>
+    <div class="prep"><b>Running it</b>For every &ldquo;always&rdquo;, ask &ldquo;could you find <em>one</em> that breaks it?&rdquo; Failing to find a counterexample is how children first feel what proof is for.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Page 1:</b> 1 Always &middot; 2 Sometimes &middot; 3 Never &middot; 4 Always &middot; 5 Always &middot; 6 Sometimes.</li><li>Item 6 (a rectangle is a square) will cause argument. It is true only when all four sides match. This is the most valuable item on the page.</li><li><b>Page 2:</b> 1 Never (odd + odd is even) &middot; 2 Sometimes &middot; 3 Always &middot; 4 Sometimes.</li><li>Item 4 catches almost everyone: 100 is bigger than 10 and has <em>three</em> digits.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>Why never:</b> an even number splits into pairs with nothing left over; a number ending in 5 always leaves one behind. Testing ten examples is not this reason &mdash; say that difference out loud.</li><li>Student statements: the real test is whether their &ldquo;sometimes&rdquo; genuinely has both cases.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week5">
+  <div>
+    <p class="wk-n">Week 05</p>
+    <h3 class="t">How Computers Count</h3>
+    <p class="teaches">Binary as place value with a different multiplier. A genuine second angle on 2.NBT.1.</p>
+    <div class="inclass"><b>In class this week</b>Place value to 1000 (2.NBT.1)</div>
+    <div class="stds"><span>2.NBT.1</span><span>2.NBT.3</span></div>
+    <div class="prep"><b>Running it</b>Physical cards with dots on one side work best &mdash; flipping a card face down <em>is</em> writing a zero. Four students each holding a card is better still.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>5</b> = 0101 &middot; <b>9</b> = 1001 &middot; <b>12</b> = 1100 &middot; <b>15</b> = 1111</li><li><b>3</b> = 0011 &middot; <b>6</b> = 0110 &middot; <b>10</b> = 1010 &middot; <b>13</b> = 1101 &middot; <b>14</b> = 1110</li><li><b>Biggest with four cards: 15.</b> &nbsp; <b>0 0 0 0 is zero.</b></li><li><b>Normal numbers multiply by 10</b> each place; <b>computer numbers multiply by 2</b>. That one sentence is the whole lesson.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li>Counting 0&ndash;15, the last column reads 0, 1, 0, 1&hellip; and every even number has <b>0</b> there. Week 3&rsquo;s parity, hiding in binary.</li><li><b>With a 16 card the biggest is 31</b>; the next card is worth <b>32</b>. Each new card doubles &mdash; and is one more than everything before it combined.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week6">
+  <div>
+    <p class="wk-n">Week 06</p>
+    <h3 class="t">Number Machines</h3>
+    <p class="teaches">Function rules: input, rule, output. And the discovery that order of operations matters.</p>
+    <div class="inclass"><b>In class this week</b>Skip counting by 5s, 10s, 100s (2.NBT.2)</div>
+    <div class="stds"><span>2.NBT.2</span><span>2.OA.2</span><span>MP7</span></div>
+    <div class="prep"><b>Running it</b>Push past the first plausible rule. Ask &ldquo;does your rule work for <em>every</em> example, or just the first one?&rdquo;</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>+ 10 machine:</b> 12 &rarr; 22, 40 &rarr; 50, and 28 &rarr; 38.</li><li><b>Secret machine:</b> double. 10 &rarr; 20, 20 &rarr; 40.</li><li><b>Machine C:</b> subtract 5. 60 &rarr; 55. &nbsp; <b>Machine D:</b> count by 5s (times 5). 6 &rarr; 30.</li><li><b>Machine E:</b> the number stays the same (add 0). 99 &rarr; 99. Students often resist calling this a rule &mdash; it is one.</li><li><b>Counting by 5s:</b> 5, 10, 15, 20, 25, 30, 35, 40.</li><li><b>Talk:</b> + 10 and double agree at <b>10</b> (and only there).</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>3 &rarr; +10 &rarr; 13 &rarr; double &rarr; 26.</b></li><li><b>Other order: 3 &rarr; double &rarr; 6 &rarr; +10 &rarr; 16.</b> Different answer &mdash; order matters. This is a genuinely surprising result at this age and worth dwelling on.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week7">
+  <div>
+    <p class="wk-n">Week 07</p>
+    <h3 class="t">Put Them in Order</h3>
+    <p class="teaches">Two sorting algorithms on the same data, and comparing methods by effort rather than by answer.</p>
+    <div class="inclass"><b>In class this week</b>Comparing numbers (2.NBT.4)</div>
+    <div class="stds"><span>2.NBT.4</span><span>MP8</span></div>
+    <div class="prep"><b>Running it</b>Number cards on the desk beat pencil work &mdash; the swapping should be physical.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Sorted:</b> 8, 12, 27, 34, 50.</li><li><b>Method 2 passes</b> from 34, 12, 50, 27, 8:</li><li>pass 1 &rarr; 12, 34, 27, 8, 50 &nbsp;&middot;&nbsp; pass 2 &rarr; 12, 27, 8, 34, 50</li><li>pass 3 &rarr; 12, 8, 27, 34, 50 (<b>not sorted yet</b>) &nbsp;&middot;&nbsp; pass 4 &rarr; 8, 12, 27, 34, 50 &#10003;</li><li><b>Three-digit cards:</b> 204, 240, 418, 481.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>At most 4 passes for 5 cards</b> &mdash; one fewer than the number of cards. So 10 cards need at most 9.</li><li><b>By digit sum:</b> 12 (3), 50 (5), 34 (7), 8 (8), 27 (9). A different order &mdash; same algorithm, different comparison.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week8">
+  <div>
+    <p class="wk-n">Week 08</p>
+    <h3 class="t">Twenty Questions</h3>
+    <p class="teaches">Binary search. Students discover that halving beats guessing one at a time, and by how much.</p>
+    <div class="inclass"><b>In class this week</b>Greater than / less than (2.NBT.4)</div>
+    <div class="stds"><span>2.NBT.4</span><span>MP7</span><span>MP8</span></div>
+    <div class="prep"><b>Running it</b>Play it aloud as a class first, with you picking the number. Let someone try the one-at-a-time method and feel it fail.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Worked example (11):</b> more than 8? YES &rarr; 9&ndash;16. More than 12? NO &rarr; 9&ndash;12. More than 10? YES &rarr; 11&ndash;12. More than 11? NO &rarr; <b>11</b>. Four questions.</li><li><b>Most questions ever needed for 1&ndash;16: 4.</b></li><li><b>Halving:</b> 16 &rarr; 8 &rarr; 4 &rarr; 2 &rarr; 1.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>1&ndash;32 needs 5 questions. 1&ndash;64 needs 6.</b> Every time the list doubles, you need exactly one more question.</li><li><b>Same idea as Week 5:</b> each yes/no answer is one bit. Four cards make 16 numbers; four questions find one of 16.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week9">
+  <div>
+    <p class="wk-n">Week 09</p>
+    <h3 class="t">The Shortest Way to the Gold</h3>
+    <p class="teaches">Weighted shortest path, and the discovery that fewer stops does not mean fewer steps.</p>
+    <div class="inclass"><b>In class this week</b>Adding within 100 (2.NBT.5)</div>
+    <div class="stds"><span>2.NBT.5</span><span>2.OA.1</span></div>
+    <div class="prep"><b>Running it</b>This page carries the most grade-level arithmetic in the trimester &mdash; four sums within 100 on page 1 alone.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li>HOME &rarr; BARN &rarr; GOLD = <b>80</b> &nbsp;&middot;&nbsp; HOME &rarr; BARN &rarr; CAVE &rarr; GOLD = <b>80</b></li><li>HOME &rarr; POND &rarr; CAVE &rarr; GOLD = <b>65</b> &#9664; shortest &nbsp;&middot;&nbsp; HOME &rarr; POND &rarr; GOLD = <b>100</b></li><li><b>Second map:</b> START &rarr; MILL &rarr; END = 70; START &rarr; FARM &rarr; END = 70; START &rarr; FARM &rarr; MILL &rarr; END = <b>65</b> &#9664; shortest.</li><li>In both maps the shortest route has the <em>most</em> stops. That is the point of the page.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>Pond&ndash;Cave floods:</b> the shortest becomes <b>80</b>, and two routes tie for it. Ties surprise students who expect one answer.</li><li><b>Longest:</b> HOME &rarr; POND &rarr; GOLD at 100 &mdash; 35 steps more than the shortest.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week10">
+  <div>
+    <p class="wk-n">Week 10</p>
+    <h3 class="t">Magic Squares</h3>
+    <p class="teaches">Missing addends inside a structure, and a first taste of proving a number <em>has</em> to be what it is.</p>
+    <div class="inclass"><b>In class this week</b>Missing addends (2.OA.1)</div>
+    <div class="stds"><span>2.OA.1</span><span>2.NBT.5</span><span>MP7</span></div>
+    <div class="prep"><b>Running it</b>Insist on finding a line that is missing only one number rather than guessing. That habit is the transferable part.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Square 1:</b> 8 1 6 / 3 5 7 / 4 9 2 &nbsp;(every line makes 15)</li><li><b>Square 2:</b> 9 2 7 / 4 6 8 / 5 10 3 &nbsp;(every line makes 18)</li><li><b>Square 3:</b> the total is <b>15</b> (from the full middle row). Completed: 4 9 2 / 3 5 7 / 8 1 6.</li><li><b>Talk:</b> the middle number is always the magic total divided by 3 (5, 6, 5).</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>1 to 9 add to 45</b>, and the three rows cover every number exactly once, so the three row-totals add to 45. Three equal totals making 45 must each be <b>15</b>. This is a real proof and second graders can follow it.</li><li><b>Add 10 to every number:</b> still magic. Each line gains 30, so the new total is <b>45</b>.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week11">
+  <div>
+    <p class="wk-n">Week 11</p>
+    <h3 class="t">Balance Puzzles</h3>
+    <p class="teaches">Equations as balance rather than as &ldquo;the answer goes here&rdquo;. Substitution, one step at a time.</p>
+    <div class="inclass"><b>In class this week</b>Equations and unknowns (2.OA.1)</div>
+    <div class="stds"><span>2.OA.1</span><span>2.OA.2</span></div>
+    <div class="prep"><b>Running it</b>A real balance scale with cubes is worth the setup time. Students who see it physically stop treating = as &ldquo;makes&rdquo;.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>&#9650; = 5, &#9632; = 7, &#9679; = 8</b> &nbsp;&rarr;&nbsp; &#9650; + &#9632; + &#9679; = <b>20</b></li><li><b>&#9733; = 4, &#9829; = 7, &#9670; = 9</b> &nbsp;&rarr;&nbsp; &#9733; + &#9829; + &#9670; = <b>20</b></li><li><b>Which balance:</b> &#9733;+&#9733;=8 <b>YES</b> &middot; &#9829;+&#9733;=&#9670;+3 <b>NO</b> (11 vs 12) &middot; &#9670;+&#9670;=20 <b>NO</b> (18) &middot; &#9829;+&#9829;=&#9733;+10 <b>YES</b> (14 = 14)</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>&#9650; = 4 and &#9632; = 8.</b> Since &#9632; is 4 more than &#9650;, the puzzle becomes &#9650; + &#9650; + &#9650; + 4 = 16. Guess-and-check is a perfectly good route here and should be praised, not corrected.</li><li>Student-made puzzles: check theirs has exactly one answer. Many will accidentally write one with several.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week12">
+  <div>
+    <p class="wk-n">Week 12</p>
+    <h3 class="t">The Handshake Problem</h3>
+    <p class="teaches">Counting pairs, and the double-counting correction. The triangular numbers arrive.</p>
+    <div class="inclass"><b>In class this week</b>Adding within 100 (2.NBT.5)</div>
+    <div class="stds"><span>2.OA.1</span><span>2.NBT.5</span><span>MP8</span></div>
+    <div class="prep"><b>Running it</b>Do it physically with five volunteers before anyone draws anything. The double-counting becomes obvious in the body first.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>10 handshakes.</b> A shakes 4 hands, B shakes 4 hands.</li><li><b>Why not 20:</b> each handshake involves two people, so counting &ldquo;4 hands each&rdquo; counts every handshake twice.</li><li><b>Table:</b> 2 &rarr; 1, 3 &rarr; 3, 4 &rarr; 6, 5 &rarr; 10, 6 &rarr; 15, 7 &rarr; 21.</li><li>Each new friend adds one more handshake than the last one did.</li><li><b>Sums:</b> 4+3+2+1 = 10 &middot; 5+4+3+2+1 = 15 &middot; 6+5+4+3+2+1 = 21.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>10 students &rarr; 45 handshakes.</b> Build it from the table rather than drawing.</li><li><b>Waves: 90</b> &mdash; exactly double, because a wave only goes one way, so nothing is double-counted.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week13">
+  <div>
+    <p class="wk-n">Week 13</p>
+    <h3 class="t">Detective Week</h3>
+    <p class="teaches">Trimester 1 review, run as a case file. Deduction by elimination on a 4&times;4 grid.</p>
+    <div class="inclass"><b>In class this week</b>Review &amp; reasoning</div>
+    <div class="stds"><span>MP1</span><span>MP3</span></div>
+    <div class="prep"><b>Running it</b>Insist on the grid rather than mental solving. Marking an &#10007; is the visible act of reasoning; the &#10003; comes for free after.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Ana &mdash; cat &middot; Ben &mdash; dog &middot; Cruz &mdash; fish &middot; Dee &mdash; rabbit.</b></li><li><b>Case 1:</b> the rule is multiples of 10 (ends in 0).</li><li><b>Case 2:</b> 23 + 23 is <b>even</b> &mdash; odd + odd. (It is 46.)</li><li><b>Case 3:</b> the rule is half. 40 &rarr; 20.</li><li><b>Case 4:</b> a good first question is &ldquo;is it more than 8?&rdquo;</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>No clue can be removed.</b> Drop clue 1 and Ana/Ben can swap cat and dog; drop clue 2 or 3 and two arrangements survive. Every clue is load-bearing &mdash; a satisfying thing to verify.</li><li>Student-written puzzles: the usual failure is too few clues, giving several answers. Have them solve their own before trading.</li></ul></div>
+  </div>
+</article>
+  </div>
+</section>
+<section class="tri" id="t2">
+  <div class="wrap">
+    <div class="tri-head">
+      <span class="tri-n">Weeks 14&ndash;25</span>
+      <h2>Trimester 2</h2>
+      <span class="tri-sub">Measurement, money, time, and data &mdash; each with a discrete idea attached.</span>
+    </div>
+    <p class="tri-intro">This is the stretch where the regular curriculum leaves pure number, and the pairings get more interesting: sorting applied to lengths, tilings as repeated units, coin counting as exhaustive listing, greedy algorithms as making change, modular arithmetic as a clock face, and graphs as a bar-graph data source.</p>
+    
+<article class="wk" id="week14">
+  <div>
+    <p class="wk-n">Week 14</p>
+    <h3 class="t">Sorting by Length</h3>
+    <p class="teaches">Week 7&rsquo;s algorithm applied to a non-numeric attribute &mdash; the first explicit transfer of a method.</p>
+    <div class="inclass"><b>In class this week</b>Measuring length (2.MD.1, 2.MD.4)</div>
+    <div class="stds"><span>2.MD.1</span><span>2.MD.4</span><span>2.NBT.5</span></div>
+    <div class="prep"><b>Running it</b>Paper strips cut to these lengths make the comparison-without-a-ruler challenge real rather than imagined.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Lengths:</b> A = 6, B = 9, C = 3, D = 7, E = 5.</li><li><b>Sorted shortest to longest:</b> C, E, A, D, B.</li><li><b>B &minus; C = 6</b> &middot; <b>D &minus; E = 2</b> &middot; <b>C + E = 8</b></li><li><b>Which two equal B + C (12)?</b> D and E (7 + 5).</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li>Sorting by comparison alone works fine. Method 1 needs 4 + 3 + 2 + 1 = <b>10</b> comparisons for five strips &mdash; the handshake number from Week 12, which is a nice thing to point out.</li><li>Two equal strips are allowed. The sorted list is then not unique, which is worth noticing but not a problem.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week15">
+  <div>
+    <p class="wk-n">Week 15</p>
+    <h3 class="t">Covering a Strip</h3>
+    <p class="teaches">Tilings, organized listing, and the Fibonacci recurrence discovered from the student&rsquo;s own data.</p>
+    <div class="inclass"><b>In class this week</b>Length as repeated units (2.MD.1)</div>
+    <div class="stds"><span>2.MD.1</span><span>2.OA.4</span><span>MP8</span></div>
+    <div class="prep"><b>Running it</b>The organizing move is: first every way that starts with a short tile, then every way that starts with a long one. Model it for length 3.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Length 1 &rarr; 1 way. Length 2 &rarr; 2. Length 3 &rarr; 3. Length 4 &rarr; 5.</b></li><li><b>Length 5 &rarr; 8. Length 6 &rarr; 13.</b></li><li>The pattern: <b>each number is the sum of the two before it</b> (1, 2, 3, 5, 8, 13 &mdash; the Fibonacci numbers).</li><li><b>Why:</b> a strip of length 5 either starts with a short tile (leaving a strip of 4) or a long tile (leaving a strip of 3). So the ways for 5 are the ways for 4 plus the ways for 3.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>Length 7 &rarr; 21</b> (13 + 8).</li><li><b>With a 3-unit tile added:</b> 1, 2, 4, 7, 13&hellip; Now you add the <em>three</em> numbers before, for the same reason &mdash; three choices of first tile.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week16">
+  <div>
+    <p class="wk-n">Week 16</p>
+    <h3 class="t">Two Ways Across the Park</h3>
+    <p class="teaches">Adding lengths to compare whole routes; the same structure as Week 9 with measurement units.</p>
+    <div class="inclass"><b>In class this week</b>Adding lengths; number line (2.MD.5, 2.MD.6)</div>
+    <div class="stds"><span>2.MD.5</span><span>2.MD.6</span><span>2.NBT.5</span></div>
+    <div class="prep"><b>Running it</b>The number line is where the comparison becomes visible. Have them use two colors for the two paths.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Path 1 (through OAK):</b> 24 + 18 = <b>42 cm</b></li><li><b>Path 2 (through POND):</b> 30 + 22 = <b>52 cm</b></li><li><b>Path 1 is shorter, by 10 cm.</b></li><li><b>More lengths:</b> 45 &minus; 28 = 17 &middot; 34 + 29 = 63 &middot; 80 &minus; 55 = 25</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>24 + 18 + 30 = 72.</b> That is the only set of the four that works.</li><li>Shortening a part of Path 2 is the only thing that could change the answer, and only if it drops Path 2 below 42 &mdash; a good discussion about which improvements actually matter.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week17">
+  <div>
+    <p class="wk-n">Week 17</p>
+    <h3 class="t">Color the Kingdom</h3>
+    <p class="teaches">Graph coloring. Finding a constraint that makes fewer colors <em>impossible</em>, not just hard.</p>
+    <div class="inclass"><b>In class this week</b>Shapes and attributes (2.G.1)</div>
+    <div class="stds"><span>2.G.1</span><span>MP1</span></div>
+    <div class="prep"><b>Running it</b>Crayons needed. Enforce the shared-border rule: touching at one corner does not count. Accept any correct coloring and have students check borders rather than compare with a neighbor.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Map A &mdash; one valid 3-coloring:</b> 1 red, 2 blue, 3 green, 4 green, 5 red, 6 blue. Many others work.</li><li><b>Two colors fail</b> because regions <b>2, 3, and 5</b> all touch one another.</li><li><b>Map B (ring of five): 3 colors.</b> An odd ring can never be done in two.</li><li><b>Map C (two rows of three): 2 colors</b> &mdash; a checkerboard. This is the contrast: same number of regions, different answer.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>Regions 1 and 4 must be different</b> in any 3-coloring, even though they never touch. If both were red, then 2, 3, and 5 would need three colors from the two remaining. A genuinely surprising result.</li><li><b>A ring of six needs only 2 colors.</b> Odd rings need 3; even rings need 2. That is the whole idea, and students can find it.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week18">
+  <div>
+    <p class="wk-n">Week 18</p>
+    <h3 class="t">When Three Colors Is Not Enough</h3>
+    <p class="teaches">A map that provably needs four colors, and the story of the Four Color Theorem.</p>
+    <div class="inclass"><b>In class this week</b>Attributes; impossibility (2.G.1)</div>
+    <div class="stds"><span>2.G.1</span><span>MP3</span></div>
+    <div class="prep"><b>Running it</b>Let them fail with three colors first. The stuck moment is the lesson &mdash; do not rescue it early.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Three colors do not work.</b> Wedges A, B, and C all touch each other, so they use all three; then D in the middle touches all three.</li><li><b>D is the region that gets stuck.</b></li><li><b>Four is the fewest that works.</b></li><li>Any student map with four mutually touching regions is correct &mdash; the wedge-and-centre shape is the simplest.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>Five is impossible</b> on a flat map. That is exactly the Four Color Theorem &mdash; conjectured 1852, proved 1976 by Appel and Haken with computer assistance. Students cannot prove it, but they can feel why nobody could draw a counterexample.</li><li><b>On a doughnut the answer is 7.</b> A doughnut has a hole, so regions can wrap around and touch in ways they cannot on a flat page.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week19">
+  <div>
+    <p class="wk-n">Week 19</p>
+    <h3 class="t">How Many Ways to Make 15&#162;?</h3>
+    <p class="teaches">Exhaustive counting with a systematic organizer &mdash; and the realization that one choice is forced.</p>
+    <div class="inclass"><b>In class this week</b>Money (2.MD.8)</div>
+    <div class="stds"><span>2.MD.8</span><span>MP7</span></div>
+    <div class="prep"><b>Running it</b>Real coins, or coin manipulatives. The organizing move is to fix the number of dimes first and let the pennies fall out.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>15&#162; &mdash; 6 ways:</b> (1 dime, 1 nickel) &middot; (1 dime, 5 pennies) &middot; (3 nickels) &middot; (2 nickels, 5 pennies) &middot; (1 nickel, 10 pennies) &middot; (15 pennies).</li><li><b>20&#162; &mdash; 9 ways:</b> 2 dimes &middot; 1 dime + 2 nickels &middot; 1 dime + 1 nickel + 5p &middot; 1 dime + 10p &middot; 4 nickels &middot; 3 nickels + 5p &middot; 2 nickels + 10p &middot; 1 nickel + 15p &middot; 20 pennies.</li><li><b>Why the organizer works:</b> once dimes and nickels are chosen, the pennies are forced. So there are really only two choices to make, not three.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>25&#162; &mdash; 12 ways</b> with pennies, nickels, and dimes (6 with no dimes, 4 with one dime, 2 with two dimes).</li><li><b>Allowing a quarter makes 13.</b> The only new way is the single quarter itself.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week20">
+  <div>
+    <p class="wk-n">Week 20</p>
+    <h3 class="t">The Fewest Coins</h3>
+    <p class="teaches">A greedy algorithm &mdash; and, in the challenge, a case where greedy is provably wrong.</p>
+    <div class="inclass"><b>In class this week</b>Money word problems (2.MD.8)</div>
+    <div class="stds"><span>2.MD.8</span><span>2.NBT.5</span><span>MP3</span></div>
+    <div class="prep"><b>Running it</b>The challenge is the most important part of this week. Do not skip it for students who finish the front quickly.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>68&#162;</b> = 2 quarters, 1 dime, 1 nickel, 3 pennies = <b>7 coins</b></li><li><b>47&#162;</b> = 1 quarter, 2 dimes, 2 pennies = <b>5 coins</b></li><li><b>93&#162;</b> = 3 quarters, 1 dime, 1 nickel, 3 pennies = <b>8 coins</b></li><li><b>36&#162;</b> = 1 quarter, 1 dime, 1 penny = <b>3 coins</b></li><li><b>80&#162;</b> = 3 quarters, 1 nickel = <b>4 coins</b>. Most coins needed: 93&#162;.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>Greedy in the 1-7-10 country:</b> 10 + 1 + 1 + 1 + 1 = <b>5 coins</b>.</li><li><b>The real best is 7 + 7 = 2 coins.</b> Greedy fails. It works with our coins because of how their values are built &mdash; not because &ldquo;biggest first&rdquo; is always right. This is a genuine algorithmic insight and second graders can hold it.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week21">
+  <div>
+    <p class="wk-n">Week 21</p>
+    <h3 class="t">Clock Arithmetic</h3>
+    <p class="teaches">Modular arithmetic on a familiar object. Wrapping is not an error &mdash; it is the system.</p>
+    <div class="inclass"><b>In class this week</b>Telling time to 5 minutes (2.MD.7)</div>
+    <div class="stds"><span>2.MD.7</span><span>2.NBT.2</span><span>MP2</span></div>
+    <div class="prep"><b>Running it</b>A geared demonstration clock earns its keep here. Have students physically walk the hand around past 12.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>From 9 o&rsquo;clock:</b> +5 &rarr; <b>2</b> &middot; +8 &rarr; <b>5</b> &middot; +12 &rarr; <b>9</b> &middot; &minus;3 &rarr; <b>6</b></li><li><b>Table:</b> 11 + 4 &rarr; 3 &middot; 7 + 8 &rarr; 3 &middot; 10 + 5 &rarr; 3 &middot; 6 + 12 &rarr; 6 &middot; 2 + 11 &rarr; 1</li><li><b>Minutes:</b> 10:40 + 25 = <b>11:05</b> &middot; 3:50 + 15 = <b>4:05</b> &middot; 8:05 &minus; 10 = <b>7:55</b></li><li><b>Why +12 returns you home:</b> twelve hours is exactly one trip around the whole clock.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>100 hours after 3 o&rsquo;clock is 7 o&rsquo;clock.</b> Skip-count by 12: 96 hours is eight full trips, leaving 4 more. 3 + 4 = 7.</li><li><b>Tuesday + 30 days is Thursday.</b> 28 days is four full weeks, leaving 2.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week22">
+  <div>
+    <p class="wk-n">Week 22</p>
+    <h3 class="t">Getting Ready for the Party</h3>
+    <p class="teaches">Precedence, partial order, and the critical path &mdash; why more helpers stop helping.</p>
+    <div class="inclass"><b>In class this week</b>Time and duration (2.MD.7)</div>
+    <div class="stds"><span>2.MD.7</span><span>MP1</span></div>
+    <div class="prep"><b>Running it</b>Sticky notes on the board that students physically reorder make the &ldquo;many valid orders&rdquo; point land instantly.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Could go first:</b> Bake cake, or Blow up balloons.</li><li><b>One valid order:</b> Bake cake, Frost cake, Set table, Blow up balloons, Hang balloons. Many others work.</li><li><b>Could happen at the same time:</b> any cake job with any balloon job (e.g. Bake cake and Blow up balloons).</li><li><b>Never at the same time:</b> any two joined by an arrow &mdash; Bake cake and Frost cake, for instance.</li><li><b>Alone: 50 minutes.</b> <b>With a helper: 30 minutes</b> &mdash; the cake chain is three jobs long and cannot be split, so no number of helpers beats 30.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>10 orders.</b> The three cake jobs stay in order and the two balloon jobs stay in order; you are choosing which two of the five slots the balloon jobs take.</li><li><b>Adding Buy candles makes it 40 minutes</b> with one helper &mdash; six jobs is 60 minutes of work split two ways, and the schedule can actually reach it.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week23">
+  <div>
+    <p class="wk-n">Week 23</p>
+    <h3 class="t">Dots and Lines</h3>
+    <p class="teaches">Graphs as a model of relationships; degree; the handshake lemma; and a real bar graph of the data.</p>
+    <div class="inclass"><b>In class this week</b>Bar graphs (2.MD.10)</div>
+    <div class="stds"><span>2.MD.10</span><span>2.OA.2</span></div>
+    <div class="prep"><b>Running it</b>Draw the class&rsquo;s own graph on the board first. Say explicitly that &ldquo;graph&rdquo; here does not mean bar graph &mdash; then have them build a bar graph from it anyway.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Friends:</b> Mia 3, Leo 2, Ivy 2, Sam 3, Ann 2.</li><li><b>Most:</b> Mia and Sam (tied). <b>Fewest:</b> Leo, Ivy, Ann (tied).</li><li><b>Lines: 6. Column total: 12.</b></li><li><b>Why double:</b> every line has two ends, so each line gets counted once at each of its two dots.</li><li><b>Bar graph:</b> equal bars for Leo, Ivy, Ann. Mia has 1 more than Leo.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>Every dot with 2 lines:</b> possible &mdash; a ring of five.</li><li><b>Every dot with 3 lines: impossible.</b> The column total would be 15, but that total is always double the number of lines, so it must be even. A real impossibility proof, at seven years old.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week24">
+  <div>
+    <p class="wk-n">Week 24</p>
+    <h3 class="t">Who Wins the Tournament?</h3>
+    <p class="teaches">Counting by what is eliminated rather than by what is drawn &mdash; and logarithmic growth again.</p>
+    <div class="inclass"><b>In class this week</b>Reading data (2.MD.10)</div>
+    <div class="stds"><span>2.MD.10</span><span>2.NBT.5</span><span>MP8</span></div>
+    <div class="prep"><b>Running it</b>Let them count boxes first and get 7 the hard way. The elimination argument lands better once they have the number.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Round 1: 4 games. Round 2: 2. Round 3: 1. Total: 7.</b></li><li><b>Table:</b> 2 teams &rarr; 1 game, 1 round &middot; 4 &rarr; 3 games, 2 rounds &middot; 8 &rarr; 7, 3 &middot; 16 &rarr; 15, 4 &middot; 32 &rarr; 31, 5</li><li><b>Teams knocked out to leave one champion: 7.</b></li><li><b>So games = teams &minus; 1</b>, always, for any knockout tournament.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>100 teams &rarr; 99 games</b>, no drawing required. Ninety-nine teams have to be eliminated and each game eliminates exactly one.</li><li><b>64 teams &rarr; 6 rounds; 128 &rarr; 7.</b> Doubling the teams adds one round &mdash; the same halving pattern as Week 8.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week25">
+  <div>
+    <p class="wk-n">Week 25</p>
+    <h3 class="t">Puzzle Fair</h3>
+    <p class="teaches">Trimester 2 review, run as stations.</p>
+    <div class="inclass"><b>In class this week</b>Review &amp; reasoning</div>
+    <div class="stds"><span>MP1</span><span>MP3</span></div>
+    <div class="prep"><b>Running it</b>Run it as actual stations if you can. The fifth station &mdash; writing a puzzle &mdash; tells you more about understanding than the other four combined.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Station 1:</b> 2 colors (the map is a checkerboard).</li><li><b>Station 2:</b> 57&#162; = 2 quarters, 1 nickel, 2 pennies = <b>5 coins</b>.</li><li><b>Station 3:</b> 8 + 7 &rarr; <b>3 o&rsquo;clock</b>; 8 &minus; 10 &rarr; <b>10 o&rsquo;clock</b>.</li><li><b>Station 4:</b> 16 teams &rarr; <b>15 games, 4 rounds</b>. Known without drawing: every game eliminates one team.</li><li><b>Station 5:</b> open. Check their stated answer actually solves their puzzle.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li>To force three colors on Station 1, add a region that touches three regions which already touch each other &mdash; or draw a diagonal border creating an odd ring.</li><li><b>The worst amounts under a dollar need 9 coins</b> &mdash; 94&#162; (3 quarters, 1 dime, 1 nickel, 4 pennies) and 99&#162; (3 quarters, 2 dimes, 4 pennies).</li></ul></div>
+  </div>
+</article>
+  </div>
+</section>
+<section class="tri" id="t3">
+  <div class="wrap">
+    <div class="tri-head">
+      <span class="tri-n">Weeks 26&ndash;36</span>
+      <h2>Trimester 3</h2>
+      <span class="tri-sub">Networks, geometry, and the arrays that lead toward multiplication.</span>
+    </div>
+    <p class="tri-intro">The strongest curriculum overlap in the year sits at the end: Weeks 32 to 35 are all 2.OA.4 and 2.G.2 in disguise. Before that, Euler paths use odd and even as a working tool, and spanning trees and lattice paths carry the three-digit addition the class is doing.</p>
+    
+<article class="wk" id="week26">
+  <div>
+    <p class="wk-n">Week 26</p>
+    <h3 class="t">Trace It Without Lifting</h3>
+    <p class="teaches">Euler paths. Students derive a real theorem from data they generate themselves.</p>
+    <div class="inclass"><b>In class this week</b>Odd and even as a tool (2.OA.3)</div>
+    <div class="stds"><span>2.OA.3</span><span>MP8</span></div>
+    <div class="prep"><b>Running it</b>Have them count degrees and predict <em>before</em> tracing. The prediction is the mathematics; the tracing only checks it.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Odd dots &mdash;</b> A: 2 &middot; B: 4 &middot; C: 2 &middot; D: 0 &middot; E: 2 &middot; F: 0</li><li><b>Traceable:</b> A yes &middot; B <b>no</b> &middot; C yes &middot; D yes &middot; E yes &middot; F yes</li><li><b>The rule:</b> traceable with exactly <b>0</b> or <b>2</b> odd dots.</li><li><b>With 2 odd dots you must start at one of them</b> and you will finish at the other. With 0 you finish where you started.</li><li><b>Why:</b> passing through a dot uses two lines, one in and one out. So an odd dot can only be the start or the end.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>K&ouml;nigsberg: impossible.</b> All four landmasses are odd, and 4 is more than 2. Euler settled this in 1736 &mdash; the first result in graph theory.</li><li><b>Figure B:</b> erase any one line. The two dots it touched drop from 3 to 2, leaving exactly 2 odd dots.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week27">
+  <div>
+    <p class="wk-n">Week 27</p>
+    <h3 class="t">The Bridges of the Old City</h3>
+    <p class="teaches">Applying last week&rsquo;s rule to a famous real problem, and to maps the students design.</p>
+    <div class="inclass"><b>In class this week</b>Adding within 1000 (2.NBT.7)</div>
+    <div class="stds"><span>2.OA.3</span><span>2.NBT.7</span><span>MP3</span></div>
+    <div class="prep"><b>Running it</b>Double bridges are easy to miscount. Have students trace each bridge with a finger while counting aloud.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Bridge counts:</b> North 3, South 3, Island 5, East 3.</li><li><b>All four are odd</b> &mdash; four odd landmasses, and the rule allows at most two. <b>The walk is impossible.</b></li><li><b>Map X-Y-Z:</b> X 3, Y 3, Z 2 &rarr; 2 odd &rarr; <b>possible</b>, starting at X and finishing at Y (or the reverse).</li><li><b>Map P-Q-R-S:</b> every island has 2 &rarr; 0 odd &rarr; <b>possible</b>, and you finish exactly where you started.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>Start and finish in the same place:</b> every island must have an <b>even</b> number of bridges.</li><li><b>Finish somewhere else:</b> exactly <b>two</b> islands are odd, and those two are the start and the end.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week28">
+  <div>
+    <p class="wk-n">Week 28</p>
+    <h3 class="t">Connecting the Towns</h3>
+    <p class="teaches">A minimum spanning tree, built with a greedy rule that this time actually is optimal.</p>
+    <div class="inclass"><b>In class this week</b>Adding within 1000 (2.NBT.7)</div>
+    <div class="stds"><span>2.NBT.7</span><span>2.NBT.5</span><span>MP1</span></div>
+    <div class="prep"><b>Running it</b>Compare with Week 20: greedy failed there and works here. Students who ask why are asking the right question &mdash; it is fine to say that mathematicians proved this one works.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Cheapest set:</b> B&ndash;C (15), A&ndash;B (20), C&ndash;D (25), D&ndash;E (30). <b>Total 90</b>, using 4 roads.</li><li>C&ndash;E (50) and B&ndash;D (40) and A&ndash;C (35) are all skipped &mdash; each would close a loop or cost more.</li><li><b>Smaller map:</b> Q&ndash;R (12), P&ndash;Q (18), R&ndash;S (22). <b>Total 52</b>, using 3 roads.</li><li><b>Why 4 roads for 5 towns:</b> 3 roads cannot reach every town; a 5th would close a loop and be wasted.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>Losing D&ndash;E (30):</b> the only other way to reach E is C&ndash;E (50), so the new total is <b>110</b>.</li><li><b>Picking most-expensive-first does connect every town</b>, but costs far more &mdash; on this map, 50 + 40 + 35 + 30 = 155. Being greedy for the <em>wrong</em> thing is still greedy.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week29">
+  <div>
+    <p class="wk-n">Week 29</p>
+    <h3 class="t">Counting Routes</h3>
+    <p class="teaches">Lattice paths built up corner by corner. This is Pascal&rsquo;s triangle, arrived at honestly.</p>
+    <div class="inclass"><b>In class this week</b>Addition patterns (2.NBT.7)</div>
+    <div class="stds"><span>2.NBT.7</span><span>2.OA.4</span><span>MP7</span></div>
+    <div class="prep"><b>Running it</b>The discipline is to finish each row before moving up. Students who jump ahead get lost; students who go in order cannot fail.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>2 across, 2 up: 6 routes.</b></li><li><b>3 across, 2 up: 10 routes.</b></li><li><b>3 across, 3 up: 20 routes.</b></li><li><b>Why adding works:</b> the only way to arrive at a corner is from below it or from its left, so the ways to reach it are the ways to reach those two added together.</li><li><b>Why every route is 4 steps</b> on the first grid: you must go right twice and up twice, in some order.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>4 across, 4 up: 70 routes.</b></li><li><b>Blocking the middle corner leaves 2 routes.</b> Four of the six went through the middle. Students can find this by writing 0 at the blocked corner and continuing the addition &mdash; a lovely moment.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week30">
+  <div>
+    <p class="wk-n">Week 30</p>
+    <h3 class="t">Guess My Shape</h3>
+    <p class="teaches">Week 8&rsquo;s halving strategy applied to attributes instead of numbers.</p>
+    <div class="inclass"><b>In class this week</b>Shape attributes (2.G.1)</div>
+    <div class="stds"><span>2.G.1</span><span>MP7</span></div>
+    <div class="prep"><b>Running it</b>Rule out &ldquo;is it the circle?&rdquo; style questions early by asking what happens when the answer is no.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Exactly 4 sides &mdash; YES:</b> A square, B rectangle, G diamond, H trapezoid.</li><li><b>NO:</b> C triangle, D circle, E pentagon, F hexagon.</li><li><b>Most questions ever needed: 3</b>, if every question splits the group in half.</li><li><b>Other good splitting questions:</b> &ldquo;does it have more than 4 sides?&rdquo; (2 vs 6), &ldquo;are all its sides the same length?&rdquo;</li><li><b>Why &lsquo;is it the circle?&rsquo; is weak:</b> a no leaves seven shapes; a good question leaves four.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>3 questions for 8 shapes</b>, against 4 for 16 numbers in Week 8. Halving is the same idea in both.</li><li><b>16 shapes &rarr; 4 questions. 32 &rarr; 5.</b> Doubling the collection adds exactly one question.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week31">
+  <div>
+    <p class="wk-n">Week 31</p>
+    <h3 class="t">Cutting Fair Shares</h3>
+    <p class="teaches">Equal parts that are not congruent. This is where &ldquo;same size&rdquo; and &ldquo;same shape&rdquo; come apart.</p>
+    <div class="inclass"><b>In class this week</b>Halves, thirds, fourths (2.G.3)</div>
+    <div class="stds"><span>2.G.3</span><span>MP3</span></div>
+    <div class="prep"><b>Running it</b>Paper folding beats drawing. Have them cut the parts out and stack them to check equality.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Four ways to quarter a square:</b> four vertical strips &middot; four horizontal strips &middot; four small squares (quadrants) &middot; four triangles from the centre. All are correct.</li><li><b>Yes</b> &mdash; two fourths of the same square can be different shapes and still be the same amount. Cutting them out and comparing settles the argument.</li><li><b>Unequal pizza pieces are not fourths.</b> Fourths means four <em>equal</em> parts, not four parts.</li><li><b>One half is bigger than one fourth</b> of the same object &mdash; the classic reversal, because the bigger number names the smaller piece.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li>Lines from the centre to the four corners give four triangles &mdash; equal, and none is a square or rectangle. A pinwheel cut also works.</li><li>Four small squares, each a quarter-size copy of the original. Every square can be cut into four smaller squares like this, forever.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week32">
+  <div>
+    <p class="wk-n">Week 32</p>
+    <h3 class="t">Filling a Rectangle</h3>
+    <p class="teaches">Rows and columns of same-size squares; the commutative property made visible.</p>
+    <div class="inclass"><b>In class this week</b>Rows and columns (2.G.2)</div>
+    <div class="stds"><span>2.G.2</span><span>2.OA.4</span></div>
+    <div class="prep"><b>Running it</b>This is the most directly on-standard week in Trimester 3 and can substitute for a regular 2.G.2 lesson.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>4 rows of 3:</b> by rows 3 + 3 + 3 + 3 = <b>12</b>; by columns 4 + 4 + 4 = <b>12</b>.</li><li><b>2 rows of 5:</b> 5 + 5 = 10 and 2 + 2 + 2 + 2 + 2 = 10.</li><li><b>3 rows of 3:</b> 3 + 3 + 3 = 9 both ways.</li><li><b>8 squares:</b> 1&times;8 and 2&times;4 (and their turns).</li><li><b>Why rows and columns agree:</b> they are two ways of counting the same squares, and nothing was added or removed.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>12 squares:</b> 1&times;12, 2&times;6, and 3&times;4 (with their turns).</li><li><b>12, 18, and 20 tie for the most</b> arrangements between 1 and 20 &mdash; six each. <b>Prime numbers</b> (2, 3, 5, 7, 11, 13, 17, 19) give only one rectangle. Students are meeting factors here without the word.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week33">
+  <div>
+    <p class="wk-n">Week 33</p>
+    <h3 class="t">The Ice Cream Shop</h3>
+    <p class="teaches">Systematic counting, and the array as a picture of the same count.</p>
+    <div class="inclass"><b>In class this week</b>Arrays and repeated addition (2.OA.4)</div>
+    <div class="stds"><span>2.OA.4</span></div>
+    <div class="prep"><b>Running it</b>Watch for random listing. The move to teach: hold the flavour fixed, run through every topping, then switch.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>6 bowls:</b> Vanilla with Sprinkles / Fudge / Cherry, then Chocolate with Sprinkles / Fudge / Cherry.</li><li><b>As addition:</b> 3 + 3 = 6 (by rows) or 2 + 2 + 2 = 6 (by columns).</li><li><b>3 flavours &times; 3 toppings = 9</b>, as 3 + 3 + 3.</li><li><b>Adding a fourth topping</b> does not mean starting over &mdash; each flavour simply gains one more bowl.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>Cone or cup with 2 flavours and 3 toppings: 12.</b> Every bowl already found splits in two.</li><li><b>3 flavours, 3 toppings, cone or cup: 18.</b> Push for &ldquo;9 doubled&rdquo; rather than a list of 18.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week34">
+  <div>
+    <p class="wk-n">Week 34</p>
+    <h3 class="t">Choice Trees</h3>
+    <p class="teaches">The same count in a second representation, and the doubling that comes from repeated choices.</p>
+    <div class="inclass"><b>In class this week</b>Arrays and repeated addition (2.OA.4)</div>
+    <div class="stds"><span>2.OA.4</span><span>MP7</span></div>
+    <div class="prep"><b>Running it</b>Fill in the first shirt&rsquo;s branches together, then let them finish. Emphasise that each <em>path</em> is one outfit, not each box.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>6 paths:</b> striped with red / blue / green, plain with red / blue / green.</li><li><b>Same as Week 33</b> because both are two choices followed by three choices &mdash; identical structure, different story.</li><li><b>Two coin flips: 4</b> endings (HH, HT, TH, TT). <b>Three flips: 8.</b></li><li><b>Table:</b> 1 flip &rarr; 2, 2 &rarr; 4, 3 &rarr; 8, 4 &rarr; 16.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li>The ice cream problem draws as a tree with 2 first-level branches and 3 below each &mdash; the same tree with different labels.</li><li><b>5 flips &rarr; 32 endings</b>, of which exactly <b>1</b> is all heads.</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week35">
+  <div>
+    <p class="wk-n">Week 35</p>
+    <h3 class="t">Program the Robot</h3>
+    <p class="teaches">Algorithms, shortest programs, and loops as repeated addition.</p>
+    <div class="inclass"><b>In class this week</b>Rows, columns, repeated addition (2.OA.4)</div>
+    <div class="stds"><span>2.OA.4</span><span>2.G.2</span><span>2.OA.1</span></div>
+    <div class="prep"><b>Running it</b>Have one student read arrows aloud while another moves a counter, following <em>exactly</em> what is said. Mismatches teach precision faster than corrections.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>One 8-move solution:</b> &uarr; &uarr; &uarr; &uarr; &rarr; &rarr; &rarr; &rarr;</li><li><b>Fewest possible: 8.</b> The robot must gain 4 columns and 4 rows, and each move changes only one of those &mdash; so 8 is a floor regardless of walls.</li><li><b>Going right first fails:</b> the wall at C5 blocks the bottom row.</li><li><b>Loops:</b> REPEAT 4 [&uarr;] = &uarr;&uarr;&uarr;&uarr; &middot; REPEAT 3 [&rarr; &uarr;] = &rarr;&uarr;&rarr;&uarr;&rarr;&uarr; &middot; &darr;&darr;&darr;&darr;&darr; = REPEAT 5 [&darr;]</li><li><b>REPEAT 4 [3 moves] = 12</b>, and a 4-by-3 rectangle holds 12 squares. Same number, two pictures.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>Star route, still 8 moves:</b> &uarr; &uarr; &uarr; &rarr; &rarr; (on the star) &rarr; &rarr; &uarr;. It works because the star already sits on a shortest path.</li><li><b>Square:</b> REPEAT 4 [FORWARD 3, TURN RIGHT].</li></ul></div>
+  </div>
+</article>
+<article class="wk" id="week36">
+  <div>
+    <p class="wk-n">Week 36</p>
+    <h3 class="t">Secret Codes</h3>
+    <p class="teaches">A shift cipher and a binary decode &mdash; a rule applied systematically, which is where the year started.</p>
+    <div class="inclass"><b>In class this week</b>Place value review (2.NBT.1)</div>
+    <div class="stds"><span>2.NBT.1</span><span>MP2</span></div>
+    <div class="prep"><b>Running it</b>Ending on decoding is deliberate: every child gets a moment of the message resolving. Leave real time for them to write one for a partner.</div>
+  </div>
+  <div>
+    <div class="panel ans"><p class="hd">Answer key</p><ul><li><b>Slide code:</b> N B U I &nbsp; J T &nbsp; G V O &rarr; <b>MATH IS FUN</b></li><li><b>Computer code:</b> 0100 = 4, 0001 = 1, 0100 = 4 &rarr; 4, 1, 4 &rarr; <b>D A D</b></li><li><b>Their own message:</b> the best clues describe the <em>method</em> without giving away the key. That distinction is worth naming.</li></ul></div>
+    <div class="panel ext"><p class="hd">&#9733; Challenge Zone</p><ul><li><b>QWT EQFG</b> slid back two is <b>OUR CODE</b>.</li><li><b>Z is 26</b>, so four cards (max 15) cannot reach it &mdash; add a 16 card and you can write up to 31.</li><li><b>MATH with cards 16 8 4 2 1:</b> M = 13 = 01101, A = 1 = 00001, T = 20 = 10100, H = 8 = 01000.</li></ul></div>
+  </div>
+</article>
+  </div>
+</section>
+
+<section class="block" id="standards" style="padding-top:56px"><div class="wrap">
+  <h2>Standards this year touches</h2>
+  <p style="color:var(--ink-2)">California adopted the Common Core State Standards for Mathematics, so
+  these are the CA CCSSM Grade 2 codes. This is enrichment &mdash; it reinforces and extends these
+  standards rather than delivering them, and no standard here is taught to mastery by this program alone.</p>
+  <div class="two" style="margin-top:26px">
+    <div>
+      <h3 style="margin-bottom:12px">Content standards</h3>
+      <ul class="plain"><li><code class="std">2.OA.1</code>Use addition and subtraction within 100 to solve one- and two-step word problems</li><li><code class="std">2.OA.2</code>Fluently add and subtract within 20</li><li><code class="std">2.OA.3</code>Determine whether a group of objects is odd or even; write an even number as a sum of two equal addends</li><li><code class="std">2.OA.4</code>Use addition to find the total number of objects arranged in rectangular arrays</li><li><code class="std">2.NBT.1</code>Understand three-digit place value</li><li><code class="std">2.NBT.2</code>Count within 1000; skip-count by 5s, 10s, and 100s</li><li><code class="std">2.NBT.3</code>Read and write numbers to 1000 using base-ten numerals</li><li><code class="std">2.NBT.4</code>Compare two three-digit numbers using &gt;, =, and &lt;</li><li><code class="std">2.NBT.5</code>Fluently add and subtract within 100</li><li><code class="std">2.NBT.7</code>Add and subtract within 1000</li><li><code class="std">2.MD.1</code>Measure the length of an object using appropriate tools</li><li><code class="std">2.MD.4</code>Measure to determine how much longer one object is than another</li><li><code class="std">2.MD.5</code>Use addition and subtraction within 100 to solve problems involving lengths</li><li><code class="std">2.MD.6</code>Represent whole numbers as lengths on a number line</li><li><code class="std">2.MD.7</code>Tell and write time to the nearest five minutes</li><li><code class="std">2.MD.8</code>Solve word problems involving dollar bills, quarters, dimes, nickels, and pennies</li><li><code class="std">2.MD.10</code>Draw a picture graph and a bar graph to represent a data set</li><li><code class="std">2.G.1</code>Recognize and draw shapes having specified attributes</li><li><code class="std">2.G.2</code>Partition a rectangle into rows and columns of same-size squares and count them</li><li><code class="std">2.G.3</code>Partition circles and rectangles into halves, thirds, and fourths</li></ul>
+    </div>
+    <div>
+      <h3 style="margin-bottom:12px">Standards for Mathematical Practice</h3>
+      <ul class="plain"><li><code class="std">MP1</code>Make sense of problems and persevere in solving them</li><li><code class="std">MP2</code>Reason abstractly and quantitatively</li><li><code class="std">MP3</code>Construct viable arguments and critique the reasoning of others</li><li><code class="std">MP7</code>Look for and make use of structure</li><li><code class="std">MP8</code>Look for and express regularity in repeated reasoning</li></ul>
+      <p style="margin-top:18px; font-size:14.5px; color:var(--muted)">The practice standards are where
+      this program earns its place in the week. Nearly every page asks students to look for structure,
+      argue from a reason, or persevere past a first failed attempt &mdash; and several ask them to
+      prove something is impossible, which the regular curriculum rarely does at this age.</p>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p><b style="color:var(--ink)">A program of Young Innovators for Change</b> &middot;
+  <a href="https://innovateyouth.org">innovateyouth.org</a></p>
+  <p>Companion to the <em>Discrete Math Adventures</em> student workbook &mdash; 36 two-page assignments
+  plus a contents spread and a certificate, 77 printable pages. Answer keys above cover the main
+  activity, the practice set, and the Challenge Zone; where a task has many valid solutions, one is
+  given as a sample and noted as such.</p>
+</div></footer>
