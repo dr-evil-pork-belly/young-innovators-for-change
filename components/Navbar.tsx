@@ -16,15 +16,23 @@ const NAV_LINKS = [
   {
     label: 'Programs', href: '/programs',
     dropdown: [
-      { label: 'Leadership', href: '/programs/leadership',  desc: 'Building tomorrows CEOs today'     },
-      { label: 'Venture Lab',        href: '/programs/venture-lab', desc: 'From idea to pitch in 8 weeks'    },
-      { label: 'Financial Literacy', href: '/programs/financial-literacy',     desc: 'Money mastery for young minds'    },
-      { label: 'Discrete Math',       href: '/programs/discrete-math',       desc: 'The math of how things connect'    },
-      { label: 'Alumni Network',     href: '/programs/alumni-network',      desc: 'Lifelong community and mentorship' },
+      { label: 'Discrete Math',      href: '/programs/discrete-math',     desc: 'The math of how things connect'    },
+      { label: 'Leadership',         href: '/programs/leadership',        desc: 'Building tomorrows CEOs today'     },
+      { label: 'Venture Lab',        href: '/programs/venture-lab',       desc: 'From idea to pitch in 8 weeks'     },
+      { label: 'Financial Literacy', href: '/programs/financial-literacy', desc: 'Money mastery for young minds'    },
+      { label: 'Alumni Network',     href: '/programs/alumni-network',    desc: 'What we are building for graduates' },
     ],
   },
-  { label: 'Impact', href: '/impact', dropdown: null },
-  { label: 'About',  href: '/about',  dropdown: null },
+  { label: 'For Schools', href: '/for-schools', dropdown: null },
+  { label: 'Resources',   href: '/resources',   dropdown: null },
+  { label: 'Evidence',    href: '/impact',      dropdown: null },
+  {
+    label: 'About', href: '/about',
+    dropdown: [
+      { label: 'About us',   href: '/about',      desc: 'Who we are and what we have built' },
+      { label: 'Governance', href: '/governance', desc: 'Registration, filings and open gaps' },
+    ],
+  },
 ];
 
 const navVariants: Variants = {
@@ -322,7 +330,7 @@ export default function Navbar() {
                 animate={{ opacity: 0.3 }}
                 transition={{ delay: 0.45 }}
               >
-                Elite MBA · For Kids · For Change
+                Free curriculum · K–12 · California 501(c)(3)
               </motion.p>
             </div>
           </motion.div>
