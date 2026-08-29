@@ -14,13 +14,14 @@ import { Menu, X, ChevronDown, ArrowUpRight, Zap } from 'lucide-react';
 const NAV_LINKS = [
   { label: 'Mission',   href: '/mission',   dropdown: null },
   {
-    label: 'Programs', href: '/programs',
+    label: 'Curriculum', href: '/curriculum',
     dropdown: [
-      { label: 'Discrete Math',      href: '/programs/discrete-math',     desc: 'The math of how things connect'    },
-      { label: 'Leadership',         href: '/programs/leadership',        desc: 'Building tomorrows CEOs today'     },
-      { label: 'Venture Lab',        href: '/programs/venture-lab',       desc: 'From idea to pitch in 8 weeks'     },
-      { label: 'Financial Literacy', href: '/programs/financial-literacy', desc: 'Money mastery for young minds'    },
-      { label: 'Alumni Network',     href: '/programs/alumni-network',    desc: 'What we are building for graduates' },
+      { label: 'The full K–12 map',   href: '/curriculum',                  desc: 'Five subjects, twelve grades, honest status' },
+      { label: 'Discrete Math',       href: '/programs/discrete-math',      desc: 'Grade 2 · published and free' },
+      { label: 'Leadership',          href: '/programs/leadership',         desc: 'Building tomorrows CEOs today'     },
+      { label: 'Venture Lab',         href: '/programs/venture-lab',        desc: 'From idea to pitch in 8 weeks'     },
+      { label: 'Financial Literacy',  href: '/programs/financial-literacy', desc: 'Money mastery for young minds'     },
+      { label: 'Alumni Network',      href: '/programs/alumni-network',     desc: 'What we are building for graduates' },
     ],
   },
   { label: 'For Schools', href: '/for-schools', dropdown: null },

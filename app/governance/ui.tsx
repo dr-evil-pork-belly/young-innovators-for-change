@@ -50,7 +50,7 @@ export default function GovernanceUi() {
 
       {/* ── The record ─────────────────────────────────── */}
       <Section tinted accent={GOLD}>
-        <FadeIn className="mb-8">
+        <FadeIn style={{ marginBottom: '2rem' }}>
           <Eyebrow color={GOLD_L}>The record</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.2rem)">LEGAL STATUS.</Title>
         </FadeIn>
@@ -103,7 +103,7 @@ export default function GovernanceUi() {
 
       {/* ── People ─────────────────────────────────────── */}
       <Section>
-        <FadeIn className="mb-10">
+        <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow>Who is accountable</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.2rem)">PEOPLE.</Title>
         </FadeIn>
@@ -182,7 +182,7 @@ export default function GovernanceUi() {
 
       {/* ── Money ──────────────────────────────────────── */}
       <Section tinted>
-        <FadeIn className="mb-8">
+        <FadeIn style={{ marginBottom: '2rem' }}>
           <Eyebrow>Money</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.2rem)">WHAT WE HAVE,<br />AND WHAT WE DO NOT.</Title>
         </FadeIn>

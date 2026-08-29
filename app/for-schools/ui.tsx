@@ -66,8 +66,14 @@ export default function ForSchoolsUi() {
               placing it in classrooms. Thirty-five minutes a week, sequenced against the
               California pacing guide so it reinforces what you are already teaching.
             </p>
-            <p style={{ margin: 0 }}>
+            <p style={{ marginBottom: '0.9rem' }}>
               We are looking for teachers, not buyers. Everything is free, including the printing.
+            </p>
+            <p style={{ margin: 0, fontSize: '0.88rem' }}>
+              Grade 2 mathematics is what is finished and available for the coming year. Science,
+              the other maths grades, and the Grades 3&ndash;12 enterprise programmes are on the
+              build map &mdash; <Link href="/curriculum" style={{ color: GREEN_L }}>see exactly
+              where each one stands</Link>.
             </p>
           </>
         }
@@ -106,7 +112,7 @@ export default function ForSchoolsUi() {
 
       {/* ── How a pilot runs ───────────────────────────── */}
       <Section>
-        <FadeIn className="mb-10">
+        <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow>How a pilot runs</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">FOUR STEPS.<br />NO COMMITTEE.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '58ch', marginTop: '1rem' }}>
@@ -172,7 +178,7 @@ export default function ForSchoolsUi() {
 
       {/* ── Straight answers ───────────────────────────── */}
       <Section>
-        <FadeIn className="mb-10">
+        <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GOLD}>Straight answers</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">WHAT PRINCIPALS ASK.</Title>
         </FadeIn>
@@ -188,7 +194,7 @@ export default function ForSchoolsUi() {
 
       {/* ── Materials ──────────────────────────────────── */}
       <Section tinted>
-        <FadeIn className="mb-8">
+        <FadeIn style={{ marginBottom: '2rem' }}>
           <Eyebrow>Look before you decide</Eyebrow>
           <Title size="clamp(1.8rem, 3.6vw, 3rem)">READ IT FIRST.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '56ch', marginTop: '0.9rem' }}>

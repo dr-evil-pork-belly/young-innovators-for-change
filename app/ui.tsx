@@ -328,10 +328,10 @@ export default function HomePage() {
               className="mb-10 max-w-xl"
               style={{ fontSize: '1.05rem', lineHeight: 1.7, color: MUTED }}
             >
-              Leadership, venture building, financial literacy — and a full year of
-              mathematics for second graders. Rigorous curriculum, published in full,
-              free to any school that wants it. The boardroom has no age limit, and
-              neither should the material.
+              Mathematics and science for Grades 1&ndash;12. Leadership, entrepreneurship
+              and financial literacy from Grade 3 up. We are early &mdash; one full year
+              is written and free to download today &mdash; but everything we build gets
+              published the same way: in full, to anyone, at no cost.
             </motion.p>
 
             {/* CTAs */}
@@ -445,12 +445,13 @@ export default function HomePage() {
           </div>
         </RevealSection>
 
-        {/* Three pillars */}
-        <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3">
+        {/* Four strands — two tracks */}
+        <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
           {[
-            { num: '01', title: 'Leadership', body: 'Executive presence, decision-making, and team dynamics — taught through real scenarios, not textbooks.' },
-            { num: '02', title: 'Venture Building', body: 'Students build, pitch, and launch real micro-businesses over 8 weeks. Real stakes, real learning.' },
-            { num: '03', title: 'Financial Literacy', body: 'Budgeting, investing, and compounding interest — the money knowledge most adults never received.' },
+            { num: '01', title: 'Mathematics', body: 'Reasoning-first weekly enrichment beside the state curriculum, Grades 1–12. The Grade 2 year is written, standards-mapped and free to download today.' },
+            { num: '02', title: 'Science', body: 'Investigation-led, low materials cost, printable in black and white. Grades 1–12, and the largest part of the roadmap still to write.' },
+            { num: '03', title: 'Leadership & Venture', body: 'Executive presence, decision-making, and building a real micro-business over eight weeks. Grades 3–12, designed and being written.' },
+            { num: '04', title: 'Financial Literacy', body: 'Budgeting, credit, compounding and unit economics — the money knowledge that usually arrives through a family rather than a school.' },
           ].map((pillar, i) => (
             <RevealSection key={pillar.num} delay={i * 0.1}>
               <div

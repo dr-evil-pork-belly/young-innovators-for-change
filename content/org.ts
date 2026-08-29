@@ -105,7 +105,7 @@ export const VERIFIED_STATS: Stat[] = [];
 
 /** Facts about what has been built and committed to. All checkable today. */
 export const PROGRAM_FACTS: Stat[] = [
-  { value: '4',    label: 'Programs Designed' },
+  { value: '4',    label: 'Programs Designed', note: 'Discrete Math, Leadership, Venture Lab, Financial Literacy' },
   { value: '36',   label: 'Weeks of Curriculum', note: 'Discrete Math Adventures, Grade 2' },
   { value: '20',   label: 'CA Standards Mapped' },
   { value: '8',    label: 'Week Program', note: 'Founders and Executives tracks' },
@@ -228,3 +228,106 @@ export function fmtDate(iso: string): string {
     year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC',
   });
 }
+
+// ─── Curriculum scope ─────────────────────────────────────────────────────────
+
+/**
+ * The full K–12 scope the organization is building, and the honest status of
+ * every cell in it.
+ *
+ *   published — written in full, downloadable today
+ *   designed  — syllabus and module structure complete, materials not yet written
+ *   planned   — on the roadmap, not started
+ *   n/a       — this strand does not run at this grade band
+ *
+ * The distinction matters more than it looks. A funder reading "Grades 1–12"
+ * next to a single published year needs to see which is which, and a school
+ * needs to know what it can actually run in September.
+ */
+export type Status = 'published' | 'designed' | 'planned' | 'n/a';
+
+export type Band = { band: string; status: Status; note?: string };
+
+export type Strand = {
+  key: string;
+  name: string;
+  track: 'Academics' | 'Enterprise';
+  blurb: string;
+  bands: Band[];
+};
+
+export const GRADE_BANDS = ['Grades 1–2', 'Grades 3–5', 'Grades 6–8', 'Grades 9–12'] as const;
+
+export const CURRICULUM: Strand[] = [
+  {
+    key: 'math', name: 'Mathematics', track: 'Academics',
+    blurb: 'Reasoning-first mathematics that sits beside the state curriculum rather than '
+         + 'repeating it — discrete mathematics in the early grades, widening into proof, '
+         + 'modelling and applied problem solving.',
+    bands: [
+      { band: 'Grades 1–2',  status: 'published',
+        note: 'Grade 2 complete: 36 weeks, standards-mapped, free. Grade 1 in development.' },
+      { band: 'Grades 3–5',  status: 'planned', note: 'Grade 3 is next, after the first pilot reports.' },
+      { band: 'Grades 6–8',  status: 'planned' },
+      { band: 'Grades 9–12', status: 'planned' },
+    ],
+  },
+  {
+    key: 'science', name: 'Science', track: 'Academics',
+    blurb: 'Investigation-led science built on the same principle as the mathematics: low '
+         + 'materials cost, high reasoning demand, and every lesson printable on a school copier.',
+    bands: [
+      { band: 'Grades 1–2',  status: 'planned' },
+      { band: 'Grades 3–5',  status: 'planned' },
+      { band: 'Grades 6–8',  status: 'planned' },
+      { band: 'Grades 9–12', status: 'planned' },
+    ],
+  },
+  {
+    key: 'leadership', name: 'Leadership', track: 'Enterprise',
+    blurb: 'Executive presence, decision-making and team dynamics, taught through real '
+         + 'scenarios rather than textbooks.',
+    bands: [
+      { band: 'Grades 1–2',  status: 'n/a' },
+      { band: 'Grades 3–5',  status: 'designed', note: 'Founders Track — 8 weeks.' },
+      { band: 'Grades 6–8',  status: 'designed' },
+      { band: 'Grades 9–12', status: 'designed', note: 'Executives Track — 8 weeks.' },
+    ],
+  },
+  {
+    key: 'venture', name: 'Entrepreneurship', track: 'Enterprise',
+    blurb: 'Students build, price and pitch a real micro-business over eight weeks, ending '
+         + 'in a live pitch to a panel.',
+    bands: [
+      { band: 'Grades 1–2',  status: 'n/a' },
+      { band: 'Grades 3–5',  status: 'designed' },
+      { band: 'Grades 6–8',  status: 'designed' },
+      { band: 'Grades 9–12', status: 'designed' },
+    ],
+  },
+  {
+    key: 'finance', name: 'Financial Literacy', track: 'Enterprise',
+    blurb: 'Budgeting, credit, compounding and unit economics — the money knowledge most '
+         + 'adults were never taught, at an age where it still changes decisions.',
+    bands: [
+      { band: 'Grades 1–2',  status: 'n/a' },
+      { band: 'Grades 3–5',  status: 'designed' },
+      { band: 'Grades 6–8',  status: 'designed' },
+      { band: 'Grades 9–12', status: 'designed' },
+    ],
+  },
+];
+
+export const STATUS_LABEL: Record<Status, string> = {
+  published: 'Published',
+  designed:  'Designed',
+  planned:   'Planned',
+  'n/a':     '—',
+};
+
+export function countByStatus(s: Status): number {
+  return CURRICULUM.reduce((n, st) => n + st.bands.filter((b) => b.status === s).length, 0);
+}
+
+/** Where a school can actually start today. */
+export const AVAILABLE_NOW = 'Grade 2 mathematics — Discrete Math Adventures, 36 weeks.';

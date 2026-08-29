@@ -44,16 +44,39 @@ export const stagger: Variants = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-export function FadeIn({ children, delay = 0, className = '', v = fadeUp }: {
-  children: React.ReactNode; delay?: number; className?: string; v?: Variants;
+export function FadeIn({ children, delay = 0, className = '', style, v = fadeUp }: {
+  children: React.ReactNode; delay?: number; className?: string;
+  style?: React.CSSProperties; v?: Variants;
 }) {
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-50px' });
   return (
     <motion.div ref={ref} variants={v} initial="hidden"
-      animate={inView ? 'visible' : 'hidden'} transition={{ delay }} className={className}>
+      animate={inView ? 'visible' : 'hidden'} transition={{ delay }}
+      className={className} style={style}>
       {children}
     </motion.div>
+  );
+}
+
+/**
+ * Layout is done with inline styles rather than Tailwind utilities on purpose.
+ * The global reset sets margin/padding on `*`, and for a long time it sat
+ * outside any cascade layer — which silently killed every px-*, py-* and
+ * mx-auto on the site. That is fixed in globals.css now, but these components
+ * should not depend on it.
+ */
+const PAD_X = 'clamp(1.25rem, 4vw, 3rem)';
+const PAD_Y = 'clamp(3.5rem, 7vw, 6rem)';
+
+export function Container({ children, style }: {
+  children: React.ReactNode; style?: React.CSSProperties;
+}) {
+  return (
+    <div style={{ width: '100%', maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto',
+      paddingLeft: PAD_X, paddingRight: PAD_X, ...style }}>
+      {children}
+    </div>
   );
 }
 
@@ -124,7 +147,7 @@ export function Section({ id, children, tinted = false, accent = ROYAL }: {
         borderBottom: `1px solid rgba(${rgb},0.08)`,
       } : undefined}
     >
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12">{children}</div>
+      <Container style={{ paddingTop: PAD_Y, paddingBottom: PAD_Y }}>{children}</Container>
     </section>
   );
 }
@@ -145,8 +168,8 @@ export function Hero({ eyebrow, title, lede, accent = ROYAL_L, children }: {
 }) {
   const rgb = accent === GOLD || accent === GOLD_L ? '201,168,76' : '37,99,235';
   return (
-    <section className="relative overflow-hidden" style={{ paddingTop: '5rem' }}>
-      <div className="absolute inset-0 pointer-events-none">
+    <section style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem' }}>
+      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
         <div style={{ position: 'absolute', inset: 0,
           background: 'linear-gradient(145deg, #060C10 0%, #0F172A 58%, #0A1428 100%)' }} />
         <div style={{ position: 'absolute', top: '6%', right: '-8%', width: '58%', height: '72%',
@@ -156,7 +179,8 @@ export function Hero({ eyebrow, title, lede, accent = ROYAL_L, children }: {
                            `linear-gradient(90deg, rgba(${rgb},0.03) 1px, transparent 1px)`,
           backgroundSize: '56px 56px' }} />
       </div>
-      <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-16 lg:px-12">
+      <Container style={{ position: 'relative', paddingTop: 'clamp(3.5rem, 7vw, 5.5rem)',
+        paddingBottom: 'clamp(3rem, 6vw, 4.5rem)' }}>
         <motion.div variants={stagger} initial="hidden" animate="visible">
           <motion.div variants={fadeIn}><Eyebrow color={accent}>{eyebrow}</Eyebrow></motion.div>
           <motion.h1 variants={fadeUp} style={{ fontFamily: DISPLAY,
@@ -170,7 +194,7 @@ export function Hero({ eyebrow, title, lede, accent = ROYAL_L, children }: {
           </motion.div>
           {children && <motion.div variants={fadeUp} style={{ marginTop: '2rem' }}>{children}</motion.div>}
         </motion.div>
-      </div>
+      </Container>
     </section>
   );
 }

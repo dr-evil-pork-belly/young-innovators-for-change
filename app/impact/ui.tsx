@@ -102,7 +102,7 @@ export default function ImpactUi() {
 
       {/* ── What exists ────────────────────────────────── */}
       <Section tinted>
-        <FadeIn className="mb-10">
+        <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow>What exists today</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">BUILT, NOT CLAIMED.</Title>
         </FadeIn>
@@ -131,7 +131,7 @@ export default function ImpactUi() {
 
       {/* ── The research base ──────────────────────────── */}
       <Section>
-        <FadeIn className="mb-10">
+        <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GOLD}>The research base</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">WHAT THE LITERATURE<br />DOES AND DOES NOT SUPPORT.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
@@ -194,7 +194,7 @@ export default function ImpactUi() {
 
       {/* ── How we will measure ────────────────────────── */}
       <Section tinted accent={GOLD}>
-        <FadeIn className="mb-10">
+        <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GREEN_L}>The evaluation</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">HOW WE WILL KNOW.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
@@ -224,7 +224,7 @@ export default function ImpactUi() {
 
       {/* ── Disconfirming ──────────────────────────────── */}
       <Section>
-        <FadeIn className="mb-8">
+        <FadeIn style={{ marginBottom: '2rem' }}>
           <Eyebrow color="#FDA29B">Pre-committed</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">WHAT WOULD SHOW<br />WE ARE WRONG.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '62ch', marginTop: '1rem' }}>
@@ -311,7 +311,7 @@ export default function ImpactUi() {
 
       {hasTestimonials && (
         <Section>
-          <FadeIn className="mb-8"><Eyebrow>Voices from the field</Eyebrow><Title>WHAT THEY SAY.</Title></FadeIn>
+          <FadeIn style={{ marginBottom: '2rem' }}><Eyebrow>Voices from the field</Eyebrow><Title>WHAT THEY SAY.</Title></FadeIn>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
             {TESTIMONIALS.map((t) => (
               <Card key={t.name} accent={ROYAL_L} pad="1.6rem">

@@ -18,7 +18,7 @@ const CHAIN = [
   {
     stage: 'Activities',
     accent: ROYAL_L,
-    items: ['Weekly enrichment in Grade 2 classrooms', 'Eight-week programs for older students',
+    items: ['Weekly maths and science enrichment, Grades 1–12', 'Eight-week enterprise intensives, Grades 3–12',
             'Teacher orientation and support', 'Everything published free'],
   },
   {
@@ -62,9 +62,10 @@ export default function MissionUi() {
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              We build rigorous curriculum in business and mathematics, and we give it away —
-              because the barrier for most children was never capability. It was whether anyone
-              handed them the material.
+              We build rigorous curriculum &mdash; mathematics and science across Grades
+              1&ndash;12, and leadership, entrepreneurship and financial literacy from Grade 3
+              up &mdash; and we give it away. The barrier for most children was never
+              capability. It was whether anyone handed them the material.
             </p>
             <p style={{ margin: 0 }}>
               This page sets out what we think the problem is, exactly what we do about it, what
@@ -106,15 +107,16 @@ export default function MissionUi() {
 
       {/* ── What we do ─────────────────────────────────── */}
       <Section>
-        <FadeIn className="mb-10">
+        <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GOLD}>What we actually do</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">BUILD IT PROPERLY.<br />THEN GIVE IT AWAY.</Title>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '1rem' }}>
           {[
             { t: 'Write the curriculum ourselves', a: ROYAL_L,
-              d: 'Not a workshop series or a licensed kit. A full year of material, week by week, '
-               + 'mapped to the standards a class is already teaching that month.' },
+              d: 'Not a workshop series or a licensed kit. Full years of material, week by week, '
+               + 'mapped to the standards a class is already teaching that month — with an honest '
+               + 'status published on every grade band we have not reached yet.' },
             { t: 'Publish all of it, free', a: GOLD,
               d: 'Workbook, answer key, research paper, adoption packet. No email wall. A school '
                + 'that never speaks to us can still run the program.' },
@@ -138,7 +140,7 @@ export default function MissionUi() {
 
       {/* ── Logic model ────────────────────────────────── */}
       <Section tinted accent={GOLD}>
-        <FadeIn className="mb-10">
+        <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GOLD_L}>Theory of change</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">FROM WHAT WE PUT IN<br />TO WHAT WE HOPE CHANGES.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '62ch', marginTop: '1rem' }}>
@@ -185,7 +187,7 @@ export default function MissionUi() {
 
       {/* ── Assumptions ────────────────────────────────── */}
       <Section>
-        <FadeIn className="mb-10">
+        <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color="#FDA29B">Load-bearing assumptions</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">WHAT HAS TO BE TRUE.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '60ch', marginTop: '1rem' }}>

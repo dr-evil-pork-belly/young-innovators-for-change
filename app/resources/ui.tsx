@@ -154,9 +154,10 @@ export default function ResourcesUi() {
               <p style={{ fontFamily: DISPLAY, fontSize: '1.9rem', letterSpacing: '0.02em',
                 color: WHITE, marginBottom: '0.4rem' }}>MORE IS COMING.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '54ch' }}>
-                Assessment instruments, a teacher training deck, and a Grade 3 year are next —
-                after the first pilot, so that they are shaped by a real classroom rather than a
-                guess about one.
+                Assessment instruments, a teacher training deck, then Grade 3 and Grade 1 — after
+                the first pilot, so they are shaped by a real classroom rather than a guess about
+                one. Science and the Grades 3–12 enterprise materials follow. The full map, with
+                an honest status on every grade band, is on the curriculum page.
               </p>
             </div>
             <Link href="/for-schools" className="btn-gold">Run the pilot <ArrowUpRight size={14} /></Link>
