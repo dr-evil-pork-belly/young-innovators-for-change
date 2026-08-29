@@ -145,6 +145,64 @@ export const LEADERSHIP: Person[] = [
 ];
 
 /**
+ * FOUNDER — biography.
+ *
+ * PROVENANCE, and read this before editing: unlike everything above, none of
+ * this is a public record. It is Cindy's own account of her life, and it is on
+ * the site because she chose to put it there. That makes it a different kind of
+ * claim from the EIN — not weaker, but checkable by a different method, which is
+ * asking her.
+ *
+ * The rule that follows from that: every line here should be one she would say
+ * out loud, unedited, to a programme officer sitting across a table. Nothing
+ * here is rounded up. No institution is named that she did not attend, no title
+ * is inflated, and no number appears that she did not give.
+ */
+export const FOUNDER = {
+  name: 'Cindy Ha',
+  role: 'Founder & Executive Director',
+
+  /** founder-attested */
+  raisedIn:  'Highland Park, Los Angeles',
+  schooling: 'Los Angeles Unified School District',
+  college:   'University of California, Irvine',
+  studiedAbroad: 'Italy',
+
+  /**
+   * TODO — she holds an MBA. Put the school here and the About page names it;
+   * leave it empty and the page says "an MBA" and names nothing.
+   *
+   * Do not fill this in from memory or from an older draft of the site. A named
+   * institution is the single most checkable thing on this page, and a grant
+   * reviewer who finds one wrong claim re-reads everything else differently.
+   */
+  mbaSchool: '',
+
+  /** founder-attested — the business she built and exited */
+  business: {
+    startedFrom: '900-square-foot retail storefront',
+    grewInto:    'retail, wholesale, import and e-commerce',
+    exit:        'sold after the birth of her first child',
+  },
+
+  /**
+   * Direct quotes. These are Cindy's words, lightly punctuated.
+   *
+   * If she would not say a sentence in this shape, change the sentence — do not
+   * keep it because it reads well.
+   */
+  quotes: {
+    theBusiness:
+      'Looking back, those were the best moments — the ideas, and the sweat. '
+      + 'It is the unknown. That combination.',
+    theMBA:
+      'If only I had known all of this at a much younger age.',
+    theThesis:
+      'Think about compound interest, but for knowledge.',
+  },
+} as const;
+
+/**
  * Advisors. EMPTY BY DESIGN. Add a person only when all three are true:
  *   1. They have agreed in writing to be listed.
  *   2. Their title and affiliation are current and exactly as they would state them.

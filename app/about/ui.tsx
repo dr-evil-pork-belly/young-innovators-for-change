@@ -1,638 +1,441 @@
 'use client';
 
-import { useRef } from 'react';
-import {
-  motion,
-  useInView,
-  useScroll,
-  useTransform,
-  type Variants,
-} from 'framer-motion';
-import {
-  ArrowUpRight, GraduationCap, Heart, Users,
-  MapPin, Award, BookOpen, Star, Quote,
-  ChevronRight, Linkedin, Mail,
-} from 'lucide-react';
 import Link from 'next/link';
-import { ADVISORS, LEADERSHIP, hasAdvisors, type Person } from '@/content/org';
+import { ArrowUpRight, Quote, MapPin, Store, GraduationCap, Landmark } from 'lucide-react';
+import {
+  Page, Hero, Section, Eyebrow, Title, FadeIn, Card,
+  WHITE, MUTED, GOLD, GOLD_L, ROYAL_L, GREEN_L, DISPLAY,
+} from '@/components/kit';
+import {
+  FOUNDER, LEADERSHIP, ADVISORS, BOARD, hasAdvisors, hasBoard,
+  ORG, fmtDate, type Person,
+} from '@/content/org';
 
-// ── Design Tokens — Forbes Dark Edition ──────────────────────────────────────
-const INK      = '#0A0A0B';   // near-black ink
-const PAPER    = '#F5F0E8';   // aged newsprint cream
-const SLATE    = '#0F172A';   // deep navy slate
-const SLATE_2  = '#1E293B';
-const SLATE_3  = '#334155';
-const MUTED    = '#94A3B8';
-const WHITE    = '#F8FAFC';
-const ROYAL    = '#2563EB';
-const ROYAL_L  = '#3B82F6';
-const GOLD     = '#C9A84C';
-const GOLD_L   = '#E8C94F';
-const WARM     = '#D4C5A9';   // warm cream text
+/** Pull quotes only. The rest of the page uses the site's sans. */
+const SERIF = "'Playfair Display', Georgia, 'Times New Roman', serif";
 
-// ── Typography — editorial font stack ────────────────────────────────────────
-// We load Playfair Display via Google Fonts in the style tag below
-const SERIF  = "'Playfair Display', Georgia, 'Times New Roman', serif";
-const SANS   = "'DM Sans', system-ui, sans-serif";
-const DISPLAY= "'Bebas Neue', Impact, sans-serif";
-
-// ── Variants ──────────────────────────────────────────────────────────────────
-const fadeUp: Variants = {
-  hidden:  { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
-};
-const fadeIn: Variants = {
-  hidden:  { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.6 } },
-};
-const stagger: Variants = {
-  hidden:  {},
-  visible: { transition: { staggerChildren: 0.12 } },
+const BODY: React.CSSProperties = {
+  fontSize: '1rem', lineHeight: 1.85, color: MUTED, marginBottom: '1.1rem',
 };
 
-function FadeIn({ children, delay = 0, className = '', v = fadeUp }: {
-  children: React.ReactNode; delay?: number; className?: string; v?: Variants;
-}) {
-  const ref    = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-56px' });
-  return (
-    <motion.div ref={ref} variants={v} initial="hidden"
-      animate={inView ? 'visible' : 'hidden'} transition={{ delay }} className={className}>
-      {children}
-    </motion.div>
-  );
-}
-
-
-// ── Credential Badge ──────────────────────────────────────────────────────────
-function CredBadge({ icon: Icon, label, sublabel }: {
-  icon: React.ElementType; label: string; sublabel: string;
+/** Two-column section: display heading on the left, running copy on the right. */
+function Spread({ eyebrow, accent = ROYAL_L, title, children }: {
+  eyebrow: string; accent?: string; title: React.ReactNode; children: React.ReactNode;
 }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.875rem' }}>
-      <div style={{ width: '36px', height: '36px', flexShrink: 0, background: 'rgba(37,99,235,0.1)', border: '1px solid rgba(37,99,235,0.2)', borderRadius: '3px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: ROYAL_L, marginTop: '2px' }}>
-        <Icon size={16} />
-      </div>
-      <div>
-        <p style={{ fontSize: '0.875rem', fontWeight: 700, color: WHITE, marginBottom: '1px' }}>{label}</p>
-        <p style={{ fontSize: '0.75rem', color: MUTED, lineHeight: 1.45 }}>{sublabel}</p>
-      </div>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
+      gap: 'clamp(2rem, 5vw, 4rem)', alignItems: 'start' }}>
+      <FadeIn>
+        <Eyebrow color={accent}>{eyebrow}</Eyebrow>
+        <Title size="clamp(1.9rem, 4vw, 3.2rem)">{title}</Title>
+      </FadeIn>
+      <FadeIn delay={0.1}>
+        <div style={{ maxWidth: '58ch' }}>{children}</div>
+      </FadeIn>
     </div>
   );
 }
 
-// ── Advisor Card ──────────────────────────────────────────────────────────────
-function AdvisorCard({ advisor, delay }: { advisor: Person; delay: number }) {
-  const ref    = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-40px' });
-
+function PullQuote({ children, accent = GOLD }: { children: React.ReactNode; accent?: string }) {
   return (
-    <motion.div
-      ref={ref}
-      variants={fadeUp}
-      initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
-      transition={{ delay }}
-      style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}
-    >
-      {/* Grayscale portrait placeholder with grain */}
-      <div style={{
-        aspectRatio: '3 / 4',
-        background:  'linear-gradient(160deg, #1a1f2e 0%, #2a3040 40%, #1e2535 100%)',
-        border:      '1px solid rgba(255,255,255,0.07)',
-        borderRadius: '2px',
-        position:    'relative',
-        overflow:    'hidden',
-        display:     'flex',
-        alignItems:  'center',
-        justifyContent: 'center',
-      }}>
-        {/* Grain texture overlay */}
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E")`, backgroundSize: '150px', opacity: 0.6 }} />
-        {/* Vignette */}
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%)' }} />
-        {/* Initials */}
-        <span style={{ fontFamily: SERIF, fontSize: '2.5rem', fontWeight: 700, color: 'rgba(255,255,255,0.18)', letterSpacing: '0.1em', position: 'relative', zIndex: 1 }}>
-          {advisor.initials}
-        </span>
-        {/* Coming soon label */}
-        <div style={{ position: 'absolute', bottom: '0.75rem', left: '0.75rem', padding: '0.2rem 0.6rem', background: 'rgba(0,0,0,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '2px', backdropFilter: 'blur(4px)' }}>
-          <span style={{ fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.35)' }}>Photo Coming</span>
-        </div>
-      </div>
-
-      {/* Name + title */}
-      <div>
-        <p style={{ fontSize: '0.875rem', fontWeight: 700, color: WHITE, marginBottom: '2px' }}>{advisor.name}</p>
-        <p style={{ fontSize: '0.75rem', color: MUTED, lineHeight: 1.45, marginBottom: '4px' }}>{advisor.title}</p>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', padding: '0.2rem 0.5rem', background: 'rgba(37,99,235,0.08)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '2px' }}>
-          <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: ROYAL_L }}>{advisor.area}</span>
-        </div>
-      </div>
-    </motion.div>
+    <div style={{ borderLeft: `3px solid ${accent}`, paddingLeft: 'clamp(1.1rem, 3vw, 1.75rem)',
+      margin: '2rem 0' }}>
+      <Quote size={18} color={`${accent}70`} style={{ marginBottom: '0.6rem' }} />
+      <p style={{ fontFamily: SERIF, fontSize: 'clamp(1.15rem, 2.2vw, 1.4rem)', fontStyle: 'italic',
+        fontWeight: 600, lineHeight: 1.55, color: WHITE, marginBottom: '0.7rem' }}>
+        {children}
+      </p>
+      <cite style={{ fontSize: '0.7rem', fontStyle: 'normal', fontWeight: 700,
+        letterSpacing: '0.16em', textTransform: 'uppercase' as const, color: accent }}>
+        — {FOUNDER.name}
+      </cite>
+    </div>
   );
 }
 
-// ── Page ──────────────────────────────────────────────────────────────────────
-export default function AboutPage() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+/** Person tile. No portrait placeholder — an empty frame reads as a missing photo. */
+function PersonCard({ person }: { person: Person }) {
+  return (
+    <Card accent={ROYAL_L} pad="1.6rem">
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', marginBottom: '1rem' }}>
+        <div style={{ width: '44px', height: '44px', flexShrink: 0, borderRadius: '3px',
+          background: 'rgba(37,99,235,0.12)', border: '1px solid rgba(37,99,235,0.28)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontFamily: DISPLAY, fontSize: '1.15rem', letterSpacing: '0.06em', color: ROYAL_L }}>
+          {person.initials}
+        </div>
+        <div>
+          <p style={{ fontSize: '0.98rem', fontWeight: 700, color: WHITE }}>{person.name}</p>
+          <p style={{ fontSize: '0.76rem', color: GOLD_L }}>{person.title}</p>
+        </div>
+      </div>
+      {person.bio && (
+        <p style={{ fontSize: '0.83rem', lineHeight: 1.75, color: MUTED }}>{person.bio}</p>
+      )}
+    </Card>
+  );
+}
+
+export default function AboutUi() {
+  // The MBA institution is named only if it has been filled in deliberately.
+  const mba = FOUNDER.mbaSchool
+    ? `an MBA from ${FOUNDER.mbaSchool}`
+    : 'an MBA';
 
   return (
-    <div style={{ background: SLATE, minHeight: '100vh', color: WHITE, fontFamily: SANS }}>
-
-      {/* Load Playfair Display */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&display=swap');
-
-        .drop-cap::first-letter {
-          font-family: 'Playfair Display', Georgia, serif;
-          font-size: 5.5rem;
-          font-weight: 900;
-          line-height: 0.75;
-          float: left;
-          margin-right: 0.12em;
-          margin-top: 0.08em;
-          color: #F8FAFC;
-          letter-spacing: -0.02em;
+    <Page>
+      <Hero
+        eyebrow="About · the founder"
+        accent={GOLD_L}
+        title={<>NOBODY TAUGHT HER<br />HOW BUSINESS WORKS.<br />
+          <span style={{ color: GOLD_L }}>SHE BUILT ONE ANYWAY.</span></>}
+        lede={
+          <>
+            <p style={{ marginBottom: '0.9rem' }}>
+              {FOUNDER.name} grew up in {FOUNDER.raisedIn}, went through Los Angeles public
+              schools doing exactly what was asked of her, and came out the other side without
+              ever having been told how a business actually works. She found out by opening
+              one — nine hundred square feet, renovated by hand.
+            </p>
+            <p style={{ margin: 0 }}>
+              She went back for {mba} afterwards, and discovered a whole field she had spent
+              years improvising against. Young Innovators for Change exists because of the
+              order of those two things.
+            </p>
+          </>
         }
-        .editorial-rule {
-          border: none;
-          border-top: 1px solid rgba(255,255,255,0.08);
-          margin: 0;
-        }
-        .editorial-rule-gold {
-          border: none;
-          border-top: 1px solid rgba(201,168,76,0.25);
-          margin: 0;
-        }
-        @keyframes shimmerGold {
-          0%   { background-position: -200% center; }
-          100% { background-position:  200% center; }
-        }
-      ` }} />
-
-      {/* ══════════════════════════════════════════════════════
-          MAGAZINE COVER HERO
-      ══════════════════════════════════════════════════════ */}
-      <section ref={heroRef} className="relative overflow-hidden" style={{ paddingTop: '5rem', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
-
-        {/* Background */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(160deg, #070B14 0%, #0F172A 50%, #0A0F1E 100%)` }} />
-          {/* Warm spotlight center */}
-          <div style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)', width: '60%', height: '70%', background: 'radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 65%)' }} />
-          {/* Fine grain */}
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")`, backgroundSize: '200px', opacity: 0.8 }} />
-          {/* Horizontal rules — magazine layout */}
-          <div style={{ position: 'absolute', top: '5.5rem', left: 0, right: 0, height: '1px', background: 'rgba(255,255,255,0.05)' }} />
-          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-        </div>
-
-        <motion.div style={{ y: heroY }} className="relative w-full">
-          <div className="mx-auto max-w-7xl px-6 lg:px-16 py-20">
-            <motion.div variants={stagger} initial="hidden" animate="visible">
-
-              {/* Issue label — magazine masthead style */}
-              <motion.div variants={fadeIn} style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '3rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <div style={{ width: '32px', height: '1px', background: GOLD }} />
-                  <span style={{ fontFamily: SANS, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase' as const, color: GOLD }}>
-                    YIC — About
-                  </span>
-                  <div style={{ width: '32px', height: '1px', background: GOLD }} />
-                </div>
-                <span style={{ fontFamily: SANS, fontSize: '0.6rem', letterSpacing: '0.2em', color: SLATE_3, textTransform: 'uppercase' as const }}>
-                  The Founder's Story
-                </span>
-              </motion.div>
-
-              {/* Massive editorial headline */}
-              <motion.div variants={fadeUp} style={{ marginBottom: '2rem' }}>
-                <h1 style={{
-                  fontFamily:  SERIF,
-                  fontSize:    'clamp(3rem, 7vw, 6.5rem)',
-                  fontWeight:  900,
-                  lineHeight:  1.0,
-                  letterSpacing: '-0.02em',
-                  color:       WHITE,
-                  marginBottom: '0.25rem',
-                }}>
-                  The Woman Who Decided
-                </h1>
-                <h1 style={{
-                  fontFamily:    SERIF,
-                  fontSize:      'clamp(3rem, 7vw, 6.5rem)',
-                  fontWeight:    900,
-                  lineHeight:    1.0,
-                  letterSpacing: '-0.02em',
-                  fontStyle:     'italic',
-                  background:    `linear-gradient(135deg, ${GOLD} 0%, ${GOLD_L} 40%, ${GOLD} 100%)`,
-                  backgroundSize: '200% auto',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor:  'transparent',
-                  backgroundClip:       'text',
-                  animation:            'shimmerGold 5s linear infinite',
-                }}>
-                  Every Child Deserves
-                </h1>
-                <h1 style={{
-                  fontFamily:  SERIF,
-                  fontSize:    'clamp(3rem, 7vw, 6.5rem)',
-                  fontWeight:  900,
-                  lineHeight:  1.0,
-                  letterSpacing: '-0.02em',
-                  color:       WHITE,
-                }}>
-                  an MBA.
-                </h1>
-              </motion.div>
-
-              {/* Sub-deck — magazine style */}
-              <motion.p variants={fadeUp} style={{
-                fontFamily:  SERIF,
-                fontSize:    '1.2rem',
-                fontStyle:   'italic',
-                lineHeight:  1.7,
-                color:       WARM,
-                maxWidth:    '600px',
-                marginBottom: '3rem',
-              }}>
-                How a USC MBA graduate and mother of four walked into a Glendora
-                classroom and started a movement that is rewriting the rules of
-                who gets access to elite business education.
-              </motion.p>
-
-              {/* Byline — editorial */}
-              <motion.div variants={fadeIn} style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-                <div style={{ width: '1px', height: '2.5rem', background: 'rgba(201,168,76,0.4)' }} />
-                <div>
-                  <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: GOLD, marginBottom: '2px' }}>Cindy Ha</p>
-                  <p style={{ fontSize: '0.7rem', color: MUTED, letterSpacing: '0.05em' }}>Founder & Executive Director, Young Innovators for Change</p>
-                </div>
-                <div style={{ width: '1px', height: '2.5rem', background: 'rgba(255,255,255,0.08)' }} />
-                <div>
-                  <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: MUTED, marginBottom: '2px' }}>Est. 2024</p>
-                  <p style={{ fontSize: '0.7rem', color: MUTED }}>Glendora, California</p>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
-
-      <hr className="editorial-rule" />
-
-      {/* ══════════════════════════════════════════════════════
-          FOUNDER PROFILE — Two-column magazine spread
-      ══════════════════════════════════════════════════════ */}
-      <section className="mx-auto max-w-7xl px-6 lg:px-16 py-24">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '5rem', alignItems: 'start' }}>
-
-          {/* Left — portrait + credentials */}
-          <FadeIn>
-            <div>
-              {/* Portrait */}
-              <div style={{
-                aspectRatio: '4 / 5',
-                background:  'linear-gradient(175deg, #151c2e 0%, #1e2840 50%, #141b2c 100%)',
-                border:      '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '2px',
-                position:    'relative',
-                overflow:    'hidden',
-                marginBottom: '2rem',
-              }}>
-                {/* Grain */}
-                <div style={{ position: 'absolute', inset: 0, backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E")`, backgroundSize: '140px' }} />
-                {/* Vignette */}
-                <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 40%, transparent 35%, rgba(0,0,0,0.55) 100%)' }} />
-                {/* Initials */}
-                <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontFamily: SERIF, fontSize: '5rem', fontWeight: 900, color: 'rgba(255,255,255,0.1)', letterSpacing: '0.1em' }}>CH</span>
-                </div>
-                {/* Gold caption bar */}
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1rem 1.25rem', background: 'linear-gradient(0deg, rgba(0,0,0,0.85), transparent)', borderTop: `1px solid ${GOLD}22` }}>
-                  <p style={{ fontFamily: SERIF, fontStyle: 'italic', fontSize: '0.8rem', color: WARM }}>Cindy Ha — Founder & Executive Director</p>
-                  <p style={{ fontSize: '0.65rem', color: MUTED, marginTop: '2px' }}>Young Innovators for Change · Glendora, CA</p>
-                </div>
-              </div>
-
-              {/* Credentials */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <p style={{ fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase' as const, color: ROYAL_L, marginBottom: '0.25rem' }}>Credentials</p>
-                <CredBadge icon={GraduationCap} label="USC Marshall MBA"     sublabel="Master of Business Administration, University of Southern California" />
-                <CredBadge icon={Heart}         label="Mother of Four"       sublabel="Firsthand insight into child development and education inequity" />
-                <CredBadge icon={MapPin}        label="Glendora, California" sublabel="Where the work began, and where the first classroom pilot is being placed" />
-                <CredBadge icon={Users}         label="First cohort pending" sublabel="No class has completed a program yet; outcomes will be published when they exist" />
-                <CredBadge icon={Award}         label="501(c)(3) — EIN 33-1544346" sublabel="California nonprofit public benefit corporation, determined October 2024" />
-              </div>
-
-              {/* Social */}
-              <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.75rem' }}>
-                {[{ icon: Linkedin, label: 'LinkedIn' }, { icon: Mail, label: 'Email' }].map(({ icon: Icon, label }) => (
-                  <button key={label} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.6rem 1rem', background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(37,99,235,0.18)', borderRadius: '3px', color: MUTED, fontSize: '0.72rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', fontFamily: SANS }}
-                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = ROYAL_L; e.currentTarget.style.color = WHITE; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(37,99,235,0.18)'; e.currentTarget.style.color = MUTED; }}
-                  >
-                    <Icon size={13} /> {label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </FadeIn>
-
-          {/* Right — editorial profile copy */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
-            <FadeIn>
-              <p style={{ fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase' as const, color: GOLD }}>The Founder's Profile</p>
-            </FadeIn>
-
-            <FadeIn delay={0.05}>
-              <p className="drop-cap" style={{ fontFamily: SANS, fontSize: '1.05rem', lineHeight: 1.85, color: WARM, overflow: 'hidden' }}>
-                Cindy Ha did not set out to build a nonprofit. She set out to answer
-                a question that had been nagging at her since the day she received
-                her MBA from USC Marshall: why is this knowledge only accessible to
-                people who already have money?
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={0.1}>
-              <p style={{ fontFamily: SANS, fontSize: '1.05rem', lineHeight: 1.85, color: MUTED }}>
-                As a mother of four children navigating the Los Angeles school system,
-                she watched the gap widen year after year. Private schools ran
-                entrepreneurship clubs. Prep academies offered investing courses.
-                Meanwhile, the schools in Glendora, where she lived and worked, were
-                lucky to have a single economics elective.
-              </p>
-            </FadeIn>
-
-            {/* Pull quote — magazine feature style */}
-            <FadeIn delay={0.12}>
-              <div style={{ borderLeft: `3px solid ${GOLD}`, paddingLeft: '1.75rem', margin: '0.5rem 0' }}>
-                <Quote size={20} color={`${GOLD}60`} style={{ marginBottom: '0.5rem' }} />
-                <p style={{ fontFamily: SERIF, fontSize: '1.35rem', fontStyle: 'italic', fontWeight: 600, lineHeight: 1.5, color: WHITE, marginBottom: '0.75rem' }}>
-                  "I was not trying to start a movement. I was trying to answer one
-                  question: what happens if we give underserved kids the exact same
-                  tools we give MBA students?"
-                </p>
-                <cite style={{ fontSize: '0.72rem', fontStyle: 'normal', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: GOLD }}>
-                  — Cindy Ha
-                </cite>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.15}>
-              <p style={{ fontFamily: SANS, fontSize: '1.05rem', lineHeight: 1.85, color: MUTED }}>
-                So she stopped asking the question and started building the answer.
-                Armed with her USC MBA frameworks and a deep understanding of how
-                children actually learn, she designed an 8-week curriculum that
-                compressed the essential pillars of a business education into a
-                format a 10-year-old could not just understand, but be genuinely
-                excited by.
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={0.18}>
-              <p style={{ fontFamily: SANS, fontSize: '1.05rem', lineHeight: 1.85, color: MUTED }}>
-                Young Innovators for Change was incorporated in California in October
-                2024 and recognised as a 501(c)(3) public charity that same month. Since
-                then the work has been building: four programmes designed, a full
-                36-week mathematics year written for second graders, and every page of
-                it published free. The first classroom pilot is being placed now &mdash;
-                and when it runs, what we learn will be published here whether or not it
-                flatters us.
-              </p>
-            </FadeIn>
-
-            {/* Stats strip */}
-            <FadeIn delay={0.2}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: 'rgba(37,99,235,0.1)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '3px', overflow: 'hidden', marginTop: '0.5rem' }}>
-                {[
-                  { val: '2024', lbl: 'Incorporated' },
-                  { val: '36',   lbl: 'Weeks Written' },
-                  { val: '4',    lbl: 'Programmes' },
-                ].map(({ val, lbl }) => (
-                  <div key={lbl} style={{ padding: '1.25rem', background: 'rgba(15,23,42,0.6)', textAlign: 'center' }}>
-                    <p style={{ fontFamily: DISPLAY, fontSize: '2.2rem', color: WHITE, lineHeight: 1, letterSpacing: '0.04em' }}>{val}</p>
-                    <p style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: MUTED, marginTop: '4px' }}>{lbl}</p>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      <hr className="editorial-rule-gold" />
-
-      {/* ══════════════════════════════════════════════════════
-          FOUNDER'S LETTER
-      ══════════════════════════════════════════════════════ */}
-      <section style={{ background: 'rgba(15,23,42,0.5)' }}>
-        <div className="mx-auto max-w-4xl px-6 lg:px-12 py-24">
-
-          <FadeIn className="mb-12">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div style={{ width: '2.5rem', height: '1px', background: GOLD }} />
-              <p style={{ fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.3em', textTransform: 'uppercase' as const, color: GOLD }}>
-                A Letter from the Founder
-              </p>
-            </div>
-          </FadeIn>
-
-          {/* Letter heading */}
-          <FadeIn delay={0.05}>
-            <h2 style={{ fontFamily: SERIF, fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 700, lineHeight: 1.15, letterSpacing: '-0.01em', color: WHITE, marginBottom: '2.5rem' }}>
-              To Everyone Who Believes<br />
-              <em style={{ color: WARM }}>a Child's Potential Should Never Have a Zip Code.</em>
-            </h2>
-          </FadeIn>
-
-          {/* Letter body */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', maxWidth: '680px' }}>
-            {[
-              `When I was studying at USC Marshall, surrounded by brilliant, ambitious people from around the world, I kept thinking about the students back home. Not because they were less brilliant. Not because they were less ambitious. But because they had never been given a language for their ambition.`,
-              `Business has a vocabulary. Venture capital has a grammar. Leadership has a syntax. And for generations, that language has been taught only in classrooms that cost $50,000 a year to enter. Everyone else had to figure it out on their own — or not at all.`,
-              `I am a mother before I am a founder. When I look at my four children, I see the same fire I see in every student who walks into a YIC classroom. The difference is access. That is the only difference. And access is a problem we know how to solve.`,
-              `This is not charity. This is not pity. This is equity. We are not giving children something they could not earn themselves — we are removing the artificial barrier that was never supposed to be there in the first place.`,
-              `If you are reading this as a potential partner, as a parent, as an administrator, or simply as someone who believes what I believe — that potential is universal and opportunity should be too — then you already understand why this work cannot wait.`,
-              `The boardroom has no age limit. And it has no zip code requirement either. Not anymore.`,
-            ].map((para, i) => (
-              <FadeIn key={i} delay={i * 0.06}>
-                <p style={{ fontFamily: SANS, fontSize: '1.05rem', lineHeight: 1.9, color: i === 5 ? WHITE : MUTED }}>
-                  {para}
-                </p>
-              </FadeIn>
-            ))}
-          </div>
-
-          {/* Signature block */}
-          <FadeIn delay={0.4}>
-            <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-              {/* Handwritten-style signature using CSS */}
-              <div style={{ marginBottom: '0.5rem' }}>
-                <svg width="180" height="60" viewBox="0 0 180 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Stylized "Cindy Ha" signature path */}
-                  <path d="M12 38 C18 20, 28 15, 35 28 C38 34, 36 42, 32 44 C26 46, 22 40, 24 35 C26 30, 32 28, 38 32"
-                    stroke={GOLD} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  <path d="M42 30 C42 22, 44 18, 48 20 C52 22, 50 32, 46 38 C44 42, 44 44, 46 44"
-                    stroke={GOLD} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  <path d="M52 25 L54 44"
-                    stroke={GOLD} strokeWidth="1.8" strokeLinecap="round" fill="none" />
-                  <path d="M50 32 L58 30"
-                    stroke={GOLD} strokeWidth="1.8" strokeLinecap="round" fill="none" />
-                  <path d="M62 30 C65 22, 70 20, 73 26 C76 32, 72 40, 67 42 C63 44, 61 40, 63 35 C65 30, 71 30, 75 34"
-                    stroke={GOLD} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  {/* Ha */}
-                  <path d="M88 18 L88 44 C91 36, 95 30, 100 28 C106 26, 110 30, 110 36 C110 42, 108 44, 105 44"
-                    stroke={GOLD} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  <path d="M115 28 C120 20, 128 18, 132 26 C135 32, 132 40, 128 44 C124 48, 118 44, 118 38 C118 32, 124 28, 132 32"
-                    stroke={GOLD} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  {/* Underline flourish */}
-                  <path d="M8 50 C50 46, 100 48, 142 50" stroke={`${GOLD}60`} strokeWidth="1" strokeLinecap="round" fill="none" />
-                </svg>
-              </div>
-
-              <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: '1rem', color: WHITE, marginBottom: '2px' }}>Cindy Ha</p>
-              <p style={{ fontSize: '0.75rem', color: MUTED }}>Founder & Executive Director, Young Innovators for Change</p>
-              <p style={{ fontSize: '0.7rem', color: SLATE_3, marginTop: '2px' }}>Glendora, California</p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      <hr className="editorial-rule" />
-
-      {/* ══════════════════════════════════════════════════════
-          ADVISORY BOARD
-      ══════════════════════════════════════════════════════ */}
-      <section className="mx-auto max-w-7xl px-6 lg:px-16 py-24">
-        <FadeIn className="mb-14">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'end', flexWrap: 'wrap' }}>
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                <div style={{ width: '2rem', height: '1px', background: GOLD }} />
-                <p style={{ fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.28em', textTransform: 'uppercase' as const, color: GOLD }}>
-                  Advisory Board
-                </p>
-              </div>
-              <h2 style={{ fontFamily: SERIF, fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.01em', color: WHITE }}>
-                The Minds<br />
-                <em style={{ color: WARM }}>Behind the Mission.</em>
-              </h2>
-            </div>
-            <div>
-              <p style={{ fontFamily: SANS, fontSize: '0.9rem', lineHeight: 1.8, color: MUTED }}>
-                We are a young organization and we are building our advisory board in public.
-                Rather than list names we cannot yet stand behind, this page shows the people
-                actually doing the work today &mdash; and an open invitation to the educators,
-                researchers, and operators we are looking for next.
-              </p>
-            </div>
-          </div>
-        </FadeIn>
-
-        {/* Leadership */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '2rem' }}>
-          {LEADERSHIP.map((person, i) => (
-            <AdvisorCard key={person.name} advisor={person} delay={i * 0.07} />
+      >
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.75rem', alignItems: 'center' }}>
+          {[
+            { icon: MapPin, label: FOUNDER.raisedIn },
+            { icon: GraduationCap, label: FOUNDER.college },
+            { icon: Store, label: 'Founder, operator, exited' },
+          ].map(({ icon: Icon, label }) => (
+            <span key={label} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              fontSize: '0.78rem', color: MUTED }}>
+              <Icon size={14} color={GOLD} /> {label}
+            </span>
           ))}
         </div>
+      </Hero>
 
-        {/* Advisory board — renders only once real, consented advisors exist */}
-        {hasAdvisors && (
-          <>
-            <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' as const, color: MUTED, margin: '3rem 0 1.5rem' }}>
-              Advisory Board
+      {/* ── Highland Park ──────────────────────────────── */}
+      <Section tinted>
+        <Spread
+          eyebrow="Where it starts"
+          title={<>SHE STAYED AFTER<br />SCHOOL FOR THE<br />BOARD GAMES.</>}
+        >
+          <p style={BODY}>
+            There was not much. Cramped living quarters, both parents working, and afternoons
+            that belonged to the neighbourhood kids and whatever could be done with a patch
+            of dirt.
+          </p>
+          <p style={BODY}>
+            School had one thing she stayed late for. Teachers in her LAUSD elementary put out
+            board games and table games at the end of the day, and she stayed to play them —
+            not because anyone made her, and not for a grade.
+          </p>
+          <div style={{ marginTop: '1.75rem', padding: '1.35rem 1.6rem',
+            background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.2)',
+            borderRadius: '4px' }}>
+            <p style={{ fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.18em',
+              textTransform: 'uppercase' as const, color: GOLD, marginBottom: '0.55rem' }}>
+              Worth noticing
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '2rem' }}>
-              {ADVISORS.map((advisor, i) => (
-                <AdvisorCard key={advisor.name} advisor={advisor} delay={i * 0.07} />
-              ))}
+            <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED }}>
+              The first thing this organization finished is thirty-six weeks of second-grade
+              mathematics taught almost entirely through games, maps and puzzles. That was not
+              planned as a tribute to anything. People who remember learning that way tend to
+              build that way.{' '}
+              <Link href="/curriculum" style={{ color: GOLD_L, textDecoration: 'none',
+                borderBottom: `1px solid ${GOLD}55` }}>See the curriculum</Link>.
+            </p>
+          </div>
+        </Spread>
+      </Section>
+
+      {/* ── The lockstep ───────────────────────────────── */}
+      <Section>
+        <Spread
+          eyebrow="What school gave her"
+          title={<>SHE DID EVERY<br />SINGLE THING<br />THE SYSTEM ASKED.</>}
+        >
+          <p style={BODY}>
+            She mastered what was taught, in the order it was taught. The honours track. The AP
+            classes. The SAT, studied for the hard way. It got her into {FOUNDER.college}, and a
+            term abroad in {FOUNDER.studiedAbroad} widened the frame further. She worked through
+            most of high school and college, because the money had to come from somewhere.
+          </p>
+          <p style={BODY}>
+            That is thirteen years of doing it right, followed by four more. And none of it
+            included how money works — not how a price gets set, not what a margin is, not what
+            it costs to borrow, not why one shop survives its third year and the one beside it
+            does not.
+          </p>
+          <p style={{ ...BODY, marginBottom: 0, color: WHITE }}>
+            That is not a complaint about her teachers. It was not in the curriculum. In most
+            public schools it still is not.
+          </p>
+        </Spread>
+      </Section>
+
+      {/* ── The store ──────────────────────────────────── */}
+      <Section tinted accent={GOLD}>
+        <Spread
+          eyebrow="What she did instead"
+          accent={GOLD_L}
+          title={<>NINE HUNDRED<br /><span style={{ color: GOLD_L }}>SQUARE FEET.</span></>}
+        >
+          <p style={BODY}>
+            After college came a job at a payroll company. A few years of duties that did not
+            need her, and the particular flatness of work that asks for nothing. She left it to
+            open a shop.
+          </p>
+          <p style={BODY}>
+            She did the renovation herself. Saved every dollar that could be saved and put in
+            sweat wherever sweat could stand in for cash. The {FOUNDER.business.startedFrom} grew
+            into a profitable {FOUNDER.business.grewInto} business. She kept learning, kept
+            pushing, and {FOUNDER.business.exit}.
+          </p>
+          <PullQuote>{FOUNDER.quotes.theBusiness}</PullQuote>
+          <p style={{ ...BODY, marginBottom: 0 }}>
+            This is the part of the record that matters most to a school or a funder deciding
+            whether to take this organization seriously: she has actually run something. Payroll,
+            inventory, suppliers, pricing, a landlord, a third year. Not a case study of it.
+          </p>
+        </Spread>
+      </Section>
+
+      {/* ── The MBA ────────────────────────────────────── */}
+      <Section>
+        <Spread
+          eyebrow="What she found out afterwards"
+          title={<>THE WHOLE FIELD<br />WAS ALREADY<br />THERE.</>}
+        >
+          <p style={BODY}>
+            Somewhere along the way she wanted to know what the academy had that the doing had
+            not taught her, and went back for {mba}.
+          </p>
+          <p style={BODY}>
+            What she found was not a set of tricks. It was a discipline — pricing, capital,
+            operations, strategy, the structure of how firms actually behave — a body of
+            knowledge she had been improvising against, blind, for years — and had beaten it anyway.
+          </p>
+          <PullQuote accent={ROYAL_L}>{FOUNDER.quotes.theMBA}</PullQuote>
+          <p style={{ ...BODY, marginBottom: 0, color: WHITE }}>
+            Winning it blind is not the lesson. The lesson is that she should not have had to.
+          </p>
+        </Spread>
+      </Section>
+
+      {/* ── The thesis ─────────────────────────────────── */}
+      <Section tinted accent={GOLD}>
+        <FadeIn style={{ marginBottom: '2.5rem', maxWidth: '52ch' }}>
+          <Eyebrow color={GOLD_L}>The idea the organization is built on</Eyebrow>
+          <Title size="clamp(1.9rem, 4.2vw, 3.4rem)">
+            COMPOUND INTEREST,<br /><span style={{ color: GOLD_L }}>BUT FOR KNOWING<br />HOW THINGS WORK.</span>
+          </Title>
+        </FadeIn>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '2.5rem', alignItems: 'start' }}>
+          <FadeIn>
+            <p style={BODY}>
+              Every kid on her block could have used this. Not so they would all become
+              founders — most will not, and that was never the goal. Understanding how money,
+              pricing, ownership and risk actually work changes what a person is able to see,
+              and it changes it permanently.
+            </p>
+            <p style={BODY}>
+              Handed to someone at nine instead of at thirty-five, it compounds the way anything
+              else does. Twenty-six extra years of seeing the world that way is not a marginal
+              advantage, and it is exactly the head start that the families who already know
+              have always been able to give their own children.
+            </p>
+            <p style={{ ...BODY, marginBottom: 0, color: WHITE }}>
+              That gap has never been about ability. It is about who happened to be in the room
+              when somebody explained it.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <PullQuote>{FOUNDER.quotes.theThesis}</PullQuote>
+            <div style={{ padding: '1.5rem 1.75rem', background: 'rgba(15,23,42,0.65)',
+              border: '1px solid rgba(37,99,235,0.16)', borderRadius: '4px' }}>
+              <p style={{ fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.18em',
+                textTransform: 'uppercase' as const, color: ROYAL_L, marginBottom: '0.6rem' }}>
+                What that turned into
+              </p>
+              <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1.1rem' }}>
+                Two tracks. Mathematics and science across Grades 1–12, because reasoning is the
+                floor everything else stands on. Leadership, entrepreneurship and financial
+                literacy from Grade 3 up, because that is the part nobody was going to teach
+                them. Published free, with an honest status on every grade band we have not
+                reached yet.
+              </p>
+              <Link href="/curriculum" className="btn-ghost">
+                The full map <ArrowUpRight size={13} />
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </Section>
+
+      {/* ── What she is not claiming ───────────────────── */}
+      <Section>
+        <FadeIn style={{ marginBottom: '2rem' }}>
+          <Eyebrow color={GREEN_L}>In the interest of not overclaiming</Eyebrow>
+          <Title size="clamp(1.7rem, 3.4vw, 2.7rem)">WHAT THIS STORY<br />IS NOT EVIDENCE OF.</Title>
+        </FadeIn>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
+          gap: '1rem' }}>
+          {[
+            { t: 'She is not a credentialed educator', a: GREEN_L,
+              d: 'No teaching credential, no education doctorate, no classroom career. The '
+               + 'curriculum is built against published standards and published research, and '
+               + 'both are cited so you can check the work rather than trust the author.' },
+            { t: 'She has not run a school', a: GREEN_L,
+              d: 'No cohort has completed a programme and no outcome has been measured. What we '
+               + 'would count, and what would tell us the programme does not work, is written '
+               + 'down in advance on the evidence page.' },
+            { t: 'One business is not a proof', a: GREEN_L,
+              d: 'That she built and sold a company says she can operate. It does not establish '
+               + 'that teaching this to nine-year-olds changes their lives. Nobody has shown '
+               + 'that yet, including us.' },
+          ].map((c) => (
+            <FadeIn key={c.t}>
+              <Card accent={c.a} pad="1.6rem">
+                <h3 style={{ fontSize: '0.97rem', fontWeight: 700, color: WHITE,
+                  lineHeight: 1.4, marginBottom: '0.6rem' }}>{c.t}</h3>
+                <p style={{ fontSize: '0.84rem', lineHeight: 1.75, color: MUTED }}>{c.d}</p>
+              </Card>
+            </FadeIn>
+          ))}
+        </div>
+        <FadeIn delay={0.2}>
+          <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginTop: '2rem',
+            maxWidth: '70ch' }}>
+            A founder&rsquo;s story is the easiest place on a website to quietly inflate, which is
+            why this section exists. The materials are published in full — workbook, answer key,
+            research paper, adoption packet — so that the argument rests on them and not on the
+            biography above.{' '}
+            <Link href="/resources" style={{ color: ROYAL_L, textDecoration: 'none',
+              borderBottom: '1px solid rgba(59,130,246,0.4)' }}>Read them yourself</Link>.
+          </p>
+        </FadeIn>
+      </Section>
+
+      {/* ── Who runs it ────────────────────────────────── */}
+      <Section tinted>
+        <FadeIn style={{ marginBottom: '2.25rem' }}>
+          <Eyebrow>Who runs it</Eyebrow>
+          <Title size="clamp(1.9rem, 4vw, 3.2rem)">THE PEOPLE ACTUALLY<br />DOING THE WORK.</Title>
+          <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '62ch',
+            marginTop: '1rem' }}>
+            This lists the people whose role is documented, and nobody else. There is no advisory
+            board on this page because there is not yet an advisory board, and names we cannot
+            stand behind are worse than an empty section.
+          </p>
+        </FadeIn>
+
+        <div style={{ display: 'grid', gap: '1rem',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', maxWidth: '52rem' }}>
+          {LEADERSHIP.map((p) => <PersonCard key={p.name} person={p} />)}
+        </div>
+
+        {hasBoard && (
+          <>
+            <p style={{ fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.2em',
+              textTransform: 'uppercase' as const, color: MUTED, margin: '2.75rem 0 1.25rem' }}>
+              Board of directors
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1rem' }}>
+              {BOARD.map((p) => <PersonCard key={p.name} person={p} />)}
             </div>
           </>
         )}
 
-        {/* Join board CTA */}
-        <FadeIn delay={0.3} className="mt-14">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem', padding: '1.75rem 2.5rem', background: 'rgba(15,23,42,0.5)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '4px' }}>
-            <div>
-              <p style={{ fontSize: '0.9rem', fontWeight: 700, color: WHITE, marginBottom: '0.25rem' }}>Interested in joining our Advisory Board?</p>
-              <p style={{ fontSize: '0.8rem', color: MUTED }}>We are actively seeking advisors in education policy, EdTech, corporate CSR, and venture philanthropy.</p>
+        {hasAdvisors && (
+          <>
+            <p style={{ fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.2em',
+              textTransform: 'uppercase' as const, color: MUTED, margin: '2.75rem 0 1.25rem' }}>
+              Advisors
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1rem' }}>
+              {ADVISORS.map((p) => <PersonCard key={p.name} person={p} />)}
             </div>
-            <Link href="/partner" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.5rem', background: 'rgba(37,99,235,0.1)', border: '1px solid rgba(37,99,235,0.25)', borderRadius: '3px', color: ROYAL_L, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, textDecoration: 'none', flexShrink: 0 }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(37,99,235,0.18)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(37,99,235,0.1)'; }}
-            >
-              Express Interest <ArrowUpRight size={12} />
-            </Link>
-          </div>
-        </FadeIn>
-      </section>
+          </>
+        )}
 
-      <hr className="editorial-rule-gold" />
-
-      {/* ══════════════════════════════════════════════════════
-          JOIN THE MOVEMENT — Full-width CTA
-      ══════════════════════════════════════════════════════ */}
-      <section style={{ background: 'rgba(15,23,42,0.7)' }}>
-        <div className="mx-auto max-w-7xl px-6 lg:px-16 py-24">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
-
-            <FadeIn>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                <div style={{ width: '2rem', height: '1px', background: GOLD }} />
-                <p style={{ fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.28em', textTransform: 'uppercase' as const, color: GOLD }}>The Invitation</p>
+        {!hasBoard && (
+          <FadeIn delay={0.15}>
+            <div style={{ marginTop: '2rem', padding: '1.5rem 1.75rem',
+              background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(201,168,76,0.22)',
+              borderRadius: '4px', display: 'flex', flexWrap: 'wrap', gap: '1.5rem',
+              alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ maxWidth: '62ch' }}>
+                <p style={{ display: 'flex', alignItems: 'center', gap: '0.5rem',
+                  fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.18em',
+                  textTransform: 'uppercase' as const, color: GOLD, marginBottom: '0.5rem' }}>
+                  <Landmark size={13} /> The open seat
+                </p>
+                <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED }}>
+                  A California public benefit corporation needs a board, and most funders expect
+                  at least three unrelated directors. Ours is not seated yet — we say so here and
+                  on the governance page rather than leaving you to work it out from a filing.
+                  Educators, school administrators, operators and finance people are exactly who
+                  we are looking for.
+                </p>
               </div>
-              <h2 style={{ fontFamily: SERIF, fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.015em', color: WHITE, marginBottom: '1.25rem' }}>
-                Join the<br />
-                <em style={{ color: GOLD }}>Movement.</em>
-              </h2>
-              <p style={{ fontFamily: SANS, fontSize: '1rem', lineHeight: 1.8, color: MUTED, maxWidth: '440px' }}>
-                The boardroom Cindy Ha is building has room for partners, administrators,
-                donors, and believers. If you see what she sees — a generation of kids
-                who deserve a seat at the table — we want to hear from you.
-              </p>
-            </FadeIn>
+              <Link href="/governance" className="btn-ghost">
+                Governance <ArrowUpRight size={13} />
+              </Link>
+            </div>
+          </FadeIn>
+        )}
+      </Section>
 
-            <FadeIn delay={0.1}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {/* Primary CTA */}
-                <Link href="/partner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.5rem 1.75rem', background: `linear-gradient(135deg, ${GOLD}22, rgba(15,23,42,0.9))`, border: `1px solid ${GOLD}40`, borderRadius: '3px', textDecoration: 'none', transition: 'all 0.25s', position: 'relative', overflow: 'hidden' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = GOLD; e.currentTarget.style.background = `linear-gradient(135deg, ${GOLD}30, rgba(15,23,42,0.95))`; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = `${GOLD}40`; e.currentTarget.style.background = `linear-gradient(135deg, ${GOLD}22, rgba(15,23,42,0.9))`; }}
-                >
+      {/* ── The organization ───────────────────────────── */}
+      <Section>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: 'clamp(2rem, 5vw, 4rem)', alignItems: 'start' }}>
+          <FadeIn>
+            <Eyebrow>The organization</Eyebrow>
+            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">SMALL, NEW,<br />AND ON THE RECORD.</Title>
+            <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '54ch',
+              marginTop: '1rem' }}>
+              {ORG.legalName} was incorporated in {ORG.incorporation.state} on{' '}
+              {fmtDate(ORG.incorporation.initialFilingDate)} and recognised by the IRS as a
+              501(c)(3) public charity on {fmtDate(ORG.taxStatus.determinationDate)}. Both records
+              are public and both are linked from the governance page, along with the things we
+              have not done yet.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {[
+                { label: 'Bring it to a classroom', sub: 'What a pilot involves, and what it costs', href: '/for-schools' },
+                { label: 'Download the materials', sub: 'Workbook, answer key, research paper, packet', href: '/resources' },
+                { label: 'Governance and filings', sub: 'Records, standing, and the open gaps', href: '/governance' },
+                { label: 'Evidence and accountability', sub: 'What we would measure, and what would disprove us', href: '/impact' },
+              ].map(({ label, sub, href }) => (
+                <Link key={href} href={href} style={{ display: 'flex', alignItems: 'center',
+                  justifyContent: 'space-between', gap: '1rem', padding: '1.05rem 1.3rem',
+                  background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(37,99,235,0.14)',
+                  borderRadius: '3px', textDecoration: 'none' }}>
                   <div>
-                    <p style={{ fontFamily: SANS, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: GOLD, marginBottom: '4px' }}>Corporate &amp; Individual Partnerships</p>
-                    <p style={{ fontFamily: SERIF, fontSize: '1.3rem', fontWeight: 700, color: WHITE }}>Partner With Us</p>
+                    <p style={{ fontSize: '0.88rem', fontWeight: 600, color: WHITE }}>{label}</p>
+                    <p style={{ fontSize: '0.75rem', color: MUTED, marginTop: '2px' }}>{sub}</p>
                   </div>
-                  <ArrowUpRight size={20} color={GOLD} />
+                  <ArrowUpRight size={15} color={ROYAL_L} style={{ flexShrink: 0 }} />
                 </Link>
-
-                {/* Secondary CTAs */}
-                {[
-                  { label: 'School Districts', sub: 'Bring YIC to your schools', href: '/partner', icon: BookOpen },
-                  { label: 'Explore the Curriculum', sub: 'View the 8-week CEO Track', href: '/curriculum', icon: Star },
-                  { label: 'See Our Impact', sub: 'Read the 2026 impact report', href: '/impact', icon: ChevronRight },
-                ].map(({ label, sub, href, icon: Icon }) => (
-                  <Link key={label} href={href} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.25rem', background: 'rgba(15,23,42,0.5)', border: '1px solid rgba(37,99,235,0.12)', borderRadius: '3px', textDecoration: 'none', transition: 'all 0.2s' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(37,99,235,0.3)'; e.currentTarget.style.background = 'rgba(30,41,59,0.6)'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(37,99,235,0.12)'; e.currentTarget.style.background = 'rgba(15,23,42,0.5)'; }}
-                  >
-                    <div>
-                      <p style={{ fontFamily: SANS, fontSize: '0.85rem', fontWeight: 600, color: WHITE, marginBottom: '2px' }}>{label}</p>
-                      <p style={{ fontFamily: SANS, fontSize: '0.72rem', color: MUTED }}>{sub}</p>
-                    </div>
-                    <Icon size={15} color={ROYAL_L} />
-                  </Link>
-                ))}
-              </div>
-            </FadeIn>
-          </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
-      </section>
-
-    </div>
+      </Section>
+    </Page>
   );
 }
