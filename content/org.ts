@@ -360,10 +360,11 @@ export const CURRICULUM: Strand[] = [
     bands: [
       { band: 'Grades 1–2',  status: 'n/a' },
       { band: 'Grades 3–5',  status: 'published',
-        note: 'Grade 4 complete: The Venture Year, 36 weeks, standards-mapped and free. '
-            + 'Grade 5 is next.' },
+        note: 'Grades 4 and 5 complete: The Venture Year and The Numbers Year, 36 weeks '
+            + 'each, standards-mapped and free. Grade 3 is next.' },
       { band: 'Grades 6–8',  status: 'designed',
-        note: 'Grade 6 year in development. The 8-week intensive covers Grades 7–8.' },
+        note: 'The Grade 6 year is next after Grade 3. The 8-week intensive covers '
+            + 'Grades 7–8.' },
       { band: 'Grades 9–12', status: 'designed', note: 'Executives Track, 8 weeks.' },
     ],
   },
@@ -393,5 +394,5 @@ export function countByStatus(s: Status): number {
 
 /** Where a school can actually start today. */
 export const AVAILABLE_NOW =
-  'Two full years: Discrete Math Adventures (Grade 2 mathematics) and '
-  + 'The Venture Year (Grade 4 entrepreneurship). 36 weeks each.';
+  'Three full years: Discrete Math Adventures (Grade 2 mathematics), The Venture Year '
+  + '(Grade 4 entrepreneurship) and The Numbers Year (Grade 5). 36 weeks each.';

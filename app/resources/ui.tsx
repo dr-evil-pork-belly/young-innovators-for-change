@@ -52,6 +52,23 @@ const RESOURCES: Resource[] = [
         + 'than something with a right answer.',
   },
   {
+    file: '/downloads/numbers-year-grade5.pdf',
+    label: 'The Numbers Year: Student Workbook',
+    kind: 'Curriculum', meta: 'PDF · 77 pages · Grade 5', accent: GOLD_L, icon: BookOpen,
+    desc: '36 weekly assignments, the second entrepreneurship year. Teams of two or three '
+        + 'build a line of products, write a forecast before selling anything, sell twice '
+        + 'with one deliberate change in between, and find out whether the change did '
+        + 'anything. Decimals, margin and break-even throughout.',
+  },
+  {
+    file: '/downloads/numbers-year-teacher-guide.html',
+    label: 'The Numbers Year: Teacher Guide',
+    kind: 'Curriculum', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
+    desc: 'Every arithmetic answer, the point of each week, and the specific wrong turn it '
+        + 'produces. All 124 numeric answers are recomputed from the problems by a script '
+        + 'that ships with the source.',
+  },
+  {
     file: '/downloads/structure-before-fluency.pdf',
     label: 'Structure Before Fluency',
     kind: 'Research', meta: 'PDF · working paper · 10 pages', accent: GOLD, icon: FlaskConical,
