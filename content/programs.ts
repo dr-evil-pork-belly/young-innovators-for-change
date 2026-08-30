@@ -148,15 +148,17 @@ const venture: ProgramSpec = {
   slug: 'venture-lab',
   strandKey: 'venture',
   name: 'Venture Lab',
-  eyebrow: 'Enterprise track · Grades 3 to 12',
+  eyebrow: 'Enterprise track · Grades 7 to 12',
   titleLines: ['EIGHT WEEKS.', 'ONE REAL BUSINESS.', 'ONE REAL PITCH.'],
   accent: 'gold',
   lede: [
     'Not a case study and not a simulation. Each student or team carries one venture the '
     + 'whole way through: a problem they found themselves, a customer they actually spoke '
     + 'to, a price they had to defend, and a pitch delivered to a panel at the end.',
-    'The point is not that they start companies. It is that they learn how the machine '
-    + 'works, at an age where knowing changes what they think is available to them.',
+    'This is the intensive format, for Grades 7 and up. Grades 4 to 6 get the same ideas '
+    + 'as a full school year instead, one assignment a week, because younger students learn '
+    + 'this better spread out than compressed. The Grade 4 year is written and free to '
+    + 'download today.',
   ],
   unitsLabel: 'The eight weeks',
   unitsIntro:
@@ -250,6 +252,7 @@ const venture: ProgramSpec = {
     'All eight weeks, with the deliverable defined for each',
     'The frameworks and worksheets each week is built around',
     'The pitch structure and the feedback form',
+    'The Grade 4 full-year version, written and published in full',
   ],
   notYet: [
     'The printed student venture file',

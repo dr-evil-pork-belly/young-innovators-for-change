@@ -354,13 +354,17 @@ export const CURRICULUM: Strand[] = [
   },
   {
     key: 'venture', name: 'Entrepreneurship', track: 'Enterprise',
-    blurb: 'Students build, price and pitch a real micro-business over eight weeks, ending '
-         + 'in a live pitch to a panel.',
+    blurb: 'A full school year, one assignment a week: find a problem worth solving, design '
+         + 'something that fixes it, work out cost and price, sell it on a real market day, '
+         + 'then work out honestly whether it made a profit.',
     bands: [
       { band: 'Grades 1–2',  status: 'n/a' },
-      { band: 'Grades 3–5',  status: 'designed' },
-      { band: 'Grades 6–8',  status: 'designed' },
-      { band: 'Grades 9–12', status: 'designed' },
+      { band: 'Grades 3–5',  status: 'published',
+        note: 'Grade 4 complete: The Venture Year, 36 weeks, standards-mapped and free. '
+            + 'Grade 5 is next.' },
+      { band: 'Grades 6–8',  status: 'designed',
+        note: 'Grade 6 year in development. The 8-week intensive covers Grades 7–8.' },
+      { band: 'Grades 9–12', status: 'designed', note: 'Executives Track, 8 weeks.' },
     ],
   },
   {
@@ -388,4 +392,6 @@ export function countByStatus(s: Status): number {
 }
 
 /** Where a school can actually start today. */
-export const AVAILABLE_NOW = 'Discrete Math Adventures, a 36-week Grade 2 mathematics year.';
+export const AVAILABLE_NOW =
+  'Two full years: Discrete Math Adventures (Grade 2 mathematics) and '
+  + 'The Venture Year (Grade 4 entrepreneurship). 36 weeks each.';

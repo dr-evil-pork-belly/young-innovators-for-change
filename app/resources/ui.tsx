@@ -35,6 +35,22 @@ const RESOURCES: Resource[] = [
         + 'prior background in the mathematics.',
   },
   {
+    file: '/downloads/venture-year-grade4.pdf',
+    label: 'The Venture Year: Student Workbook',
+    kind: 'Curriculum', meta: 'PDF · 77 pages · Grade 4', accent: GOLD_L, icon: BookOpen,
+    desc: '36 weekly assignments in entrepreneurship, two pages each. Students find a real '
+        + 'problem, design something that fixes it, work out cost and price, sell it on a '
+        + 'market day in week 31, and then work out honestly whether it made a profit.',
+  },
+  {
+    file: '/downloads/venture-year-teacher-guide.html',
+    label: 'The Venture Year: Teacher Guide',
+    kind: 'Curriculum', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
+    desc: 'The point of each week, every arithmetic answer, the specific wrong turn each '
+        + 'week produces, and an honest note wherever a question is a judgement call rather '
+        + 'than something with a right answer.',
+  },
+  {
     file: '/downloads/structure-before-fluency.pdf',
     label: 'Structure Before Fluency',
     kind: 'Research', meta: 'PDF · working paper · 10 pages', accent: GOLD, icon: FlaskConical,
