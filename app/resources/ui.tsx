@@ -39,8 +39,9 @@ const RESOURCES: Resource[] = [
     label: 'The Venture Year: Student Workbook',
     kind: 'Curriculum', meta: 'PDF · 77 pages · Grade 4', accent: GOLD_L, icon: BookOpen,
     desc: '36 weekly assignments in entrepreneurship, two pages each. Students find a real '
-        + 'problem, design something that fixes it, work out cost and price, sell it on a '
-        + 'market day in week 31, and then work out honestly whether it made a profit.',
+        + 'problem, design something that fixes it, work out cost and price, and sell it at a '
+        + 'class market day in week 31. Real products and real customers, on play money in a '
+        + 'closed classroom economy, so students run their own money box.',
   },
   {
     file: '/downloads/venture-year-teacher-guide.html',

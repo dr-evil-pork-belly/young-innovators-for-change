@@ -355,7 +355,7 @@ export const CURRICULUM: Strand[] = [
   {
     key: 'venture', name: 'Entrepreneurship', track: 'Enterprise',
     blurb: 'A full school year, one assignment a week: find a problem worth solving, design '
-         + 'something that fixes it, work out cost and price, sell it on a real market day, '
+         + 'something that fixes it, work out cost and price, sell it at a class market day, '
          + 'then work out honestly whether it made a profit.',
     bands: [
       { band: 'Grades 1–2',  status: 'n/a' },
