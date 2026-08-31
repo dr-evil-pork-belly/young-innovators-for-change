@@ -216,7 +216,6 @@ export default function Navbar() {
 
           {/* Desktop CTAs */}
           <div className="hidden items-center gap-4 lg:flex">
-            <Link href="/login" className="btn-ghost">Log In</Link>
             <Link href="/partner" className="btn-gold">
               Partner Now
               <ArrowUpRight size={13} />
@@ -316,11 +315,6 @@ export default function Navbar() {
                 <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.32 }}>
                   <Link href="/partner" onClick={closeMobile} className="btn-gold w-full justify-center">
                     Partner Now <ArrowUpRight size={14} />
-                  </Link>
-                </motion.div>
-                <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.38 }}>
-                  <Link href="/login" onClick={closeMobile} className="btn-ghost w-full justify-center">
-                    Log In
                   </Link>
                 </motion.div>
               </div>

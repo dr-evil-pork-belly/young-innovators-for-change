@@ -92,6 +92,77 @@ export const TRANSPARENCY = {
   caRegistryNumber: null as string | null,
 };
 
+// ─── Mission ──────────────────────────────────────────────────────────────────
+
+/**
+ * THE MISSION, in one place.
+ *
+ * Added 31 August 2026. Until then the mission was restated in slightly different
+ * words on the home page, the mission page and the about page, and none of those
+ * versions named who the organization is for. It is for children whose families
+ * have not had access to the ideas a business education formalizes. That is a
+ * narrower claim than "every kid in every zip code" and it is the true one.
+ *
+ * Read `notYetTrue` before writing any sentence that draws on this. The mission is
+ * a statement of intent. Nothing here asserts that a single student has been
+ * reached, because none has.
+ */
+export const MISSION = {
+  statement:
+    'Young Innovators for Change exists so that children whose families have no '
+    + 'business background reach adulthood able to act on money rather than be '
+    + 'acted upon.',
+
+  /** Who the work is aimed at. Intent, not a description of who is reached. */
+  population:
+    'Students in lower income communities, whose families have not had access to '
+    + 'the ideas a business education formalizes, and who would otherwise meet them '
+    + 'for the first time as adults, priced.',
+
+  /**
+   * The phrase to use, and the reason to use it. "Teach kids how capitalism works"
+   * is how this gets described in conversation and it is the wrong sentence for a
+   * page a program officer reads. The claim below is narrower, defensible and
+   * closer to what the material actually does.
+   */
+  agency:
+    'The subject is not financial literacy, it is economic agency: price, cost, '
+    + 'margin, risk, credit and ownership, met early enough to change what a child '
+    + 'can see.',
+
+  /**
+   * Two things happen here and they are not the same thing. Saying so is the honest
+   * resolution of a real tension: the free library began as enrichment for students
+   * who asked for more, and the mission is aimed at students who are not asking yet
+   * because nobody has told them there is anything to ask for. Both are true. Only
+   * one of them is the mission.
+   */
+  roles: [
+    {
+      title: 'The library is published, not aimed',
+      body: 'Every year of curriculum is free to anyone who finds it. A teacher who '
+          + 'wants more mathematics for the students in her class who ask for it should '
+          + 'take it, and that is how this organization started. It also tells us '
+          + 'nothing at all about who receives it.',
+    },
+    {
+      title: 'The program is aimed',
+      body: 'It runs in one place, with a roster, for the students the mission names, '
+          + 'and it is measured. A download cannot name anyone. That is the whole '
+          + 'reason the program exists.',
+    },
+  ],
+
+  /** Say these before anything else, on any page that draws on the mission. */
+  notYetTrue: [
+    'No cohort has run. The program described on this site is designed, not delivered.',
+    'We do not know who downloads the free materials, and we will not describe them as '
+    + 'low income until we can.',
+    'Nothing here has been measured. The evaluation design is published. The results do '
+    + 'not exist.',
+  ],
+} as const;
+
 // ─── Statistics ───────────────────────────────────────────────────────────────
 
 export type Stat = { value: string; label: string; note?: string };
@@ -103,12 +174,26 @@ export type Stat = { value: string; label: string; note?: string };
  */
 export const VERIFIED_STATS: Stat[] = [];
 
-/** Facts about what has been built and committed to. All checkable today. */
+/**
+ * Facts about what has been built and committed to. All checkable today.
+ *
+ * `CA Standards Mapped` is COMPUTED, not estimated: it is the count of distinct
+ * standard codes named in the “In class this week” line of all 108 weekly
+ * assignments across the three published books. Grade 2 names 19, Grade 4 names
+ * 11, Grade 5 names 14, and the three sets do not overlap, so the total is 44.
+ * Recount from the curriculum repository whenever a book is added or revised.
+ *
+ * The `8 Week Program` figure was removed on 31 August 2026. The 36-week years
+ * supersede the older Founders Track for Grades 4 to 6, so advertising an
+ * eight-week program alongside three published school years described something
+ * that had been retired for the grades that actually have material. The
+ * Executives Track remains in CURRICULUM and PATHWAY, correctly marked designed.
+ */
 export const PROGRAM_FACTS: Stat[] = [
   { value: '4',    label: 'Programs Designed', note: 'Discrete Math, Leadership, Venture Lab, Financial Literacy' },
   { value: '108',  label: 'Weeks of Curriculum', note: 'Three full years: Grades 2, 4 and 5, 36 weeks each' },
-  { value: '20',   label: 'CA Standards Mapped' },
-  { value: '8',    label: 'Week Program', note: 'Founders and Executives tracks' },
+  { value: '44',   label: 'CA Standards Mapped',
+    note: 'Distinct standards named in the “In class this week” line across all 108 weeks' },
   { value: '$0',   label: 'Cost to Students' },
   { value: '100%', label: 'Materials Open', note: 'Every workbook and guide is free to download' },
 ];
@@ -690,6 +775,29 @@ export const RESEARCH: Citation[] = [
     bearing: 'Evidence that school-delivered money instruction can show up years later in '
            + 'behavior that costs real money. It is a state policy study, not a curriculum '
            + 'study, and it cannot tell you which parts of the instruction did the work.',
+  },
+  {
+    authors: 'Veronica Frisancho', year: 2023,
+    title: 'Spillover Effects of Financial Education: The Impact of School-Based Programs '
+         + 'on Parents',
+    publication: 'Journal of Financial Literacy and Wellbeing 1(1), 138 to 153',
+    url: 'https://doi.org/10.1017/flw.2023.2',
+    finding: 'A randomized controlled trial across 300 public high schools in Peru. '
+           + 'Teachers delivered 16 to 32 hours of financial education inside an existing '
+           + 'class to nearly 20,000 students in grades 9 to 11. Three years later the '
+           + 'study matched 11,090 parents to credit bureau records. Average effects '
+           + 'across all parents were small, but in low socioeconomic status households '
+           + 'the probability of default fell 26 percent and credit scores rose 5 percent, '
+           + 'while high status households showed almost no change. Effects were stronger '
+           + 'for the parents of daughters.',
+    bearing: 'The only study in this list that tests whether what a child learns reaches '
+           + 'the household, which is half the reason this organization exists. It '
+           + 'supports that claim specifically for lower income families, which is the '
+           + 'population we are built for and the one Fernandes found the weakest effects '
+           + 'in. The limits are real and worth stating first: Peru rather than '
+           + 'California, grades 9 to 11 rather than elementary, and a short course rather '
+           + 'than a ten-year pathway. It says the mechanism exists. It does not say ours '
+           + 'will produce it.',
   },
   {
     authors: 'Niklas Elert, Fredrik W. Andersson and Karl Wennberg', year: 2015,

@@ -6,51 +6,67 @@ import {
   Page, Hero, Section, Eyebrow, Title, FadeIn, Card,
   WHITE, MUTED, SLATE_3, GOLD, GOLD_L, ROYAL_L, GREEN_L, DISPLAY,
 } from '@/components/kit';
+import { MISSION } from '@/content/org';
 
 // ── Logic model ───────────────────────────────────────────────────────────────
 const CHAIN = [
   {
     stage: 'Inputs',
     accent: SLATE_3,
-    items: ['Curriculum written in-house', 'Volunteer instructors', 'Printing and materials',
-            'A published research base'],
+    items: ['108 weeks of curriculum, written in-house',
+            'One instructor, and volunteers where we have them',
+            'Printing, materials, and a small seed fund per team',
+            'A published research base, including the paper that argues against us'],
   },
   {
     stage: 'Activities',
     accent: ROYAL_L,
-    items: ['Weekly math and science enrichment, Grades 1–12',
-            'Full-year enterprise curriculum from Grade 4, eight-week intensives from Grade 7',
-            'Teacher orientation and support', 'Everything published free'],
+    items: ['Publishing every year in full, free to anyone (running today)',
+            'A delivered program with a roster, five to six weeks, real money (not yet run)',
+            'Family sessions where the student teaches the adult (not yet run)',
+            'Teacher orientation and support'],
   },
   {
     stage: 'Outputs',
     accent: GOLD,
-    items: ['Classrooms running a full year', 'Teachers supported through it',
-            'Materials downloaded and reused', 'Weeks actually completed'],
+    items: ['Students enrolled, and weeks actually completed',
+            'Ventures launched, priced and sold',
+            'Family sessions attended',
+            'Materials downloaded and reused'],
   },
   {
     stage: 'Short-term outcomes',
     accent: GREEN_L,
-    items: ['More students explaining reasoning aloud', 'Wider participation, not just the fast ones',
-            'Teachers willing to run it again', 'No loss on grade-level benchmarks'],
+    items: ['Students computing margin and unit cost on their own numbers',
+            'More willingness to plan and to act, which is what the research points at',
+            'Wider participation, not just the fast ones',
+            'At least one money practice changed at home'],
   },
   {
     stage: 'Long-term outcome',
     accent: GOLD_L,
-    items: ['Students who believe mathematics is something they can do',
-            'and who carry that into how they choose subjects later'],
+    items: ['Adults who can price something, read a cost, judge a risk and understand what '
+            + 'owning a share of something means',
+            'and who can help a household decide rather than watch it be decided'],
   },
 ];
 
 const ASSUMPTIONS = [
-  { text: 'That reasoning-heavy, computation-light content lets students who struggle with '
-        + 'arithmetic participate fully.', risk: 'If it turns out to need fluency after all, the '
-        + 'access argument collapses and this becomes another gifted program.' },
-  { text: 'That a teacher with no background in the mathematics can run it from a guide.',
-    risk: 'If teachers need real training, the model does not scale past the people we can train personally.' },
-  { text: 'That thirty-five minutes a week is enough to matter.',
-    risk: 'It may be too little to move anything, or enough to cost time that fluency needed more.' },
-  { text: 'That schools will run a free program from an organization with no track record.',
+  { text: 'That what a child learns about money reaches the household behind them.',
+    risk: 'The one randomized trial that found this ran in Peruvian high schools with a '
+        + 'short course. If it does not transfer to a compressed program here, half the '
+        + 'reason this organization exists does nothing.' },
+  { text: 'That an opt-in program does not simply gather the students who were already '
+        + 'going to be fine.',
+    risk: 'If it does, we widen the gap we set out to close and this becomes another '
+        + 'gifted program. It is the likeliest way for us to fail while appearing to '
+        + 'succeed.' },
+  { text: 'That real stakes and spacing hold an effect after the program ends.',
+    risk: 'The largest meta-analysis in our research list found financial education '
+        + 'effects negligible 20 months out. Our answer is to spread the material and '
+        + 'attach it to real money. Neither has been tested.' },
+  { text: 'That a school or expanded learning site will run a program from an '
+        + 'organization with no track record.',
     risk: 'This is the assumption we are testing first, and the one most likely to fail.' },
 ];
 
@@ -59,13 +75,17 @@ export default function MissionUi() {
     <Page>
       <Hero
         eyebrow="Mission & theory of change"
-        title={<>THE MATH IS NOT<br />THE HARD PART.<br /><span style={{ color: ROYAL_L }}>ACCESS IS.</span></>}
+        title={<>SOME CHILDREN LEARN<br />HOW MONEY WORKS<br /><span style={{ color: ROYAL_L }}>AT HOME.</span></>}
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              We build rigorous curriculum and give it away: mathematics and science across
-              Grades 1&ndash;12, and leadership, entrepreneurship and financial literacy from
-              Grade 3 up. The barrier for most children was never capability. It was whether
+              The rest are expected to buy it later, compressed into two years, at graduate
+              school prices. {MISSION.statement} {MISSION.agency}
+            </p>
+            <p style={{ marginBottom: '0.9rem' }}>
+              We write that material and publish all of it free: mathematics and science
+              across Grades 1&ndash;12, and leadership, entrepreneurship and financial
+              literacy from Grade 3 up. The barrier was never capability. It was whether
               anyone handed them the material.
             </p>
             <p style={{ margin: 0 }}>
@@ -83,28 +103,31 @@ export default function MissionUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
           <FadeIn>
             <Eyebrow>The problem</Eyebrow>
-            <Title size="clamp(1.9rem, 4vw, 3.2rem)">A NARROW SKILL<br />BECOMES A WHOLE<br />IDENTITY.</Title>
+            <Title size="clamp(1.9rem, 4vw, 3.2rem)">THE HEAD START<br />IS HANDED OUT<br />AT HOME.</Title>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              By the end of second grade a child is expected to add and subtract fluently within
-              twenty. The standards also ask for argument, structure and perseverance, but in
-              most classrooms those are carried on the back of computational work.
+              The children who get taught how capital, pricing and negotiation actually work
+              are the ones whose families already know. Everyone else is expected to buy it
+              later, compressed into two years, at graduate school prices.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              So a child who is slow to regroup does not simply fall behind on regrouping. They
-              get fewer chances to argue, to notice structure, to be <em>seen reasoning</em>.
-              Arithmetic speed becomes the only currency in which a seven-year-old can demonstrate
-              mathematical competence, and a narrow skill quietly becomes a broad identity.
+              It is not a knowledge gap in the ordinary sense. A child in a household that runs
+              a business hears cost, margin and risk discussed at the table for eighteen years
+              before anyone calls it a subject. A child in a household that does not hears none
+              of it, then arrives at adulthood expected to make the same decisions with none of
+              the practice.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              The same pattern repeats later with business and money: the students who get taught
-              how capital, pricing and negotiation actually work are the ones whose families
-              already know. Everyone else is expected to buy it later, compressed into two years,
-              at graduate school prices.
+              The same pattern shows up earlier, and more quietly, in mathematics. By the end of
+              second grade a child is expected to add and subtract fluently within twenty. The
+              standards also ask for argument, structure and perseverance, but in most classrooms
+              those are carried on the back of computational work, so a child who is slow to
+              regroup gets fewer chances to argue, to notice structure, to be <em>seen reasoning</em>.
+              A narrow skill quietly becomes a broad identity.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED }}>
-              Our answer to that second pattern is to stop compressing it.{' '}
+              Our answer to the first of those is to stop compressing it.{' '}
               <Link href="/pathway" style={{ color: GOLD_L, textDecoration: 'none',
                 borderBottom: `1px solid ${GOLD}55` }}>
                 The ten-year pathway
@@ -122,6 +145,15 @@ export default function MissionUi() {
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GOLD}>What we actually do</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">BUILD IT PROPERLY.<br />THEN GIVE IT AWAY.</Title>
+          <div style={{ marginTop: '1.25rem', maxWidth: '70ch', display: 'flex',
+            flexDirection: 'column', gap: '0.75rem' }}>
+            {MISSION.roles.map((r) => (
+              <p key={r.title} style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED }}>
+                <strong style={{ color: WHITE, fontWeight: 700 }}>{r.title}.</strong>{' '}
+                {r.body}
+              </p>
+            ))}
+          </div>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '1rem' }}>
           {[
@@ -189,11 +221,20 @@ export default function MissionUi() {
         </div>
 
         <FadeIn delay={0.4}>
-          <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '1.5rem', maxWidth: '70ch' }}>
-            The two right-hand columns are shaded because nothing in them has been measured. The
-            evaluation design that would test them is published in full on the{' '}
-            <Link href="/impact" style={{ color: GOLD_L }}>evidence page</Link>.
-          </p>
+          <div style={{ marginTop: '1.5rem', maxWidth: '70ch' }}>
+            <p style={{ fontSize: '0.78rem', color: SLATE_3, marginBottom: '0.75rem' }}>
+              The two right-hand columns are shaded because nothing in them has been measured.
+              The evaluation design that would test them is published in full on the{' '}
+              <Link href="/impact" style={{ color: GOLD_L }}>evidence page</Link>.
+            </p>
+            <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex',
+              flexDirection: 'column', gap: '0.4rem' }}>
+              {MISSION.notYetTrue.map((x) => (
+                <li key={x} style={{ fontSize: '0.78rem', lineHeight: 1.65, color: SLATE_3,
+                  paddingLeft: '0.75rem', borderLeft: '2px solid rgba(253,162,155,0.35)' }}>{x}</li>
+              ))}
+            </ul>
+          </div>
         </FadeIn>
       </Section>
 

@@ -328,10 +328,11 @@ export default function HomePage() {
               className="mb-10 max-w-xl"
               style={{ fontSize: '1.05rem', lineHeight: 1.7, color: MUTED }}
             >
-              Mathematics and science for Grades 1&ndash;12. Leadership, entrepreneurship
-              and financial literacy from Grade 3 up. We are early. Three full years
-              are written and free to download today, and everything we build gets
-              published the same way: in full, to anyone, at no cost.
+              Some children learn how business and money work at home. The rest are
+              expected to buy it later, compressed into two years, at graduate school
+              prices. We write that material for the children whose families do not have
+              it to give, and publish every page of it free. Three full years are written
+              and downloadable today. We are early, and we say so.
             </motion.p>
 
             {/* CTAs */}
@@ -429,9 +430,9 @@ export default function HomePage() {
                 letterSpacing: '0.02em',
                 color:         WHITE,
               }}>
-                REAL CURRICULUM.<br />
-                <span style={{ color: ROYAL_L }}>FOR EVERY KID.</span><br />
-                IN EVERY ZIP CODE.
+                SOME CHILDREN LEARN<br />
+                <span style={{ color: ROYAL_L }}>THIS AT HOME.</span><br />
+                THE REST PAY LATER.
               </h2>
             </div>
             <div className="max-w-sm">
@@ -619,7 +620,7 @@ export default function HomePage() {
               <CredentialCard
                 icon={<Users size={18} />}
                 title="Los Angeles public schools"
-                subtitle="Raised in Highland Park and taught in LAUSD classrooms, which is the gap this curriculum was written to close."
+                subtitle="Raised in Highland Park and schooled in LAUSD classrooms, where none of this was on offer. That is the gap the curriculum was written to close."
                 delay={0.2}
               />
               <CredentialCard
