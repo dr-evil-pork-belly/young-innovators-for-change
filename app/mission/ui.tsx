@@ -18,7 +18,8 @@ const CHAIN = [
   {
     stage: 'Activities',
     accent: ROYAL_L,
-    items: ['Weekly math and science enrichment, Grades 1–12', 'Eight-week enterprise intensives, Grades 3–12',
+    items: ['Weekly math and science enrichment, Grades 1–12',
+            'Full-year enterprise curriculum from Grade 4, eight-week intensives from Grade 7',
             'Teacher orientation and support', 'Everything published free'],
   },
   {
@@ -96,10 +97,21 @@ export default function MissionUi() {
               Arithmetic speed becomes the only currency in which a seven-year-old can demonstrate
               mathematical competence, and a narrow skill quietly becomes a broad identity.
             </p>
-            <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED }}>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
               The same pattern repeats later with business and money: the students who get taught
               how capital, pricing and negotiation actually work are the ones whose families
-              already know.
+              already know. Everyone else is expected to buy it later, compressed into two years,
+              at graduate school prices.
+            </p>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED }}>
+              Our answer to that second pattern is to stop compressing it.{' '}
+              <Link href="/pathway" style={{ color: GOLD_L, textDecoration: 'none',
+                borderBottom: `1px solid ${GOLD}55` }}>
+                The ten-year pathway
+              </Link>{' '}
+              sets out which ideas land in which grade, what is written and what is not, and the
+              published research the design leans on, including the paper that argues the whole
+              category does not work.
             </p>
           </FadeIn>
         </div>

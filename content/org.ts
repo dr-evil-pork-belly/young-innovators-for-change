@@ -106,7 +106,7 @@ export const VERIFIED_STATS: Stat[] = [];
 /** Facts about what has been built and committed to. All checkable today. */
 export const PROGRAM_FACTS: Stat[] = [
   { value: '4',    label: 'Programs Designed', note: 'Discrete Math, Leadership, Venture Lab, Financial Literacy' },
-  { value: '36',   label: 'Weeks of Curriculum', note: 'Discrete Math Adventures, Grade 2' },
+  { value: '108',  label: 'Weeks of Curriculum', note: 'Three full years: Grades 2, 4 and 5, 36 weeks each' },
   { value: '20',   label: 'CA Standards Mapped' },
   { value: '8',    label: 'Week Program', note: 'Founders and Executives tracks' },
   { value: '$0',   label: 'Cost to Students' },
@@ -169,14 +169,24 @@ export const FOUNDER = {
   studiedAbroad: 'Italy',
 
   /**
-   * TODO. She holds an MBA. Put the school here and the About page names it;
-   * leave it empty and the page says "an MBA" and names nothing.
+   * founder-attested, supplied directly and confirmed for publication.
    *
-   * Do not fill this in from memory or from an older draft of the site. A named
-   * institution is the single most checkable thing on this page, and a grant
-   * reviewer who finds one wrong claim re-reads everything else differently.
+   * A named institution is the single most checkable thing on this page, and a
+   * grant reviewer who finds one wrong claim re-reads everything else
+   * differently. Change this only on Cindy's word, never from an older draft.
    */
-  mbaSchool: '',
+  mbaSchool: 'the University of Southern California',
+
+  /**
+   * founder-attested. She finished at the top of her class at every stage:
+   * high school, UC Irvine, and the MBA.
+   *
+   * This is on the site for one reason. The pathway argument rests on the claim
+   * that effort, not talent, is what carries a student through, and she is the
+   * example she is willing to put her own name against. It is not a credential
+   * claim and it is not offered as evidence that the curriculum works.
+   */
+  academicRecord: 'graduated at the top of her class at every stage, by working for it',
 
   /** founder-attested, the business she built and exited */
   business: {
@@ -385,7 +395,7 @@ export const STATUS_LABEL: Record<Status, string> = {
   published: 'Published',
   designed:  'Designed',
   planned:   'Planned',
-  'n/a':     ', ',
+  'n/a':     'Not at this band',
 };
 
 export function countByStatus(s: Status): number {
@@ -396,3 +406,362 @@ export function countByStatus(s: Status): number {
 export const AVAILABLE_NOW =
   'Three full years: Discrete Math Adventures (Grade 2 mathematics), The Venture Year '
   + '(Grade 4 entrepreneurship) and The Numbers Year (Grade 5). 36 weeks each.';
+
+// ─── The pathway ──────────────────────────────────────────────────────────────
+
+/**
+ * THE TEN-YEAR PATHWAY.
+ *
+ * The design idea the enterprise track is built around, stated plainly so it can
+ * be argued with: a graduate business school compresses its core into roughly
+ * two years for adults who pay for it. The same concepts, unhurried, fit inside
+ * the ten years a child is already sitting in a classroom.
+ *
+ * READ THIS BEFORE EDITING. Two different kinds of claim live in this array and
+ * they must not be blurred together:
+ *
+ *   1. `concept` for a row marked `published` describes material that exists.
+ *      It is checkable by downloading the book and reading it.
+ *   2. `concept` for every other row is DESIGN INTENT. It is what we plan to
+ *      write. It is not a description of anything a student can do today, and
+ *      the page renders it with its status attached for exactly that reason.
+ *
+ * `mbaCourse` is our own mapping of a school-age idea onto the graduate course
+ * that eventually formalizes it. It is an argument about sequence, not a claim
+ * of equivalence, accreditation, credit or articulation. See NOT_AN_MBA below,
+ * which is rendered on the page and is not optional.
+ */
+export type PathwayStage = {
+  grade: string;
+  /** The year's published title, where one exists. */
+  book?: string;
+  /** What the student actually does that year. */
+  concept: string;
+  /** The graduate course this is the childhood form of. Our mapping, not a credit. */
+  mbaCourse: string;
+  status: Status;
+  note?: string;
+};
+
+export const PATHWAY: PathwayStage[] = [
+  {
+    grade: 'Grade 3', status: 'planned',
+    concept: 'What things cost and why anyone trades at all. Wants against needs, '
+           + 'price as a number somebody chose, and the first honest look at where '
+           + 'money in a household actually goes.',
+    mbaCourse: 'Microeconomics',
+    note: 'Next to be written, after the first pilot reports.',
+  },
+  {
+    grade: 'Grade 4', status: 'published', book: 'The Venture Year',
+    concept: 'One student, one product, one market day, whole dollars. Find a problem '
+           + 'worth solving, design something that fixes it, work out what it costs to '
+           + 'make and what to charge, sell it, then work out honestly whether it made '
+           + 'a profit.',
+    mbaCourse: 'Marketing and introductory accounting',
+    note: '36 weeks, written in full, free to download today.',
+  },
+  {
+    grade: 'Grade 5', status: 'published', book: 'The Numbers Year',
+    concept: 'A team of two or three with named roles and a profit split written as '
+           + 'fractions. A product line of three with one deliberately cut. Fixed and '
+           + 'variable costs pulled apart. A forecast, two selling sessions, one '
+           + 'deliberate change between them, and the honest answer to whether the '
+           + 'change did anything.',
+    mbaCourse: 'Managerial accounting and operations',
+    note: '36 weeks, written in full, free to download today. The third trimester is '
+        + 'a controlled experiment rather than an event.',
+  },
+  {
+    grade: 'Grade 6', status: 'designed',
+    concept: 'A second seller appears. Pricing against somebody else’s price, '
+           + 'substitutes, and what happens to a market when it stops being yours alone.',
+    mbaCourse: 'Competitive strategy',
+    note: 'Designed. Materials not yet written.',
+  },
+  {
+    grade: 'Grade 7', status: 'planned',
+    concept: 'Cash against profit. Why a sale and money in hand are different events, '
+           + 'what inventory ties up, and how a profitable business runs out of money.',
+    mbaCourse: 'Financial accounting',
+  },
+  {
+    grade: 'Grade 8', status: 'planned',
+    concept: 'What capital costs. Interest, simple and compound, the arithmetic of a '
+           + 'loan, and the reason the same purchase costs two people different amounts.',
+    mbaCourse: 'Corporate finance',
+  },
+  {
+    grade: 'Grade 9', status: 'designed',
+    concept: 'Reading a business from its numbers. Three statements, unit economics, '
+           + 'break-even, and the questions to ask when the numbers and the story '
+           + 'disagree.',
+    mbaCourse: 'Financial statement analysis',
+    note: 'Covered in part by the Executives Track, 8 weeks. The full year is not written.',
+  },
+  {
+    grade: 'Grade 10', status: 'designed',
+    concept: 'How a group of people gets work done. Roles, delegation, incentives, and '
+           + 'what happens to a plan when the people executing it are not the people '
+           + 'who wrote it.',
+    mbaCourse: 'Organizational behavior',
+    note: 'Covered in part by the Leadership track. The full year is not written.',
+  },
+  {
+    grade: 'Grade 11', status: 'planned',
+    concept: 'Where an advantage comes from and how a deal gets structured. What to ask '
+           + 'for, what to concede, and how to tell the difference between a negotiation '
+           + 'and an argument.',
+    mbaCourse: 'Strategy and negotiations',
+  },
+  {
+    grade: 'Grade 12', status: 'planned',
+    concept: 'Ownership. Equity, dilution, risk, what it means to hold a share of '
+           + 'something other people work at, and what is owed to them.',
+    mbaCourse: 'Entrepreneurial finance and business ethics',
+  },
+];
+
+/**
+ * The disclaimer. This is rendered on the pathway page and must stay there.
+ *
+ * "They would have earned an MBA without realizing it" is a good sentence and a
+ * false one. A degree is a credential granted by an accredited institution after
+ * admission, assessment and payment. We grant nothing. Say what is true instead:
+ * the ideas arrive earlier, spread thinner, and free.
+ */
+export const NOT_AN_MBA: string[] = [
+  'This is not a degree, and finishing it confers no credential of any kind.',
+  'It carries no academic credit, no college credit, and no articulation agreement '
+  + 'with any institution.',
+  'Young Innovators for Change is not an accredited school and does not award '
+  + 'diplomas, certificates or transcripts.',
+  'It is not a substitute for a graduate business education, and a student who '
+  + 'completes it and later wants an MBA should go and get one.',
+  'No student has completed this pathway. Two of its ten years are written, and '
+  + 'nobody has run either of them start to finish in a classroom yet.',
+];
+
+/**
+ * The opt-in principle, in Cindy's framing: nobody can be made to want this.
+ * Written as a commitment because it constrains program design, not as a slogan.
+ */
+export const OPT_IN: { title: string; body: string }[] = [
+  { title: 'Offered to every student, required of none',
+    body: 'The pathway sits beside the school day rather than inside a graduation '
+        + 'requirement. A student who is not interested this year loses nothing and '
+        + 'can start next year.' },
+  { title: 'No screening, no application, no prerequisite',
+    body: 'There is no test to get in and no prior year to have completed. Wanting to '
+        + 'do it is the entire entry criterion, which is the opposite of how access to '
+        + 'this material usually works.' },
+  { title: 'The ceiling is not set by us',
+    body: 'A student who wants to go further than the year they are in should be handed '
+        + 'the next book, not held at their grade level. Every year is published in '
+        + 'full, so nothing is gated on our permission.' },
+  { title: 'Effort is the variable we are betting on',
+    body: 'The material is written to reward work rather than speed or prior exposure. '
+        + 'Whether that is enough is an open question, and it is on the evidence page '
+        + 'as one we could be wrong about.' },
+];
+
+// ─── Research base ────────────────────────────────────────────────────────────
+
+/**
+ * The published work the pathway design leans on, with what each one does and
+ * does not support.
+ *
+ * RULE: every entry is a real, locatable publication, cited with enough detail
+ * that a reader can pull it up and check whether we characterized it correctly.
+ * `bearing` must state the limit of the claim. The literature here is about
+ * financial and entrepreneurship education in general. None of it evaluates our
+ * curriculum, and one of the strongest papers in the list is a critique.
+ */
+export type Citation = {
+  authors: string;
+  year: number;
+  title: string;
+  publication: string;
+  url: string;
+  /** What the study found, in its own terms. */
+  finding: string;
+  /** What it does and does not support about our design. */
+  bearing: string;
+  /** Set for work that cuts against us. */
+  countervailing?: boolean;
+};
+
+export const RESEARCH: Citation[] = [
+  {
+    authors: 'Jerome S. Bruner', year: 1960,
+    title: 'The Process of Education',
+    publication: 'Harvard University Press',
+    url: 'https://www.hup.harvard.edu/books/9780674710016',
+    finding: 'Sets out the spiral curriculum: "A curriculum as it develops should revisit '
+           + 'these basic ideas repeatedly, building upon them until the student has grasped '
+           + 'the full formal apparatus that goes with them" (p. 13), on the hypothesis that '
+           + '"any subject can be taught effectively in some intellectually honest form to '
+           + 'any child at any stage of development" (p. 33).',
+    bearing: 'This is the structural argument for the pathway, and it is a 1960 theoretical '
+           + 'position rather than an experimental result. It says a spiral is a coherent way '
+           + 'to build a curriculum. It does not say ours is any good.',
+  },
+  {
+    authors: 'Consumer Financial Protection Bureau', year: 2016,
+    title: 'Building Blocks to Help Youth Achieve Financial Capability: A New Model and '
+         + 'Recommendations',
+    publication: 'U.S. Consumer Financial Protection Bureau',
+    url: 'https://files.consumerfinance.gov/f/documents/092016_cfpb_BuildingBlocksReport_ModelAndRecommendations_web.pdf',
+    finding: 'Places executive function in early childhood (ages 3 to 5), financial habits '
+           + 'and norms in middle childhood (ages 6 to 12), and explicit financial knowledge '
+           + 'and decision-making skills in adolescence and young adulthood (ages 13 to 21).',
+    bearing: 'This is the developmental case for starting in elementary school and saving the '
+           + 'formal reasoning for the upper grades, which is how the ladder is ordered. It is '
+           + 'a synthesis and a model, not a trial of any program.',
+  },
+  {
+    authors: 'Nicholas J. Cepeda, Harold Pashler, Edward Vul, John T. Wixted and Doug Rohrer',
+    year: 2006,
+    title: 'Distributed Practice in Verbal Recall Tasks: A Review and Quantitative Synthesis',
+    publication: 'Psychological Bulletin 132(3), 354 to 380',
+    url: 'https://doi.org/10.1037/0033-2909.132.3.354',
+    finding: '839 assessments across 317 experiments in 184 articles. Spaced study beats '
+           + 'massed study, and the gap that produces the best retention grows as the delay '
+           + 'before the test grows.',
+    bearing: 'The reason the pathway is ten years of one lesson a week rather than a course. '
+           + 'Caveat worth stating: this literature is mostly verbal recall in laboratory '
+           + 'settings, not business concepts in classrooms over a decade.',
+  },
+  {
+    authors: 'John Dunlosky, Katherine A. Rawson, Elizabeth J. Marsh, Mitchell J. Nathan and '
+           + 'Daniel T. Willingham',
+    year: 2013,
+    title: 'Improving Students’ Learning With Effective Learning Techniques: Promising '
+         + 'Directions From Cognitive and Educational Psychology',
+    publication: 'Psychological Science in the Public Interest 14(1), 4 to 58',
+    url: 'https://doi.org/10.1177/1529100612453266',
+    finding: 'Reviews ten study techniques against the evidence and rates only two as high '
+           + 'utility across materials, learners and settings. Distributed practice is one of '
+           + 'them.',
+    bearing: 'Independent confirmation that spacing is among the few instructional choices '
+           + 'with broad support. It says nothing about the content we chose to space.',
+  },
+  {
+    authors: 'Daniel Fernandes, John G. Lynch Jr. and Richard G. Netemeyer', year: 2014,
+    title: 'Financial Literacy, Financial Education, and Downstream Financial Behaviors',
+    publication: 'Management Science 60(8), 1861 to 1883',
+    url: 'https://doi.org/10.1287/mnsc.2013.1849',
+    finding: 'A meta-analysis of 168 papers covering 201 studies. Interventions to improve '
+           + 'financial literacy explained 0.1 percent of the variance in the financial '
+           + 'behaviors studied, effects decayed over time, and even large interventions with '
+           + 'many hours of instruction had negligible effects on behavior 20 months or more '
+           + 'afterward. Effects were weaker in low-income samples.',
+    bearing: 'The strongest published argument against the thing we are building, and the '
+           + 'reason it is designed the way it is. If a one-time course fades within two '
+           + 'years, the answer is not a better one-time course. Whether spreading the same '
+           + 'material across ten years defeats that decay is untested, including by us. '
+           + 'The finding of weaker effects in low-income samples lands directly on our '
+           + 'intended schools and we have no answer to it yet.',
+    countervailing: true,
+  },
+  {
+    authors: 'Tim Kaiser, Annamaria Lusardi, Lukas Menkhoff and Carly Urban', year: 2022,
+    title: 'Financial Education Affects Financial Knowledge and Downstream Behaviors',
+    publication: 'Journal of Financial Economics 145(2), 255 to 272',
+    url: 'https://doi.org/10.1016/j.jfineco.2021.09.022',
+    finding: 'A meta-analysis of 76 randomized experiments with over 160,000 participants. '
+           + 'Financial education has positive causal effects on financial knowledge and on '
+           + 'downstream behavior, comparable in size to educational interventions in other '
+           + 'domains and at least three times the average effect found in earlier work.',
+    bearing: 'The counterweight to the paper above, and more recent, but it is a different '
+           + 'evidence base: randomized trials rather than the wider set. Taken together the '
+           + 'two say the field is contested, which is the accurate summary and the one we '
+           + 'would rather publish than a tidier one.',
+  },
+  {
+    authors: 'Alexandra Brown, J. Michael Collins, Maximilian Schmeiser and Carly Urban',
+    year: 2014,
+    title: 'State Mandated Financial Education and the Credit Behavior of Young Adults',
+    publication: 'Federal Reserve Board, Finance and Economics Discussion Series 2014-68',
+    url: 'https://www.federalreserve.gov/pubs/feds/2014/201468/201468abs.html',
+    finding: 'Young people in school after Georgia, Idaho and Texas introduced a financial '
+           + 'education requirement in 2007 had higher relative credit scores and lower '
+           + 'relative delinquency rates than comparable young people in states without one.',
+    bearing: 'Evidence that school-delivered money instruction can show up years later in '
+           + 'behavior that costs real money. It is a state policy study, not a curriculum '
+           + 'study, and it cannot tell you which parts of the instruction did the work.',
+  },
+  {
+    authors: 'Niklas Elert, Fredrik W. Andersson and Karl Wennberg', year: 2015,
+    title: 'The Impact of Entrepreneurship Education in High School on Long-Term '
+         + 'Entrepreneurial Performance',
+    publication: 'Journal of Economic Behavior & Organization 111, 209 to 223',
+    url: 'https://doi.org/10.1016/j.jebo.2014.12.020',
+    finding: 'Swedish students who took part in the Junior Achievement Company Program in high '
+           + 'school, followed for up to 16 years, were more likely to start a firm and earned '
+           + 'higher entrepreneurial incomes than matched peers. There was no effect on firm '
+           + 'survival.',
+    bearing: 'The closest thing in the literature to a long-run test of running a small '
+           + 'business as schoolwork, and the null result on survival is the part worth '
+           + 'sitting with. It is a matched observational study, not a randomized trial, and '
+           + 'it studies teenagers rather than nine-year-olds.',
+  },
+  {
+    authors: 'Richard M. Ryan and Edward L. Deci', year: 2000,
+    title: 'Self-Determination Theory and the Facilitation of Intrinsic Motivation, Social '
+         + 'Development, and Well-Being',
+    publication: 'American Psychologist 55(1), 68 to 78',
+    url: 'https://doi.org/10.1037/0003-066X.55.1.68',
+    finding: 'Sustained motivation depends on three conditions being met: autonomy, competence '
+           + 'and relatedness. Interest that is chosen holds; interest that is imposed tends '
+           + 'not to.',
+    bearing: 'The research basis for making the pathway opt-in rather than required. It '
+           + 'supports the design choice. It does not promise that the students who opt in '
+           + 'will be the ones who most needed it, which is a real risk and is on the '
+           + 'evidence page.',
+  },
+];
+
+/**
+ * What two years of graduate business school costs, from the schools' own
+ * published figures. Used to state the gap the pathway is a response to.
+ *
+ * These are list prices before financial aid, and both schools give aid. The
+ * point is not that every student pays this. It is that this is the price of
+ * admission to the material, and a child in a Title I elementary school is not
+ * in a position to negotiate it.
+ */
+export const MBA_COST = {
+  stanford: {
+    school: 'Stanford Graduate School of Business',
+    year: '2026 to 2027',
+    tuitionNineMonths: 89187,
+    totalNineMonths: 140940,
+    url: 'https://gsb.stanford.edu/programs/mba/tuition-financial-aid/cost-attendance',
+    note: 'First-year MBA, single student, nine months, tuition plus living costs.',
+  },
+  usc: {
+    school: 'USC Marshall School of Business',
+    year: '2024 to 2025',
+    firstYearTotal: 89769,
+    secondYearTotal: 77706,
+    url: 'https://www.marshall.usc.edu/programs/graduate-programs/mba-programs/full-time-mba/tuition-fees',
+    note: 'Full-time MBA, tuition, fees and health insurance, both years.',
+  },
+} as const;
+
+/** Two-year total at USC, computed rather than asserted. */
+export function uscTwoYearTotal(): number {
+  return MBA_COST.usc.firstYearTotal + MBA_COST.usc.secondYearTotal;
+}
+
+/** How many pathway years are actually written. Computed, never typed by hand. */
+export function pathwayPublishedCount(): number {
+  return PATHWAY.filter((s) => s.status === 'published').length;
+}
+
+/** US dollars, no cents. */
+export function usd(n: number): string {
+  return n.toLocaleString('en-US', { style: 'currency', currency: 'USD',
+    minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}

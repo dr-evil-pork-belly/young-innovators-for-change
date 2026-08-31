@@ -70,7 +70,7 @@ export default function CurriculumUi() {
     <Page>
       <Hero
         eyebrow="Curriculum scope & status"
-        title={<>FIVE SUBJECTS.<br />TWELVE GRADES.<br /><span style={{ color: GOLD_L }}>ONE OF THEM IS FINISHED.</span></>}
+        title={<>FIVE SUBJECTS.<br />TWELVE GRADES.<br /><span style={{ color: GOLD_L }}>THREE YEARS FINISHED.</span></>}
         accent={GOLD_L}
         lede={
           <>
@@ -147,8 +147,9 @@ export default function CurriculumUi() {
         <FadeIn delay={0.3}>
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '1.25rem', maxWidth: '72ch' }}>
             Most of this grid says <em>planned</em>, and that is the point of publishing it. An
-            organization two years old with one finished year of curriculum is exactly what we are. The grid is the plan for turning that into a K&ndash;12 program, one honest cell at
-            a time.
+            organization two years old with three finished years of curriculum is exactly what
+            we are. The grid is the plan for turning that into a K&ndash;12 program, one honest
+            cell at a time.
           </p>
         </FadeIn>
       </Section>
@@ -192,14 +193,20 @@ export default function CurriculumUi() {
                 LEADERSHIP, VENTURE &amp; MONEY
               </h3>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
-                Eight-week intensives where students build something and defend it. Leadership,
-                entrepreneurship and financial literacy, scaling in difficulty from a Founders
-                Track in the middle grades to an Executives Track in high school.
+                In the elementary and middle grades this runs as a full school year, one
+                assignment a week, because younger students hold this better spread out than
+                compressed. The Grade 4 and Grade 5 years are written. From Grade 7 up it also
+                runs as an eight-week intensive, scaling to an Executives Track in high school.
               </p>
-              <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED }}>
+              <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
                 This is the knowledge that usually arrives through a family, not a school. That
                 is precisely why it belongs in one.
               </p>
+              <Link href="/pathway" style={{ display: 'inline-flex', alignItems: 'center',
+                gap: '0.4rem', fontSize: '0.8rem', fontWeight: 600, color: GOLD_L,
+                textDecoration: 'none' }}>
+                How the years stack up, Grades 3 to 12 <ArrowUpRight size={13} />
+              </Link>
             </Card>
           </FadeIn>
         </div>
@@ -224,18 +231,19 @@ export default function CurriculumUi() {
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
           {[
-            { n: '01', a: GREEN_L, t: 'Run Grade 2 in a real classroom',
-              d: 'Nothing else is built until one teacher completes a year. What we learn there '
-               + 'changes how every later grade gets written.' },
+            { n: '01', a: GREEN_L, t: 'Run a written year in a real classroom',
+              d: 'Three years exist and none has been taught start to finish. What one teacher '
+               + 'learns completing one changes how every later grade gets written.' },
             { n: '02', a: GOLD_L, t: 'Assessment and teacher materials',
               d: 'The pre/post instrument and the training deck the evaluation needs, and the '
                + 'thing a district asks for before adopting anything.' },
             { n: '03', a: ROYAL_L, t: 'Grade 3, then Grade 1',
               d: 'Outward from the tested year in both directions, using the same generator, so '
                + 'a second year takes months rather than a year.' },
-            { n: '04', a: ROYAL_L, t: 'Write the Enterprise materials',
-              d: 'The three older-student programs are designed but not written out. Turning '
-               + 'a syllabus into materials a volunteer can teach from is the work.' },
+            { n: '04', a: ROYAL_L, t: 'Write the rest of the Enterprise years',
+              d: 'Grades 4 and 5 are written. Grade 6 and the older-student tracks are designed '
+               + 'and not written out. Turning a syllabus into materials a volunteer can teach '
+               + 'from is the work.' },
             { n: '05', a: SLATE_3, t: 'Science, and the upper grades',
               d: 'The largest part of the grid and the furthest out. We would rather say that '
                + 'plainly than imply it is nearly done.' },

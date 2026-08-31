@@ -5,6 +5,7 @@ const ROUTES = [
   { path: '',                              priority: 1.0,  changeFrequency: 'monthly' as const },
   { path: '/mission',                      priority: 0.9,  changeFrequency: 'monthly' as const },
   { path: '/curriculum',                   priority: 0.95, changeFrequency: 'monthly' as const },
+  { path: '/pathway',                      priority: 0.9,  changeFrequency: 'monthly' as const },
   { path: '/impact',                       priority: 0.9,  changeFrequency: 'monthly' as const },
   { path: '/for-schools',                  priority: 0.9,  changeFrequency: 'monthly' as const },
   { path: '/about',                        priority: 0.8,  changeFrequency: 'monthly' as const },

@@ -157,8 +157,8 @@ const venture: ProgramSpec = {
     + 'to, a price they had to defend, and a pitch delivered to a panel at the end.',
     'This is the intensive format, for Grades 7 and up. Grades 4 to 6 get the same ideas '
     + 'as a full school year instead, one assignment a week, because younger students learn '
-    + 'this better spread out than compressed. The Grade 4 year is written and free to '
-    + 'download today.',
+    + 'this better spread out than compressed. The Grade 4 and Grade 5 years are written '
+    + 'and free to download today.',
   ],
   unitsLabel: 'The eight weeks',
   unitsIntro:
@@ -252,7 +252,7 @@ const venture: ProgramSpec = {
     'All eight weeks, with the deliverable defined for each',
     'The frameworks and worksheets each week is built around',
     'The pitch structure and the feedback form',
-    'The Grade 4 full-year version, written and published in full',
+    'The Grade 4 and Grade 5 full-year versions, written and published in full',
   ],
   notYet: [
     'The printed student venture file',

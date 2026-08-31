@@ -10,7 +10,7 @@ import {
 } from 'framer-motion';
 import { ArrowUpRight, GraduationCap, Users, MapPin, Star, ChevronRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
-import { VERIFIED_STATS, PROGRAM_FACTS } from '@/content/org';
+import { VERIFIED_STATS, PROGRAM_FACTS, FOUNDER, usd, uscTwoYearTotal } from '@/content/org';
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
 const ROYAL   = '#2563EB'; // Royal Blue
@@ -329,19 +329,19 @@ export default function HomePage() {
               style={{ fontSize: '1.05rem', lineHeight: 1.7, color: MUTED }}
             >
               Mathematics and science for Grades 1&ndash;12. Leadership, entrepreneurship
-              and financial literacy from Grade 3 up. We are early. One full year
-              is written and free to download today, and everything we build gets
+              and financial literacy from Grade 3 up. We are early. Three full years
+              are written and free to download today, and everything we build gets
               published the same way: in full, to anyone, at no cost.
             </motion.p>
 
             {/* CTAs */}
             <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4">
               <Link
-                href="/programs"
+                href="/curriculum"
                 className="btn-gold"
                 style={{ fontSize: '0.8125rem', padding: '0.875rem 2rem' }}
               >
-                Explore Programs
+                Explore the Curriculum
                 <ArrowUpRight size={14} />
               </Link>
               <Link
@@ -378,8 +378,8 @@ export default function HomePage() {
                 backdropFilter: 'blur(12px)',
               }}
             >
-              <StatPill value="36"  label="Weeks Built" />
-              <StatPill value="4"   label="Programs"   />
+              <StatPill value="108" label="Weeks Built" />
+              <StatPill value="3"   label="Years Published" />
               <div className="flex flex-col items-center px-8 py-4">
                 <span style={{
                   fontFamily:    "'Bebas Neue', Impact, sans-serif",
@@ -435,12 +435,17 @@ export default function HomePage() {
               </h2>
             </div>
             <div className="max-w-sm">
-              <p style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED }}>
-                Top business schools charge $200K for an MBA. We deliver the same
-                frameworks (venture building, financial literacy, leadership) to
-                kids in underserved districts. For free. Because access shouldn't
-                be a privilege.
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED, marginBottom: '1rem' }}>
+                Two years of a full-time MBA runs to {usd(uscTwoYearTotal())} at USC
+                and more than that at Stanford, which is the price of admission to how
+                pricing, capital and ownership actually work. We are writing the same ideas
+                for children, one assignment a week, and publishing them free.
               </p>
+              <Link href="/pathway" style={{ display: 'inline-flex', alignItems: 'center',
+                gap: '0.4rem', fontSize: '0.8rem', fontWeight: 600, color: GOLD,
+                textDecoration: 'none' }}>
+                The ten-year pathway <ArrowUpRight size={13} />
+              </Link>
             </div>
           </div>
         </RevealSection>
@@ -450,7 +455,7 @@ export default function HomePage() {
           {[
             { num: '01', title: 'Mathematics', body: 'Reasoning-first weekly enrichment beside the state curriculum, Grades 1–12. The Grade 2 year is written, standards-mapped and free to download today.' },
             { num: '02', title: 'Science', body: 'Investigation-led, low materials cost, printable in black and white. Grades 1–12, and the largest part of the roadmap still to write.' },
-            { num: '03', title: 'Leadership & Venture', body: 'Executive presence, decision-making, and building a real micro-business over eight weeks. Grades 3–12, designed and being written.' },
+            { num: '03', title: 'Leadership & Venture', body: 'One student, one product, one market day, then a team and a real profit split. The Grade 4 and Grade 5 years are written; the eight-week intensive covers Grades 7 and up.' },
             { num: '04', title: 'Financial Literacy', body: 'Budgeting, credit, compounding and unit economics: the money knowledge that usually arrives through a family rather than a school.' },
           ].map((pillar, i) => (
             <RevealSection key={pillar.num} delay={i * 0.1}>
@@ -574,9 +579,10 @@ export default function HomePage() {
                   and e-commerce business, and later sold.
                 </p>
                 <p style={{ fontSize: '1rem', lineHeight: 1.8, color: MUTED, marginBottom: '2rem' }}>
-                  The MBA came afterward, and with it the discovery that a whole field had
-                  been sitting there the entire time. This organization is the attempt to
-                  hand that to children two decades earlier than she got it.
+                  The MBA at {FOUNDER.mbaSchool} came afterward, and with it the discovery
+                  that a whole field had been sitting there the entire time. This organization
+                  is the attempt to hand that to children two decades earlier than she got it,
+                  spread across the years they are in school rather than compressed into two.
                 </p>
               </RevealSection>
 
@@ -587,7 +593,7 @@ export default function HomePage() {
                   marginBottom: '2.5rem',
                 }}>
                   <p style={{ fontSize: '1.05rem', fontStyle: 'italic', lineHeight: 1.7, color: WHITE }}>
-                    "If only I had known all of this at a much younger age."
+                    &ldquo;{FOUNDER.quotes.theMBA}&rdquo;
                   </p>
                   <cite style={{ display: 'block', marginTop: '0.75rem', fontSize: '0.8rem', fontStyle: 'normal', fontWeight: 600, color: ROYAL_L, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Cindy Ha, Founder &amp; Executive Director
                   </cite>
@@ -654,10 +660,10 @@ export default function HomePage() {
                       What we have built
                     </p>
                     <p style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: '3rem', color: WHITE, lineHeight: 1, letterSpacing: '0.04em' }}>
-                      36<span style={{ color: ROYAL_L }}> weeks</span>
+                      108<span style={{ color: ROYAL_L }}> weeks</span>
                     </p>
                     <p style={{ fontSize: '0.8rem', color: MUTED, marginTop: '0.25rem' }}>
-                      of Grade 2 curriculum, written and free to download
+                      three full years, Grades 2, 4 and 5, written and free to download
                     </p>
                   </div>
                   <div style={{
@@ -708,15 +714,16 @@ export default function HomePage() {
               READY TO BRING THIS TO YOUR DISTRICT?
             </h2>
             <p className="relative mx-auto mb-10 max-w-lg" style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED }}>
-              Partner with us to bring the Young Innovators curriculum to your students.
-              No cost. Full support. Transformative results.
+              Three finished years, free to download and free to run. No cohort has completed
+              one yet, so the first classroom to try it is the one that tells us whether any
+              of this works.
             </p>
             <div className="relative flex flex-wrap items-center justify-center gap-4">
               <Link href="/partner" className="btn-gold" style={{ fontSize: '0.875rem', padding: '1rem 2.5rem' }}>
                 Partner Now
                 <ArrowUpRight size={14} />
               </Link>
-              <Link href="/programs" className="btn-ghost" style={{ fontSize: '0.875rem', padding: '1rem 2rem', borderColor: 'rgba(37,99,235,0.3)', color: ROYAL_L }}
+              <Link href="/curriculum" className="btn-ghost" style={{ fontSize: '0.875rem', padding: '1rem 2rem', borderColor: 'rgba(37,99,235,0.3)', color: ROYAL_L }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = ROYAL_L;
                   e.currentTarget.style.background  = 'rgba(37,99,235,0.08)';
@@ -726,7 +733,7 @@ export default function HomePage() {
                   e.currentTarget.style.background  = 'transparent';
                 }}
               >
-                View Programs
+                View the Curriculum
               </Link>
             </div>
           </div>
@@ -742,4 +749,4 @@ export default function HomePage() {
       `}</style>
     </div>
   );
-}
+}

@@ -17,6 +17,7 @@ const NAV_LINKS = [
     label: 'Curriculum', href: '/curriculum',
     dropdown: [
       { label: 'The full K–12 map',   href: '/curriculum',                  desc: 'Five subjects, twelve grades, honest status' },
+      { label: 'The ten-year pathway', href: '/pathway',                    desc: 'Grades 3–12 · business school, uncompressed' },
       { label: 'Discrete Math',       href: '/programs/discrete-math',      desc: 'Grade 2 · published and free' },
       { label: 'Leadership',          href: '/programs/leadership',         desc: 'Grades 3–12 · designed'          },
       { label: 'Venture Lab',         href: '/programs/venture-lab',        desc: 'Grades 3–12 · designed'          },
@@ -339,4 +340,4 @@ export default function Navbar() {
       </AnimatePresence>
     </>
   );
-}
+}

@@ -46,7 +46,7 @@ function PullQuote({ children, accent = GOLD }: { children: React.ReactNode; acc
         {children}
       </p>
       <cite style={{ fontSize: '0.7rem', fontStyle: 'normal', fontWeight: 700,
-        letterSpacing: '0.16em', textTransform: 'uppercase' as const, color: accent }}>, {FOUNDER.name}
+        letterSpacing: '0.16em', textTransform: 'uppercase' as const, color: accent }}>{FOUNDER.name}
       </cite>
     </div>
   );
@@ -165,6 +165,11 @@ export default function AboutUi() {
             most of high school and college, because the money had to come from somewhere.
           </p>
           <p style={BODY}>
+            She {FOUNDER.academicRecord}. She is specific about the second half of that
+            sentence, and it is not modesty. Finishing first was the return on hours nobody
+            saw, which is the only reason it is worth mentioning at all here.
+          </p>
+          <p style={BODY}>
             That is thirteen years of doing it right, followed by four more. And none of it
             included how money works. Not how a price gets set, not what a margin is, not what
             it costs to borrow, not why one shop survives its third year and the one beside it
@@ -220,6 +225,17 @@ export default function AboutUi() {
             knowledge she had been improvising against, blind, for years, and had beaten it anyway.
           </p>
           <PullQuote accent={ROYAL_L}>{FOUNDER.quotes.theMBA}</PullQuote>
+          <p style={BODY}>
+            The other thing she took from it was about pace. Two years is a compression
+            schedule, priced and timed for adults who already speak the language, and she
+            came out convinced that the compression was doing real damage to how much of it
+            people actually keep. Spread over the years a child is in a classroom anyway,
+            there is no schedule to keep up with.{' '}
+            <Link href="/pathway" style={{ color: ROYAL_L, textDecoration: 'none',
+              borderBottom: '1px solid rgba(59,130,246,0.4)' }}>
+              That idea became the ten-year pathway
+            </Link>.
+          </p>
           <p style={{ ...BODY, marginBottom: 0, color: WHITE }}>
             Winning it blind is not the lesson. The lesson is that she should not have had to.
           </p>
