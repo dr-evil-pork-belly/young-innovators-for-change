@@ -12,6 +12,7 @@ import {
   CURRICULUM, GRADE_BANDS, STATUS_LABEL, countByStatus, AVAILABLE_NOW,
   type Status, type Strand,
 } from '@/content/org';
+import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
 
 const STATUS_STYLE: Record<Status, { fg: string; bg: string; bd: string; icon: React.ElementType | null }> = {
   published: { fg: GREEN_L, bg: 'rgba(52,211,153,0.10)', bd: 'rgba(52,211,153,0.32)', icon: CheckCircle },
@@ -19,6 +20,15 @@ const STATUS_STYLE: Record<Status, { fg: string; bg: string; bd: string; icon: R
   planned:   { fg: ROYAL_L, bg: 'rgba(59,130,246,0.07)', bd: 'rgba(59,130,246,0.22)',  icon: MapIcon },
   'n/a':     { fg: SLATE_3, bg: 'transparent',           bd: 'rgba(148,163,184,0.10)', icon: Minus },
 };
+
+/**
+ * The hero reads "FIVE SUBJECTS. TWELVE GRADES. N YEARS FINISHED." and the
+ * first two are words, so the third has to be. It is still derived: the count
+ * comes from the generated list of published books, this only spells it.
+ */
+const WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven',
+               'eight', 'nine', 'ten', 'eleven', 'twelve'];
+const spell = (n: number) => (WORDS[n] ?? String(n)).toUpperCase();
 
 function Cell({ status, note }: { status: Status; note?: string }) {
   const st = STATUS_STYLE[status];
@@ -70,7 +80,8 @@ export default function CurriculumUi() {
     <Page>
       <Hero
         eyebrow="Curriculum scope & status"
-        title={<>FIVE SUBJECTS.<br />TWELVE GRADES.<br /><span style={{ color: GOLD_L }}>THREE YEARS FINISHED.</span></>}
+        title={<>FIVE SUBJECTS.<br />TWELVE GRADES.<br />
+          <span style={{ color: GOLD_L }}>{spell(PUBLISHED_YEARS.length)} YEARS FINISHED.</span></>}
         accent={GOLD_L}
         lede={
           <>
@@ -96,7 +107,9 @@ export default function CurriculumUi() {
       <Section tinted accent={GOLD}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
           {[
-            { n: published, l: 'Published', s: 'Written in full, free to download today', c: GREEN_L, i: CheckCircle },
+            { n: published, l: 'Published',
+              s: 'At least one complete year written and free to download. The cell says which grades',
+              c: GREEN_L, i: CheckCircle },
             { n: designed,  l: 'Designed',  s: 'Syllabus and modules complete, materials not yet written', c: GOLD_L, i: PenTool },
             { n: planned,   l: 'Planned',   s: 'On the roadmap, not started', c: ROYAL_L, i: MapIcon },
           ].map((x, i) => {
@@ -146,10 +159,17 @@ export default function CurriculumUi() {
 
         <FadeIn delay={0.3}>
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '1.25rem', maxWidth: '72ch' }}>
-            Most of this grid says <em>planned</em>, and that is the point of publishing it. An
-            organization two years old with three finished years of curriculum is exactly what
-            we are. The grid is the plan for turning that into a K&ndash;12 program, one honest
-            cell at a time.
+            A band marked <em>published</em> means at least one complete year in it can be
+            downloaded and run today, and the note on the cell names exactly which grades those
+            are. Mathematics reads published across three bands because Grades 2 through 6 are
+            written; Grades 1, 7 and 8 are not, and the cells say so.
+          </p>
+          <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '0.75rem', maxWidth: '72ch' }}>
+            Much of this grid still says <em>planned</em>, and that is the point of publishing
+            it. An organization two years old with {PUBLISHED_YEARS.length} finished years of
+            curriculum, {PUBLISHED_WEEKS} weekly assignments and no completed cohort is exactly
+            what we are. The grid is the plan for turning that into a K&ndash;12 program, one
+            honest cell at a time.
           </p>
         </FadeIn>
       </Section>
@@ -177,9 +197,16 @@ export default function CurriculumUi() {
                 low materials cost, printable in black and white, and sequenced so each week
                 reinforces the standard the class is already teaching.
               </p>
-              <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED }}>
-                Starts in Grade 1 because that is where mathematical identity starts forming, and where a child first decides whether this subject is for them.
+              <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
+                Grades 2 through 6 are written, as five separate school years that each teach one
+                new mathematical move: see it, count it, rule it out, cost it, generalize it. Any
+                one of them runs on its own. Grade 1 is the remaining gap at the bottom.
               </p>
+              <Link href="/programs/discrete-math" style={{ display: 'inline-flex', alignItems: 'center',
+                gap: '0.4rem', fontSize: '0.8rem', fontWeight: 600, color: ROYAL_L,
+                textDecoration: 'none' }}>
+                The five mathematics years <ArrowUpRight size={13} />
+              </Link>
             </Card>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -232,14 +259,17 @@ export default function CurriculumUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
           {[
             { n: '01', a: GREEN_L, t: 'Run a written year in a real classroom',
-              d: 'Three years exist and none has been taught start to finish. What one teacher '
-               + 'learns completing one changes how every later grade gets written.' },
+              d: `${PUBLISHED_YEARS.length} years exist and none has been taught start to `
+               + 'finish. What one teacher learns completing one changes how every later grade '
+               + 'gets written, and it is the only thing on this list nothing else can '
+               + 'substitute for.' },
             { n: '02', a: GOLD_L, t: 'Assessment and teacher materials',
               d: 'The pre/post instrument and the training deck the evaluation needs, and the '
                + 'thing a district asks for before adopting anything.' },
-            { n: '03', a: ROYAL_L, t: 'Grade 3, then Grade 1',
-              d: 'Outward from the tested year in both directions, using the same generator, so '
-               + 'a second year takes months rather than a year.' },
+            { n: '03', a: ROYAL_L, t: 'Split the years into single weeks',
+              d: `${PUBLISHED_WEEKS} two-page assignments currently ship as ${PUBLISHED_YEARS.length} `
+               + 'all-or-nothing PDFs. One week is a far easier thing for a teacher to try, and '
+               + 'each one names a standard a teacher might search for.' },
             { n: '04', a: ROYAL_L, t: 'Write the rest of the Enterprise years',
               d: 'Grades 4 and 5 are written. Grade 6 and the older-student tracks are designed '
                + 'and not written out. Turning a syllabus into materials a volunteer can teach '

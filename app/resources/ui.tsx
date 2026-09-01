@@ -6,6 +6,8 @@ import {
   Page, Hero, Section, Eyebrow, Title, FadeIn, Card,
   WHITE, MUTED, SLATE_3, GOLD, GOLD_L, ROYAL_L, GREEN_L, DISPLAY,
 } from '@/components/kit';
+import { MATH_LINE } from '@/content/mathLine';
+import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
 
 type Resource = {
   file: string;
@@ -17,27 +19,44 @@ type Resource = {
   desc: string;
 };
 
-const RESOURCES: Resource[] = [
+/**
+ * The five math books, from content/mathLine.ts rather than typed here. Five
+ * hand-written pairs of cards would have gone stale the first time a book was
+ * rebuilt, and the page count and grade in the meta line would have been the
+ * first things to drift.
+ */
+const MATH_RESOURCES: Resource[] = MATH_LINE.flatMap((b) => [
   {
-    file: '/downloads/discrete-math-adventures-workbook.pdf',
-    label: 'Discrete Math Adventures: Student Workbook',
-    kind: 'Curriculum', meta: 'PDF · 77 pages · Grade 2', accent: ROYAL_L, icon: BookOpen,
-    desc: '36 weekly assignments, two pages each, plus a contents spread and a certificate. '
-        + 'Sequenced against a typical California Grade 2 pacing guide and proofed in grayscale '
-        + 'so it prints on a classroom copier.',
+    file: b.workbook,
+    label: `${b.title}: Student Workbook`,
+    kind: 'Mathematics', meta: `PDF · ${b.pages} pages · Grade ${b.grade}`,
+    accent: ROYAL_L, icon: BookOpen,
+    desc: `36 weekly assignments, two pages each, plus a contents spread and a certificate. `
+        + `${b.move}: ${b.moveLine.charAt(0).toLowerCase()}${b.moveLine.slice(1)} `
+        + `Sequenced against a typical California Grade ${b.grade} pacing guide and proofed in `
+        + `grayscale so it prints on a classroom copier.`,
   },
   {
-    file: '/downloads/discrete-math-teacher-guide.html',
-    label: 'Discrete Math Adventures: Teacher Guide',
-    kind: 'Curriculum', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
+    file: b.guide,
+    label: `${b.title}: Teacher Guide`,
+    kind: 'Mathematics', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
     desc: 'Answer keys for the main activity, the practice set and the Challenge Zone, plus a '
         + 'running note and the standards tie for every week. Written so a teacher needs no '
-        + 'prior background in the mathematics.',
+        + 'prior background in the mathematics.'
+        + (b.checks > 0
+            ? ` All ${b.checks.toLocaleString('en-US')} numeric answers are recomputed from the `
+              + 'problems by a script that ships with the source.'
+            : ' The later books ship a script that recomputes every numeric answer from the '
+              + 'problems. This guide predates it, so its answers have been read rather than '
+              + 'recomputed.'),
   },
+]);
+
+const OTHER: Resource[] = [
   {
     file: '/downloads/venture-year-grade4.pdf',
     label: 'The Venture Year: Student Workbook',
-    kind: 'Curriculum', meta: 'PDF · 77 pages · Grade 4', accent: GOLD_L, icon: BookOpen,
+    kind: 'Entrepreneurship', meta: 'PDF · 77 pages · Grade 4', accent: GOLD_L, icon: BookOpen,
     desc: '36 weekly assignments in entrepreneurship, two pages each. Students find a real '
         + 'problem, design something that fixes it, work out cost and price, and sell it at a '
         + 'class market day in week 31. Real products and real customers, on play money in a '
@@ -46,7 +65,7 @@ const RESOURCES: Resource[] = [
   {
     file: '/downloads/venture-year-teacher-guide.html',
     label: 'The Venture Year: Teacher Guide',
-    kind: 'Curriculum', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
+    kind: 'Entrepreneurship', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
     desc: 'The point of each week, every arithmetic answer, the specific wrong turn each '
         + 'week produces, and an honest note wherever a question is a judgement call rather '
         + 'than something with a right answer.',
@@ -54,7 +73,7 @@ const RESOURCES: Resource[] = [
   {
     file: '/downloads/numbers-year-grade5.pdf',
     label: 'The Numbers Year: Student Workbook',
-    kind: 'Curriculum', meta: 'PDF · 77 pages · Grade 5', accent: GOLD_L, icon: BookOpen,
+    kind: 'Entrepreneurship', meta: 'PDF · 77 pages · Grade 5', accent: GOLD_L, icon: BookOpen,
     desc: '36 weekly assignments, the second entrepreneurship year. Teams of two or three '
         + 'build a line of products, write a forecast before selling anything, sell twice '
         + 'with one deliberate change in between, and find out whether the change did '
@@ -63,10 +82,14 @@ const RESOURCES: Resource[] = [
   {
     file: '/downloads/numbers-year-teacher-guide.html',
     label: 'The Numbers Year: Teacher Guide',
-    kind: 'Curriculum', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
+    kind: 'Entrepreneurship', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
+    // The count that used to sit here (124) does not match the count the book's
+    // own verify.py reports, so it has been removed rather than corrected to a
+    // second number nothing on this site can check. The math cards above carry
+    // counts because those are read out of the books at generation time.
     desc: 'Every arithmetic answer, the point of each week, and the specific wrong turn it '
-        + 'produces. All 124 numeric answers are recomputed from the problems by a script '
-        + 'that ships with the source.',
+        + 'produces. Every numeric answer is recomputed from the problems by a script that '
+        + 'ships with the source.',
   },
   {
     file: '/downloads/structure-before-fluency.pdf',
@@ -86,6 +109,8 @@ const RESOURCES: Resource[] = [
   },
 ];
 
+const RESOURCES: Resource[] = [...MATH_RESOURCES, ...OTHER];
+
 export default function ResourcesUi() {
   return (
     <Page>
@@ -100,9 +125,16 @@ export default function ResourcesUi() {
               key, the research behind it, and the packet we hand to principals. No email wall, no
               license, no partial preview.
             </p>
-            <p style={{ margin: 0 }}>
+            <p style={{ marginBottom: '0.9rem' }}>
               Use it in your classroom, adapt it for your district, or read it to decide whether we
               know what we are doing. All three are the point.
+            </p>
+            <p style={{ margin: 0 }}>
+              On this page:{' '}
+              <strong style={{ color: WHITE }}>
+                {PUBLISHED_YEARS.length} complete school years, {PUBLISHED_WEEKS} weekly
+                assignments, and the teacher guide for every one of them.
+              </strong>
             </p>
           </>
         }
@@ -188,17 +220,18 @@ export default function ResourcesUi() {
               <p style={{ fontFamily: DISPLAY, fontSize: '1.9rem', letterSpacing: '0.02em',
                 color: WHITE, marginBottom: '0.4rem' }}>MORE IS COMING.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '54ch' }}>
-                Assessment instruments, a teacher training deck, then Grade 3 and Grade 1, after
-                the first pilot, so they are shaped by a real classroom rather than a guess about
-                one. Science and the Grades 3–12 enterprise materials follow. The full map, with
-                an honest status on every grade band, is on the curriculum page.
+                Assessment instruments and a teacher training deck next, then Grade 1 to close the
+                bottom of the mathematics line. Science and the Grades 6 to 12 enterprise
+                materials follow. The full map, with an honest status on every grade band, is on
+                the curriculum page.
               </p>
             </div>
             <Link href="/for-schools" className="btn-gold">Run the pilot <ArrowUpRight size={14} /></Link>
           </div>
-          <p style={{ fontSize: '0.75rem', color: SLATE_3, marginTop: '1.5rem' }}>
-            The workbook PDF was generated in an environment without the brand display font, so its
-            cover type falls back to a system sans. All artwork is vector and unaffected.
+          <p style={{ fontSize: '0.75rem', color: SLATE_3, marginTop: '1.5rem', maxWidth: '72ch' }}>
+            Nothing here has been taught start to finish in a classroom yet, and none of it carries
+            an outcome claim, because there is no cohort to draw one from. What you can check today
+            is whether the material is any good.
           </p>
         </FadeIn>
       </Section>

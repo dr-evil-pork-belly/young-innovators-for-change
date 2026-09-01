@@ -11,6 +11,7 @@ import {
 import { ArrowUpRight, GraduationCap, Users, MapPin, Star, ChevronRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { VERIFIED_STATS, PROGRAM_FACTS, FOUNDER, usd, uscTwoYearTotal } from '@/content/org';
+import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
 const ROYAL   = '#2563EB'; // Royal Blue
@@ -331,8 +332,8 @@ export default function HomePage() {
               Some children learn how business and money work at home. The rest are
               expected to buy it later, compressed into two years, at graduate school
               prices. We write that material for the children whose families do not have
-              it to give, and publish every page of it free. Three full years are written
-              and downloadable today. We are early, and we say so.
+              it to give, and publish every page of it free. {PUBLISHED_YEARS.length} full
+              school years are written and downloadable today. We are early, and we say so.
             </motion.p>
 
             {/* CTAs */}
@@ -379,8 +380,8 @@ export default function HomePage() {
                 backdropFilter: 'blur(12px)',
               }}
             >
-              <StatPill value="108" label="Weeks Built" />
-              <StatPill value="3"   label="Years Published" />
+              <StatPill value={String(PUBLISHED_WEEKS)} label="Weeks Built" />
+              <StatPill value={String(PUBLISHED_YEARS.length)} label="Years Published" />
               <div className="flex flex-col items-center px-8 py-4">
                 <span style={{
                   fontFamily:    "'Bebas Neue', Impact, sans-serif",
@@ -454,7 +455,7 @@ export default function HomePage() {
         {/* Four strands, two tracks */}
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
           {[
-            { num: '01', title: 'Mathematics', body: 'Reasoning-first weekly enrichment beside the state curriculum, Grades 1–12. The Grade 2 year is written, standards-mapped and free to download today.' },
+            { num: '01', title: 'Mathematics', body: 'Reasoning-first weekly enrichment beside the state curriculum, Grades 1–12. Five complete years are written, Grades 2 through 6, standards-mapped and free to download today.' },
             { num: '02', title: 'Science', body: 'Investigation-led, low materials cost, printable in black and white. Grades 1–12, and the largest part of the roadmap still to write.' },
             { num: '03', title: 'Leadership & Venture', body: 'One student, one product, one market day, then a team and a real profit split. The Grade 4 and Grade 5 years are written; the eight-week intensive covers Grades 7 and up.' },
             { num: '04', title: 'Financial Literacy', body: 'Budgeting, credit, compounding and unit economics: the money knowledge that usually arrives through a family rather than a school.' },
@@ -661,10 +662,10 @@ export default function HomePage() {
                       What we have built
                     </p>
                     <p style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: '3rem', color: WHITE, lineHeight: 1, letterSpacing: '0.04em' }}>
-                      108<span style={{ color: ROYAL_L }}> weeks</span>
+                      {PUBLISHED_WEEKS}<span style={{ color: ROYAL_L }}> weeks</span>
                     </p>
                     <p style={{ fontSize: '0.8rem', color: MUTED, marginTop: '0.25rem' }}>
-                      three full years, Grades 2, 4 and 5, written and free to download
+                      {PUBLISHED_YEARS.length} full school years, written and free to download
                     </p>
                   </div>
                   <div style={{
@@ -715,9 +716,9 @@ export default function HomePage() {
               READY TO BRING THIS TO YOUR DISTRICT?
             </h2>
             <p className="relative mx-auto mb-10 max-w-lg" style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED }}>
-              Three finished years, free to download and free to run. No cohort has completed
-              one yet, so the first classroom to try it is the one that tells us whether any
-              of this works.
+              {PUBLISHED_YEARS.length} finished years, free to download and free to run. No
+              cohort has completed one yet, so the first classroom to try it is the one that
+              tells us whether any of this works.
             </p>
             <div className="relative flex flex-wrap items-center justify-center gap-4">
               <Link href="/partner" className="btn-gold" style={{ fontSize: '0.875rem', padding: '1rem 2.5rem' }}>

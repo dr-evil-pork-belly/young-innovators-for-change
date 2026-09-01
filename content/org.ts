@@ -9,7 +9,14 @@
  *
  * Empty arrays and null values render nothing. A section with nothing true to
  * say disappears rather than falling back to something invented.
+ *
+ * Counts of what is published are NOT typed here. They come from
+ * content/published.ts and content/mathLine.ts, both generated from the
+ * curriculum repository by brand/mksite.py. Every count in this file that was
+ * typed by hand went stale the first time a book shipped.
  */
+
+import { PUBLISHED_STANDARDS, PUBLISHED_WEEKS, PUBLISHED_YEARS } from './published';
 
 // ─── Organization ─────────────────────────────────────────────────────────────
 
@@ -177,23 +184,28 @@ export const VERIFIED_STATS: Stat[] = [];
 /**
  * Facts about what has been built and committed to. All checkable today.
  *
- * `CA Standards Mapped` is COMPUTED, not estimated: it is the count of distinct
- * standard codes named in the “In class this week” line of all 108 weekly
- * assignments across the three published books. Grade 2 names 19, Grade 4 names
- * 11, Grade 5 names 14, and the three sets do not overlap, so the total is 44.
- * Recount from the curriculum repository whenever a book is added or revised.
+ * The week count and the standards count are no longer typed here. They come
+ * from content/published.ts, which brand/mksite.py generates by reading the
+ * text layer of every PDF in public/downloads: the standards figure is the
+ * count of distinct codes named in the “In class this week” line across every
+ * published year, and the books overlap, so the per-book counts sum higher.
+ *
+ * Both were hand-typed once. `108 weeks` and `44 standards` described three
+ * books and stayed on the site through four more. That is the whole reason the
+ * generator exists.
  *
  * The `8 Week Program` figure was removed on 31 August 2026. The 36-week years
  * supersede the older Founders Track for Grades 4 to 6, so advertising an
- * eight-week program alongside three published school years described something
+ * eight-week program alongside the published school years described something
  * that had been retired for the grades that actually have material. The
  * Executives Track remains in CURRICULUM and PATHWAY, correctly marked designed.
  */
 export const PROGRAM_FACTS: Stat[] = [
   { value: '4',    label: 'Programs Designed', note: 'Discrete Math, Leadership, Venture Lab, Financial Literacy' },
-  { value: '108',  label: 'Weeks of Curriculum', note: 'Three full years: Grades 2, 4 and 5, 36 weeks each' },
-  { value: '44',   label: 'CA Standards Mapped',
-    note: 'Distinct standards named in the “In class this week” line across all 108 weeks' },
+  { value: String(PUBLISHED_WEEKS), label: 'Weeks of Curriculum',
+    note: `${PUBLISHED_YEARS.length} full school years, 36 weeks each` },
+  { value: String(PUBLISHED_STANDARDS), label: 'CA Standards Mapped',
+    note: `Distinct standards named in the “In class this week” line across all ${PUBLISHED_WEEKS} weeks` },
   { value: '$0',   label: 'Cost to Students' },
   { value: '100%', label: 'Materials Open', note: 'Every workbook and guide is free to download' },
 ];
@@ -419,9 +431,12 @@ export const CURRICULUM: Strand[] = [
          + 'modeling and applied problem solving.',
     bands: [
       { band: 'Grades 1–2',  status: 'published',
-        note: 'Grade 2 complete: 36 weeks, standards-mapped, free. Grade 1 in development.' },
-      { band: 'Grades 3–5',  status: 'planned', note: 'Grade 3 is next, after the first pilot reports.' },
-      { band: 'Grades 6–8',  status: 'planned' },
+        note: 'Grade 2 complete: 36 weeks, standards-mapped, free. Grade 1 not started.' },
+      { band: 'Grades 3–5',  status: 'published',
+        note: 'Grades 3, 4 and 5 complete: Count Every Way, It Cannot Be Done and The Best '
+            + 'Way, 36 weeks each.' },
+      { band: 'Grades 6–8',  status: 'published',
+        note: 'Grade 6 complete: Find the Rule, 36 weeks. Grades 7 and 8 not started.' },
       { band: 'Grades 9–12', status: 'planned' },
     ],
   },
@@ -456,10 +471,10 @@ export const CURRICULUM: Strand[] = [
       { band: 'Grades 1–2',  status: 'n/a' },
       { band: 'Grades 3–5',  status: 'published',
         note: 'Grades 4 and 5 complete: The Venture Year and The Numbers Year, 36 weeks '
-            + 'each, standards-mapped and free. Grade 3 is next.' },
+            + 'each, standards-mapped and free. No Grade 3 year is written.' },
       { band: 'Grades 6–8',  status: 'designed',
-        note: 'The Grade 6 year is next after Grade 3. The 8-week intensive covers '
-            + 'Grades 7–8.' },
+        note: 'The Grade 6 year is written after the first cohort has run. The 8-week '
+            + 'intensive covers Grades 7–8.' },
       { band: 'Grades 9–12', status: 'designed', note: 'Executives Track, 8 weeks.' },
     ],
   },
@@ -487,10 +502,15 @@ export function countByStatus(s: Status): number {
   return CURRICULUM.reduce((n, st) => n + st.bands.filter((b) => b.status === s).length, 0);
 }
 
-/** Where a school can actually start today. */
+/**
+ * Where a school can actually start today. The year count is computed from the
+ * generated list of published books rather than typed, because it was typed
+ * once as "Three full years" and was wrong within a month.
+ */
 export const AVAILABLE_NOW =
-  'Three full years: Discrete Math Adventures (Grade 2 mathematics), The Venture Year '
-  + '(Grade 4 entrepreneurship) and The Numbers Year (Grade 5). 36 weeks each.';
+  `${PUBLISHED_YEARS.length} full years, 36 weeks each: the complete Grades 2 to 6 discrete `
+  + 'mathematics line, plus The Venture Year (Grade 4 entrepreneurship) and The Numbers Year '
+  + '(Grade 5 entrepreneurship).';
 
 // ─── The pathway ──────────────────────────────────────────────────────────────
 

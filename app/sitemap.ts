@@ -1,5 +1,16 @@
 import type { MetadataRoute } from 'next';
 import { ORG } from '@/content/org';
+import { MATH_LINE } from '@/content/mathLine';
+
+/**
+ * One entry per book in the math line, derived rather than listed, so adding a
+ * grade to the curriculum cannot leave its page out of the sitemap.
+ */
+const MATH_ROUTES = MATH_LINE.map((b) => ({
+  path: `/programs/discrete-math/${b.slug}`,
+  priority: 0.85,
+  changeFrequency: 'monthly' as const,
+}));
 
 const ROUTES = [
   { path: '',                              priority: 1.0,  changeFrequency: 'monthly' as const },
@@ -21,7 +32,7 @@ const ROUTES = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  return ROUTES.map(({ path, priority, changeFrequency }) => ({
+  return [...ROUTES, ...MATH_ROUTES].map(({ path, priority, changeFrequency }) => ({
     url: `${ORG.url}${path}`,
     lastModified: now,
     changeFrequency,

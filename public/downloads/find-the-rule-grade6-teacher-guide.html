@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teacher Guide &middot; Find the Rule, Grade 6</title>
+<style>
+:root { --ink:#16233A; --soft:#4E5561; --line:#e5e7eb; --acc:#1C49CF;
+         --warm:#983D13; --grow:#0F664D; --card:#fff; --bg:#F7F8FA; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink);
+        font-family:"Public Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; line-height:1.5; }
+header { background:var(--ink); color:#fff; padding:26px 20px 22px; }
+header .in { max-width:920px; margin:0 auto; }
+header .lk { width:220px; margin-bottom:14px; }
+header .lk svg { width:100%; height:auto; }
+h1 { font-family:"Baloo 2", "Trebuchet MS", Verdana, sans-serif; font-size:2rem; margin:0 0 4px; line-height:1.1; }
+header p { margin:0; color:#C9D2E4; font-size:.95rem; max-width:46em; }
+main { max-width:920px; margin:0 auto; padding:0 20px 60px; }
+nav { position:sticky; top:0; background:var(--bg); padding:14px 0 12px;
+       border-bottom:1px solid var(--line); margin-bottom:20px; z-index:5; }
+nav a { display:inline-block; min-width:2.4em; text-align:center; margin:2px;
+         padding:5px 6px; border:1.5px solid var(--line); border-radius:7px;
+         background:#fff; color:var(--acc); text-decoration:none;
+         font-weight:800; font-size:.82rem; }
+nav a:hover { border-color:var(--acc); }
+section.wk { background:var(--card); border:1px solid var(--line); border-radius:14px;
+              padding:18px 20px; margin:0 0 16px; scroll-margin-top:74px; }
+.wkhd { display:flex; gap:12px; align-items:baseline; flex-wrap:wrap; }
+.pill { font-weight:800; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase;
+         color:var(--acc); border:2px solid var(--acc); border-radius:999px;
+         padding:2px 11px; }
+.strand { font-size:.76rem; font-weight:700; letter-spacing:.1em;
+           text-transform:uppercase; color:var(--soft); }
+h2 { font-family:"Baloo 2", "Trebuchet MS", Verdana, sans-serif; font-size:1.35rem; margin:8px 0 2px; }
+.sub { color:var(--soft); margin:0 0 10px; font-size:.95rem; }
+.std { font-size:.82rem; color:var(--grow); font-weight:700; margin:0 0 12px; }
+.note { background:#F4F7FE; border-left:4px solid var(--acc); border-radius:0 8px 8px 0;
+         padding:10px 14px; margin:0 0 14px; font-size:.94rem; }
+.note b { display:block; font-size:.72rem; letter-spacing:.09em; text-transform:uppercase;
+           color:var(--acc); margin-bottom:3px; }
+table { border-collapse:collapse; width:100%; font-size:.92rem; }
+th { text-align:left; font-size:.7rem; letter-spacing:.09em; text-transform:uppercase;
+      color:var(--soft); border-bottom:2px solid var(--ink); padding:0 8px 6px; }
+td { border-bottom:1px solid var(--line); padding:7px 8px; vertical-align:top; }
+td.k { color:var(--soft); width:46%; }
+td.v { font-weight:800; font-family:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace; font-size:.9rem; }
+.none { color:var(--soft); font-size:.92rem; font-style:italic; }
+footer { max-width:920px; margin:0 auto; padding:24px 20px 50px; color:var(--soft);
+          font-size:.85rem; border-top:1px solid var(--line); }
+@media (max-width:560px) {
+  h1 { font-size:1.55rem; } td.k { width:52%; }
+  section.wk { padding:15px 14px; }
+}
+</style></head>
+<body>
+<header><div class="in">
+  <div class="lk"><svg viewBox="0 0 760 190" xmlns="http://www.w3.org/2000/svg"><g transform="translate(8,4) scale(0.60)"><line x1="126" y1="36" x2="176" y2="22" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/><circle cx="176" cy="22" r="11" fill="#FF7A3D" stroke="#FFFFFF" stroke-width="4.5"/><line x1="120" y1="130" x2="120" y2="145" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/><line x1="95" y1="152" x2="145" y2="152" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/><line x1="120" y1="152" x2="120" y2="214" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/><circle cx="95" cy="152" r="8" fill="#FFFFFF"/><circle cx="145" cy="152" r="8" fill="#FFFFFF"/><circle cx="120" cy="214" r="9" fill="#FFFFFF"/><line x1="95" y1="152" x2="46" y2="212" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/><circle cx="46" cy="212" r="11" fill="#2D5BE3" stroke="#FFFFFF" stroke-width="4.5"/><line x1="145" y1="152" x2="212" y2="62" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/><circle cx="212" cy="62" r="11" fill="#2D5BE3" stroke="#FFFFFF" stroke-width="4.5"/><line x1="120" y1="214" x2="80" y2="296" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/><circle cx="80" cy="296" r="11" fill="#17A67C" stroke="#FFFFFF" stroke-width="4.5"/><line x1="120" y1="214" x2="160" y2="296" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/><circle cx="160" cy="296" r="11" fill="#17A67C" stroke="#FFFFFF" stroke-width="4.5"/><circle cx="120" cy="82" r="50" fill="none" stroke="#FFFFFF" stroke-width="9"/><circle cx="98" cy="90" r="9.5" fill="#FFFFFF"/><circle cx="101.2" cy="86.6" r="3.1" fill="#FFFFFF"/><circle cx="142" cy="90" r="9.5" fill="#FFFFFF"/><circle cx="145.2" cy="86.6" r="3.1" fill="#FFFFFF"/><path d="M 101 109 q 19 17 38 0" stroke="#FFFFFF" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><text x="168" y="86" font-family='"Baloo 2", "Trebuchet MS", Verdana, sans-serif' font-size="54" font-weight="800" fill="#FFFFFF" text-anchor="start" letter-spacing="-1">Young Innovators</text><text x="172" y="126" font-family='"Baloo 2", "Trebuchet MS", Verdana, sans-serif' font-size="27" font-weight="700" fill="#C7D2E8" text-anchor="start" letter-spacing="6.5">FOR CHANGE</text><text x="173" y="160" font-family='"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace' font-size="19" font-weight="400" fill="#8FA3C4" text-anchor="start" letter-spacing="0.5">innovateyouth.org</text></svg></div>
+  <h1>Find the Rule &middot; Teacher Guide</h1>
+  <p>Grade 6 discrete mathematics, 36 weeks. Answers, and what each week is
+  actually teaching. Every one of the 436 answers below is recomputed from
+  the workbook problem by <code>verify.py</code> before this page ships.</p>
+</div></header>
+<main>
+  <nav><a href="#w1">1</a><a href="#w2">2</a><a href="#w3">3</a><a href="#w4">4</a><a href="#w5">5</a><a href="#w6">6</a><a href="#w7">7</a><a href="#w8">8</a><a href="#w9">9</a><a href="#w10">10</a><a href="#w11">11</a><a href="#w12">12</a><a href="#w13">13</a><a href="#w14">14</a><a href="#w15">15</a><a href="#w16">16</a><a href="#w17">17</a><a href="#w18">18</a><a href="#w19">19</a><a href="#w20">20</a><a href="#w21">21</a><a href="#w22">22</a><a href="#w23">23</a><a href="#w24">24</a><a href="#w25">25</a><a href="#w26">26</a><a href="#w27">27</a><a href="#w28">28</a><a href="#w29">29</a><a href="#w30">30</a><a href="#w31">31</a><a href="#w32">32</a><a href="#w33">33</a><a href="#w34">34</a><a href="#w35">35</a><a href="#w36">36</a></nav>
+  
+<section class="wk" id="w1">
+  <div class="wkhd"><span class="pill">Week 1</span>
+    <span class="strand">Patterns &amp; Rules</span></div>
+  <h2>A Letter For Any Number</h2>
+  <p class="sub">One letter says what a hundred examples cannot.</p>
+  <p class="std">In class this week: Writing and reading expressions (6.EE.2, 6.EE.6)</p>
+  <div class="note"><b>Teaching note</b>A letter is not an unknown to be found. It is every number at once, and that sentence is the whole year in one line. Look at the difference between rows: a constant difference is the number that multiplies n.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 sticks for 1</td><td class="v">4</td></tr><tr><td class="k">1 sticks for 2</td><td class="v">7</td></tr><tr><td class="k">1 sticks for 3</td><td class="v">10</td></tr><tr><td class="k">1 sticks for 4</td><td class="v">13</td></tr><tr><td class="k">1 sticks for 5</td><td class="v">16</td></tr><tr><td class="k">1 sticks for 10</td><td class="v">31</td></tr><tr><td class="k">1a each new square adds</td><td class="v">3</td></tr><tr><td class="k">1b the rule</td><td class="v">3n + 1</td></tr><tr><td class="k">1c at n = 3</td><td class="v">10</td></tr><tr><td class="k">1c at n = 10</td><td class="v">31</td></tr><tr><td class="k">2 3n + 1 at n = 5</td><td class="v">16</td></tr><tr><td class="k">2 2n - 3 at n = 5</td><td class="v">7</td></tr><tr><td class="k">2 n(n + 1) at n = 5</td><td class="v">30</td></tr><tr><td class="k">2 (n + 1) / 2 at n = 5</td><td class="v">3</td></tr><tr><td class="k">3 2(n + 3) at n = 1</td><td class="v">8</td></tr><tr><td class="k">3 2n + 6 at n = 1</td><td class="v">8</td></tr><tr><td class="k">3 2(n + 3) at n = 4</td><td class="v">14</td></tr><tr><td class="k">3 2n + 6 at n = 4</td><td class="v">14</td></tr><tr><td class="k">3 2(n + 3) at n = 10</td><td class="v">26</td></tr><tr><td class="k">3 2n + 6 at n = 10</td><td class="v">26</td></tr><tr><td class="k">3 same every time</td><td class="v">yes</td></tr><tr><td class="k">challenge triangles rule</td><td class="v">2n + 1</td></tr><tr><td class="k">challenge 7 12 17 22 rule</td><td class="v">5n + 2</td></tr><tr><td class="k">challenge at n = 100</td><td class="v">502</td></tr></table>
+</section>
+<section class="wk" id="w2">
+  <div class="wkhd"><span class="pill">Week 2</span>
+    <span class="strand">Patterns &amp; Rules</span></div>
+  <h2>A Pattern That Grows</h2>
+  <p class="sub">Draw the shape, count the dots, and let the picture hand you the formula.</p>
+  <p class="std">In class this week: Expressions and equivalent expressions (6.EE.2, 6.EE.4)</p>
+  <div class="note"><b>Teaching note</b>The arrangement is the argument. The oblong splitting into two staircases is next week&#x27;s page, so leave it visible.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 square 1</td><td class="v">1</td></tr><tr><td class="k">1 square 2</td><td class="v">4</td></tr><tr><td class="k">1 square 3</td><td class="v">9</td></tr><tr><td class="k">1 square 4</td><td class="v">16</td></tr><tr><td class="k">1 square 5</td><td class="v">25</td></tr><tr><td class="k">1 the rule</td><td class="v">n squared</td></tr><tr><td class="k">2a oblong at n = 4</td><td class="v">20</td></tr><tr><td class="k">2b the rule</td><td class="v">n(n + 1)</td></tr><tr><td class="k">3 each staircase</td><td class="v">10</td></tr><tr><td class="k">challenge pentagonal differences</td><td class="v">4, 7, 10</td></tr><tr><td class="k">challenge second differences</td><td class="v">3, 3</td></tr><tr><td class="k">challenge n rows of n plus 2 at n = 3</td><td class="v">15</td></tr></table>
+</section>
+<section class="wk" id="w3">
+  <div class="wkhd"><span class="pill">Week 3</span>
+    <span class="strand">Patterns &amp; Rules</span></div>
+  <h2>Triangular Numbers</h2>
+  <p class="sub">1, 3, 6, 10, 15. You have met them three times already. Now you get the formula.</p>
+  <p class="std">In class this week: Expressions and equivalent expressions (6.EE.2, 6.EE.3)</p>
+  <div class="note"><b>Teaching note</b>Two triangles slotted together make an oblong, and that picture gives the formula without any algebra. Grade 3 met 1, 3, 6, 10, 15 in Pascal&#x27;s triangle without knowing why.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a the shape</td><td class="v">an oblong</td></tr><tr><td class="k">1b oblong is</td><td class="v">5 by 6</td></tr><tr><td class="k">1b dots</td><td class="v">30</td></tr><tr><td class="k">1c one triangle</td><td class="v">15</td></tr><tr><td class="k">2a the rule</td><td class="v">n(n + 1) / 2</td></tr><tr><td class="k">2 triangular 1</td><td class="v">1</td></tr><tr><td class="k">2 triangular 2</td><td class="v">3</td></tr><tr><td class="k">2 triangular 3</td><td class="v">6</td></tr><tr><td class="k">2 triangular 4</td><td class="v">10</td></tr><tr><td class="k">2 triangular 5</td><td class="v">15</td></tr><tr><td class="k">2 triangular 6</td><td class="v">21</td></tr><tr><td class="k">2 triangular 10</td><td class="v">55</td></tr><tr><td class="k">2 triangular 100</td><td class="v">5050</td></tr><tr><td class="k">challenge hundredth</td><td class="v">5050</td></tr><tr><td class="k">challenge two in a row</td><td class="v">a square number</td></tr></table>
+</section>
+<section class="wk" id="w4">
+  <div class="wkhd"><span class="pill">Week 4</span>
+    <span class="strand">Ways of Counting</span></div>
+  <h2>The Handshake Formula, Proved</h2>
+  <p class="sub">Grade 2 counted them. Grade 3 found the rule. This week you prove it.</p>
+  <p class="std">In class this week: Expressions and equivalent expressions (6.EE.2, 6.EE.4)</p>
+  <div class="note"><b>Teaching note</b>This closes a thread open since Grade 2 week 12. Two proofs, the double count and the staircase, and both are worth doing: the second is the one that still works when some pairs refuse to shake.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a each person shakes</td><td class="v">n minus 1</td></tr><tr><td class="k">1a shakes counted</td><td class="v">n(n minus 1)</td></tr><tr><td class="k">1b counted by</td><td class="v">2</td></tr><tr><td class="k">1c the real number</td><td class="v">n(n minus 1) / 2</td></tr><tr><td class="k">2 handshakes for 6</td><td class="v">15</td></tr><tr><td class="k">2 handshakes for 10</td><td class="v">45</td></tr><tr><td class="k">2 handshakes for 20</td><td class="v">190</td></tr><tr><td class="k">2 handshakes for 100</td><td class="v">4950</td></tr><tr><td class="k">2b triangular for</td><td class="v">n minus 1</td></tr><tr><td class="k">2 formula agrees everywhere</td><td class="v">yes</td></tr><tr><td class="k">challenge twelve teams</td><td class="v">66</td></tr><tr><td class="k">challenge 66 handshakes</td><td class="v">12</td></tr></table>
+</section>
+<section class="wk" id="w5">
+  <div class="wkhd"><span class="pill">Week 5</span>
+    <span class="strand">Patterns &amp; Rules</span></div>
+  <h2>Adding One to n</h2>
+  <p class="sub">Pair the ends. The whole sum falls out in one line.</p>
+  <p class="std">In class this week: Expressions; the distributive property (6.EE.2, 6.EE.3)</p>
+  <div class="note"><b>Teaching note</b>The same formula as week 3, from a completely different picture. Ask the children whether two proofs make it more believable, and let them argue.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a each column</td><td class="v">9</td></tr><tr><td class="k">1b columns</td><td class="v">8</td></tr><tr><td class="k">1b both rows total</td><td class="v">72</td></tr><tr><td class="k">1c counted</td><td class="v">2</td></tr><tr><td class="k">1c the sum</td><td class="v">36</td></tr><tr><td class="k">2a each column for n</td><td class="v">n + 1</td></tr><tr><td class="k">2a columns for n</td><td class="v">n</td></tr><tr><td class="k">2b the formula</td><td class="v">n(n + 1) / 2</td></tr><tr><td class="k">3 sum to 20</td><td class="v">210</td></tr><tr><td class="k">3 sum to 100</td><td class="v">5050</td></tr><tr><td class="k">3 sum to 1000</td><td class="v">500500</td></tr><tr><td class="k">challenge evens to 100</td><td class="v">2550</td></tr><tr><td class="k">challenge 100 minus 49</td><td class="v">3825</td></tr></table>
+</section>
+<section class="wk" id="w6">
+  <div class="wkhd"><span class="pill">Week 6</span>
+    <span class="strand">Patterns &amp; Rules</span></div>
+  <h2>The Odd Numbers Make a Square</h2>
+  <p class="sub">1, then 1 + 3, then 1 + 3 + 5. The answers are square, and the picture says why.</p>
+  <p class="std">In class this week: Expressions and equivalent expressions (6.EE.2)</p>
+  <div class="note"><b>Teaching note</b>A picture that settles every n at once. The gnomon going from side k to side k + 1 adds 2k + 1, which is why the strips are the odd numbers.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a the strips</td><td class="v">1, 3, 5, 7, 9</td></tr><tr><td class="k">1b how many strips</td><td class="v">5</td></tr><tr><td class="k">1b side of the square</td><td class="v">5</td></tr><tr><td class="k">1c the rule</td><td class="v">n squared</td></tr><tr><td class="k">1c check at five</td><td class="v">25</td></tr><tr><td class="k">2 a column of</td><td class="v">k</td></tr><tr><td class="k">2 a row of</td><td class="v">k</td></tr><tr><td class="k">2 that is</td><td class="v">2k + 1</td></tr><tr><td class="k">3 sum to 19</td><td class="v">100</td></tr><tr><td class="k">3 first 25 odd</td><td class="v">625</td></tr><tr><td class="k">3 how many make 400</td><td class="v">20</td></tr><tr><td class="k">challenge terms to 99</td><td class="v">50</td></tr><tr><td class="k">challenge sum to 99</td><td class="v">2500</td></tr><tr><td class="k">challenge evens to 100</td><td class="v">2550</td></tr></table>
+</section>
+<section class="wk" id="w7">
+  <div class="wkhd"><span class="pill">Week 7</span>
+    <span class="strand">Patterns &amp; Rules</span></div>
+  <h2>Looking Back or Jumping Ahead</h2>
+  <p class="sub">Two kinds of rule. One needs the answers before it, and one does not.</p>
+  <p class="std">In class this week: Expressions; dependent and independent quantities (6.EE.2, 6.EE.9)</p>
+  <div class="note"><b>Teaching note</b>Two kinds of rule, priced by how many steps each takes. This is the Grade 5 habit applied to formulas. The strip coverings have a closed form and it is horrible, which is a legitimate reason to prefer looking back.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a looking back steps to twenty</td><td class="v">19</td></tr><tr><td class="k">1b jumping ahead steps</td><td class="v">1</td></tr><tr><td class="k">2 coverings of 1</td><td class="v">1</td></tr><tr><td class="k">2 coverings of 2</td><td class="v">2</td></tr><tr><td class="k">2 coverings of 3</td><td class="v">3</td></tr><tr><td class="k">2 coverings of 4</td><td class="v">5</td></tr><tr><td class="k">2 coverings of 5</td><td class="v">8</td></tr><tr><td class="k">2 coverings of 6</td><td class="v">13</td></tr><tr><td class="k">2 coverings of 7</td><td class="v">21</td></tr><tr><td class="k">2 coverings of 8</td><td class="v">34</td></tr><tr><td class="k">3a better for the first ten</td><td class="v">looking back</td></tr><tr><td class="k">3b better for the thousandth</td><td class="v">jumping ahead</td></tr><tr><td class="k">challenge doubling plus one</td><td class="v">1, 3, 7, 15, 31</td></tr><tr><td class="k">challenge its closed form</td><td class="v">2 to the n, minus 1</td></tr></table>
+</section>
+<section class="wk" id="w8">
+  <div class="wkhd"><span class="pill">Week 8</span>
+    <span class="strand">Logic &amp; Proof</span></div>
+  <h2>When a Pattern Lies</h2>
+  <p class="sub">1, 2, 4, 8, 16. Everybody says 32. Everybody is wrong.</p>
+  <p class="std">In class this week: Expressions and reasoning (6.EE.2, 6.EE.9)</p>
+  <div class="note"><b>Teaching note</b>The most important page in the book. 1, 2, 4, 8, 16 and then 31. Everybody says 32, including adults. Count the six-point picture twice, because two chords nearly meet and that near-miss is exactly where the missing region hides.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 regions with 1 points</td><td class="v">1</td></tr><tr><td class="k">1 regions with 2 points</td><td class="v">2</td></tr><tr><td class="k">1 regions with 3 points</td><td class="v">4</td></tr><tr><td class="k">1 regions with 4 points</td><td class="v">8</td></tr><tr><td class="k">1 regions with 5 points</td><td class="v">16</td></tr><tr><td class="k">1 regions with 6 points</td><td class="v">31</td></tr><tr><td class="k">2a cases that fitted doubling</td><td class="v">5</td></tr><tr><td class="k">2b is that a lot</td><td class="v">no</td></tr><tr><td class="k">3a n squared plus n plus 41 at 41</td><td class="v">1763</td></tr><tr><td class="k">3a is it prime</td><td class="v">no</td></tr><tr><td class="k">3a its factors</td><td class="v">41 x 43</td></tr></table>
+</section>
+<section class="wk" id="w9">
+  <div class="wkhd"><span class="pill">Week 9</span>
+    <span class="strand">Logic &amp; Proof</span></div>
+  <h2>Proof by Picture</h2>
+  <p class="sub">Some arrangements settle a question before a single symbol is written.</p>
+  <p class="std">In class this week: Expressions and equivalent expressions (6.EE.3, 6.EE.4)</p>
+  <div class="note"><b>Teaching note</b>A picture drawn for n = 4 proves nothing unless the child can say how to draw it for any n. That sentence is the test, and it is what separates this page from week 8.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 the fact</td><td class="v">3 times 5 equals 5 times 3</td></tr><tr><td class="k">2 sixth plus tenth</td><td class="v">16</td></tr><tr><td class="k">2 the general claim</td><td class="v">two triangular numbers in a row make a square</td></tr><tr><td class="k">3a nine as a difference</td><td class="v">5 squared minus 4 squared</td></tr><tr><td class="k">3b in general</td><td class="v">(k + 1) squared minus k squared</td></tr><tr><td class="k">challenge first n evens</td><td class="v">n(n + 1)</td></tr><tr><td class="k">challenge powers of two sum</td><td class="v">one less than the next power of 2</td></tr></table>
+</section>
+<section class="wk" id="w10">
+  <div class="wkhd"><span class="pill">Week 10</span>
+    <span class="strand">Logic &amp; Proof</span></div>
+  <h2>Proof by Cases</h2>
+  <p class="sub">Split the question into a few kinds, settle each one, and you have settled them all.</p>
+  <p class="std">In class this week: Reasoning about expressions (6.EE.2, 6.EE.5)</p>
+  <div class="note"><b>Teaching note</b>Two cases, both settled, nothing left out. Ask every time whether the cases really do cover everything, because a proof by cases with a gap proves nothing at all.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 n even so n plus 1 is</td><td class="v">odd</td></tr><tr><td class="k">1 n odd so n plus 1 is</td><td class="v">even</td></tr><tr><td class="k">1a in both cases</td><td class="v">even</td></tr><tr><td class="k">1b other cases</td><td class="v">no</td></tr><tr><td class="k">1c proved for</td><td class="v">all</td></tr><tr><td class="k">1 checked by search</td><td class="v">yes</td></tr><tr><td class="k">3b cases needed for three in a row</td><td class="v">3</td></tr><tr><td class="k">3b checked by search</td><td class="v">yes</td></tr></table>
+</section>
+<section class="wk" id="w11">
+  <div class="wkhd"><span class="pill">Week 11</span>
+    <span class="strand">Ways of Counting</span></div>
+  <h2>Counting the Same Thing Twice</h2>
+  <p class="sub">Count one thing two ways. The two answers must be equal, so you have a rule for free.</p>
+  <p class="std">In class this week: Expressions and equivalent expressions (6.EE.3, 6.EE.4)</p>
+  <div class="note"><b>Teaching note</b>Count one collection two ways and a rule appears without anything being solved. The three places in the table are all things this line of books already did without naming it.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a by people</td><td class="v">60</td></tr><tr><td class="k">1b by kinds</td><td class="v">60</td></tr><tr><td class="k">1c so</td><td class="v">the two counts are equal</td></tr><tr><td class="k">3 row six total</td><td class="v">64</td></tr><tr><td class="k">3 come or stay</td><td class="v">64</td></tr><tr><td class="k">challenge 45 games</td><td class="v">10</td></tr><tr><td class="k">challenge club size</td><td class="v">12</td></tr></table>
+</section>
+<section class="wk" id="w12">
+  <div class="wkhd"><span class="pill">Week 12</span>
+    <span class="strand">Patterns &amp; Rules</span></div>
+  <h2>Rule Fair</h2>
+  <p class="sub">Six patterns. Find each rule, and say how sure you are.</p>
+  <p class="std">In class this week: Writing and evaluating expressions (6.EE.2, 6.EE.6)</p>
+  <div class="note"><b>Teaching note</b>The L, C and P marks are the assessment. An honest C is worth more than a dishonest P, and children need telling that explicitly.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 pattern A rule</td><td class="v">4n - 1</td></tr><tr><td class="k">1 pattern B rule</td><td class="v">n squared</td></tr><tr><td class="k">1 pattern C rule</td><td class="v">n(n + 1)</td></tr><tr><td class="k">1 pattern D rule</td><td class="v">2 to the n, minus 1</td></tr><tr><td class="k">1 pattern E rule</td><td class="v">n(n + 1)(2n + 1) / 6</td></tr><tr><td class="k">1 pattern F rule</td><td class="v">the week 8 one</td></tr><tr><td class="k">1a which is the week 8 one</td><td class="v">F</td></tr><tr><td class="k">1b pattern E is</td><td class="v">the running total of the square numbers</td></tr></table>
+</section>
+<section class="wk" id="w13">
+  <div class="wkhd"><span class="pill">Week 13</span>
+    <span class="strand">Logic &amp; Proof</span></div>
+  <h2>Case Files</h2>
+  <p class="sub">Everything from the first twelve weeks, in one folder.</p>
+  <p class="std">In class this week: Review &amp; reasoning</p>
+  <div class="note"><b>Teaching note</b>Review. Case 4 is the whole first trimester in one question and the right answer is that four cases is not a proof.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 hexagons rule</td><td class="v">5n + 1</td></tr><tr><td class="k">2 fifteen teams</td><td class="v">105</td></tr><tr><td class="k">3 terms to 41</td><td class="v">21</td></tr><tr><td class="k">3 total to 41</td><td class="v">441</td></tr><tr><td class="k">4 what to say</td><td class="v">four cases is not a proof</td></tr><tr><td class="k">5 three in a row</td><td class="v">yes</td></tr></table>
+</section>
+<section class="wk" id="w14">
+  <div class="wkhd"><span class="pill">Week 14</span>
+    <span class="strand">Ratio &amp; Rate</span></div>
+  <h2>Ratio as a Rule</h2>
+  <p class="sub">Three cups of flour to two of water. That is a rule with a letter hiding in it.</p>
+  <p class="std">In class this week: Ratio concepts and reasoning (6.RP.1, 6.RP.3)</p>
+  <div class="note"><b>Teaching note</b>A ratio is a rule, and plotting the pairs makes that visible. The line goes through the origin because zero flour needs zero water.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 water for 3 flour</td><td class="v">2</td></tr><tr><td class="k">1 water for 6 flour</td><td class="v">4</td></tr><tr><td class="k">1 water for 9 flour</td><td class="v">6</td></tr><tr><td class="k">1 water for 12 flour</td><td class="v">8</td></tr><tr><td class="k">1 flour for 20 water</td><td class="v">30</td></tr><tr><td class="k">1a water is</td><td class="v">two thirds</td></tr><tr><td class="k">1b the rule</td><td class="v">2n / 3</td></tr><tr><td class="k">3 6 to 4 same as 3 to 2</td><td class="v">yes</td></tr><tr><td class="k">3 9 to 5 same as 3 to 2</td><td class="v">no</td></tr><tr><td class="k">3 15 to 10 same as 3 to 2</td><td class="v">yes</td></tr><tr><td class="k">challenge white for 35 blue</td><td class="v">21</td></tr><tr><td class="k">challenge 4 to 6 and 6 to 9</td><td class="v">yes</td></tr></table>
+</section>
+<section class="wk" id="w15">
+  <div class="wkhd"><span class="pill">Week 15</span>
+    <span class="strand">Ratio &amp; Rate</span></div>
+  <h2>One of Them</h2>
+  <p class="sub">Reduce everything to one, and any two things become comparable.</p>
+  <p class="std">In class this week: Unit rate and rate reasoning (6.RP.2, 6.RP.3)</p>
+  <div class="note"><b>Teaching note</b>Both unit rates rank the shops identically, and it is worth asking why they must. The cheapest shop is neither the one with the lowest shelf price nor the biggest pack.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 A price for one</td><td class="v">0.25</td></tr><tr><td class="k">1 B price for one</td><td class="v">0.23</td></tr><tr><td class="k">1 C price for one</td><td class="v">0.26</td></tr><tr><td class="k">1 D price for one</td><td class="v">0.25</td></tr><tr><td class="k">1a cheapest per pencil</td><td class="v">B</td></tr><tr><td class="k">1b lowest shelf price</td><td class="v">C</td></tr><tr><td class="k">1b biggest pack</td><td class="v">D</td></tr><tr><td class="k">2b same winner</td><td class="v">yes</td></tr><tr><td class="k">3 miles per hour</td><td class="v">60</td></tr><tr><td class="k">3 dollars per hour</td><td class="v">9</td></tr><tr><td class="k">3 words per minute</td><td class="v">60</td></tr><tr><td class="k">challenge better car</td><td class="v">the first</td></tr><tr><td class="k">challenge by how much per gallon</td><td class="v">0.5</td></tr></table>
+</section>
+<section class="wk" id="w16">
+  <div class="wkhd"><span class="pill">Week 16</span>
+    <span class="strand">Ratio &amp; Rate</span></div>
+  <h2>Out of a Hundred</h2>
+  <p class="sub">Percent is a ratio wearing a uniform. Everything is out of a hundred.</p>
+  <p class="std">In class this week: Percent as a rate per 100 (6.RP.3c)</p>
+  <div class="note"><b>Teaching note</b>Percent exists so that differently sized results can be compared without thinking. The up 20 then down 20 challenge catches nearly everybody.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a as a fraction</td><td class="v">37 over 100</td></tr><tr><td class="k">1b as a decimal</td><td class="v">0.37</td></tr><tr><td class="k">1c as a percent</td><td class="v">37 percent</td></tr><tr><td class="k">2 18 out of 25 percent</td><td class="v">72</td></tr><tr><td class="k">2 21 out of 30 percent</td><td class="v">70</td></tr><tr><td class="k">2 34 out of 40 percent</td><td class="v">85</td></tr><tr><td class="k">2 7 out of 8 percent</td><td class="v">87.5</td></tr><tr><td class="k">2 best result</td><td class="v">7 out of 8</td></tr><tr><td class="k">3a 25 percent of 60</td><td class="v">15</td></tr><tr><td class="k">3b 10 percent of 250</td><td class="v">25</td></tr><tr><td class="k">3c discount</td><td class="v">6</td></tr><tr><td class="k">3c you pay</td><td class="v">34</td></tr><tr><td class="k">challenge better score</td><td class="v">43 out of 50</td></tr><tr><td class="k">challenge up then down</td><td class="v">96</td></tr></table>
+</section>
+<section class="wk" id="w17">
+  <div class="wkhd"><span class="pill">Week 17</span>
+    <span class="strand">Dots &amp; Lines</span></div>
+  <h2>Scaling a Network</h2>
+  <p class="sub">Every road doubles in price. What happens to the cheapest route?</p>
+  <p class="std">In class this week: Ratio and rate reasoning (6.RP.3, 6.EE.2)</p>
+  <div class="note"><b>Teaching note</b>The plus-10 row is the page. Multiplying every road keeps the cheapest route because it scales all routes equally; adding charges a three-road route three times and a two-road route twice, so it can flip the answer. At plus 9 the two tie.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a cheapest route</td><td class="v">Depot to North to South to East</td></tr><tr><td class="k">1a cheapest cost</td><td class="v">10</td></tr><tr><td class="k">1b roads used</td><td class="v">3</td></tr><tr><td class="k">2 as printed cost</td><td class="v">10</td></tr><tr><td class="k">2 as printed route</td><td class="v">Depot to North to South to East</td></tr><tr><td class="k">2 doubled cost</td><td class="v">20</td></tr><tr><td class="k">2 doubled route</td><td class="v">Depot to North to South to East</td></tr><tr><td class="k">2 multiplied by 10 cost</td><td class="v">100</td></tr><tr><td class="k">2 multiplied by 10 route</td><td class="v">Depot to North to South to East</td></tr><tr><td class="k">2 plus 10 each cost</td><td class="v">39</td></tr><tr><td class="k">2 plus 10 each route</td><td class="v">Depot to North to East</td></tr><tr><td class="k">2 which changed</td><td class="v">plus 10 each</td></tr><tr><td class="k">challenge halved cost</td><td class="v">5.0</td></tr><tr><td class="k">challenge smallest that changes it</td><td class="v">10</td></tr></table>
+</section>
+<section class="wk" id="w18">
+  <div class="wkhd"><span class="pill">Week 18</span>
+    <span class="strand">Dots &amp; Lines</span></div>
+  <h2>Everyone Plays Everyone</h2>
+  <p class="sub">A round robin, counted with the handshake formula and read as ratios.</p>
+  <p class="std">In class this week: Ratio and rate reasoning (6.RP.3, 6.EE.2)</p>
+  <div class="note"><b>Teaching note</b>The games formula is week 4 again. The check that the wins add up to the games is a double count, and worth naming as one.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a each team plays</td><td class="v">4</td></tr><tr><td class="k">1b five times that</td><td class="v">20</td></tr><tr><td class="k">1b counted</td><td class="v">2</td></tr><tr><td class="k">1c games</td><td class="v">10</td></tr><tr><td class="k">2 Ash games</td><td class="v">4</td></tr><tr><td class="k">2 Ash percent</td><td class="v">100</td></tr><tr><td class="k">2 Birch games</td><td class="v">4</td></tr><tr><td class="k">2 Birch percent</td><td class="v">75</td></tr><tr><td class="k">2 Cedar games</td><td class="v">4</td></tr><tr><td class="k">2 Cedar percent</td><td class="v">50</td></tr><tr><td class="k">2 Elm games</td><td class="v">4</td></tr><tr><td class="k">2 Elm percent</td><td class="v">25</td></tr><tr><td class="k">2 Fir games</td><td class="v">4</td></tr><tr><td class="k">2 Fir percent</td><td class="v">0</td></tr><tr><td class="k">2 wins add to</td><td class="v">10</td></tr><tr><td class="k">2 equals the games</td><td class="v">yes</td></tr><tr><td class="k">3a twelve teams games</td><td class="v">66</td></tr><tr><td class="k">3b eight of eleven percent</td><td class="v">72.7</td></tr><tr><td class="k">challenge 66 games</td><td class="v">12</td></tr><tr><td class="k">challenge all equal</td><td class="v">no</td></tr></table>
+</section>
+<section class="wk" id="w19">
+  <div class="wkhd"><span class="pill">Week 19</span>
+    <span class="strand">Number Structure</span></div>
+  <h2>Factors, By Primes</h2>
+  <p class="sub">Grade 4 found common factors by listing. Primes make it a rule instead.</p>
+  <p class="std">In class this week: Greatest common factor and least common multiple (6.NS.4)</p>
+  <div class="note"><b>Teaching note</b>The prime table makes both answers mechanical. The rule that the two answers multiply to the two starting numbers falls straight out of the columns.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 primes of 24</td><td class="v">2 x 2 x 2 x 3</td></tr><tr><td class="k">1 primes of 36</td><td class="v">2 x 2 x 3 x 3</td></tr><tr><td class="k">2 gcf 24 and 36</td><td class="v">12</td></tr><tr><td class="k">2 lcm 24 and 36</td><td class="v">72</td></tr><tr><td class="k">2 product 24 and 36</td><td class="v">864</td></tr><tr><td class="k">2 gcf 12 and 18</td><td class="v">6</td></tr><tr><td class="k">2 lcm 12 and 18</td><td class="v">36</td></tr><tr><td class="k">2 product 12 and 18</td><td class="v">216</td></tr><tr><td class="k">2 gcf 15 and 28</td><td class="v">1</td></tr><tr><td class="k">2 lcm 15 and 28</td><td class="v">420</td></tr><tr><td class="k">2 product 15 and 28</td><td class="v">420</td></tr><tr><td class="k">2 gcf 20 and 50</td><td class="v">10</td></tr><tr><td class="k">2 lcm 20 and 50</td><td class="v">100</td></tr><tr><td class="k">2 product 20 and 50</td><td class="v">1000</td></tr><tr><td class="k">3 the rule</td><td class="v">yes</td></tr><tr><td class="k">challenge gcf 84 and 126</td><td class="v">42</td></tr><tr><td class="k">challenge lcm 84 and 126</td><td class="v">252</td></tr><tr><td class="k">challenge lcm from product</td><td class="v">300</td></tr></table>
+</section>
+<section class="wk" id="w20">
+  <div class="wkhd"><span class="pill">Week 20</span>
+    <span class="strand">Number Structure</span></div>
+  <h2>All Four Quadrants</h2>
+  <p class="sub">The grid goes left and down as well, and nothing else changes.</p>
+  <p class="std">In class this week: The coordinate plane and negative numbers (6.NS.6, 6.NS.8)</p>
+  <div class="note"><b>Teaching note</b>Reading the across number first is the whole discipline here. Reflections change the sign of exactly one coordinate.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 A across</td><td class="v">3</td></tr><tr><td class="k">1 A up</td><td class="v">2</td></tr><tr><td class="k">1 A quadrant</td><td class="v">first</td></tr><tr><td class="k">1 B across</td><td class="v">-2</td></tr><tr><td class="k">1 B up</td><td class="v">3</td></tr><tr><td class="k">1 B quadrant</td><td class="v">second</td></tr><tr><td class="k">1 C across</td><td class="v">-3</td></tr><tr><td class="k">1 C up</td><td class="v">-2</td></tr><tr><td class="k">1 C quadrant</td><td class="v">third</td></tr><tr><td class="k">1 D across</td><td class="v">2</td></tr><tr><td class="k">1 D up</td><td class="v">-3</td></tr><tr><td class="k">1 D quadrant</td><td class="v">fourth</td></tr><tr><td class="k">2a reflect A across the up-down axis</td><td class="v">(-3, 2)</td></tr><tr><td class="k">2a which changed</td><td class="v">the across one</td></tr><tr><td class="k">2b reflect A across the left-right axis</td><td class="v">(3, -2)</td></tr><tr><td class="k">3a A to B across</td><td class="v">5</td></tr><tr><td class="k">3a A to B up</td><td class="v">1</td></tr></table>
+</section>
+<section class="wk" id="w21">
+  <div class="wkhd"><span class="pill">Week 21</span>
+    <span class="strand">Shape &amp; Space</span></div>
+  <h2>Distance on a Grid</h2>
+  <p class="sub">A delivery van cannot go through buildings. Its distance is a different distance.</p>
+  <p class="std">In class this week: The coordinate plane; absolute value (6.NS.8, 6.NS.7)</p>
+  <div class="note"><b>Teaching note</b>Every street route between two points is the same length, and asking why is the useful question. Grade 5 counted these routes; this year measures them.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a across</td><td class="v">3</td></tr><tr><td class="k">1a up</td><td class="v">3</td></tr><tr><td class="k">1a total</td><td class="v">6</td></tr><tr><td class="k">2 the rule</td><td class="v">the across difference plus the up difference</td></tr><tr><td class="k">3 (0, 0) to (3, 4)</td><td class="v">7</td></tr><tr><td class="k">3 (2, 5) to (2, 1)</td><td class="v">4</td></tr><tr><td class="k">3 (-1, 2) to (3, -1)</td><td class="v">7</td></tr><tr><td class="k">3 (4, 4) to (1, 1)</td><td class="v">6</td></tr><tr><td class="k">challenge four blocks from origin</td><td class="v">16</td></tr><tr><td class="k">challenge when equal</td><td class="v">when the two points share a row or a column</td></tr></table>
+</section>
+<section class="wk" id="w22">
+  <div class="wkhd"><span class="pill">Week 22</span>
+    <span class="strand">Shape &amp; Space</span></div>
+  <h2>A Square Circle</h2>
+  <p class="sub">A circle is every point the same distance from the middle. Change the distance, change the circle.</p>
+  <p class="std">In class this week: The coordinate plane; absolute value (6.NS.8, 6.G.3)</p>
+  <div class="note"><b>Teaching note</b>The definition of a circle never mentions round. Change what distance means and the same words draw a diamond. This is the best page in the geometry trimester.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">2 points at radius 1</td><td class="v">4</td></tr><tr><td class="k">2 points at radius 2</td><td class="v">8</td></tr><tr><td class="k">2 points at radius 3</td><td class="v">12</td></tr><tr><td class="k">2 points at radius 4</td><td class="v">16</td></tr><tr><td class="k">2 points at radius 10</td><td class="v">40</td></tr><tr><td class="k">1a points at three</td><td class="v">12</td></tr><tr><td class="k">1b the shape</td><td class="v">a diamond</td></tr><tr><td class="k">1c is it a circle</td><td class="v">yes, by the definition</td></tr><tr><td class="k">2 the rule</td><td class="v">4r</td></tr><tr><td class="k">challenge radius four</td><td class="v">16</td></tr></table>
+</section>
+<section class="wk" id="w23">
+  <div class="wkhd"><span class="pill">Week 23</span>
+    <span class="strand">Shape &amp; Space</span></div>
+  <h2>Nets and Solids</h2>
+  <p class="sub">Flatten a solid, count its parts, and put it back together.</p>
+  <p class="std">In class this week: Nets and surface area (6.G.4)</p>
+  <div class="note"><b>Teaching note</b>Count faces from the net and edges by halving the face sides, because every edge is shared by two faces. That halving is double counting again.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 cube faces</td><td class="v">6</td></tr><tr><td class="k">1 cube edges</td><td class="v">12</td></tr><tr><td class="k">1 cube corners</td><td class="v">8</td></tr><tr><td class="k">1 square pyramid faces</td><td class="v">5</td></tr><tr><td class="k">1 square pyramid edges</td><td class="v">8</td></tr><tr><td class="k">1 square pyramid corners</td><td class="v">5</td></tr><tr><td class="k">1 triangular prism faces</td><td class="v">5</td></tr><tr><td class="k">1 triangular prism edges</td><td class="v">9</td></tr><tr><td class="k">1 triangular prism corners</td><td class="v">6</td></tr><tr><td class="k">1 tetrahedron faces</td><td class="v">4</td></tr><tr><td class="k">1 tetrahedron edges</td><td class="v">6</td></tr><tr><td class="k">1 tetrahedron corners</td><td class="v">4</td></tr><tr><td class="k">1 octahedron faces</td><td class="v">8</td></tr><tr><td class="k">1 octahedron edges</td><td class="v">12</td></tr><tr><td class="k">1 octahedron corners</td><td class="v">6</td></tr><tr><td class="k">2a cube face sides</td><td class="v">24</td></tr><tr><td class="k">2b faces meet at an edge</td><td class="v">2</td></tr><tr><td class="k">2c cube edges</td><td class="v">12</td></tr><tr><td class="k">challenge cube nets</td><td class="v">11</td></tr><tr><td class="k">challenge hexagonal prism faces</td><td class="v">8</td></tr><tr><td class="k">challenge hexagonal prism edges</td><td class="v">18</td></tr><tr><td class="k">challenge hexagonal prism corners</td><td class="v">12</td></tr></table>
+</section>
+<section class="wk" id="w24">
+  <div class="wkhd"><span class="pill">Week 24</span>
+    <span class="strand">Patterns &amp; Rules</span></div>
+  <h2>The Formula That Always Holds</h2>
+  <p class="sub">Faces, edges and corners. One little sum comes out the same for every solid you try.</p>
+  <p class="std">In class this week: Expressions and reasoning (6.EE.2, 6.G.4)</p>
+  <div class="note"><b>Teaching note</b>Five cases fitted 1, 2, 4, 8, 16 too, so the honest note on this page matters. The formula is true, the proof is beyond this book, and saying so is the lesson.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 cube C minus E plus F</td><td class="v">2</td></tr><tr><td class="k">1 square pyramid C minus E plus F</td><td class="v">2</td></tr><tr><td class="k">1 triangular prism C minus E plus F</td><td class="v">2</td></tr><tr><td class="k">1 tetrahedron C minus E plus F</td><td class="v">2</td></tr><tr><td class="k">1 octahedron C minus E plus F</td><td class="v">2</td></tr><tr><td class="k">1a every row gives</td><td class="v">2</td></tr><tr><td class="k">1b is that a proof</td><td class="v">no</td></tr><tr><td class="k">1b which week said so</td><td class="v">week 8</td></tr><tr><td class="k">2 twelve faces thirty edges</td><td class="v">20</td></tr><tr><td class="k">2 eight corners twelve edges</td><td class="v">6</td></tr><tr><td class="k">2 twenty faces twelve corners</td><td class="v">30</td></tr><tr><td class="k">challenge pentagonal prism</td><td class="v">2</td></tr><tr><td class="k">challenge hexagonal pyramid</td><td class="v">2</td></tr><tr><td class="k">challenge football faces</td><td class="v">32</td></tr><tr><td class="k">challenge football edges</td><td class="v">90</td></tr><tr><td class="k">challenge football corners</td><td class="v">60</td></tr></table>
+</section>
+<section class="wk" id="w25">
+  <div class="wkhd"><span class="pill">Week 25</span>
+    <span class="strand">Logic &amp; Proof</span></div>
+  <h2>Puzzle Fair</h2>
+  <p class="sub">A little of everything from Weeks 14 to 24.</p>
+  <p class="std">In class this week: Review &amp; reasoning</p>
+  <div class="note"><b>Teaching note</b>Review. Puzzles 5 and 6 are the same formula twice, once forwards and once backwards.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 white for 63 blue</td><td class="v">36</td></tr><tr><td class="k">2 fifteen for 4.50</td><td class="v">0.3</td></tr><tr><td class="k">2 twentytwo for 6.16</td><td class="v">0.28</td></tr><tr><td class="k">2 cheaper</td><td class="v">22 for $6.16</td></tr><tr><td class="k">3 gcf 45 and 60</td><td class="v">15</td></tr><tr><td class="k">3 lcm 45 and 60</td><td class="v">180</td></tr><tr><td class="k">4 taxicab</td><td class="v">10</td></tr><tr><td class="k">5 corners</td><td class="v">9</td></tr><tr><td class="k">6 teams</td><td class="v">8</td></tr><tr><td class="k">6 games each</td><td class="v">7</td></tr></table>
+</section>
+<section class="wk" id="w26">
+  <div class="wkhd"><span class="pill">Week 26</span>
+    <span class="strand">Ways of Counting</span></div>
+  <h2>n Choose k</h2>
+  <p class="sub">The counting you have done since Grade 3, finally written as a formula.</p>
+  <p class="std">In class this week: Expressions and equivalent expressions (6.EE.2, 6.EE.3)</p>
+  <div class="note"><b>Teaching note</b>The over-count-then-divide reason, written once with letters. The n choose 2 line closes the handshake thread for the last time in the line.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a lineups</td><td class="v">60</td></tr><tr><td class="k">1b orders of one team</td><td class="v">6</td></tr><tr><td class="k">1c five choose three</td><td class="v">10</td></tr><tr><td class="k">2 6 choose 2</td><td class="v">15</td></tr><tr><td class="k">2 7 choose 3</td><td class="v">35</td></tr><tr><td class="k">2 10 choose 2</td><td class="v">45</td></tr><tr><td class="k">2 8 choose 4</td><td class="v">70</td></tr><tr><td class="k">3a n choose 2</td><td class="v">n(n minus 1) / 2</td></tr><tr><td class="k">3a where seen</td><td class="v">the handshakes</td></tr><tr><td class="k">3b n choose 1</td><td class="v">n</td></tr><tr><td class="k">3b n choose 0</td><td class="v">1</td></tr><tr><td class="k">challenge 12 choose 3</td><td class="v">220</td></tr><tr><td class="k">challenge 12 choose 9</td><td class="v">220</td></tr><tr><td class="k">challenge pizzas</td><td class="v">126</td></tr><tr><td class="k">formula agrees everywhere</td><td class="v">yes</td></tr></table>
+</section>
+<section class="wk" id="w27">
+  <div class="wkhd"><span class="pill">Week 27</span>
+    <span class="strand">Ways of Counting</span></div>
+  <h2>Patterns in the Triangle</h2>
+  <p class="sub">Every row, every diagonal and every sum in Pascal&#x27;s triangle means something.</p>
+  <p class="std">In class this week: Expressions and patterns (6.EE.2, 6.EE.9)</p>
+  <div class="note"><b>Teaching note</b>Every pattern in the triangle has a short reason in choosing language. The building rule proof, take the newest person or leave them, is the best paragraph in the book.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a symmetry says</td><td class="v">n choose n minus k</td></tr><tr><td class="k">1a checked</td><td class="v">yes</td></tr><tr><td class="k">1b row n adds to</td><td class="v">2 to the n</td></tr><tr><td class="k">1b checked</td><td class="v">yes</td></tr><tr><td class="k">2 take the newest</td><td class="v">k minus 1</td></tr><tr><td class="k">2 leave the newest</td><td class="v">k</td></tr><tr><td class="k">3a third diagonal</td><td class="v">the triangular numbers</td></tr><tr><td class="k">3b third entry of row n</td><td class="v">n choose 2</td></tr><tr><td class="k">challenge hockey stick</td><td class="v">20</td></tr><tr><td class="k">challenge where it lands</td><td class="v">6 choose 3</td></tr><tr><td class="k">challenge biggest in row ten</td><td class="v">252</td></tr></table>
+</section>
+<section class="wk" id="w28">
+  <div class="wkhd"><span class="pill">Week 28</span>
+    <span class="strand">Ways of Counting</span></div>
+  <h2>At Least One</h2>
+  <p class="sub">Three words that always mean the same instruction: count them all, count the ones with none, subtract.</p>
+  <p class="std">In class this week: Expressions and reasoning (6.EE.2, 6.EE.9)</p>
+  <div class="note"><b>Teaching note</b>The words at least one should now trigger a reflex. Counting none is one multiplication and counting at least one directly is a sum of several cases.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a codes altogether</td><td class="v">10000</td></tr><tr><td class="k">1b choices with no seven</td><td class="v">9</td></tr><tr><td class="k">1b codes with no seven</td><td class="v">6561</td></tr><tr><td class="k">1c at least one seven</td><td class="v">3439</td></tr><tr><td class="k">1c checked by counting</td><td class="v">yes</td></tr><tr><td class="k">2 all teams of four</td><td class="v">210</td></tr><tr><td class="k">2 neither</td><td class="v">70</td></tr><tr><td class="k">2 at least one</td><td class="v">140</td></tr><tr><td class="k">2 both</td><td class="v">28</td></tr><tr><td class="k">challenge at least one 7 and one 3</td><td class="v">974</td></tr><tr><td class="k">challenge exactly one of them</td><td class="v">112</td></tr></table>
+</section>
+<section class="wk" id="w29">
+  <div class="wkhd"><span class="pill">Week 29</span>
+    <span class="strand">Ways of Counting</span></div>
+  <h2>Three Circles, In Symbols</h2>
+  <p class="sub">Grade 5 filled the regions in. This week the picture becomes a formula.</p>
+  <p class="std">In class this week: Expressions and equivalent expressions (6.EE.2, 6.EE.3)</p>
+  <div class="note"><b>Teaching note</b>Grade 5 filled the regions in; this is where it becomes algebra. The all-three student is counted three times and removed three times, leaving zero, which is why the last term adds them back.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 region ABC</td><td class="v">3</td></tr><tr><td class="k">1 region AB</td><td class="v">6</td></tr><tr><td class="k">1 region AC</td><td class="v">3</td></tr><tr><td class="k">1 region BC</td><td class="v">2</td></tr><tr><td class="k">1 region A</td><td class="v">10</td></tr><tr><td class="k">1 region B</td><td class="v">7</td></tr><tr><td class="k">1 region C</td><td class="v">7</td></tr><tr><td class="k">2a regions add to</td><td class="v">38</td></tr><tr><td class="k">2b the formula</td><td class="v">the three pairs, then the triple</td></tr><tr><td class="k">2c by the formula</td><td class="v">38</td></tr><tr><td class="k">2c same</td><td class="v">yes</td></tr><tr><td class="k">2c no language</td><td class="v">2</td></tr><tr><td class="k">3 counted by the singles</td><td class="v">3</td></tr><tr><td class="k">3 removed by the pairs</td><td class="v">3</td></tr><tr><td class="k">3 leaving them counted</td><td class="v">0</td></tr><tr><td class="k">challenge none of three</td><td class="v">10</td></tr></table>
+</section>
+<section class="wk" id="w30">
+  <div class="wkhd"><span class="pill">Week 30</span>
+    <span class="strand">Ratio &amp; Rate</span></div>
+  <h2>How Likely Is It?</h2>
+  <p class="sub">Chance is a ratio: the outcomes you want against all the outcomes there are.</p>
+  <p class="std">In class this week: Ratio and rate reasoning (6.RP.1, 6.RP.3c)</p>
+  <div class="note"><b>Teaching note</b>Chance done properly is a Grade 7 subject. This page does only the counting part, which is a ratio, and the phrase equally likely is doing real work in the definition.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1 red out of</td><td class="v">10</td></tr><tr><td class="k">1 red percent</td><td class="v">30</td></tr><tr><td class="k">1 blue out of</td><td class="v">10</td></tr><tr><td class="k">1 blue percent</td><td class="v">50</td></tr><tr><td class="k">1 green out of</td><td class="v">10</td></tr><tr><td class="k">1 green percent</td><td class="v">20</td></tr><tr><td class="k">1 not red</td><td class="v">7</td></tr><tr><td class="k">1 not red percent</td><td class="v">70</td></tr><tr><td class="k">2a percents add to</td><td class="v">100</td></tr><tr><td class="k">2b red and not red</td><td class="v">100</td></tr><tr><td class="k">challenge total from six red</td><td class="v">15</td></tr><tr><td class="k">challenge better bag</td><td class="v">the first</td></tr></table>
+</section>
+<section class="wk" id="w31">
+  <div class="wkhd"><span class="pill">Week 31</span>
+    <span class="strand">Data</span></div>
+  <h2>Data Has a Shape</h2>
+  <p class="sub">Nine numbers on a line. The shape says more than any single number can.</p>
+  <p class="std">In class this week: Statistical questions and distributions (6.SP.1, 6.SP.2)</p>
+  <div class="note"><b>Teaching note</b>Both plots must be on the same scale or the comparison means nothing. That is the commonest way a data picture misleads.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a A bunched around</td><td class="v">7</td></tr><tr><td class="k">1b B spread from</td><td class="v">1</td></tr><tr><td class="k">1b B spread to</td><td class="v">13</td></tr><tr><td class="k">1 both mean</td><td class="v">7</td></tr></table>
+</section>
+<section class="wk" id="w32">
+  <div class="wkhd"><span class="pill">Week 32</span>
+    <span class="strand">Data</span></div>
+  <h2>Center and Spread</h2>
+  <p class="sub">One number for where the data sits, one for how far it wanders.</p>
+  <p class="std">In class this week: Measures of center and variability (6.SP.3, 6.SP.5)</p>
+  <div class="note"><b>Teaching note</b>Change one value from 9 to 90 and the mean moves nine points while the median does not move at all. That experiment is the page.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">2 Class A total</td><td class="v">63</td></tr><tr><td class="k">2 Class A mean</td><td class="v">7</td></tr><tr><td class="k">2 Class A median</td><td class="v">7</td></tr><tr><td class="k">2 Class A range</td><td class="v">4</td></tr><tr><td class="k">2 Class B total</td><td class="v">63</td></tr><tr><td class="k">2 Class B mean</td><td class="v">7</td></tr><tr><td class="k">2 Class B median</td><td class="v">7</td></tr><tr><td class="k">2 Class B range</td><td class="v">12</td></tr><tr><td class="k">2 which match</td><td class="v">the mean and the median</td></tr><tr><td class="k">2 which does not</td><td class="v">the range</td></tr><tr><td class="k">3 new mean</td><td class="v">16</td></tr><tr><td class="k">3 new median</td><td class="v">7</td></tr><tr><td class="k">3 median moved</td><td class="v">no</td></tr></table>
+</section>
+<section class="wk" id="w33">
+  <div class="wkhd"><span class="pill">Week 33</span>
+    <span class="strand">Data</span></div>
+  <h2>Same Average, Different Story</h2>
+  <p class="sub">Two classes, one average, and you would not want to swap them.</p>
+  <p class="std">In class this week: Summarizing data in context (6.SP.5, 6.SP.5c)</p>
+  <div class="note"><b>Teaching note</b>Both classes average 7 and you would not want to swap them. A report needs what was measured, how many, a center and a spread; a center alone is incomplete rather than wrong.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1a both mean</td><td class="v">7</td></tr><tr><td class="k">1a both median</td><td class="v">7</td></tr><tr><td class="k">1b range A</td><td class="v">4</td></tr><tr><td class="k">1b range B</td><td class="v">12</td></tr><tr><td class="k">3 is the headline true</td><td class="v">true but incomplete</td></tr></table>
+</section>
+<section class="wk" id="w34">
+  <div class="wkhd"><span class="pill">Week 34</span>
+    <span class="strand">Data</span></div>
+  <h2>Finding the Middle</h2>
+  <p class="sub">The median needs the data sorted, and sorting has a price you already know.</p>
+  <p class="std">In class this week: Measures of center; problem solving (6.SP.3, 6.EE.2)</p>
+  <div class="note"><b>Teaching note</b>Pricing statistics is the Grade 5 habit applied somewhere new. The mean is cheap and fragile, the median is dear and steady, and that trade is worth naming.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">ledger selection</td><td class="v">4851</td></tr><tr><td class="k">ledger merge</td><td class="v">566</td></tr><tr><td class="k">ledger biggest only</td><td class="v">98</td></tr><tr><td class="k">1a what else you get</td><td class="v">the whole order</td></tr><tr><td class="k">1b should the middle be cheaper</td><td class="v">yes</td></tr><tr><td class="k">2 cheapest to find</td><td class="v">the mean</td></tr><tr><td class="k">2 dearest to find</td><td class="v">the median</td></tr><tr><td class="k">challenge mean of 1000</td><td class="v">999</td></tr><tr><td class="k">challenge median of 1000</td><td class="v">8977</td></tr><tr><td class="k">challenge range of 1000</td><td class="v">1997</td></tr></table>
+</section>
+<section class="wk" id="w35">
+  <div class="wkhd"><span class="pill">Week 35</span>
+    <span class="strand">Logic &amp; Proof</span></div>
+  <h2>Pigeonhole, Grown Up</h2>
+  <p class="sub">Grade 3 put marbles in boxes. Now the boxes are a city.</p>
+  <p class="std">In class this week: Reasoning and expressions (6.EE.2, 6.EE.9)</p>
+  <div class="note"><b>Teaching note</b>Knowing the principle is easy and finding the boxes is not. The upper bound on hairs is doing all the work, and without it there is no argument at all.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">1c boxes</td><td class="v">200000</td></tr><tr><td class="k">1d conclusion</td><td class="v">two people share a hair count</td></tr><tr><td class="k">1d forced</td><td class="v">5</td></tr><tr><td class="k">2a some box holds</td><td class="v">5</td></tr><tr><td class="k">2b the general rule</td><td class="v">T divided by B, rounded up</td></tr><tr><td class="k">3 four hundred people birthdays</td><td class="v">2</td></tr><tr><td class="k">3 five numbers remainders after four</td><td class="v">2</td></tr><tr><td class="k">challenge twentythree people months</td><td class="v">2</td></tr></table>
+</section>
+<section class="wk" id="w36">
+  <div class="wkhd"><span class="pill">Week 36</span>
+    <span class="strand">Patterns &amp; Rules</span></div>
+  <h2>The Rule Book, Finished</h2>
+  <p class="sub">Thirty-three pages of rules. This week they become one book, and the line ends.</p>
+  <p class="std">In class this week: Review of the year</p>
+  <div class="note"><b>Teaching note</b>Assembly, and the end of the line. The last challenge asks the children to trace the handshake problem through all five books, which is worth doing with them.</div>
+  <table><tr><th>Question</th><th>Answer</th></tr><tr><td class="k">2a handshakes rule</td><td class="v">n(n minus 1) / 2</td></tr><tr><td class="k">2b sum to n</td><td class="v">n(n + 1) / 2</td></tr><tr><td class="k">2c first n odd numbers</td><td class="v">n squared</td></tr><tr><td class="k">2d regions rule</td><td class="v">not 2 to the n minus 1</td></tr></table>
+</section>
+</main>
+<footer>Young Innovators for Change &middot; innovateyouth.org &middot;
+Free to copy and use. Built to sit alongside the California Grade 6 mathematics
+curriculum, not to replace it.</footer>
+</body></html>
