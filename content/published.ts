@@ -20,6 +20,8 @@ export const PUBLISHED_YEARS = [
   { label: 'Grade 6 entrepreneurship', file: '/downloads/market-year-grade6.pdf', standards: 13 },
   { label: 'Grade 3 financial literacy', file: '/downloads/choosing-year-grade3.pdf', standards: 11 },
   { label: 'Grade 4 financial literacy', file: '/downloads/planning-year-grade4.pdf', standards: 11 },
+  { label: 'Grade 5 financial literacy', file: '/downloads/keeping-year-grade5.pdf', standards: 9 },
+  { label: 'Grade 6 financial literacy', file: '/downloads/asking-year-grade6.pdf', standards: 13 },
 ] as const;
 
 /** 36 weeks each, so this is the count of published years times 36. */
@@ -29,4 +31,4 @@ export const PUBLISHED_WEEKS = PUBLISHED_YEARS.length * 36;
  * Distinct CCSS-M codes named in the 'In class this week' line across every
  * published year. Books overlap: the per-book counts sum higher than this.
  */
-export const PUBLISHED_STANDARDS = 119;
+export const PUBLISHED_STANDARDS = 121;

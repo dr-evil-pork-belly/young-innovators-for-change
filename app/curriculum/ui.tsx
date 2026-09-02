@@ -9,7 +9,7 @@ import {
   WHITE, MUTED, SLATE_3, GOLD, GOLD_L, ROYAL_L, GREEN_L, DISPLAY,
 } from '@/components/kit';
 import {
-  CURRICULUM, GRADE_BANDS, STATUS_LABEL, countByStatus, AVAILABLE_NOW,
+  CURRICULUM, GRADE_BANDS, STATUS_LABEL, countByStatus, AVAILABLE_NOW, spellOut,
   type Status, type Strand,
 } from '@/content/org';
 import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
@@ -25,10 +25,12 @@ const STATUS_STYLE: Record<Status, { fg: string; bg: string; bd: string; icon: R
  * The hero reads "FIVE SUBJECTS. TWELVE GRADES. N YEARS FINISHED." and the
  * first two are words, so the third has to be. It is still derived: the count
  * comes from the generated list of published books, this only spells it.
+ *
+ * This used to keep its own word list, which stopped at twelve and so rendered
+ * "13 YEARS FINISHED" the day the thirteenth book shipped. It now shares
+ * spellOut() with the rest of the site, so there is one list to extend.
  */
-const WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven',
-               'eight', 'nine', 'ten', 'eleven', 'twelve'];
-const spell = (n: number) => (WORDS[n] ?? String(n)).toUpperCase();
+const spell = (n: number) => spellOut(n).toUpperCase();
 
 function Cell({ status, note }: { status: Status; note?: string }) {
   const st = STATUS_STYLE[status];
@@ -221,11 +223,14 @@ export default function CurriculumUi() {
                 LEADERSHIP, VENTURE &amp; MONEY
               </h3>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
-                In the elementary and middle grades this runs as a full school year, one
-                assignment a week, because younger students hold this better spread out than
-                compressed. The Grades 4, 5 and 6 years are written, which makes the
-                elementary band continuous. From Grade 7 up it also runs as an eight-week
-                intensive, scaling to an Executives Track in high school.
+                In the elementary grades this runs as a full school year, one assignment a
+                week, delivered by whoever is already in the room, because younger students
+                hold this better spread out than compressed. The Grades 4, 5 and 6 years are
+                written, which makes the elementary band continuous. From Grade 7 up it takes
+                the opposite shape: an eight-week summer intensive, run the way a business
+                school runs. In high school it runs as a cohort, the same students returning
+                for four consecutive summers.{' '}
+                <Link href="/teachers" style={{ color: GOLD_L }}>Why the two shapes differ</Link>.
               </p>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
                 This is the knowledge that usually arrives through a family, not a school. That

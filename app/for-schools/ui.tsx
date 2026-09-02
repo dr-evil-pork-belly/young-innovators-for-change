@@ -10,6 +10,13 @@ import {
   WHITE, MUTED, SLATE_3, GOLD, ROYAL_L, GREEN_L, DISPLAY,
 } from '@/components/kit';
 import { ORG } from '@/content/org';
+import { PUBLISHED_YEARS } from '@/content/published';
+
+/** Read off the Grade 2 book rather than typed. The hand-typed figure on this
+ *  page said 20 for a book that names 19, which is the same class of error that
+ *  put a standard on the site the book does not contain. */
+const G2_STANDARDS =
+  PUBLISHED_YEARS.find((y) => y.label === 'Grade 2 mathematics')?.standards ?? 0;
 
 const STEPS = [
   { when: 'Step one', icon: MessageSquare, accent: ROYAL_L, title: 'A twenty-minute call',
@@ -67,13 +74,18 @@ export default function ForSchoolsUi() {
               California pacing guide so it reinforces what you are already teaching.
             </p>
             <p style={{ marginBottom: '0.9rem' }}>
-              We are looking for teachers, not buyers. Everything is free, including the printing.
+              We are looking for teachers, not buyers. Everything is free, including the
+              printing, and the person who makes it work is already in your building.
             </p>
             <p style={{ margin: 0, fontSize: '0.88rem' }}>
-              Grade 2 mathematics is what is finished and available for the coming year. Science,
-              the other math grades, and the Grades 3&ndash;12 enterprise programs are on the
-              build map. <Link href="/curriculum" style={{ color: GREEN_L }}>See exactly
-              where each one stands</Link>.
+              Grade 2 is where we are placing the first pilots, because it is the year with a
+              pilot packet and a measurement plan behind it. The other mathematics years and
+              the Grades 3 to 6 money and venture years are written and free to download right
+              now, and any teacher is welcome to take one without telling us.{' '}
+              <Link href="/curriculum" style={{ color: GREEN_L }}>See exactly where each one
+              stands</Link>, or read{' '}
+              <Link href="/teachers" style={{ color: GREEN_L }}>what we owe the person
+              delivering it</Link>.
             </p>
           </>
         }
@@ -95,7 +107,7 @@ export default function ForSchoolsUi() {
             { icon: Clock,   v: '35 min',  l: 'a week',            s: 'Two pages, front and back' },
             { icon: Users,   v: '1',       l: 'classroom',         s: 'Whole class, not a pull-out group' },
             { icon: Printer, v: '$0',      l: 'to the school',     s: 'Materials and printing included' },
-            { icon: School,  v: '20',      l: 'CA standards',      s: 'Reinforced, not replaced' },
+            { icon: School,  v: String(G2_STANDARDS), l: 'CA standards', s: 'Reinforced, not replaced' },
           ].map(({ icon: Icon, v, l, s }, i) => (
             <FadeIn key={l} delay={i * 0.07}>
               <div>

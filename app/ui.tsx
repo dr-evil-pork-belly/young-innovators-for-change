@@ -10,7 +10,7 @@ import {
 } from 'framer-motion';
 import { ArrowUpRight, GraduationCap, Users, MapPin, Star, ChevronRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
-import { VERIFIED_STATS, PROGRAM_FACTS, FOUNDER, usd, uscTwoYearTotal } from '@/content/org';
+import { VERIFIED_STATS, PROGRAM_FACTS, FOUNDER, DELIVERY, usd, uscTwoYearTotal } from '@/content/org';
 import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
@@ -333,7 +333,9 @@ export default function HomePage() {
               expected to buy it later, compressed into two years, at graduate school
               prices. We write that material for the children whose families do not have
               it to give, and publish every page of it free. {PUBLISHED_YEARS.length} full
-              school years are written and downloadable today. We are early, and we say so.
+              school years are finished and downloadable today. None of it teaches
+              anybody. That part is done by a teacher, an aide or a caretaker in a room,
+              and it is the half that decides everything.
             </motion.p>
 
             {/* CTAs */}
@@ -457,7 +459,7 @@ export default function HomePage() {
           {[
             { num: '01', title: 'Mathematics', body: 'Reasoning-first weekly enrichment beside the state curriculum, Grades 1–12. Six complete years are written, Grades 1 through 6, standards-mapped and free to download today.' },
             { num: '02', title: 'Science', body: 'Investigation-led, low materials cost, printable in black and white. Grades 1–12, and the largest part of the roadmap still to write.' },
-            { num: '03', title: 'Leadership & Venture', body: 'One student, one product, one market day, then a team and a real profit split. The Grades 4, 5 and 6 years are written; the eight-week intensive covers Grades 7 and up.' },
+            { num: '03', title: 'Leadership & Venture', body: 'One student, one product, one market day, then a team and a real profit split. The Grades 4, 5 and 6 years are written and free. From Grade 7 the same ideas run as an eight-week summer intensive, and in high school as one cohort across four summers.' },
             { num: '04', title: 'Financial Literacy', body: 'Budgeting, credit, compounding and unit economics: the money knowledge that usually arrives through a family rather than a school.' },
           ].map((pillar, i) => (
             <RevealSection key={pillar.num} delay={i * 0.1}>
@@ -509,6 +511,115 @@ export default function HomePage() {
               </div>
             </RevealSection>
           ))}
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          THE DELIVERY ARGUMENT
+          The curriculum is the half we can do alone. This section exists
+          because the site described the material on eleven pages and the
+          person delivering it on none. See DELIVERY in content/org.ts: no
+          sentence here claims to know who is teaching this, because the
+          downloads carry no email wall and the log is a count, not a roster.
+      ══════════════════════════════════════════════════════ */}
+      <section style={{
+        background:  'rgba(15,23,42,0.75)',
+        borderTop:    '1px solid rgba(201,168,76,0.18)',
+        borderBottom: '1px solid rgba(201,168,76,0.18)',
+      }}>
+        <div className="mx-auto max-w-7xl px-6 py-28 lg:px-12">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-start">
+
+            <RevealSection>
+              <p className="label-eyebrow mb-4" style={{ color: GOLD }}>The half we did not write</p>
+              <h2 style={{
+                fontFamily:    "'Bebas Neue', Impact, sans-serif",
+                fontSize:      'clamp(2.4rem, 5vw, 4.4rem)',
+                lineHeight:    0.93,
+                letterSpacing: '0.02em',
+                color:         WHITE,
+                marginBottom:  '1.5rem',
+              }}>
+                A WORKBOOK HAS<br />
+                <span style={{ color: GOLD }}>NEVER TAUGHT</span><br />
+                ANYONE ANYTHING.
+              </h2>
+              <p style={{ fontSize: '1rem', lineHeight: 1.8, color: MUTED, marginBottom: '1.25rem' }}>
+                {DELIVERY.claim}
+              </p>
+              <p style={{ fontSize: '1rem', lineHeight: 1.8, color: MUTED, marginBottom: '2rem' }}>
+                {DELIVERY.anonymity} If a child anywhere has learned one thing from these
+                pages, an adult did that. Not the paper, and not us.
+              </p>
+              <Link href="/teachers" className="btn-gold" style={{ fontSize: '0.8rem', display: 'inline-flex' }}>
+                What we owe them
+                <ArrowUpRight size={13} />
+              </Link>
+            </RevealSection>
+
+            <div className="flex flex-col gap-4">
+              {DELIVERY.models.map((m, i) => {
+                const live   = m.status === 'published';
+                const accent = live ? ROYAL_L : GOLD;
+                return (
+                  <RevealSection key={m.band} delay={0.1 + i * 0.1}>
+                    <div style={{
+                      background:   'rgba(30,41,59,0.55)',
+                      border:       `1px solid ${accent}30`,
+                      borderRadius: '4px',
+                      padding:      '1.6rem 1.75rem',
+                      height:       '100%',
+                    }}>
+                      <div className="mb-3 flex flex-wrap items-center gap-3">
+                        <span style={{ fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.16em',
+                          textTransform: 'uppercase', color: accent }}>{m.band}</span>
+                        <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em',
+                          textTransform: 'uppercase', color: live ? ROYAL_L : MUTED,
+                          border: `1px solid ${live ? ROYAL_L : SLATE_3}66`, borderRadius: '2px',
+                          padding: '0.18rem 0.42rem' }}>
+                          {live ? 'Running today' : 'Not yet delivered'}
+                        </span>
+                      </div>
+                      <p style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: '1.5rem',
+                        letterSpacing: '0.04em', color: WHITE, lineHeight: 1.05, marginBottom: '0.7rem' }}>
+                        {m.shape.toUpperCase()}
+                      </p>
+                      <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: MUTED }}>
+                        {m.who}
+                      </p>
+                    </div>
+                  </RevealSection>
+                );
+              })}
+
+              <RevealSection delay={0.3}>
+                <div style={{
+                  background:   'linear-gradient(135deg, rgba(201,168,76,0.14), rgba(15,23,42,0.7))',
+                  border:       '1px solid rgba(201,168,76,0.3)',
+                  borderRadius: '4px',
+                  padding:      '1.6rem 1.75rem',
+                }}>
+                  <p style={{ fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em',
+                    textTransform: 'uppercase', color: GOLD, marginBottom: '0.6rem' }}>
+                    The one thing we are asking for
+                  </p>
+                  <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: WHITE, fontWeight: 600,
+                    marginBottom: '0.7rem' }}>
+                    {DELIVERY.summerIntensive.ask}
+                  </p>
+                  <p style={{ fontSize: '0.83rem', lineHeight: 1.75, color: MUTED, marginBottom: '1.1rem' }}>
+                    One summer, eight weeks, the first of four with the same students.
+                    Cindy Ha will teach it herself.
+                  </p>
+                  <Link href="/teachers" style={{ display: 'inline-flex', alignItems: 'center',
+                    gap: '0.4rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em',
+                    textTransform: 'uppercase', color: GOLD, textDecoration: 'none' }}>
+                    Read the ask <ArrowUpRight size={12} />
+                  </Link>
+                </div>
+              </RevealSection>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -702,7 +813,7 @@ export default function HomePage() {
             <div className="absolute inset-x-0 top-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${ROYAL_L}, transparent)` }} />
             <div className="absolute inset-x-0 bottom-0 h-px" style={{ background: `linear-gradient(90deg, transparent, rgba(37,99,235,0.3), transparent)` }} />
 
-            <p className="label-eyebrow relative mb-4" style={{ color: ROYAL_L }}>Join the Movement</p>
+            <p className="label-eyebrow relative mb-4" style={{ color: ROYAL_L }}>The honest ask</p>
             <h2
               className="relative mx-auto mb-6 max-w-3xl"
               style={{
@@ -713,19 +824,20 @@ export default function HomePage() {
                 color:         WHITE,
               }}
             >
-              READY TO BRING THIS TO YOUR DISTRICT?
+              SOMEBODY HAS TO BE FIRST.
             </h2>
             <p className="relative mx-auto mb-10 max-w-lg" style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED }}>
-              {PUBLISHED_YEARS.length} finished years, free to download and free to run. No
-              cohort has completed one yet, so the first classroom to try it is the one that
-              tells us whether any of this works.
+              {PUBLISHED_YEARS.length} finished years, free to download and free to run.
+              Nobody has taken one all the way through a classroom yet. So the first
+              teacher who tries it is not joining a program. She is the program, and we
+              will build the next revision around what she tells us.
             </p>
             <div className="relative flex flex-wrap items-center justify-center gap-4">
               <Link href="/partner" className="btn-gold" style={{ fontSize: '0.875rem', padding: '1rem 2.5rem' }}>
                 Partner Now
                 <ArrowUpRight size={14} />
               </Link>
-              <Link href="/curriculum" className="btn-ghost" style={{ fontSize: '0.875rem', padding: '1rem 2rem', borderColor: 'rgba(37,99,235,0.3)', color: ROYAL_L }}
+              <Link href="/teachers" className="btn-ghost" style={{ fontSize: '0.875rem', padding: '1rem 2rem', borderColor: 'rgba(37,99,235,0.3)', color: ROYAL_L }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = ROYAL_L;
                   e.currentTarget.style.background  = 'rgba(37,99,235,0.08)';
@@ -735,7 +847,7 @@ export default function HomePage() {
                   e.currentTarget.style.background  = 'transparent';
                 }}
               >
-                View the Curriculum
+                If You Teach, Read This
               </Link>
             </div>
           </div>

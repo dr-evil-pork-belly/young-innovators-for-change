@@ -80,6 +80,12 @@ export default function GovernanceUi() {
               value={<>{ORG.registeredAddress.line1}<br />{ORG.registeredAddress.line2}</>}
               source="Registered office of the corporation; programs are delivered in the service area below" />
             <FactRow label="Service area" value={ORG.serviceArea} />
+            {ORG.contactEmail && (
+              <FactRow label="Contact"
+                value={<a href={`mailto:${ORG.contactEmail}`} style={{ color: GOLD }}>
+                  {ORG.contactEmail}</a>}
+                source="A monitored inbox. Every form on this site delivers here." />
+            )}
           </div>
         </FadeIn>
 
@@ -250,9 +256,18 @@ export default function GovernanceUi() {
                 rather send you a document than have you guess.
               </p>
             </div>
-            <Link href="/partner" className="btn-gold">
-              Contact us <ArrowUpRight size={14} />
-            </Link>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end',
+              gap: '0.6rem' }}>
+              <Link href="/partner" className="btn-gold">
+                Contact us <ArrowUpRight size={14} />
+              </Link>
+              {ORG.contactEmail && (
+                <a href={`mailto:${ORG.contactEmail}`}
+                  style={{ fontSize: '0.78rem', color: MUTED }}>
+                  or write to {ORG.contactEmail}
+                </a>
+              )}
+            </div>
           </div>
         </FadeIn>
       </Section>

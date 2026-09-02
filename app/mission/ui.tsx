@@ -7,13 +7,16 @@ import {
   WHITE, MUTED, SLATE_3, GOLD, GOLD_L, ROYAL_L, GREEN_L, DISPLAY,
 } from '@/components/kit';
 import { MISSION } from '@/content/org';
+import { PUBLISHED_WEEKS } from '@/content/published';
 
 // ── Logic model ───────────────────────────────────────────────────────────────
 const CHAIN = [
   {
     stage: 'Inputs',
     accent: SLATE_3,
-    items: ['108 weeks of curriculum, written in-house',
+    items: [`${PUBLISHED_WEEKS} weeks of curriculum, written in-house`,
+            'A teacher, an aide or a caretaker willing to spend the time, which is the '
+            + 'input we do not control and the one that decides everything',
             'One instructor, and volunteers where we have them',
             'Printing, materials, and a small seed fund per team',
             'A published research base, including the paper that argues against us'],
@@ -52,6 +55,13 @@ const CHAIN = [
 ];
 
 const ASSUMPTIONS = [
+  { text: 'That an adult with the book in front of them will do the part the book '
+        + 'cannot do.',
+    risk: 'This is the assumption the whole organization rests on and the one we control '
+        + 'least. A year run without conviction is a stack of worksheets. We can make the '
+        + 'material short, correct and free; we cannot supply the thirty-five minutes a '
+        + 'week, and no amount of curriculum quality substitutes for a person who cares '
+        + 'whether the child in the third row understood it.' },
   { text: 'That what a child learns about money reaches the household behind them.',
     risk: 'The one randomized trial that found this ran in Peruvian high schools with a '
         + 'short course. If it does not transfer to a compressed program here, half the '
@@ -309,12 +319,14 @@ export default function MissionUi() {
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '0.02em',
                 color: WHITE, marginBottom: '0.4rem' }}>THE FIRST CLASSROOM MATTERS MOST.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '54ch' }}>
-                Everything above is a plan until one teacher runs one year. If that could be your
-                school, or you want to fund the classrooms that follow, start here.
+                Everything above is a plan until one teacher runs one year. The curriculum is
+                the half we can finish alone; the half that decides whether a child learns
+                anything belongs to whoever opens the book with them.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/for-schools" className="btn-gold">For schools <ArrowUpRight size={14} /></Link>
+              <Link href="/teachers" className="btn-gold">For teachers <ArrowUpRight size={14} /></Link>
+              <Link href="/for-schools" className="btn-ghost">For schools <ArrowUpRight size={13} /></Link>
               <Link href="/partner" className="btn-ghost">For funders <ArrowUpRight size={13} /></Link>
             </div>
           </div>

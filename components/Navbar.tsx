@@ -25,6 +25,7 @@ const NAV_LINKS = [
       { label: 'After the program',   href: '/programs/alumni-network',     desc: 'What we commit to students' },
     ],
   },
+  { label: 'Teachers',    href: '/teachers',    dropdown: null },
   { label: 'For Schools', href: '/for-schools', dropdown: null },
   { label: 'Resources',   href: '/resources',   dropdown: null },
   { label: 'Evidence',    href: '/impact',      dropdown: null },

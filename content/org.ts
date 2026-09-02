@@ -62,9 +62,17 @@ export const ORG = {
    *  matches what you put on an application. */
   serviceArea: 'San Gabriel Valley, California',
 
-  /** TODO, a monitored inbox. This address receives every form submission and
-   *  appears on the governance page. Without it the contact route cannot deliver. */
-  contactEmail: '',
+  /** The monitored inbox. Every form submission is delivered here, and the
+   *  address is printed on /governance so a program officer doing diligence can
+   *  reach a person without filling in a form.
+   *
+   *  Two separate things have to be true for a message to arrive, and they are
+   *  easy to confuse. This address must RECEIVE mail, which needs an inbox and
+   *  MX records on the root domain. The API route SENDS through Resend from
+   *  CONTACT_FROM, which needs its own records on the `send.` subdomain. Neither
+   *  one implies the other, and setting only the second is the state this site
+   *  was in for a month. See `claude/19-contact-and-email.md`. */
+  contactEmail: 'hello@innovateyouth.org',
 } as const;
 
 /** Public records a funder can pull up without asking you for anything. */
@@ -437,7 +445,8 @@ export const CURRICULUM: Strand[] = [
         note: 'Grades 3, 4 and 5 complete: Count Every Way, It Cannot Be Done and The Best '
             + 'Way, 36 weeks each.' },
       { band: 'Grades 6–8',  status: 'published',
-        note: 'Grade 6 complete: Find the Rule, 36 weeks. Grades 7 and 8 not started.' },
+        note: 'Grade 6 complete: Find the Rule, 36 weeks. Grades 7 and 8 are '
+            + 'deliberately unwritten: print is the wrong medium for that age.' },
       { band: 'Grades 9–12', status: 'planned' },
     ],
   },
@@ -458,9 +467,14 @@ export const CURRICULUM: Strand[] = [
          + 'scenarios rather than textbooks.',
     bands: [
       { band: 'Grades 1–2',  status: 'n/a' },
-      { band: 'Grades 3–5',  status: 'designed', note: 'Founders Track, 8 weeks.' },
-      { band: 'Grades 6–8',  status: 'designed' },
-      { band: 'Grades 9–12', status: 'designed', note: 'Executives Track, 8 weeks.' },
+      { band: 'Grades 3–5',  status: 'designed',
+        note: 'Founders Track, an 8-week summer intensive.' },
+      { band: 'Grades 6–8',  status: 'designed',
+        note: 'Kept for this band deliberately. It is taught in a room rather than '
+            + 'read off a page, and the behaviors are worth having at thirteen '
+            + 'whether or not a business is ever attached to them.' },
+      { band: 'Grades 9–12', status: 'designed',
+        note: 'Executives Track: one cohort, four summers of eight weeks each.' },
     ],
   },
   {
@@ -474,9 +488,10 @@ export const CURRICULUM: Strand[] = [
         note: 'Grades 4 and 5 complete: The Venture Year and The Numbers Year, 36 weeks '
             + 'each, standards-mapped and free. No Grade 3 year is written.' },
       { band: 'Grades 6–8',  status: 'published',
-        note: 'Grade 6 complete: The Market Year, 36 weeks. The 8-week intensive covers '
-            + 'Grades 7–8, which have no full year written.' },
-      { band: 'Grades 9–12', status: 'designed', note: 'Executives Track, 8 weeks.' },
+        note: 'Grade 6 complete: The Market Year, 36 weeks. Grades 7 and 8 are '
+            + 'deliberately unwritten: print is the wrong medium for that age.' },
+      { band: 'Grades 9–12', status: 'designed',
+        note: 'Executives Track: one cohort, four summers of eight weeks each.' },
     ],
   },
   {
@@ -487,9 +502,11 @@ export const CURRICULUM: Strand[] = [
     bands: [
       { band: 'Grades 1–2',  status: 'n/a' },
       { band: 'Grades 3–5',  status: 'published',
-        note: 'Grades 3 and 4 complete: The Choosing Year and The Planning Year, '
-            + '36 weeks each. Grade 5 not started.' },
-      { band: 'Grades 6–8',  status: 'designed' },
+        note: 'Complete: The Choosing Year, The Planning Year and The Keeping '
+            + 'Year, 36 weeks each.' },
+      { band: 'Grades 6–8',  status: 'published',
+        note: 'Grade 6 complete: The Asking Year, 36 weeks. Grades 7 and 8 are '
+            + 'deliberately unwritten: print is the wrong medium for that age.' },
       { band: 'Grades 9–12', status: 'designed' },
     ],
   },
@@ -514,8 +531,8 @@ export function countByStatus(s: Status): number {
 export const AVAILABLE_NOW =
   `${PUBLISHED_YEARS.length} full years, 36 weeks each: the complete Grades 1 to 6 discrete `
   + 'mathematics line, plus The Venture Year (Grade 4 entrepreneurship) and The Numbers Year '
-  + '(Grade 5) and The Market Year (Grade 6), plus The Choosing Year and The Planning '
-  + 'Year (Grades 3 and 4 financial literacy).';
+  + '(Grade 5) and The Market Year (Grade 6), plus the complete Grades 3 to 6 '
+  + 'financial literacy line.';
 
 // ─── The pathway ──────────────────────────────────────────────────────────────
 
@@ -598,12 +615,18 @@ export const PATHWAY: PathwayStage[] = [
     concept: 'Cash against profit. Why a sale and money in hand are different events, '
            + 'what inventory ties up, and how a profitable business runs out of money.',
     mbaCourse: 'Financial accounting',
+    note: 'Planned as content, not as a book. Print is the wrong medium for this '
+        + 'age, so nothing is written for it until there is a digital form to '
+        + 'deliver it in. See DELIVERY.middleGrades.',
   },
   {
     grade: 'Grade 8', status: 'planned',
     concept: 'What capital costs. Interest, simple and compound, the arithmetic of a '
            + 'loan, and the reason the same purchase costs two people different amounts.',
     mbaCourse: 'Corporate finance',
+    note: 'Planned as content, not as a book. Print is the wrong medium for this '
+        + 'age, so nothing is written for it until there is a digital form to '
+        + 'deliver it in. See DELIVERY.middleGrades.',
   },
   {
     grade: 'Grade 9', status: 'designed',
@@ -611,7 +634,8 @@ export const PATHWAY: PathwayStage[] = [
            + 'break-even, and the questions to ask when the numbers and the story '
            + 'disagree.',
     mbaCourse: 'Financial statement analysis',
-    note: 'Covered in part by the Executives Track, 8 weeks. The full year is not written.',
+    note: 'Covered in part by the Executives Track, the four-summer cohort. '
+        + 'The full year is not written.',
   },
   {
     grade: 'Grade 10', status: 'designed',
@@ -684,6 +708,223 @@ export const OPT_IN: { title: string; body: string }[] = [
         + 'Whether that is enough is an open question, and it is on the evidence page '
         + 'as one we could be wrong about.' },
 ];
+
+// ─── Delivery ─────────────────────────────────────────────────────────────────
+
+/**
+ * WHO ACTUALLY DELIVERS THIS, and the two shapes the program takes.
+ *
+ * Added 2 September 2026. Until then the site had eleven pages about the
+ * curriculum and none about the person who has to open it with a child, which
+ * is the wrong ordering. A workbook on a shelf teaches nobody.
+ *
+ * READ THIS BEFORE EDITING. Every line here is either a statement about what we
+ * owe the delivering adult, or a description of how a program is shaped. Not
+ * one of them is a claim about who downloads the material, how many people use
+ * it, or where. We do not know any of that. The downloads carry no email wall
+ * and no login, deliberately, which means the log is a count and not a roster.
+ * `MISSION.notYetTrue` still governs every page that draws on this file:
+ * "teachers are using it" is a sentence this file does not support, and the
+ * honest version, "we cannot see who is using it", is the one written below.
+ *
+ * `summerIntensive.status` is 'seeking'. It becomes something else only when a
+ * district has agreed in writing and the agreement is on file.
+ */
+export const DELIVERY = {
+  /** The argument, in one sentence, in the founder's framing. */
+  claim:
+    'The curriculum is the half of this that can be done alone at a desk. The '
+    + 'half that decides whether a child learns anything is done by an adult in '
+    + 'a room, and we are not that adult.',
+
+  /** What publishing openly costs us in knowledge, said plainly. */
+  anonymity:
+    'Everything is published with no email wall, no login and no license. That '
+    + 'was a deliberate choice and we would make it again. It also means we '
+    + 'cannot see who is teaching this. We do not know your name, your school '
+    + 'or your grade, so we cannot thank you by name and we will not describe '
+    + 'you on this site as though we could.',
+
+  /** What we owe whoever is delivering it. Each line is a commitment we can keep today. */
+  commitments: [
+    { title: 'Every answer, recomputed rather than remembered',
+      body: 'The teacher guide carries the answer to every problem in the book, '
+          + 'and each one is recomputed from the problem as printed by a script '
+          + 'that refuses to build the book if a single answer disagrees. You '
+          + 'should not have to check our arithmetic at ten at night.' },
+    { title: 'Prep that fits inside a prep period',
+      body: 'Each week is two pages, front and back, with the common wrong '
+          + 'answers and what to say to a student who is stuck written out '
+          + 'beside them. There is no training week and no certification.' },
+    { title: 'It prints on the copier you already have',
+      body: 'Every page was proofed in grayscale. Structure lives in the '
+          + 'linework and color is accent only, so a black-and-white classroom '
+          + 'copy loses nothing.' },
+    { title: 'Nothing to sign, nothing to buy, no account',
+      body: 'You can run a full year without ever telling us you exist. That is '
+          + 'the design, not an oversight, and it is why the log is a count '
+          + 'rather than a roster.' },
+    { title: 'Tell us where it breaks',
+      body: 'A teacher who writes in November to say week twelve falls apart is '
+          + 'giving this curriculum something no funder can. We would rather '
+          + 'hear that than a compliment, and we will say in the revision notes '
+          + 'that it came from a classroom.' },
+  ],
+
+  /**
+   * THE DELIBERATE BLANK, Grades 7 and 8.
+   *
+   * Added 2 September 2026. Every version of the curriculum map before this said
+   * some form of "not started" for these two grades, which reads as a backlog
+   * item somebody has not got to. It is not. It is a decision, and the decision
+   * is about the medium rather than the material.
+   *
+   * READ THIS BEFORE EDITING. This is the argument of the whole delivery page
+   * turned back on the organization, and it is load-bearing for exactly that
+   * reason: a site that says curriculum is worthless without good delivery, and
+   * then publishes for an age band it does not believe it can deliver to, has
+   * refuted itself in public. Do not quietly fill this band in to make the
+   * roadmap look complete. Fill it in when there is something to deliver it
+   * with.
+   *
+   * Nothing here promises a web app, a date, or a budget. It states why the
+   * blank exists and what would have to change.
+   */
+  middleGrades: {
+    band: 'Grades 7 and 8',
+    shape: 'Not built, and not for lack of time',
+    body: 'No printed year is written for Grade 7 or Grade 8, and the reason is '
+        + 'the medium rather than the material. A printed workbook holds a '
+        + 'seven-year-old who has an adult sitting beside them, and eight weeks '
+        + 'in a summer room holds a sixteen-year-old. We do not believe paper '
+        + 'holds a thirteen-year-old. Writing thirty-six weeks of it for that '
+        + 'age would be writing something we did not expect anyone to finish.',
+
+    /**
+     * The exception, and it is not a hedge on the blank. It is the same test
+     * applied and passed: Leadership survives this band precisely because it is
+     * delivered by a person in a room rather than off a page, which is the
+     * thing this entire page argues decides everything.
+     *
+     * The second half is the founder's reason and it is a claim about value,
+     * not about evidence. Nothing here says it has been measured, because it
+     * has not, and MISSION.notYetTrue governs this file as it governs the rest.
+     */
+    exception:
+      'Leadership is the one part that stays. It is taught in a room rather '
+      + 'than read off a page, so the medium problem does not apply to it, and '
+      + 'the behaviors it teaches are worth having at thirteen whether or not a '
+      + 'business is ever attached to them. A student walking toward high '
+      + 'school can use them everywhere else in their life.',
+    whatWouldChangeIt:
+      'That band needs a different form of delivery, almost certainly digital, '
+      + 'and we have not built one. Until it exists the honest thing is a blank '
+      + 'rather than a book. This is the argument of this whole page turned on '
+      + 'ourselves: a curriculum is only as good as its delivery, which means '
+      + 'there are ages we should not publish for until we can reach them.',
+    status: 'not-built' as const,
+  },
+
+  /** The two delivery models. Slow for the elementary years, intensive for the older ones. */
+  models: [
+    {
+      band: 'Grades 1 to 6',
+      shape: 'Slow, weekly, inside the school year',
+      who: 'The classroom teacher, the instructional aide, the after-school '
+         + 'lead, or a caretaker at a kitchen table.',
+      body: 'Thirty-six weeks, one assignment a week, sequenced against the '
+          + 'California pacing guide so it reinforces what the class is already '
+          + 'doing that month. The mathematics years run from Grade 1 and the '
+          + 'money and venture years from Grade 3. It is built this way because '
+          + 'it asks for the one resource an elementary school actually has, '
+          + 'which is a little time every week for a long time.',
+      status: 'published' as const,
+    },
+    {
+      band: 'Grades 9 to 12',
+      shape: 'One cohort, four summers, eight weeks each',
+      who: 'Taught by Cindy Ha, the founder, in person, for the first cohort.',
+      body: 'The same ideas in the opposite shape. Eight weeks inside one '
+          + 'summer, run the way a business school runs, and then the same '
+          + 'students come back and do it again the next summer, and the next, '
+          + 'across their high school years. An older student can hold a whole '
+          + 'idea at once, and a summer can be given over to it in a way a '
+          + 'Tuesday afternoon cannot. This is the Executives Track. It is '
+          + 'designed and not yet delivered.',
+      status: 'designed' as const,
+    },
+  ],
+
+  /** The open ask. Change `status` only against a signed agreement. */
+  summerIntensive: {
+    status: 'seeking' as 'seeking' | 'scheduled' | 'running',
+    ask: 'We are looking for one school district willing to host the first '
+       + 'cohort.',
+    detail:
+      'We are asking a district to commit to one summer. Eight weeks, a room, '
+      + 'a schedule, and permission to teach a cohort. Nothing is bought, '
+      + 'nothing is adopted, and nothing past that first summer is signed for. '
+      + 'What we are building is four of those summers with the same students, '
+      + 'so the conversation we would rather have is about the first of four '
+      + 'than about a one-off. Nobody is handed a binder and wished luck, '
+      + 'because a program has to be run by the people who wrote it before it '
+      + 'can honestly be handed to anyone else.',
+
+    /**
+     * Why it is a cohort and not a course offered four times. This constrains
+     * program design, so it is written as a commitment rather than a slogan.
+     *
+     * It sits close to a real tension with OPT_IN, which promises no screening
+     * and says a student who sits out a year loses nothing. Both are kept: the
+     * entry criterion is still only wanting to do it. What the cohort asks for
+     * is the opposite of a screen, which is that a student comes back.
+     */
+    whyCohort:
+      'A group that has been through three summers together can attempt things '
+      + 'a group meeting for the first time cannot. That is the entire reason '
+      + 'this is one cohort rather than a course offered four times. There is '
+      + 'still no test to get in and no prior year to have completed for the '
+      + 'first summer.',
+
+    /**
+     * The founder's sentence for what four summers add up to, and the
+     * disclaimer it must never travel without.
+     *
+     * "This would be their business school" is the true and useful half of the
+     * claim. The false half is the one NOT_AN_MBA exists to refuse, and the
+     * site has already been burned once by a sentence that read well and
+     * conferred a credential nobody grants. Both halves stay in one string so
+     * they cannot be separated by a later edit that keeps only the good line.
+     */
+    theClaim:
+      'Eight weeks a summer, four summers, the same room and the same people: '
+      + 'for a student who has one, this is their business school. It is also '
+      + 'not a business school. No degree, no credit, no transcript, and no '
+      + 'tuition either.',
+
+    /**
+     * Undecided, and deliberately absent from every page until it is settled.
+     * The cohort starts either the summer before ninth grade or the summer
+     * after it. The copy says "four summers across high school", which is true
+     * of both, so nothing has to be corrected once this is chosen.
+     */
+    entrySummer: null as string | null,
+
+    /**
+     * Who teaches it, and why that is the argument rather than a staffing note.
+     *
+     * Cindy Ha is listed in LEADERSHIP with a documented role, so she can be
+     * named here. Everything this draws on is already founder-attested on the
+     * About page: she built and sold a business first and met the formal
+     * material afterward. Nothing is added to her biography by this sentence.
+     */
+    whoTeaches:
+      'Cindy Ha will teach the first cohort herself. She built a business '
+      + 'without this material and met the formal version of it years later, '
+      + 'which is the whole reason the organization exists. The first summer is '
+      + 'where what she learned late gets handed over early, in person, by her.',
+  },
+} as const;
 
 // ─── Research base ────────────────────────────────────────────────────────────
 
@@ -913,7 +1154,9 @@ export function pathwayPublishedCount(): number {
  */
 export function spellOut(n: number): string {
   const words = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven',
-                 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
+                 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen',
+                 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen',
+                 'Nineteen', 'Twenty'];
   return words[n] ?? String(n);
 }
 

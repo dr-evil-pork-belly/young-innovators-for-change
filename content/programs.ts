@@ -63,8 +63,15 @@ const leadership: ProgramSpec = {
     + 'wrong and expensive: it tells the quiet child the door is closed, and it tells the '
     + 'loud one there is nothing left to learn.',
     'This program treats leadership as a set of specific, nameable behaviors, and teaches '
-    + 'them one at a time. Eight weeks, scaling in difficulty from a Founders Track in the '
-    + 'middle grades to an Executives Track in high school.',
+    + 'them one at a time. An eight-week summer intensive, scaling in difficulty from a '
+    + 'Founders Track in the middle grades to an Executives Track in high school, where '
+    + 'one cohort runs it together for four consecutive summers.',
+    'In the middle grades this is the one part of the program that is not really about '
+    + 'business at all. A thirteen-year-old who can structure an argument, read a room '
+    + 'and carry a decision is better off for it in every other part of their life, the '
+    + 'high school years they are walking toward included, whether or not they ever '
+    + 'start anything. It is taught in a room rather than read off a page, which is why '
+    + 'it holds an age that a printed year does not.',
   ],
   unitsLabel: 'The three strands',
   unitsIntro:
@@ -130,7 +137,7 @@ const leadership: ProgramSpec = {
        + 'written for.' },
   ],
   exists: [
-    'The full eight-week structure, strand by strand',
+    'The full eight-week summer structure, strand by strand',
     'Learning objectives written as observable behaviors',
     'The Founders Track and Executives Track difficulty split',
   ],
@@ -148,22 +155,28 @@ const venture: ProgramSpec = {
   slug: 'venture-lab',
   strandKey: 'venture',
   name: 'Venture Lab',
-  eyebrow: 'Enterprise track · Grades 7 to 12',
-  titleLines: ['EIGHT WEEKS.', 'ONE REAL BUSINESS.', 'ONE REAL PITCH.'],
+  eyebrow: 'Enterprise track · Grades 9 to 12 · summer intensive',
+  titleLines: ['ONE SUMMER.', 'ONE REAL BUSINESS.', 'ONE REAL PITCH.'],
   accent: 'gold',
   lede: [
     'Not a case study and not a simulation. Each student or team carries one venture the '
     + 'whole way through: a problem they found themselves, a customer they actually spoke '
     + 'to, a price they had to defend, and a pitch delivered to a panel at the end.',
-    'This is the intensive format, for Grades 7 and up. Grades 4 to 6 get the same ideas '
-    + 'as a full school year instead, one assignment a week, because younger students learn '
-    + 'this better spread out than compressed. All three years, Grades 4, 5 and 6, are '
+    'This is the summer intensive format, written for Grades 9 to 12: eight weeks inside '
+    + 'one summer, run as a cohort, the same students returning for four consecutive '
+    + 'summers. That is the Executives Track. Grades 4 to 6 get the same ideas as a full '
+    + 'school year instead, one assignment a week, because younger students learn this '
+    + 'better spread out than compressed. All three years, Grades 4, 5 and 6, are '
     + 'written and free to download today.',
+    'Grades 7 and 8 have neither, and that is a decision rather than a gap. A printed '
+    + 'year is the wrong medium for that age and a summer cohort is aimed at older '
+    + 'students, so the band stays blank until there is a form of delivery we believe '
+    + 'in for it.',
   ],
   unitsLabel: 'The eight weeks',
   unitsIntro:
-    'Every week ends in something the student made, not something they were shown. The '
-    + 'deliverables accumulate into a real venture file by week eight.',
+    'Every week of the summer ends in something the student made, not something they were '
+    + 'shown. The deliverables accumulate into a real venture file by week eight.',
   units: [
     {
       n: '01', when: 'Weeks 1 to 2', title: 'Discover the problem',
@@ -249,7 +262,7 @@ const venture: ProgramSpec = {
        + 'rest, which is the outcome we are trying to avoid.' },
   ],
   exists: [
-    'All eight weeks, with the deliverable defined for each',
+    'All eight summer weeks, with the deliverable defined for each',
     'The frameworks and worksheets each week is built around',
     'The pitch structure and the feedback form',
     'The Grade 4 and Grade 5 full-year versions, written and published in full',
@@ -275,7 +288,9 @@ const finance: ProgramSpec = {
     'Compound interest, credit, margin and risk are not difficult. They are simply not '
     + 'taught, so most people meet them for the first time in a contract they have already '
     + 'signed.',
-    'This page describes the eight-week intensive, which is written for Grades 9 to 12. '
+    'This page describes the eight-week summer intensive, which is written for Grades 9 '
+    + 'to 12 and runs as a cohort, the same students returning for four consecutive '
+    + 'summers. '
     + 'Its content is credit scores, interest rates and index funds, and it belongs where '
     + 'a student is close to meeting those things. It used to say Grades 3 to 12, which '
     + 'was wrong, and the page said so publicly for a month.',
@@ -283,7 +298,8 @@ const finance: ProgramSpec = {
     + 'Grade 3 with The Choosing Year, a full 36-week book about a student\'s own money: '
     + 'there is enough for one of two things, and every choice costs them the other. That '
     + 'book is written and free to download today.',
-    'Eight weeks, built so that a student leaves with their own budget, their own '
+    'Eight weeks inside one summer, built so that a student leaves with their own budget, '
+    + 'their own '
     + 'projection and their own plan, using their own numbers rather than a worksheet '
     + 'about somebody else.',
   ],
@@ -368,15 +384,15 @@ const finance: ProgramSpec = {
   ],
   exists: [
     'The Grade 3 book, The Choosing Year: 36 weeks, 77 pages, written and free',
-    'All eight weeks of the Grades 9 to 12 intensive, with skills defined per week',
+    'All eight weeks of the Grades 9 to 12 summer intensive, with skills defined per week',
     'The sequence and the reasoning behind its order',
     'The exercises each week is built around',
   ],
   notYet: [
-    'The student workbook and projection templates for the eight-week intensive',
-    'The facilitator guide for the intensive',
+    'The student workbook and projection templates for the eight-week summer intensive',
+    'The facilitator guide for the summer intensive',
     'A pre and post assessment',
-    'Any classroom delivery, of either the Grade 3 book or the intensive',
+    'Any classroom delivery, of either the Grade 3 book or the summer intensive',
   ],
 };
 

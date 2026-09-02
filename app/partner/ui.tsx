@@ -10,15 +10,16 @@ import {
 import {
   ArrowUpRight, Check, ChevronDown, Shield, FileText, ExternalLink,
   Building2, Mail, User, Phone, MessageSquare, Send,
-  BookOpen, Users
+  BookOpen, Users, Sun
 } from 'lucide-react';
 import Link from 'next/link';
 import { useContactForm } from '@/components/useContactForm';
 import {
-  ORG, PUBLIC_RECORDS, TRANSPARENCY, PROGRAM_FACTS,
-  taxLine, trustBadges, fmtDate,
+  ORG, PUBLIC_RECORDS, TRANSPARENCY, PROGRAM_FACTS, DELIVERY,
+  taxLine, trustBadges, fmtDate, spellOut,
   hasOutcomeStats, hasTestimonials, hasAdvisors,
 } from '@/content/org';
+import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
 
 // ─── Tokens ───────────────────────────────────────────────────────────────────
 const ROYAL_L = '#3B82F6';
@@ -89,6 +90,19 @@ const LANES = [
     cta:   'What a pilot involves',
   },
   {
+    id:    'summer',
+    icon:  Sun,
+    label: 'Districts and high schools',
+    title: 'Host the first cohort',
+    body:  `${DELIVERY.summerIntensive.ask} Eight weeks of one summer: a room, a schedule, `
+         + 'and permission to teach. Nothing is bought and nothing past that summer is '
+         + 'signed for, though what we are building is four of them with the same '
+         + 'students. Cindy Ha, the founder, will teach the first herself rather than hand '
+         + 'a district a binder and wish it luck.',
+    href:  '/teachers',
+    cta:   'Read the ask',
+  },
+  {
     id:    'funders',
     icon:  Building2,
     label: 'Foundations and grantmakers',
@@ -128,7 +142,21 @@ const NOT_CLAIMING: string[] = [
 const FAQS = [
   {
     q: 'What has actually been built?',
-    a: 'Three complete 36-week years of curriculum: Grade 2 mathematics, Grade 4 venture building, and Grade 5 numbers and financial reasoning. Each one is a student workbook plus a teacher guide, mapped to California standards, and each is on the resources page as a free download. Nothing is behind a form or a fee.',
+    a: `${spellOut(PUBLISHED_YEARS.length)} complete 36-week years of curriculum, `
+     + `${PUBLISHED_WEEKS} weeks in all, across mathematics, entrepreneurship and `
+     + 'financial literacy. Each year is a student workbook plus a teacher guide, mapped '
+     + 'to California standards, and each is on the resources page as a free download. '
+     + 'Nothing is behind a form or a fee.',
+  },
+  {
+    q: 'Who delivers this to students?',
+    a: 'Not us, for the elementary years. A teacher, an instructional aide or a caretaker '
+     + 'does, and that is the half of this work that decides whether a child learns '
+     + 'anything. We publish with no login and no email wall, so we cannot see who is '
+     + 'doing it and we will not describe them on this site as though we could. The one '
+     + 'program we intend to run ourselves is the high school summer intensive, one cohort '
+     + 'returning for four consecutive summers, which Cindy Ha will teach herself for the '
+     + 'first cohort. We are still looking for a district willing to host it.',
   },
   {
     q: 'Has any of it been taught to students?',
@@ -429,7 +457,7 @@ export default function PartnerPage() {
               THE CURRICULUM IS WRITTEN. <span style={{ color: ROYAL_L }}>NO ONE HAS TAUGHT IT YET.</span>
             </motion.h1>
             <motion.p variants={fadeUp} style={{ fontSize: '1.05rem', lineHeight: 1.75, color: MUTED, maxWidth: '620px', marginBottom: '2.5rem' }}>
-              Three finished years of material, free to anyone who wants them, and not one classroom to show you. That is the honest position, and it is the thing we are trying to change. Here is what we have, what we do not have, and how to reach us.
+              {spellOut(PUBLISHED_YEARS.length)} finished school years, {PUBLISHED_WEEKS} weeks of material, free to anyone who wants them, and not one classroom to show you. That is the honest position, and it is the thing we are trying to change. Here is what we have, what we do not have, and how to reach us.
             </motion.p>
             {HERO_FACTS.length > 0 && (
               <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-x-8 gap-y-3">
@@ -448,12 +476,12 @@ export default function PartnerPage() {
       {/* Lanes */}
       <section className="mx-auto max-w-7xl px-6 pb-24 lg:px-12">
         <Reveal className="mb-10">
-          <p className="label-eyebrow mb-2" style={{ color: ROYAL_L }}>Three ways in</p>
+          <p className="label-eyebrow mb-2" style={{ color: ROYAL_L }}>Four ways in</p>
           <h2 style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: WHITE, lineHeight: 1, letterSpacing: '0.03em' }}>
             WHAT WOULD ACTUALLY HELP
           </h2>
         </Reveal>
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:items-stretch">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-stretch">
           {LANES.map((lane, i) => <LaneCard key={lane.id} lane={lane} index={i} />)}
         </div>
       </section>

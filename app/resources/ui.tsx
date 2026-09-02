@@ -123,7 +123,7 @@ const OTHER: Resource[] = [
     label: 'The Choosing Year: Teacher Guide',
     kind: 'Financial literacy', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
     desc: 'The point of each week, the specific wrong turn it produces, and every numeric '
-        + 'answer, all 208 of them recomputed from the problems by a script that ships with '
+        + 'answer, all 210 of them recomputed from the problems by a script that ships with '
         + 'the source. Two weeks carry a note instead of answers: weeks 20 and 21 never ask '
         + 'a child what anything costs at their house, and the guide says what to do if one '
         + 'volunteers an amount anyway.',
@@ -143,10 +143,51 @@ const OTHER: Resource[] = [
     label: 'The Planning Year: Teacher Guide',
     kind: 'Financial literacy', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
     desc: 'The point of each week, the specific wrong turn it produces, and every numeric '
-        + 'answer, all 230 of them recomputed from the problems by a script that ships with '
+        + 'answer, all 233 of them recomputed from the problems by a script that ships with '
         + 'the source. No plan a student writes is marked right or wrong: what can be '
         + 'marked is whether it adds up, and the guide says so on every week that asks for '
         + 'one.',
+  },
+  {
+    file: '/downloads/keeping-year-grade5.pdf',
+    label: 'The Keeping Year: Student Workbook',
+    kind: 'Financial literacy', meta: 'PDF · 77 pages · Grade 5', accent: GOLD_L, icon: BookOpen,
+    desc: '36 weekly assignments on the difference between a price and a cost. What a '
+        + 'thing costs to keep, what it costs each time you use it, and the month where '
+        + 'the cheaper option stops being cheaper. The second half is money with other '
+        + 'people: splitting a cost in fractions that have to add up, owing and being '
+        + 'owed, and writing an agreement down before it is needed.',
+  },
+  {
+    file: '/downloads/keeping-year-grade5-teacher-guide.html',
+    label: 'The Keeping Year: Teacher Guide',
+    kind: 'Financial literacy', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
+    desc: 'The point of each week, the specific wrong turn it produces, and every numeric '
+        + 'answer, all 239 of them recomputed from the problems by a script that ships '
+        + 'with the source. No decision a student writes is marked right or wrong: what '
+        + 'can be marked is the arithmetic inside it, and the guide says so on every week '
+        + 'that asks for one.',
+  },
+  {
+    file: '/downloads/asking-year-grade6.pdf',
+    label: 'The Asking Year: Student Workbook',
+    kind: 'Financial literacy', meta: 'PDF · 77 pages · Grade 6', accent: GOLD_L, icon: BookOpen,
+    desc: '36 weekly assignments on the numbers other people put in front of you. Percent '
+        + 'done properly first, because a student who cannot find twenty percent of a price '
+        + 'cannot check anything, then what a percent is a percent OF, what "up to" '
+        + 'guarantees, why two discounts in a row do not add, and how the same money looks '
+        + 'in two frames. The last trimester is the asking itself: what would have to be '
+        + 'true, who benefits from yes, and what to do when a claim cannot be checked.',
+  },
+  {
+    file: '/downloads/asking-year-grade6-teacher-guide.html',
+    label: 'The Asking Year: Teacher Guide',
+    kind: 'Financial literacy', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
+    desc: 'The point of each week, the specific wrong turn it produces, and every numeric '
+        + 'answer, all 314 of them recomputed from the problems by a script that ships with '
+        + 'the source. Half this year is claims rather than sums, and where a question has '
+        + 'no single right answer the guide says so and says what a good answer contains. '
+        + 'Nothing in the book accuses anybody of dishonesty and the guide says that too.',
   },
   {
     file: '/downloads/structure-before-fluency.pdf',
@@ -184,7 +225,10 @@ export default function ResourcesUi() {
             </p>
             <p style={{ marginBottom: '0.9rem' }}>
               Use it in your classroom, adapt it for your district, or read it to decide whether we
-              know what we are doing. All three are the point.
+              know what we are doing. All three are the point. You owe us no report, no email and
+              no account, and if a year of this works it will be because of{' '}
+              <Link href="/teachers" style={{ color: GOLD_L }}>the person who ran it</Link>,
+              not the paper.
             </p>
             <p style={{ margin: 0 }}>
               On this page:{' '}
