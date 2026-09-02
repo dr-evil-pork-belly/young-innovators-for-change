@@ -202,7 +202,7 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
           {spec.principles.map((p, i) => (
             <FadeIn key={p.t} delay={i * 0.07}>
               <Card accent={accent} pad="1.6rem">
-                <h3 style={{ fontSize: '0.98rem', fontWeight: 700, color: WHITE,
+                <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.98rem', fontWeight: 700, color: WHITE,
                   lineHeight: 1.4, marginBottom: '0.6rem' }}>{p.t}</h3>
                 <p style={{ fontSize: '0.84rem', lineHeight: 1.75, color: MUTED }}>{p.d}</p>
               </Card>

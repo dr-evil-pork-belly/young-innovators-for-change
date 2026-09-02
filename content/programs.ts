@@ -157,8 +157,8 @@ const venture: ProgramSpec = {
     + 'to, a price they had to defend, and a pitch delivered to a panel at the end.',
     'This is the intensive format, for Grades 7 and up. Grades 4 to 6 get the same ideas '
     + 'as a full school year instead, one assignment a week, because younger students learn '
-    + 'this better spread out than compressed. The Grade 4 and Grade 5 years are written '
-    + 'and free to download today.',
+    + 'this better spread out than compressed. All three years, Grades 4, 5 and 6, are '
+    + 'written and free to download today.',
   ],
   unitsLabel: 'The eight weeks',
   unitsIntro:
@@ -268,13 +268,21 @@ const finance: ProgramSpec = {
   slug: 'financial-literacy',
   strandKey: 'finance',
   name: 'Financial Literacy',
-  eyebrow: 'Enterprise track · Grades 3 to 12',
+  eyebrow: 'Enterprise track · Grade 3, and Grades 9 to 12',
   titleLines: ['THE MONEY KNOWLEDGE', 'THAT USUALLY ARRIVES', 'THROUGH A FAMILY.'],
   accent: 'green',
   lede: [
     'Compound interest, credit, margin and risk are not difficult. They are simply not '
     + 'taught, so most people meet them for the first time in a contract they have already '
     + 'signed.',
+    'This page describes the eight-week intensive, which is written for Grades 9 to 12. '
+    + 'Its content is credit scores, interest rates and index funds, and it belongs where '
+    + 'a student is close to meeting those things. It used to say Grades 3 to 12, which '
+    + 'was wrong, and the page said so publicly for a month.',
+    'Financial literacy in the elementary grades is a different subject. It starts at '
+    + 'Grade 3 with The Choosing Year, a full 36-week book about a student\'s own money: '
+    + 'there is enough for one of two things, and every choice costs them the other. That '
+    + 'book is written and free to download today.',
     'Eight weeks, built so that a student leaves with their own budget, their own '
     + 'projection and their own plan, using their own numbers rather than a worksheet '
     + 'about somebody else.',
@@ -359,15 +367,16 @@ const finance: ProgramSpec = {
        + 'simulation that only ever goes up teaches the wrong lesson about risk.' },
   ],
   exists: [
-    'All eight weeks with skills defined per week',
+    'The Grade 3 book, The Choosing Year: 36 weeks, 77 pages, written and free',
+    'All eight weeks of the Grades 9 to 12 intensive, with skills defined per week',
     'The sequence and the reasoning behind its order',
     'The exercises each week is built around',
   ],
   notYet: [
-    'The student workbook and the projection templates',
-    'The facilitator guide',
+    'The student workbook and projection templates for the eight-week intensive',
+    'The facilitator guide for the intensive',
     'A pre and post assessment',
-    'Any classroom delivery',
+    'Any classroom delivery, of either the Grade 3 book or the intensive',
   ],
 };
 

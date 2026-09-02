@@ -153,7 +153,7 @@ export default function ImpactUi() {
                     textTransform: 'uppercase' as const, color: i === 1 ? GOLD : ROYAL_L,
                     whiteSpace: 'nowrap' }}>{s.strength}</span>
                 </div>
-                <h3 style={{ fontSize: '0.98rem', fontWeight: 700, color: WHITE, lineHeight: 1.4 }}>{s.title}</h3>
+                <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.98rem', fontWeight: 700, color: WHITE, lineHeight: 1.4 }}>{s.title}</h3>
                 <p style={{ fontSize: '0.74rem', color: i === 1 ? GOLD : ROYAL_L, fontWeight: 600, margin: '0.2rem 0 0.15rem' }}>{s.cite}</p>
                 <p style={{ fontSize: '0.72rem', color: SLATE_3, marginBottom: '0.8rem' }}>{s.where}</p>
                 <p style={{ fontSize: '0.83rem', lineHeight: 1.75, color: MUTED }}>{s.says}</p>

@@ -1,4 +1,17 @@
 import type { Metadata } from 'next'
+
+// The two typefaces, self-hosted.
+//
+// These were previously requested with an @import of a Google Fonts stylesheet
+// at the top of globals.css. That @import does not survive the Tailwind v4
+// build: the shipped CSS contained no @import, no @font-face and no reference
+// to fonts.googleapis.com, so neither face had ever loaded and every page was
+// rendering in the fallbacks, Impact for headings and system-ui for text.
+//
+// Imported as modules instead, which the bundler cannot silently drop. Self
+// hosting also takes a third-party request off every page load.
+import '@fontsource/bebas-neue/400.css'
+import '@fontsource-variable/dm-sans'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import { ORG } from '@/content/org'
@@ -63,12 +76,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}

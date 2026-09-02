@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * One renderer for all five books in the math line.
+ * One renderer for every book in the math line.
  *
  * The three enterprise program pages were once three near-identical hand-written
  * files totalling 353KB, and stale content hid in them for months. Five grade
@@ -26,13 +26,18 @@ import { MATH_LINE, type MathBook } from '@/content/mathLine';
 const CONNECT_L = '#7CA6F5';
 const SPARK_L   = '#FF9A69';
 const GROW_L    = '#4FCBA3';
-const RUNG = [CONNECT_L, SPARK_L, GROW_L, CONNECT_L, SPARK_L];
+// Cycles, so the ladder keeps its rhythm however many books there are.
+const RUNG = [CONNECT_L, SPARK_L, GROW_L];
 
 /**
- * The two page shapes in the line. Grade 2 has five parts. The four later books
- * added the Words to keep box and the artifact page, which is where the year's
- * book gets built, so their weeks have seven. Stated separately rather than
- * described as one shape, because they are not one shape.
+ * The page shapes in the line, and there are three of them.
+ *
+ * Grade 1 has five parts and one of them is unique to it: a single sentence
+ * stating the task, because the reader is six. Grade 2 has five without it. The
+ * later books add the Words to keep box and the artifact page, so their weeks
+ * have seven. Stated separately rather than described as one shape, because
+ * they are not one shape, and a page that claims a box a book does not have is
+ * the sort of thing nobody notices for a year.
  */
 const ANATOMY_G2 = [
   ['In class this week', 'The standard the class is already working on, so the sheet reinforces Tuesday’s lesson.'],
@@ -40,6 +45,14 @@ const ANATOMY_G2 = [
   ['The Adventure', 'The main activity, with every map, grid and diagram printed on the page.'],
   ['Talk About It', 'One question answered out loud. Short answers, long reasons.'],
   ['★ Challenge Zone', 'Genuinely harder, and not expected of everyone.'],
+];
+
+const ANATOMY_G1 = [
+  ['In class this week', 'For the teacher: the standard the class is already working on.'],
+  ['Number Warm-Up', 'Two minutes of counting out loud. The page starts on familiar ground.'],
+  ['One sentence', 'The task, in a sentence a first grader can decode: never more than twelve words, and every word on a first-grade list.'],
+  ['The picture', 'The task itself, not an illustration of it. Remove the sentence and a teacher can still tell what the page wants.'],
+  ['Room to draw', 'The rest of the page, left open to work in.'],
 ];
 
 const ANATOMY_LATER = (artifact: string) => [
@@ -79,7 +92,8 @@ export default function MathBookUi({ book }: { book: MathBook }) {
       `${w.n} ${w.strand} ${w.title} ${w.sub}`.toLowerCase().includes(t));
   }, [q, book.weeks]);
 
-  const anatomy = book.artifact ? ANATOMY_LATER(book.artifact) : ANATOMY_G2;
+  const anatomy = book.artifact ? ANATOMY_LATER(book.artifact)
+                : book.grade === 1 ? ANATOMY_G1 : ANATOMY_G2;
 
   return (
     <Page>
@@ -397,7 +411,7 @@ export default function MathBookUi({ book }: { book: MathBook }) {
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <Link href="/partner" className="btn-gold">Run a pilot <ArrowUpRight size={14} /></Link>
-              <Link href="/programs/discrete-math" className="btn-ghost">All five years <ChevronRight size={13} /></Link>
+              <Link href="/programs/discrete-math" className="btn-ghost">All {MATH_LINE.length} years <ChevronRight size={13} /></Link>
             </div>
           </div>
         </Container>

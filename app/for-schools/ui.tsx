@@ -133,7 +133,7 @@ export default function ForSchoolsUi() {
                     <span style={{ fontSize: '0.62rem', fontWeight: 800, letterSpacing: '0.16em',
                       textTransform: 'uppercase' as const, color: s.accent }}>{s.when}</span>
                   </div>
-                  <h3 style={{ fontSize: '0.98rem', fontWeight: 700, color: WHITE, marginBottom: '0.4rem' }}>{s.title}</h3>
+                  <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.98rem', fontWeight: 700, color: WHITE, marginBottom: '0.4rem' }}>{s.title}</h3>
                   <p style={{ fontSize: '0.82rem', lineHeight: 1.7, color: MUTED }}>{s.text}</p>
                 </div>
               </FadeIn>
@@ -185,7 +185,7 @@ export default function ForSchoolsUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))', gap: '1.75rem 3rem' }}>
           {HONEST.map((f, i) => (
             <FadeIn key={f.q} delay={i * 0.05}>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: WHITE, marginBottom: '0.5rem' }}>{f.q}</h3>
+              <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', fontWeight: 700, color: WHITE, marginBottom: '0.5rem' }}>{f.q}</h3>
               <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: MUTED, maxWidth: '54ch' }}>{f.a}</p>
             </FadeIn>
           ))}

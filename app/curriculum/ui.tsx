@@ -161,8 +161,8 @@ export default function CurriculumUi() {
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '1.25rem', maxWidth: '72ch' }}>
             A band marked <em>published</em> means at least one complete year in it can be
             downloaded and run today, and the note on the cell names exactly which grades those
-            are. Mathematics reads published across three bands because Grades 2 through 6 are
-            written; Grades 1, 7 and 8 are not, and the cells say so.
+            are. Mathematics reads published across three bands because Grades 1 through 6 are
+            written; Grades 7 and 8 are not, and the cells say so.
           </p>
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '0.75rem', maxWidth: '72ch' }}>
             Much of this grid still says <em>planned</em>, and that is the point of publishing
@@ -198,14 +198,15 @@ export default function CurriculumUi() {
                 reinforces the standard the class is already teaching.
               </p>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
-                Grades 2 through 6 are written, as five separate school years that each teach one
-                new mathematical move: see it, count it, rule it out, cost it, generalize it. Any
-                one of them runs on its own. Grade 1 is the remaining gap at the bottom.
+                Grades 1 through 6 are written, as six separate school years that each teach one
+                new mathematical move: sort it, see it, count it, rule it out, cost it,
+                generalize it. Any one of them runs on its own, and the elementary band is now
+                continuous from Grade 1 to Grade 6.
               </p>
               <Link href="/programs/discrete-math" style={{ display: 'inline-flex', alignItems: 'center',
                 gap: '0.4rem', fontSize: '0.8rem', fontWeight: 600, color: ROYAL_L,
                 textDecoration: 'none' }}>
-                The five mathematics years <ArrowUpRight size={13} />
+                The six mathematics years <ArrowUpRight size={13} />
               </Link>
             </Card>
           </FadeIn>
@@ -222,8 +223,9 @@ export default function CurriculumUi() {
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
                 In the elementary and middle grades this runs as a full school year, one
                 assignment a week, because younger students hold this better spread out than
-                compressed. The Grade 4 and Grade 5 years are written. From Grade 7 up it also
-                runs as an eight-week intensive, scaling to an Executives Track in high school.
+                compressed. The Grades 4, 5 and 6 years are written, which makes the
+                elementary band continuous. From Grade 7 up it also runs as an eight-week
+                intensive, scaling to an Executives Track in high school.
               </p>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
                 This is the knowledge that usually arrives through a family, not a school. That
@@ -271,9 +273,9 @@ export default function CurriculumUi() {
                + 'all-or-nothing PDFs. One week is a far easier thing for a teacher to try, and '
                + 'each one names a standard a teacher might search for.' },
             { n: '04', a: ROYAL_L, t: 'Write the rest of the Enterprise years',
-              d: 'Grades 4 and 5 are written. Grade 6 and the older-student tracks are designed '
-               + 'and not written out. Turning a syllabus into materials a volunteer can teach '
-               + 'from is the work.' },
+              d: 'Grades 4, 5 and 6 are written, so the elementary band is complete. The '
+               + 'older-student tracks are designed and not written out, and turning a '
+               + 'syllabus into materials a volunteer can teach from is the work.' },
             { n: '05', a: SLATE_3, t: 'Science, and the upper grades',
               d: 'The largest part of the grid and the furthest out. We would rather say that '
                + 'plainly than imply it is nearly done.' },
@@ -281,7 +283,7 @@ export default function CurriculumUi() {
             <FadeIn key={s.n} delay={i * 0.06}>
               <div style={{ borderTop: `2px solid ${s.a}`, paddingTop: '1rem', height: '100%' }}>
                 <div style={{ fontFamily: DISPLAY, fontSize: '1.7rem', color: s.a, lineHeight: 1 }}>{s.n}</div>
-                <h3 style={{ fontSize: '0.92rem', fontWeight: 700, color: WHITE, margin: '0.5rem 0 0.4rem' }}>{s.t}</h3>
+                <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.92rem', fontWeight: 700, color: WHITE, margin: '0.5rem 0 0.4rem' }}>{s.t}</h3>
                 <p style={{ fontSize: '0.79rem', lineHeight: 1.7, color: MUTED }}>{s.d}</p>
               </div>
             </FadeIn>

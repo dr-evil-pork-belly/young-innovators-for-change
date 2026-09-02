@@ -319,7 +319,7 @@ export default function AboutUi() {
           ].map((c) => (
             <FadeIn key={c.t}>
               <Card accent={c.a} pad="1.6rem">
-                <h3 style={{ fontSize: '0.97rem', fontWeight: 700, color: WHITE,
+                <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.97rem', fontWeight: 700, color: WHITE,
                   lineHeight: 1.4, marginBottom: '0.6rem' }}>{c.t}</h3>
                 <p style={{ fontSize: '0.84rem', lineHeight: 1.75, color: MUTED }}>{c.d}</p>
               </Card>

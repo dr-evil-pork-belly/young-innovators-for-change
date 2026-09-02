@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -10,7 +9,7 @@
   --color-text-muted:     #6B6664;
   --color-border:         rgba(201, 168, 76, 0.12);
   --font-display:         'Bebas Neue', Impact, sans-serif;
-  --font-sans:            'DM Sans', system-ui, sans-serif;
+  --font-sans:            'DM Sans Variable', 'DM Sans', system-ui, sans-serif;
   --navbar-height:        5rem;
 }
 
@@ -45,6 +44,31 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   line-height: 1;
   letter-spacing: 0.02em;
+}
+
+/* The display stack has exactly one weight in it.
+
+   Bebas Neue ships 400 and nothing else, and so does the Impact fallback
+   underneath it. Ask either of them for 700 and the browser does not fail: it
+   SYNTHESIZES the bold, drawing each glyph twice a fraction of a pixel apart.
+   On screen that reads as a blurred or doubled title, and it was doing it to
+   63 elements across 11 pages, every one a small card heading that had been
+   given fontWeight 700 in an inline style.
+
+   Two things stop it coming back. Those headings now name the text face
+   explicitly, which really does have a 700. And this rule tells the browser
+   never to fake a weight for display type: if the weight does not exist,
+   render the one that does rather than smearing it. `font-synthesis` is the
+   older spelling and is what Safari before 16.4 understands. */
+h1, h2, h3, h4, h5, h6 {
+  /* The weight the display face actually has. Without this the browser's
+     own default of `h1 { font-weight: bold }` applies, so every heading on
+     the site was asking a single-weight face for a bold and getting a
+     smeared one. Small card headings set their own weight inline and use
+     the text face, which has a real 700, so they are unaffected. */
+  font-weight: 400;
+  font-synthesis: none;
+  font-synthesis-weight: none;
 }
 
 a { color: inherit; text-decoration: none; }

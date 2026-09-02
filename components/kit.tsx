@@ -28,7 +28,7 @@ export const GREEN   = '#10B981';
 export const GREEN_L = '#34D399';
 
 export const DISPLAY = "'Bebas Neue', Impact, sans-serif";
-export const SANS    = "'DM Sans', system-ui, sans-serif";
+export const SANS    = "'DM Sans Variable', 'DM Sans', system-ui, sans-serif";
 
 // ── Motion ────────────────────────────────────────────────────────────────────
 export const fadeUp: Variants = {

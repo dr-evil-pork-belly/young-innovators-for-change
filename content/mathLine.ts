@@ -34,6 +34,57 @@ export type MathBook = {
 
 export const MATH_LINE: MathBook[] = [
   {
+    slug: 'grade-1', grade: 1, title: 'What Goes Together',
+    move: 'Sort it',
+    moveLine: 'Things go together for a reason, and you can say the reason.',
+    artifact: '',
+    artifactLine: '',
+    lede: 'A full year of sorting, matching and patterns, for six-year-olds. Every week hands the child a rule and asks them to use it, because holding a rule in your head while you work is the step underneath everything else in this line. The page carries one sentence and a picture, and the picture is the task.',
+    strands: ['Dots & Lines', 'Matching', 'Numbers & Tens', 'Order & Time', 'Patterns', 'Pictures & Data', 'Shape & Space', 'Sorting & Rules', 'Steps & Paths', 'Ways of Counting'],
+    standards: ['1.G.1', '1.G.2', '1.G.3', '1.MD.1', '1.MD.2', '1.MD.3', '1.MD.4', '1.NBT.1', '1.NBT.2', '1.NBT.3', '1.NBT.5', '1.OA.1', '1.OA.5', '1.OA.6', '1.OA.8'],
+    pages: 77, checks: 147,
+    workbook: '/downloads/what-goes-together-grade1.pdf',
+    guide: '/downloads/what-goes-together-grade1-teacher-guide.html',
+    weeks: [
+      { n: 1, strand: 'Sorting & Rules', title: 'One Pile or the Other', sub: 'The rule is given. Every object goes in exactly one pile, and none is left over.' },
+      { n: 2, strand: 'Sorting & Rules', title: 'What Is the Same?', sub: 'Naming a shared attribute out loud. The answer is a sentence, not a word.' },
+      { n: 3, strand: 'Sorting & Rules', title: 'What Is Different?', sub: 'The same pairs as last week, asked the other way. Same and different are one skill.' },
+      { n: 4, strand: 'Sorting & Rules', title: 'Does It Belong?', sub: 'Applying a stated rule to a new object. Yes or no, with a reason.' },
+      { n: 5, strand: 'Sorting & Rules', title: 'Sort It Two Ways', sub: 'The same objects, a second rule, and different piles. Sorting is a choice.' },
+      { n: 6, strand: 'Matching', title: 'One for Each', sub: 'One-to-one matching. Enough or not enough, decided without counting either row.' },
+      { n: 7, strand: 'Matching', title: 'More, Fewer, or Same', sub: 'Comparing two sets by pairing them off, not by counting them (1.NBT.3).' },
+      { n: 8, strand: 'Matching', title: 'Which Row Ran Out?', sub: 'Three sets put in order by pairing them against each other, none of them counted.' },
+      { n: 9, strand: 'Patterns', title: 'What Comes Next?', sub: 'Repeating patterns, AB and ABB. The child continues the strip.' },
+      { n: 10, strand: 'Patterns', title: 'Find the Part That Repeats', sub: 'Naming the unit of a repeating pattern, which is the thing that makes it a pattern.' },
+      { n: 11, strand: 'Patterns', title: 'It Grows', sub: 'A growing pattern, not a repeating one. Each stage is bigger than the last.' },
+      { n: 12, strand: 'Sorting & Rules', title: 'Sorting Fair', sub: 'Review of weeks 1 to 11. Every kind of question the year has asked so far.' },
+      { n: 13, strand: 'Order & Time', title: 'Line Them Up', sub: 'Three objects in order by length (1.MD.1). Compared directly, never measured.' },
+      { n: 14, strand: 'Order & Time', title: 'Longer Than the Pencil', sub: 'Indirect comparison (1.MD.2). Two things compared using a third that touches both.' },
+      { n: 15, strand: 'Order & Time', title: 'How Many Paper Clips?', sub: 'Length as a row of same-size units laid end to end, with no gaps (1.MD.2).' },
+      { n: 16, strand: 'Shape & Space', title: 'Sort the Shapes', sub: 'Shapes into piles by a rule the page states (1.G.1). The first shape week.' },
+      { n: 17, strand: 'Shape & Space', title: 'What Makes It a Triangle?', sub: 'Defining and non-defining attributes (1.G.1). Three sides matters. Color does not.' },
+      { n: 18, strand: 'Shape & Space', title: 'Two Shapes Make One', sub: 'Composing shapes (1.G.2). Two pieces put together and the whole named.' },
+      { n: 19, strand: 'Shape & Space', title: 'Cut It Fair', sub: 'Halves and fourths by folding (1.G.3). Equal parts, decided by matching them up.' },
+      { n: 20, strand: 'Dots & Lines', title: 'Around the Table', sub: 'A picture of who is next to who. Adjacency, drawn, and never named.' },
+      { n: 21, strand: 'Dots & Lines', title: 'Everybody Waves', sub: 'Three friends, every wave drawn once. The handshake problem at its smallest.' },
+      { n: 22, strand: 'Dots & Lines', title: 'Do Not Touch the Same Color', sub: 'Coloring so no two touching parts match. The rule is checked, never minimized.' },
+      { n: 23, strand: 'Pictures & Data', title: 'Three Buckets', sub: 'Sorting into three categories and drawing what you found (1.MD.4).' },
+      { n: 24, strand: 'Pictures & Data', title: 'Which Bucket Has More?', sub: 'Reading a picture graph back and comparing its bars (1.MD.4).' },
+      { n: 25, strand: 'Steps & Paths', title: 'Getting There', sub: 'Any path from the start to the flag on a small grid, drawn by the child.' },
+      { n: 26, strand: 'Steps & Paths', title: 'The Short Way', sub: 'Two drawn paths, each one counted, and the shorter one named (1.OA.1).' },
+      { n: 27, strand: 'Steps & Paths', title: 'Follow the Arrows', sub: 'Three arrows executed in order, and the landing square marked.' },
+      { n: 28, strand: 'Steps & Paths', title: 'Write the Arrows', sub: 'The reverse of last week: the start and the end are given, the arrows are not.' },
+      { n: 29, strand: 'Numbers & Tens', title: 'A Ten and Some More', sub: 'A teen number is one full ten and some ones (1.NBT.2). Seen, not told.' },
+      { n: 30, strand: 'Numbers & Tens', title: 'Ten More, Ten Less', sub: 'One row down is ten more, one row up is ten less (1.NBT.5).' },
+      { n: 31, strand: 'Numbers & Tens', title: 'Rows of Ten', sub: 'Why the chart\'s columns end in the same digit, and what that says about ten (1.NBT.1).' },
+      { n: 32, strand: 'Ways of Counting', title: 'Every Way to Make 6', sub: 'All the number pairs that make 6, listed in order so none is missed (1.OA.6).' },
+      { n: 33, strand: 'Ways of Counting', title: 'Two Hats, Two Scarves', sub: 'Every outfit, drawn. There are four, and drawing them is the whole method.' },
+      { n: 34, strand: 'Ways of Counting', title: 'Three Friends, Two Chairs', sub: 'Every pair from three, drawn. There are three, and order does not matter.' },
+      { n: 35, strand: 'Order & Time', title: 'First, Next, Last', sub: 'Putting a day in order, and reading a clock on the hour (1.MD.3).' },
+      { n: 36, strand: 'Sorting & Rules', title: 'The Last Sort', sub: 'Everything once more, and a look at what Grade 2 does with all of it.' },
+    ],
+  },
+  {
     slug: 'grade-2', grade: 2, title: 'Discrete Math Adventures',
     move: 'See it',
     moveLine: 'These objects exist, and they are interesting.',
@@ -294,8 +345,15 @@ export function bookBySlug(slug: string): MathBook | undefined {
   return MATH_LINE.find((b) => b.slug === slug);
 }
 
-/** Every distinct standard code the line names, across all five books. */
-export const MATH_STANDARD_COUNT = 88;
+/** Every distinct standard code the line names, across every book. */
+export const MATH_STANDARD_COUNT = 103;
+
+/** "Grades 1 to 6". Derived, because the site said "Grades 2 to 6" in
+ *  nine places and adding a book below Grade 2 would have missed some. */
+export const MATH_GRADE_RANGE = 'Grades 1 to 6';
+
+/** The moves in order, for the sentence the line page makes out of them. */
+export const MATH_MOVES = MATH_LINE.map((b) => b.move.toLowerCase());
 
 /** Weeks written across the line. */
 export const MATH_WEEK_COUNT = MATH_LINE.reduce((n, b) => n + b.weeks.length, 0);

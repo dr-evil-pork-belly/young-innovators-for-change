@@ -455,9 +455,9 @@ export default function HomePage() {
         {/* Four strands, two tracks */}
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
           {[
-            { num: '01', title: 'Mathematics', body: 'Reasoning-first weekly enrichment beside the state curriculum, Grades 1–12. Five complete years are written, Grades 2 through 6, standards-mapped and free to download today.' },
+            { num: '01', title: 'Mathematics', body: 'Reasoning-first weekly enrichment beside the state curriculum, Grades 1–12. Six complete years are written, Grades 1 through 6, standards-mapped and free to download today.' },
             { num: '02', title: 'Science', body: 'Investigation-led, low materials cost, printable in black and white. Grades 1–12, and the largest part of the roadmap still to write.' },
-            { num: '03', title: 'Leadership & Venture', body: 'One student, one product, one market day, then a team and a real profit split. The Grade 4 and Grade 5 years are written; the eight-week intensive covers Grades 7 and up.' },
+            { num: '03', title: 'Leadership & Venture', body: 'One student, one product, one market day, then a team and a real profit split. The Grades 4, 5 and 6 years are written; the eight-week intensive covers Grades 7 and up.' },
             { num: '04', title: 'Financial Literacy', body: 'Budgeting, credit, compounding and unit economics: the money knowledge that usually arrives through a family rather than a school.' },
           ].map((pillar, i) => (
             <RevealSection key={pillar.num} delay={i * 0.1}>
@@ -751,4 +751,4 @@ export default function HomePage() {
       `}</style>
     </div>
   );
-}
+}

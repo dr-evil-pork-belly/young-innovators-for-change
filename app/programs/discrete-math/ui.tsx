@@ -1,11 +1,11 @@
 'use client';
 
 /**
- * The discrete mathematics line, Grades 2 to 6.
+ * The discrete mathematics line, Grades 1 to 6.
  *
  * This page used to be the Grade 2 book. It carried its own copy of the palette,
  * its own FadeIn, and a hand-typed list of twenty standard codes, one of which
- * (2.NBT.3) was not in the book. Everything factual on this page and on the five
+ * (2.NBT.3) was not in the book. Everything factual on this page and on the per
  * grade pages now comes from content/mathLine.ts, which is generated out of the
  * curriculum repository by brand/mksite.py. Nothing here is typed twice.
  */
@@ -23,7 +23,18 @@ import {
 } from '@/components/kit';
 import {
   MATH_LINE, MATH_STANDARD_COUNT, MATH_WEEK_COUNT, MATH_CHECK_COUNT,
+  MATH_GRADE_RANGE, MATH_MOVES,
 } from '@/content/mathLine';
+
+/** "one, two, three" spelled, so prose can count without a numeral. */
+const WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven',
+               'eight', 'nine', 'ten'];
+const spell = (n: number) => WORDS[n] ?? String(n);
+/** Sentence-initial. The lede began with a lowercase "six" without this. */
+const Spell = (n: number) => {
+  const w = spell(n);
+  return w.charAt(0).toUpperCase() + w.slice(1);
+};
 
 /** Books whose teacher guide is recomputed from the problems by a script. */
 const CHECKED = MATH_LINE.filter((b) => b.checks > 0);
@@ -37,7 +48,8 @@ const UNCHECKED = MATH_LINE.filter((b) => b.checks === 0);
 const CONNECT_L = '#7CA6F5';
 const SPARK_L   = '#FF9A69';
 const GROW_L    = '#4FCBA3';
-const RUNG = [CONNECT_L, SPARK_L, GROW_L, CONNECT_L, SPARK_L];
+// Cycles, so the ladder keeps its rhythm however many books there are.
+const RUNG = [CONNECT_L, SPARK_L, GROW_L];
 
 const FAQS = [
   {
@@ -69,7 +81,9 @@ const FAQS = [
     q: 'Is discrete math too hard for elementary students?',
     a: 'It needs very little computational fluency, which is exactly why it works as '
      + 'enrichment. A student still shaky on regrouping can reason well about a map coloring, '
-     + 'and be asked to prove it. What it does demand is explanation, and that is the point.',
+     + 'and be asked to prove it. What it does demand is explanation, and that is the point. '
+     + 'The Grade 1 book goes further and assumes the child cannot yet read the page: every '
+     + 'week is one sentence and a picture, and the picture is the task.',
   },
   {
     q: 'How do you know the answer keys are right?',
@@ -118,7 +132,7 @@ export default function DiscreteMathLineUi() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   const stats = [
-    { value: String(MATH_LINE.length), label: 'school years', sub: 'Grades 2 through 6' },
+    { value: String(MATH_LINE.length), label: 'school years', sub: MATH_GRADE_RANGE },
     { value: String(MATH_WEEK_COUNT),  label: 'weekly assignments', sub: 'two pages each' },
     { value: String(MATH_STANDARD_COUNT), label: 'CA standards touched', sub: 'reinforced, not replaced' },
     { value: '$0', label: 'prep cost', sub: 'photocopy and go' },
@@ -158,7 +172,7 @@ export default function DiscreteMathLineUi() {
               <motion.div variants={fadeIn} style={{ display: 'flex', flexWrap: 'wrap', gap: '0.625rem',
                 marginBottom: '1.75rem' }}>
                 {[
-                  { icon: GraduationCap, text: 'Grades 2 to 6' },
+                  { icon: GraduationCap, text: MATH_GRADE_RANGE },
                   { icon: Clock,         text: `${MATH_WEEK_COUNT} weeks` },
                   { icon: Printer,       text: 'Print and go' },
                 ].map((b) => {
@@ -187,20 +201,21 @@ export default function DiscreteMathLineUi() {
 
                   <motion.p variants={fadeUp} style={{ fontSize: '1rem', lineHeight: 1.75, color: MUTED,
                     maxWidth: '54ch', marginBottom: '1.25rem' }}>
-                    Five complete school years of maps, proofs, routes and rules, one weekly
-                    assignment at a time. Discrete mathematics needs very little computational
-                    fluency, which is exactly why it works as enrichment: a student still shaky on
-                    regrouping can reason well about a map coloring, and be asked to prove it.
+                    {Spell(MATH_LINE.length)} complete
+                    school years of sorting, maps, proofs, routes and rules, one weekly assignment
+                    at a time. Discrete mathematics needs very little computational fluency, which
+                    is exactly why it works as enrichment: a student still shaky on regrouping can
+                    reason well about a map coloring, and be asked to prove it.
                   </motion.p>
                   <motion.p variants={fadeUp} style={{ fontSize: '1rem', lineHeight: 1.75, color: MUTED,
                     maxWidth: '54ch', marginBottom: '2.25rem' }}>
-                    Each year teaches one new mathematical move. Read the five in order and they
-                    make a sentence: notice, count, rule out, cost, generalize.
+                    Each year teaches one new mathematical move. Read them in order and they make
+                    a sentence: {MATH_MOVES.join(', ')}.
                   </motion.p>
 
                   <motion.div variants={fadeUp} style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
                     <Link href="#years" className="btn-gold">
-                      See the five years <ChevronDown size={14} />
+                      See the {spell(MATH_LINE.length)} years <ChevronDown size={14} />
                     </Link>
                     <Link href="/resources" className="btn-ghost">
                       Download everything <Download size={13} />
@@ -223,7 +238,7 @@ export default function DiscreteMathLineUi() {
                     <p style={{ textAlign: 'center', fontSize: '0.75rem', color: MUTED, lineHeight: 1.6,
                       marginTop: '0.4rem' }}>
                       One dot, five lines. Pip is a graph: the exact object the students spend
-                      five years proving things about.
+                      {' '}{spell(MATH_LINE.length)} years proving things about.
                     </p>
                   </div>
                 </motion.div>
@@ -257,14 +272,16 @@ export default function DiscreteMathLineUi() {
           </p>
           <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4.5vw, 3.8rem)', lineHeight: 0.95,
             letterSpacing: '0.02em', color: WHITE, marginBottom: '1rem' }}>
-            FIVE BOOKS.<br /><span style={{ color: CONNECT_L }}>ONE ARGUMENT.</span>
+            {spell(MATH_LINE.length).toUpperCase()} BOOKS.<br />
+            <span style={{ color: CONNECT_L }}>ONE ARGUMENT.</span>
           </h2>
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '62ch' }}>
-            The years are not the same year with bigger numbers. Grade 2 shows a child that
-            mathematics has parts that are not arithmetic. The four after it each add a different
-            kind of move, and reuse the same objects, graphs, maps, coins and codes, as material
-            for it. That order is also the order in which the moves are hard: a third grader can
-            be systematic, a sixth grader can hold a variable.
+            The years are not the same year with bigger numbers. Grade 1 asks a child to hold a
+            rule in their head while they use it. Grade 2 shows them that mathematics has parts
+            that are not arithmetic. Each year after that adds a different kind of move and reuses
+            the same objects, shapes, graphs, maps, coins and codes, as material for it. That
+            order is also the order in which the moves are hard: a first grader can follow a rule,
+            a third grader can be systematic, a sixth grader can hold a variable.
           </p>
         </FadeIn>
 

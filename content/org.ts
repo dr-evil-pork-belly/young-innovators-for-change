@@ -431,7 +431,8 @@ export const CURRICULUM: Strand[] = [
          + 'modeling and applied problem solving.',
     bands: [
       { band: 'Grades 1–2',  status: 'published',
-        note: 'Grade 2 complete: 36 weeks, standards-mapped, free. Grade 1 not started.' },
+        note: 'Grades 1 and 2 complete: What Goes Together and Discrete Math Adventures, '
+            + '36 weeks each.' },
       { band: 'Grades 3–5',  status: 'published',
         note: 'Grades 3, 4 and 5 complete: Count Every Way, It Cannot Be Done and The Best '
             + 'Way, 36 weeks each.' },
@@ -472,19 +473,22 @@ export const CURRICULUM: Strand[] = [
       { band: 'Grades 3–5',  status: 'published',
         note: 'Grades 4 and 5 complete: The Venture Year and The Numbers Year, 36 weeks '
             + 'each, standards-mapped and free. No Grade 3 year is written.' },
-      { band: 'Grades 6–8',  status: 'designed',
-        note: 'The Grade 6 year is written after the first cohort has run. The 8-week '
-            + 'intensive covers Grades 7–8.' },
+      { band: 'Grades 6–8',  status: 'published',
+        note: 'Grade 6 complete: The Market Year, 36 weeks. The 8-week intensive covers '
+            + 'Grades 7–8, which have no full year written.' },
       { band: 'Grades 9–12', status: 'designed', note: 'Executives Track, 8 weeks.' },
     ],
   },
   {
     key: 'finance', name: 'Financial Literacy', track: 'Enterprise',
-    blurb: 'Budgeting, credit, compounding and unit economics: the money knowledge most '
-         + 'adults were never taught, at an age where it still changes decisions.',
+    blurb: 'Choosing, saving, giving and keeping track in the elementary grades, then '
+         + 'budgeting, credit and compounding when a student is close to meeting them. '
+         + 'The money knowledge most adults were never taught.',
     bands: [
       { band: 'Grades 1–2',  status: 'n/a' },
-      { band: 'Grades 3–5',  status: 'designed' },
+      { band: 'Grades 3–5',  status: 'published',
+        note: 'Grades 3 and 4 complete: The Choosing Year and The Planning Year, '
+            + '36 weeks each. Grade 5 not started.' },
       { band: 'Grades 6–8',  status: 'designed' },
       { band: 'Grades 9–12', status: 'designed' },
     ],
@@ -508,9 +512,10 @@ export function countByStatus(s: Status): number {
  * once as "Three full years" and was wrong within a month.
  */
 export const AVAILABLE_NOW =
-  `${PUBLISHED_YEARS.length} full years, 36 weeks each: the complete Grades 2 to 6 discrete `
+  `${PUBLISHED_YEARS.length} full years, 36 weeks each: the complete Grades 1 to 6 discrete `
   + 'mathematics line, plus The Venture Year (Grade 4 entrepreneurship) and The Numbers Year '
-  + '(Grade 5 entrepreneurship).';
+  + '(Grade 5) and The Market Year (Grade 6), plus The Choosing Year and The Planning '
+  + 'Year (Grades 3 and 4 financial literacy).';
 
 // ─── The pathway ──────────────────────────────────────────────────────────────
 
@@ -550,12 +555,14 @@ export type PathwayStage = {
 
 export const PATHWAY: PathwayStage[] = [
   {
-    grade: 'Grade 3', status: 'planned',
-    concept: 'What things cost and why anyone trades at all. Wants against needs, '
-           + 'price as a number somebody chose, and the first honest look at where '
-           + 'money in a household actually goes.',
+    grade: 'Grade 3', status: 'published', book: 'The Choosing Year',
+    concept: 'There is enough for one of two things, and choosing one means not '
+           + 'having the other. Price as a number somebody chose, a ledger kept for a '
+           + 'month, saving that takes longer than expected, and a first look at what a '
+           + 'home pays for.',
     mbaCourse: 'Microeconomics',
-    note: 'Next to be written, after the first pilot reports.',
+    note: '36 weeks, written in full, free to download today. Nothing is sold in it: '
+        + 'that is Grade 4. This year is about the student\'s own money.',
   },
   {
     grade: 'Grade 4', status: 'published', book: 'The Venture Year',
@@ -578,11 +585,13 @@ export const PATHWAY: PathwayStage[] = [
         + 'a controlled experiment rather than an event.',
   },
   {
-    grade: 'Grade 6', status: 'designed',
+    grade: 'Grade 6', status: 'published', book: 'The Market Year',
     concept: 'A second seller appears. Pricing against somebody else’s price, '
-           + 'substitutes, and what happens to a market when it stops being yours alone.',
+           + 'substitutes, market share, and a response round where every team sees '
+           + 'every other team’s numbers and moves at the same time.',
     mbaCourse: 'Competitive strategy',
-    note: 'Designed. Materials not yet written.',
+    note: '36 weeks, written in full, free to download today. Written before the first '
+        + 'cohort ran, so the first revision after a pilot will be substantial.',
   },
   {
     grade: 'Grade 7', status: 'planned',
@@ -643,8 +652,14 @@ export const NOT_AN_MBA: string[] = [
   + 'diplomas, certificates or transcripts.',
   'It is not a substitute for a graduate business education, and a student who '
   + 'completes it and later wants an MBA should go and get one.',
-  'No student has completed this pathway. Two of its ten years are written, and '
-  + 'nobody has run either of them start to finish in a classroom yet.',
+  // This line said "Two of its ten years are written" from August until
+  // 1 September 2026, by which point four were. pathwayPublishedCount() already
+  // existed and the ladder heading above it was already using it; the
+  // disclaimer, of all the sentences on the site, was the one still typing the
+  // number by hand. Nothing else on this page may hardcode it either.
+  `No student has completed this pathway. ${spellOut(pathwayPublishedCount())} of its `
+  + `${spellOut(PATHWAY.length).toLowerCase()} years are written, and nobody has run `
+  + 'any of them start to finish in a classroom yet.',
 ];
 
 /**
@@ -886,6 +901,20 @@ export function uscTwoYearTotal(): number {
 /** How many pathway years are actually written. Computed, never typed by hand. */
 export function pathwayPublishedCount(): number {
   return PATHWAY.filter((s) => s.status === 'published').length;
+}
+
+/**
+ * Small whole numbers as words, for prose that has to start a sentence or read
+ * as a sentence. Falls back to the digits, which is ugly but never wrong.
+ *
+ * This exists so no sentence on the site has to spell a count by hand. The
+ * disclaimer in NOT_AN_MBA spent a month saying "Two" while the ladder beside
+ * it, computed, said four.
+ */
+export function spellOut(n: number): string {
+  const words = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven',
+                 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
+  return words[n] ?? String(n);
 }
 
 /** US dollars, no cents. */

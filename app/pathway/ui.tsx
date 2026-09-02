@@ -258,10 +258,11 @@ export default function PathwayUi() {
         <FadeIn delay={0.2}>
           <p style={{ fontSize: '0.78rem', lineHeight: 1.7, color: SLATE_3, marginTop: '1.5rem',
             maxWidth: '74ch' }}>
-            Grades 4 and 5 are written because that is where the work started, not because
-            they are the most important rungs. Grade 3 is next. The upper grades are the
-            furthest out and the most likely to change once a teacher has run a full year and
-            told us what actually happened.
+            Grades 4, 5 and 6 are written because that is where the work started, not
+            because they are the most important rungs. The elementary band is now
+            continuous. Grade 3 and the upper grades are the furthest out and the most
+            likely to change once a teacher has run a full year and told us what actually
+            happened.
           </p>
         </FadeIn>
       </Section>
@@ -318,7 +319,7 @@ export default function PathwayUi() {
           {OPT_IN.map((c, i) => (
             <FadeIn key={c.title} delay={i * 0.07}>
               <Card accent={GOLD} pad="1.6rem">
-                <h3 style={{ fontSize: '0.97rem', fontWeight: 700, color: WHITE,
+                <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.97rem', fontWeight: 700, color: WHITE,
                   lineHeight: 1.4, marginBottom: '0.6rem' }}>{c.title}</h3>
                 <p style={{ fontSize: '0.84rem', lineHeight: 1.75, color: MUTED }}>{c.body}</p>
               </Card>

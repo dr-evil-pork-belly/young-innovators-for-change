@@ -67,7 +67,7 @@ const OTHER: Resource[] = [
     label: 'The Venture Year: Teacher Guide',
     kind: 'Entrepreneurship', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
     desc: 'The point of each week, every arithmetic answer, the specific wrong turn each '
-        + 'week produces, and an honest note wherever a question is a judgement call rather '
+        + 'week produces, and an honest note wherever a question is a judgment call rather '
         + 'than something with a right answer.',
   },
   {
@@ -90,6 +90,63 @@ const OTHER: Resource[] = [
     desc: 'Every arithmetic answer, the point of each week, and the specific wrong turn it '
         + 'produces. Every numeric answer is recomputed from the problems by a script that '
         + 'ships with the source.',
+  },
+  {
+    file: '/downloads/market-year-grade6.pdf',
+    label: 'The Market Year: Student Workbook',
+    kind: 'Entrepreneurship', meta: 'PDF · 77 pages · Grade 6', accent: GOLD_L, icon: BookOpen,
+    desc: '36 weekly assignments, the third and last elementary entrepreneurship year. '
+        + 'Teams are given a category another team also has, choose a position, and price '
+        + 'against a rival. Two selling rounds with a response round in between, where '
+        + 'every team sees every other team’s numbers and moves at the same time.',
+  },
+  {
+    file: '/downloads/market-year-grade6-teacher-guide.html',
+    label: 'The Market Year: Teacher Guide',
+    kind: 'Entrepreneurship', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
+    desc: 'The point of each week, the specific wrong turn it produces, and every numeric '
+        + 'answer. All 163 of them are recomputed from the problems by a script that ships '
+        + 'with the source. Where a question is a judgment call, and this year has many, '
+        + 'the guide says so rather than inventing something to mark against.',
+  },
+  {
+    file: '/downloads/choosing-year-grade3.pdf',
+    label: 'The Choosing Year: Student Workbook',
+    kind: 'Financial literacy', meta: 'PDF · 77 pages · Grade 3', accent: GOLD_L, icon: BookOpen,
+    desc: '36 weekly assignments about a student’s own money. There is enough for one of '
+        + 'two things, and every choice costs them the other. Counting, comparing prices, '
+        + 'a ledger kept for a month, saving that takes longer than expected, and what a '
+        + 'thing costs in hours rather than dollars. Nothing is sold in it.',
+  },
+  {
+    file: '/downloads/choosing-year-grade3-teacher-guide.html',
+    label: 'The Choosing Year: Teacher Guide',
+    kind: 'Financial literacy', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
+    desc: 'The point of each week, the specific wrong turn it produces, and every numeric '
+        + 'answer, all 208 of them recomputed from the problems by a script that ships with '
+        + 'the source. Two weeks carry a note instead of answers: weeks 20 and 21 never ask '
+        + 'a child what anything costs at their house, and the guide says what to do if one '
+        + 'volunteers an amount anyway.',
+  },
+  {
+    file: '/downloads/planning-year-grade4.pdf',
+    label: 'The Planning Year: Student Workbook',
+    kind: 'Financial literacy', meta: 'PDF · 77 pages · Grade 4', accent: GOLD_L, icon: BookOpen,
+    desc: '36 weekly assignments about deciding before you spend rather than while you '
+        + 'are spending. Money to the cent, a plan with categories that add up, and the '
+        + 'record kept beside it that says what really happened. The repeating costs get '
+        + 'multiplied out, and the year ends by asking whether the plan itself was right, '
+        + 'which is a different question from whether it was kept.',
+  },
+  {
+    file: '/downloads/planning-year-grade4-teacher-guide.html',
+    label: 'The Planning Year: Teacher Guide',
+    kind: 'Financial literacy', meta: 'Web page · all 36 weeks', accent: GREEN_L, icon: GraduationCap,
+    desc: 'The point of each week, the specific wrong turn it produces, and every numeric '
+        + 'answer, all 230 of them recomputed from the problems by a script that ships with '
+        + 'the source. No plan a student writes is marked right or wrong: what can be '
+        + 'marked is whether it adds up, and the guide says so on every week that asks for '
+        + 'one.',
   },
   {
     file: '/downloads/structure-before-fluency.pdf',
@@ -159,7 +216,7 @@ export default function ResourcesUi() {
                       fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase' as const,
                       color: r.accent, whiteSpace: 'nowrap' }}>{r.kind}</span>
                   </div>
-                  <h3 style={{ fontSize: '1.02rem', fontWeight: 700, color: WHITE, lineHeight: 1.35,
+                  <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '1.02rem', fontWeight: 700, color: WHITE, lineHeight: 1.35,
                     marginBottom: '0.35rem' }}>{r.label}</h3>
                   <p style={{ fontSize: '0.72rem', color: r.accent, fontWeight: 600, marginBottom: '0.75rem' }}>{r.meta}</p>
                   <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: MUTED, marginBottom: '1.25rem' }}>{r.desc}</p>
