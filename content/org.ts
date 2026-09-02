@@ -170,7 +170,9 @@ export const MISSION = {
 
   /** Say these before anything else, on any page that draws on the mission. */
   notYetTrue: [
-    'No cohort has run. The program described on this site is designed, not delivered.',
+    'No cohort has run. The delivered program described on this site is designed, '
+    + 'not delivered. Teachers using the free material on their own are not a '
+    + 'program we ran, and must never be counted as one.',
     'We do not know who downloads the free materials, and we will not describe them as '
     + 'low income until we can.',
     'Nothing here has been measured. The evaluation design is published. The results do '
@@ -823,6 +825,45 @@ export const DELIVERY = {
       + 'ourselves: a curriculum is only as good as its delivery, which means '
       + 'there are ages we should not publish for until we can reach them.',
     status: 'not-built' as const,
+  },
+
+  /**
+   * WHAT WE KNOW ABOUT USE, which is very little, and how little is the point.
+   *
+   * FOUNDER-ATTESTED. Like the biography in FOUNDER and unlike the EIN, none of
+   * this is a public record. Teachers have written in to say they are using the
+   * material with their classes, some of them only to say thank you, and that
+   * correspondence is the entire evidence base for the claim below.
+   *
+   * WHAT THIS DOES NOT LICENSE, and every line of this list has burned a
+   * nonprofit before:
+   *
+   *   - No count. Not "dozens", not "a growing number", not "several". We have
+   *     an inbox, not a roster, and an estimate dressed as a figure is the same
+   *     error as the hardcoded stats in 06-what-went-wrong.md.
+   *   - No district, school or city named, anywhere on the site. A teacher
+   *     downloading a free PDF does not make her employer a partner, has not
+   *     asked to be associated with us, and 01-organization.md is explicit:
+   *     we do not name a district we do not serve.
+   *   - No quotes. A thank-you message is not permission to publish anyone's
+   *     words. TESTIMONIALS is still empty and stays empty until written
+   *     consent is on file.
+   *   - No outcome, however tempting. Somebody being glad to have the book is
+   *     not evidence that a child learned anything from it.
+   *
+   * The honest shape is: it is being taught, we cannot tell you by whom or how
+   * well, and we would rather say that than imply either more or less.
+   */
+  inUse: {
+    known:
+      'The material is being taught. Teachers have written to tell us so, '
+      + 'homeschool educators among them, and some of them wrote only to say '
+      + 'thank you.',
+    unknown:
+      'We do not know how many there are, where they teach, how far into a '
+      + 'year anyone has gone, or whether any of it is working. Nothing we '
+      + 'publish asks for a name, so there is no roster to consult, and we are '
+      + 'not going to estimate one and call it a figure.',
   },
 
   /** The two delivery models. Slow for the elementary years, intensive for the older ones. */

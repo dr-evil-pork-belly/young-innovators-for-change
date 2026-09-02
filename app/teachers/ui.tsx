@@ -61,10 +61,16 @@ export default function TeachersUi() {
               {DELIVERY.anonymity}
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              So this page cannot be a thank-you note to particular people, and it is not
-              going to pretend to be one. What can be said is narrower and, we think,
-              worth saying out loud: if a child anywhere has learned one thing from these
-              pages, an adult did that. Not the paper, and not us.
+              Some of you have written anyway. {DELIVERY.inUse.known} Those messages are
+              the entire evidence base for the sentence that follows, and they are worth
+              more than that makes them sound: it is being taught, and if a child has
+              learned one thing from these pages, an adult did that. Not the paper, and
+              not us.
+            </p>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
+              What we will not do is turn an inbox into a number. {DELIVERY.inUse.unknown}{' '}
+              A funder who wants to know how many classrooms are running this deserves a
+              real answer, and the real answer today is that we do not have one.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED }}>
               It is the ordinary, unglamorous work that carries this: the aide who reruns

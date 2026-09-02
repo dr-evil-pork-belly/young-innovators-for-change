@@ -84,8 +84,8 @@ const LANES = [
     id:    'schools',
     icon:  BookOpen,
     label: 'Schools and districts',
-    title: 'Host the first classroom',
-    body:  'Every workbook and teacher guide is finished, mapped to California standards, and free to download today. What does not exist yet is a classroom that has used one. We are looking for the first few.',
+    title: 'Host the first measured classroom',
+    body:  'Every workbook and teacher guide is finished, mapped to California standards, and free to download today, and teachers are already using them on their own. What does not exist is a classroom running one with a roster, a pre and post, and somebody watching. We are looking for the first few.',
     href:  '/for-schools',
     cta:   'What a pilot involves',
   },
@@ -128,6 +128,8 @@ const NOT_CLAIMING: string[] = [
   ...(!hasOutcomeStats
     ? ['No cohort has run. We publish no outcome statistics, no engagement figures, and no claim about test scores.']
     : []),
+  'No usage figures. Teachers have told us they use the free material and we are glad of it, but an inbox is not a roster, so there is no number here and there will not be an estimate.',
+  'No district, school or city named as a user of these materials. A teacher downloading a free PDF has not asked to be associated with us, and neither has her employer.',
   'No partner districts. We have not delivered a program in a school, and we will not name a district we do not serve.',
   ...(!hasTestimonials
     ? ['No testimonials. A quote goes on this site only with written permission from the speaker, or from a guardian for a minor.']
@@ -160,7 +162,7 @@ const FAQS = [
   },
   {
     q: 'Has any of it been taught to students?',
-    a: 'No. That is the honest answer and it is the reason this page looks the way it does. The material is written and checked; it has not yet been in front of a class. The first partner, whether that is a school or a funder, is funding the first classroom rather than joining an existing program.',
+    a: 'Yes, and we can tell you almost nothing about it. Teachers have written to say they are using the material with their classes, homeschool educators among them. We do not know how many there are, where they teach, or how far anyone has gone, because nothing we publish asks for a name, and we are not going to estimate a figure and present it as one. What has not happened is a delivered program with a roster and a measurement plan attached. A first partner is funding that, not joining something already running.',
   },
   {
     q: 'Why is there no way to donate on this page?',
@@ -454,10 +456,10 @@ export default function PartnerPage() {
               </div>
             </motion.div>
             <motion.h1 variants={fadeUp} style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 'clamp(3rem, 7vw, 6.5rem)', lineHeight: 0.92, letterSpacing: '0.02em', color: WHITE, marginBottom: '1.5rem', maxWidth: '980px' }}>
-              THE CURRICULUM IS WRITTEN. <span style={{ color: ROYAL_L }}>NO ONE HAS TAUGHT IT YET.</span>
+              THE CURRICULUM IS WRITTEN. <span style={{ color: ROYAL_L }}>THE EVIDENCE IS NOT.</span>
             </motion.h1>
             <motion.p variants={fadeUp} style={{ fontSize: '1.05rem', lineHeight: 1.75, color: MUTED, maxWidth: '620px', marginBottom: '2.5rem' }}>
-              {spellOut(PUBLISHED_YEARS.length)} finished school years, {PUBLISHED_WEEKS} weeks of material, free to anyone who wants them, and not one classroom to show you. That is the honest position, and it is the thing we are trying to change. Here is what we have, what we do not have, and how to reach us.
+              {spellOut(PUBLISHED_YEARS.length)} finished school years, {PUBLISHED_WEEKS} weeks of material, free to anyone who wants them, and teachers already using them. What we cannot show you is one measured classroom, because no program with a roster has run and nothing has been evaluated. That is the honest position, and it is the thing we are trying to change.
             </motion.p>
             {HERO_FACTS.length > 0 && (
               <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-x-8 gap-y-3">

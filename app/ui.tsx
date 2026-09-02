@@ -548,8 +548,8 @@ export default function HomePage() {
                 {DELIVERY.claim}
               </p>
               <p style={{ fontSize: '1rem', lineHeight: 1.8, color: MUTED, marginBottom: '2rem' }}>
-                {DELIVERY.anonymity} If a child anywhere has learned one thing from these
-                pages, an adult did that. Not the paper, and not us.
+                {DELIVERY.anonymity} {DELIVERY.inUse.known} If a child has learned one
+                thing from these pages, an adult did that. Not the paper, and not us.
               </p>
               <Link href="/teachers" className="btn-gold" style={{ fontSize: '0.8rem', display: 'inline-flex' }}>
                 What we owe them
@@ -824,13 +824,14 @@ export default function HomePage() {
                 color:         WHITE,
               }}
             >
-              SOMEBODY HAS TO BE FIRST.
+              SOMEBODY IS ALREADY TEACHING THIS.
             </h2>
             <p className="relative mx-auto mb-10 max-w-lg" style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED }}>
               {PUBLISHED_YEARS.length} finished years, free to download and free to run.
-              Nobody has taken one all the way through a classroom yet. So the first
-              teacher who tries it is not joining a program. She is the program, and we
-              will build the next revision around what she tells us.
+              {' '}{DELIVERY.inUse.known} We could not name most of them if we tried,
+              because nothing we publish asks for a name. What has not happened is a
+              measured classroom. If you teach, take a year. If you fund, fund the first
+              one anybody can actually check.
             </p>
             <div className="relative flex flex-wrap items-center justify-center gap-4">
               <Link href="/partner" className="btn-gold" style={{ fontSize: '0.875rem', padding: '1rem 2.5rem' }}>

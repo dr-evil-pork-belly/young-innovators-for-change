@@ -317,11 +317,13 @@ export default function MissionUi() {
             border: '1px solid rgba(201,168,76,0.18)', borderRadius: '4px' }}>
             <div>
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '0.02em',
-                color: WHITE, marginBottom: '0.4rem' }}>THE FIRST CLASSROOM MATTERS MOST.</p>
+                color: WHITE, marginBottom: '0.4rem' }}>THE FIRST MEASURED CLASSROOM MATTERS MOST.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '54ch' }}>
-                Everything above is a plan until one teacher runs one year. The curriculum is
-                the half we can finish alone; the half that decides whether a child learns
-                anything belongs to whoever opens the book with them.
+                Teachers are already running this material on their own. What nobody has done
+                is run it with a roster and measure what happened, so everything to the right
+                of the outputs above is still intent. The curriculum is the half we can finish
+                alone; the half that decides whether a child learns anything belongs to
+                whoever opens the book with them.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
