@@ -85,7 +85,7 @@ export const MATH_LINE: MathBook[] = [
     ],
   },
   {
-    slug: 'grade-2', grade: 2, title: 'Discrete Math Adventures',
+    slug: 'grade-2', grade: 2, title: 'Things Worth Noticing',
     move: 'See it',
     moveLine: 'These objects exist, and they are interesting.',
     artifact: '',
@@ -94,8 +94,8 @@ export const MATH_LINE: MathBook[] = [
     strands: ['Algorithms & Codes', 'Counting Carefully', 'Data & Graphs', 'Maps & Colors', 'Measuring & Comparing', 'Money & Time', 'Number Structure', 'Paths & Routes', 'Shapes & Parts', 'Sorting & Logic'],
     standards: ['2.G.1', '2.G.2', '2.G.3', '2.MD.1', '2.MD.4', '2.MD.5', '2.MD.6', '2.MD.7', '2.MD.8', '2.MD.10', '2.NBT.1', '2.NBT.2', '2.NBT.4', '2.NBT.5', '2.NBT.7', '2.OA.1', '2.OA.2', '2.OA.3', '2.OA.4'],
     pages: 77, checks: 0,
-    workbook: '/downloads/discrete-math-adventures-workbook.pdf',
-    guide: '/downloads/discrete-math-teacher-guide.html',
+    workbook: '/downloads/things-worth-noticing-grade2.pdf',
+    guide: '/downloads/things-worth-noticing-grade2-teacher-guide.html',
     weeks: [
       { n: 1, strand: 'Sorting & Logic', title: 'What’s My Rule?', sub: 'Every group has a rule. Your job is to find it.' },
       { n: 2, strand: 'Sorting & Logic', title: 'Two Circles, One Middle', sub: 'Where two groups overlap.' },

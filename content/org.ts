@@ -442,7 +442,7 @@ export const CURRICULUM: Strand[] = [
          + 'modeling and applied problem solving.',
     bands: [
       { band: 'Grades 1–2',  status: 'published',
-        note: 'Grades 1 and 2 complete: What Goes Together and Discrete Math Adventures, '
+        note: 'Grades 1 and 2 complete: What Goes Together and Things Worth Noticing, '
             + '36 weeks each.' },
       { band: 'Grades 3–5',  status: 'published',
         note: 'Grades 3, 4 and 5 complete: Count Every Way, It Cannot Be Done and The Best '

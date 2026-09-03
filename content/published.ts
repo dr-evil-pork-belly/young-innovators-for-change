@@ -10,7 +10,7 @@
 
 export const PUBLISHED_YEARS = [
   { label: 'Grade 1 mathematics', file: '/downloads/what-goes-together-grade1.pdf', standards: 15 },
-  { label: 'Grade 2 mathematics', file: '/downloads/discrete-math-adventures-workbook.pdf', standards: 19 },
+  { label: 'Grade 2 mathematics', file: '/downloads/things-worth-noticing-grade2.pdf', standards: 19 },
   { label: 'Grade 3 mathematics', file: '/downloads/count-every-way-grade3.pdf', standards: 18 },
   { label: 'Grade 4 mathematics', file: '/downloads/it-cannot-be-done-grade4.pdf', standards: 15 },
   { label: 'Grade 5 mathematics', file: '/downloads/the-best-way-grade5.pdf', standards: 15 },

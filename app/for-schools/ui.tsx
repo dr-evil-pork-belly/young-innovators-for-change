@@ -11,12 +11,18 @@ import {
 } from '@/components/kit';
 import { ORG } from '@/content/org';
 import { PUBLISHED_YEARS } from '@/content/published';
+import { bookBySlug } from '@/content/mathLine';
 
 /** Read off the Grade 2 book rather than typed. The hand-typed figure on this
  *  page said 20 for a book that names 19, which is the same class of error that
  *  put a standard on the site the book does not contain. */
 const G2_STANDARDS =
   PUBLISHED_YEARS.find((y) => y.label === 'Grade 2 mathematics')?.standards ?? 0;
+
+/** The pilot book itself, so its two file paths cannot be typed here.
+ *  They were, and renaming the Grade 2 book on 3 September 2026 turned both of
+ *  them into 404s that nothing on this page or in mksite.py would have caught. */
+const G2 = bookBySlug('grade-2');
 
 const STEPS = [
   { when: 'Step one', icon: MessageSquare, accent: ROYAL_L, title: 'A twenty-minute call',
@@ -216,8 +222,10 @@ export default function ForSchoolsUi() {
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.75rem' }}>
           {[
-            { href: '/downloads/discrete-math-adventures-workbook.pdf', label: 'Student workbook', meta: 'PDF · 77 pages', accent: ROYAL_L },
-            { href: '/downloads/discrete-math-teacher-guide.html',      label: 'Teacher guide',    meta: 'Web · all 36 weeks', accent: GREEN_L },
+            { href: G2?.workbook ?? '/resources', label: 'Student workbook',
+              meta: `PDF · ${G2?.pages ?? 77} pages`, accent: ROYAL_L },
+            { href: G2?.guide ?? '/resources',    label: 'Teacher guide',
+              meta: 'Web · all 36 weeks', accent: GREEN_L },
             { href: '/downloads/discrete-math-pilot-packet.pdf',        label: 'Pilot packet',     meta: 'PDF · 10 pages', accent: GOLD },
             { href: '/downloads/structure-before-fluency.pdf',          label: 'The research case', meta: 'PDF · working paper', accent: ROYAL_L },
           ].map((d) => (
