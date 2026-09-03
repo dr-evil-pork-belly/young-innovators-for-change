@@ -85,7 +85,7 @@ export default function MissionUi() {
     <Page>
       <Hero
         eyebrow="Mission & theory of change"
-        title={<>SOME CHILDREN LEARN<br />HOW MONEY WORKS<br /><span style={{ color: ROYAL_L }}>AT HOME.</span></>}
+        title={<>Some children learn<br />how money works<br /><span style={{ color: ROYAL_L }}>at home.</span></>}
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
@@ -113,7 +113,7 @@ export default function MissionUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
           <FadeIn>
             <Eyebrow>The problem</Eyebrow>
-            <Title size="clamp(1.9rem, 4vw, 3.2rem)">THE HEAD START<br />IS HANDED OUT<br />AT HOME.</Title>
+            <Title size="clamp(1.9rem, 4vw, 3.2rem)">The head start<br />is handed out<br />at home.</Title>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
@@ -154,7 +154,7 @@ export default function MissionUi() {
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GOLD}>What we actually do</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">BUILD IT PROPERLY.<br />THEN GIVE IT AWAY.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">Build it properly.<br />Then give it away.</Title>
           <div style={{ marginTop: '1.25rem', maxWidth: '70ch', display: 'flex',
             flexDirection: 'column', gap: '0.75rem' }}>
             {MISSION.roles.map((r) => (
@@ -183,8 +183,8 @@ export default function MissionUi() {
           ].map((c, i) => (
             <FadeIn key={c.t} delay={i * 0.07}>
               <Card accent={c.a}>
-                <h3 style={{ fontFamily: DISPLAY, fontSize: '1.35rem', letterSpacing: '0.03em',
-                  color: WHITE, lineHeight: 1.05, marginBottom: '0.7rem' }}>{c.t.toUpperCase()}</h3>
+                <h3 style={{ fontFamily: DISPLAY, fontSize: '1.35rem', letterSpacing: '-0.01em',
+                  color: WHITE, lineHeight: 1.05, marginBottom: '0.7rem' }}>{c.t}</h3>
                 <p style={{ fontSize: '0.84rem', lineHeight: 1.75, color: MUTED }}>{c.d}</p>
               </Card>
             </FadeIn>
@@ -196,7 +196,7 @@ export default function MissionUi() {
       <Section tinted accent={GOLD}>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GOLD_L}>Theory of change</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">FROM WHAT WE PUT IN<br />TO WHAT WE HOPE CHANGES.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">From what we put in<br />to what we hope changes.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '62ch', marginTop: '1rem' }}>
             Read left to right. Everything to the left of the outcomes is something we control and
             can report on today. Everything to the right is a claim we have not yet earned, which
@@ -214,7 +214,7 @@ export default function MissionUi() {
                   {i < CHAIN.length - 1 && <ArrowRight size={12} color={SLATE_3} style={{ marginLeft: 'auto' }} />}
                 </div>
                 <div style={{ borderTop: `2px solid ${col.accent}`, paddingTop: '0.9rem', flex: 1,
-                  background: i >= 3 ? 'rgba(15,23,42,0.4)' : 'transparent',
+                  background: i >= 3 ? '#FFFFFF' : 'transparent',
                   borderRadius: i >= 3 ? '0 0 4px 4px' : 0,
                   padding: i >= 3 ? '0.9rem 0.9rem 1rem' : '0.9rem 0 0' }}>
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex',
@@ -241,7 +241,7 @@ export default function MissionUi() {
               flexDirection: 'column', gap: '0.4rem' }}>
               {MISSION.notYetTrue.map((x) => (
                 <li key={x} style={{ fontSize: '0.78rem', lineHeight: 1.65, color: SLATE_3,
-                  paddingLeft: '0.75rem', borderLeft: '2px solid rgba(253,162,155,0.35)' }}>{x}</li>
+                  paddingLeft: '0.75rem', borderLeft: '2px solid rgba(180,35,24,0.35)' }}>{x}</li>
               ))}
             </ul>
           </div>
@@ -251,8 +251,8 @@ export default function MissionUi() {
       {/* ── Assumptions ────────────────────────────────── */}
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
-          <Eyebrow color="#FDA29B">Load-bearing assumptions</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">WHAT HAS TO BE TRUE.</Title>
+          <Eyebrow color="#B42318">Load-bearing assumptions</Eyebrow>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">What has to be true.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '60ch', marginTop: '1rem' }}>
             Every theory of change rests on assumptions. Most organizations leave them implicit.
             Ours are listed here with the specific way each one could fail.
@@ -262,15 +262,15 @@ export default function MissionUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
           {ASSUMPTIONS.map((a, i) => (
             <FadeIn key={a.text} delay={i * 0.06}>
-              <div style={{ background: 'rgba(15,23,42,0.65)', border: '1px solid rgba(37,99,235,0.12)',
+              <div style={{ background: '#FFFFFF', border: '1px solid rgba(45,91,227,0.12)',
                 borderRadius: '4px', padding: '1.4rem 1.6rem', height: '100%' }}>
                 <div style={{ display: 'flex', gap: '0.7rem', alignItems: 'flex-start', marginBottom: '0.9rem' }}>
                   <CheckCircle size={14} color={ROYAL_L} style={{ flexShrink: 0, marginTop: '4px' }} />
                   <p style={{ fontSize: '0.9rem', lineHeight: 1.7, color: WHITE, fontWeight: 600 }}>{a.text}</p>
                 </div>
                 <div style={{ display: 'flex', gap: '0.7rem', alignItems: 'flex-start',
-                  paddingTop: '0.85rem', borderTop: '1px solid rgba(37,99,235,0.1)' }}>
-                  <AlertTriangle size={14} color="#FDA29B" style={{ flexShrink: 0, marginTop: '3px' }} />
+                  paddingTop: '0.85rem', borderTop: '1px solid rgba(45,91,227,0.1)' }}>
+                  <AlertTriangle size={14} color="#B42318" style={{ flexShrink: 0, marginTop: '3px' }} />
                   <p style={{ fontSize: '0.82rem', lineHeight: 1.7, color: MUTED }}>{a.risk}</p>
                 </div>
               </div>
@@ -284,7 +284,7 @@ export default function MissionUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
           <FadeIn>
             <Eyebrow color={GREEN_L}>Our standard</Eyebrow>
-            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">WHAT WE WILL NOT<br />SAY ABOUT OURSELVES.</Title>
+            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">What we will not<br />say about ourselves.</Title>
           </FadeIn>
           <FadeIn delay={0.1}>
             <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex',
@@ -296,7 +296,7 @@ export default function MissionUi() {
                 'Any claim that our programs raise test scores. We have not tested that.',
               ].map((x) => (
                 <li key={x} style={{ display: 'flex', gap: '0.7rem', alignItems: 'flex-start' }}>
-                  <XCircle size={15} color="#FDA29B" style={{ flexShrink: 0, marginTop: '3px' }} />
+                  <XCircle size={15} color="#B42318" style={{ flexShrink: 0, marginTop: '3px' }} />
                   <span style={{ fontSize: '0.88rem', lineHeight: 1.7, color: MUTED }}>{x}</span>
                 </li>
               ))}
@@ -313,11 +313,11 @@ export default function MissionUi() {
       <Section>
         <FadeIn>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            flexWrap: 'wrap', gap: '1.5rem', padding: '2rem 2.5rem', background: 'rgba(30,41,59,0.6)',
-            border: '1px solid rgba(201,168,76,0.18)', borderRadius: '4px' }}>
+            flexWrap: 'wrap', gap: '1.5rem', padding: '2rem 2.5rem', background: '#FFFFFF',
+            border: '1px solid rgba(255,122,61,0.18)', borderRadius: '4px' }}>
             <div>
-              <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '0.02em',
-                color: WHITE, marginBottom: '0.4rem' }}>THE FIRST MEASURED CLASSROOM MATTERS MOST.</p>
+              <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
+                color: WHITE, marginBottom: '0.4rem' }}>The first measured classroom matters most.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '54ch' }}>
                 Teachers are already running this material on their own. What nobody has done
                 is run it with a roster and measure what happened, so everything to the right

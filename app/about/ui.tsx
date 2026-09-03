@@ -58,9 +58,9 @@ function PersonCard({ person }: { person: Person }) {
     <Card accent={ROYAL_L} pad="1.6rem">
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', marginBottom: '1rem' }}>
         <div style={{ width: '44px', height: '44px', flexShrink: 0, borderRadius: '3px',
-          background: 'rgba(37,99,235,0.12)', border: '1px solid rgba(37,99,235,0.28)',
+          background: 'rgba(45,91,227,0.12)', border: '1px solid rgba(45,91,227,0.28)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontFamily: DISPLAY, fontSize: '1.15rem', letterSpacing: '0.06em', color: ROYAL_L }}>
+          fontFamily: DISPLAY, fontSize: '1.15rem', letterSpacing: '-0.01em', color: ROYAL_L }}>
           {person.initials}
         </div>
         <div>
@@ -86,8 +86,8 @@ export default function AboutUi() {
       <Hero
         eyebrow="About · the founder"
         accent={GOLD_L}
-        title={<>NOBODY TAUGHT HER<br />HOW BUSINESS WORKS.<br />
-          <span style={{ color: GOLD_L }}>SHE BUILT ONE ANYWAY.</span></>}
+        title={<>Nobody taught her<br />how business works.<br />
+          <span style={{ color: GOLD_L }}>She built one anyway.</span></>}
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
@@ -122,7 +122,7 @@ export default function AboutUi() {
       <Section tinted>
         <Spread
           eyebrow="Where it starts"
-          title={<>SHE STAYED AFTER<br />SCHOOL FOR THE<br />BOARD GAMES.</>}
+          title={<>She stayed after<br />school for the<br />board games.</>}
         >
           <p style={BODY}>
             There was not much. Cramped living quarters, both parents working, and afternoons
@@ -134,7 +134,7 @@ export default function AboutUi() {
             board games and table games at the end of the day, and she stayed to play them, not because anyone made her, and not for a grade.
           </p>
           <div style={{ marginTop: '1.75rem', padding: '1.35rem 1.6rem',
-            background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.2)',
+            background: 'rgba(255,122,61,0.06)', border: '1px solid rgba(255,122,61,0.2)',
             borderRadius: '4px' }}>
             <p style={{ fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.18em',
               textTransform: 'uppercase' as const, color: GOLD, marginBottom: '0.55rem' }}>
@@ -156,7 +156,7 @@ export default function AboutUi() {
       <Section>
         <Spread
           eyebrow="What school gave her"
-          title={<>SHE DID EVERY<br />SINGLE THING<br />THE SYSTEM ASKED.</>}
+          title={<>She did every<br />single thing<br />the system asked.</>}
         >
           <p style={BODY}>
             She mastered what was taught, in the order it was taught. The honors track. The AP
@@ -187,7 +187,7 @@ export default function AboutUi() {
         <Spread
           eyebrow="What she did instead"
           accent={GOLD_L}
-          title={<>NINE HUNDRED<br /><span style={{ color: GOLD_L }}>SQUARE FEET.</span></>}
+          title={<>Nine hundred<br /><span style={{ color: GOLD_L }}>square feet.</span></>}
         >
           <p style={BODY}>
             After college came a job at a payroll company. A few years of duties that did not
@@ -213,7 +213,7 @@ export default function AboutUi() {
       <Section>
         <Spread
           eyebrow="What she found out afterward"
-          title={<>THE WHOLE FIELD<br />WAS ALREADY<br />THERE.</>}
+          title={<>The whole field<br />was already<br />there.</>}
         >
           <p style={BODY}>
             Somewhere along the way she wanted to know what the academy had that the doing had
@@ -232,7 +232,7 @@ export default function AboutUi() {
             people actually keep. Spread over the years a child is in a classroom anyway,
             there is no schedule to keep up with.{' '}
             <Link href="/pathway" style={{ color: ROYAL_L, textDecoration: 'none',
-              borderBottom: '1px solid rgba(59,130,246,0.4)' }}>
+              borderBottom: '1px solid rgba(45,91,227,0.4)' }}>
               That idea became the ten-year pathway
             </Link>.
           </p>
@@ -247,7 +247,7 @@ export default function AboutUi() {
         <FadeIn style={{ marginBottom: '2.5rem', maxWidth: '52ch' }}>
           <Eyebrow color={GOLD_L}>The idea the organization is built on</Eyebrow>
           <Title size="clamp(1.9rem, 4.2vw, 3.4rem)">
-            COMPOUND INTEREST,<br /><span style={{ color: GOLD_L }}>BUT FOR KNOWING<br />HOW THINGS WORK.</span>
+            Compound interest,<br /><span style={{ color: GOLD_L }}>but for knowing<br />how things work.</span>
           </Title>
         </FadeIn>
 
@@ -274,8 +274,8 @@ export default function AboutUi() {
 
           <FadeIn delay={0.1}>
             <PullQuote>{FOUNDER.quotes.theThesis}</PullQuote>
-            <div style={{ padding: '1.5rem 1.75rem', background: 'rgba(15,23,42,0.65)',
-              border: '1px solid rgba(37,99,235,0.16)', borderRadius: '4px' }}>
+            <div style={{ padding: '1.5rem 1.75rem', background: '#FFFFFF',
+              border: '1px solid rgba(45,91,227,0.16)', borderRadius: '4px' }}>
               <p style={{ fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.18em',
                 textTransform: 'uppercase' as const, color: ROYAL_L, marginBottom: '0.6rem' }}>
                 What that turned into
@@ -299,7 +299,7 @@ export default function AboutUi() {
       <Section>
         <FadeIn style={{ marginBottom: '2rem' }}>
           <Eyebrow color={GREEN_L}>In the interest of not overclaiming</Eyebrow>
-          <Title size="clamp(1.7rem, 3.4vw, 2.7rem)">WHAT THIS STORY<br />IS NOT EVIDENCE OF.</Title>
+          <Title size="clamp(1.7rem, 3.4vw, 2.7rem)">What this story<br />is not evidence of.</Title>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
           gap: '1rem' }}>
@@ -334,7 +334,7 @@ export default function AboutUi() {
             research paper, adoption packet, so that the argument rests on them and not on the
             biography above.{' '}
             <Link href="/resources" style={{ color: ROYAL_L, textDecoration: 'none',
-              borderBottom: '1px solid rgba(59,130,246,0.4)' }}>Read them yourself</Link>.
+              borderBottom: '1px solid rgba(45,91,227,0.4)' }}>Read them yourself</Link>.
           </p>
         </FadeIn>
       </Section>
@@ -343,7 +343,7 @@ export default function AboutUi() {
       <Section tinted>
         <FadeIn style={{ marginBottom: '2.25rem' }}>
           <Eyebrow>Who runs it</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.2rem)">THE PEOPLE ACTUALLY<br />DOING THE WORK.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.2rem)">The people actually<br />doing the work.</Title>
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '62ch',
             marginTop: '1rem' }}>
             This lists the people whose role is documented, and nobody else. There is no advisory
@@ -386,7 +386,7 @@ export default function AboutUi() {
         {!hasBoard && (
           <FadeIn delay={0.15}>
             <div style={{ marginTop: '2rem', padding: '1.5rem 1.75rem',
-              background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(201,168,76,0.22)',
+              background: '#FFFFFF', border: '1px solid rgba(255,122,61,0.22)',
               borderRadius: '4px', display: 'flex', flexWrap: 'wrap', gap: '1.5rem',
               alignItems: 'center', justifyContent: 'space-between' }}>
               <div style={{ maxWidth: '62ch' }}>
@@ -417,7 +417,7 @@ export default function AboutUi() {
           gap: 'clamp(2rem, 5vw, 4rem)', alignItems: 'start' }}>
           <FadeIn>
             <Eyebrow>The organization</Eyebrow>
-            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">SMALL, NEW,<br />AND ON THE RECORD.</Title>
+            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">Small, new,<br />and on the record.</Title>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '54ch',
               marginTop: '1rem' }}>
               {ORG.legalName} was incorporated in {ORG.incorporation.state} on{' '}
@@ -437,7 +437,7 @@ export default function AboutUi() {
               ].map(({ label, sub, href }) => (
                 <Link key={href} href={href} style={{ display: 'flex', alignItems: 'center',
                   justifyContent: 'space-between', gap: '1rem', padding: '1.05rem 1.3rem',
-                  background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(37,99,235,0.14)',
+                  background: '#FFFFFF', border: '1px solid rgba(45,91,227,0.14)',
                   borderRadius: '3px', textDecoration: 'none' }}>
                   <div>
                     <p style={{ fontSize: '0.88rem', fontWeight: 600, color: WHITE }}>{label}</p>

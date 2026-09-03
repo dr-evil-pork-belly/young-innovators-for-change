@@ -45,9 +45,11 @@ const UNCHECKED = MATH_LINE.filter((b) => b.checks === 0);
  * this program rather than to the site, so they stay local rather than going
  * into the shared kit.
  */
-const CONNECT_L = '#7CA6F5';
-const SPARK_L   = '#FF9A69';
-const GROW_L    = '#4FCBA3';
+const CONNECT_L = '#2149C7';
+// Text-safe. The light orange this used to hold, #FF9A69, measures 1.8:1 on the
+// tinted band and was carrying the week numbers and every standard code.
+const SPARK_L   = '#A8380A';
+const GROW_L    = '#0C6B4F';
 // Cycles, so the ladder keeps its rhythm however many books there are.
 const RUNG = [CONNECT_L, SPARK_L, GROW_L];
 
@@ -154,7 +156,7 @@ export default function DiscreteMathLineUi() {
       <section ref={heroRef} style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem' }}>
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
           <div style={{ position: 'absolute', inset: 0,
-            background: 'linear-gradient(145deg, #060C10 0%, #0F172A 55%, #0A1428 100%)' }} />
+            background: '#FFFFFF' }} />
           <div style={{ position: 'absolute', top: '8%', right: '-6%', width: '55%', height: '70%',
             background: 'radial-gradient(ellipse, rgba(45,91,227,0.13) 0%, transparent 65%)' }} />
           <div style={{ position: 'absolute', bottom: '4%', left: '-5%', width: '42%', height: '52%',
@@ -193,10 +195,10 @@ export default function DiscreteMathLineUi() {
                 gridTemplateColumns: 'minmax(0,1.35fr) minmax(0,0.65fr)', gap: '3rem', alignItems: 'center' }}>
                 <div>
                   <motion.h1 variants={fadeUp} style={{ fontFamily: DISPLAY,
-                    fontSize: 'clamp(2.4rem, 6.5vw, 5.4rem)', lineHeight: 0.92, letterSpacing: '0.02em',
+                    fontSize: 'clamp(2.4rem, 6.5vw, 5.4rem)', lineHeight: 1.06, letterSpacing: '-0.01em',
                     color: WHITE, marginBottom: '1.5rem' }}>
-                    THE MATH OF<br />
-                    <span style={{ color: CONNECT_L }}>HOW THINGS CONNECT.</span>
+                    The math of<br />
+                    <span style={{ color: CONNECT_L }}>how things connect.</span>
                   </motion.h1>
 
                   <motion.p variants={fadeUp} style={{ fontSize: '1rem', lineHeight: 1.75, color: MUTED,
@@ -254,8 +256,8 @@ export default function DiscreteMathLineUi() {
           {stats.map((s, i) => (
             <FadeIn key={s.label} delay={i * 0.08}>
               <div>
-                <div style={{ fontFamily: DISPLAY, fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', lineHeight: 1,
-                  color: CONNECT_L, letterSpacing: '0.02em' }}>{s.value}</div>
+                <div style={{ fontFamily: DISPLAY, fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', lineHeight: 1.06,
+                  color: CONNECT_L, letterSpacing: '-0.01em' }}>{s.value}</div>
                 <div style={{ fontSize: '0.8rem', fontWeight: 700, color: WHITE, marginTop: '0.4rem' }}>{s.label}</div>
                 <div style={{ fontSize: '0.73rem', color: MUTED, marginTop: '0.15rem' }}>{s.sub}</div>
               </div>
@@ -270,10 +272,10 @@ export default function DiscreteMathLineUi() {
           <p className="label-eyebrow" style={{ color: CONNECT_L, marginBottom: '0.5rem' }}>
             One move a year
           </p>
-          <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4.5vw, 3.8rem)', lineHeight: 0.95,
-            letterSpacing: '0.02em', color: WHITE, marginBottom: '1rem' }}>
-            {spell(MATH_LINE.length).toUpperCase()} BOOKS.<br />
-            <span style={{ color: CONNECT_L }}>ONE ARGUMENT.</span>
+          <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4.5vw, 3.8rem)', lineHeight: 1.06,
+            letterSpacing: '-0.01em', color: WHITE, marginBottom: '1rem' }}>
+            {spell(MATH_LINE.length)} books.<br />
+            <span style={{ color: CONNECT_L }}>One argument.</span>
           </h2>
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '62ch' }}>
             The years are not the same year with bigger numbers. Grade 1 asks a child to hold a
@@ -293,7 +295,7 @@ export default function DiscreteMathLineUi() {
                 <Link href={`/programs/discrete-math/${b.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
                   <div
                     className="rung"
-                    style={{ background: 'rgba(15,23,42,0.7)', border: `1px solid ${accent}22`,
+                    style={{ background: '#FFFFFF', border: `1px solid ${accent}22`,
                       borderRadius: '4px', overflow: 'hidden', transition: 'border-color 0.25s, transform 0.25s' }}
                     onMouseEnter={(e) => { e.currentTarget.style.borderColor = `${accent}55`;
                       e.currentTarget.style.transform = 'translateY(-2px)'; }}
@@ -307,13 +309,13 @@ export default function DiscreteMathLineUi() {
                       <div>
                         <div style={{ fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.16em',
                           textTransform: 'uppercase' as const, color: SLATE_3 }}>Grade</div>
-                        <div style={{ fontFamily: DISPLAY, fontSize: '2.6rem', lineHeight: 1, color: accent,
-                          letterSpacing: '0.02em' }}>{b.grade}</div>
+                        <div style={{ fontFamily: DISPLAY, fontSize: '2.6rem', lineHeight: 1.06, color: accent,
+                          letterSpacing: '-0.01em' }}>{b.grade}</div>
                       </div>
                       <div>
-                        <h3 style={{ fontFamily: DISPLAY, fontSize: '1.5rem', letterSpacing: '0.03em',
-                          color: WHITE, lineHeight: 1, marginBottom: '0.45rem' }}>
-                          {b.title.toUpperCase()}
+                        <h3 style={{ fontFamily: DISPLAY, fontSize: '1.5rem', letterSpacing: '-0.01em',
+                          color: WHITE, lineHeight: 1.06, marginBottom: '0.45rem' }}>
+                          {b.title}
                         </h3>
                         <p style={{ fontSize: '0.72rem', fontWeight: 700, color: accent,
                           letterSpacing: '0.04em' }}>{b.move}.</p>
@@ -352,10 +354,10 @@ export default function DiscreteMathLineUi() {
           gap: '3.5rem', alignItems: 'start' }}>
           <FadeIn>
             <p className="label-eyebrow" style={{ color: SPARK_L, marginBottom: '0.6rem' }}>Why this, why now</p>
-            <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4.5vw, 3.6rem)', lineHeight: 0.95,
-              letterSpacing: '0.02em', color: WHITE, marginBottom: '1.5rem' }}>
-              ELEMENTARY MATH IS ABOUT QUANTITY.<br />
-              <span style={{ color: SPARK_L }}>THIS IS ABOUT STRUCTURE.</span>
+            <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4.5vw, 3.6rem)', lineHeight: 1.06,
+              letterSpacing: '-0.01em', color: WHITE, marginBottom: '1.5rem' }}>
+              Elementary math is about quantity.<br />
+              <span style={{ color: SPARK_L }}>This is about structure.</span>
             </h2>
             <p style={{ fontSize: '0.92rem', lineHeight: 1.8, color: MUTED, maxWidth: '56ch' }}>
               Discrete mathematics asks how things connect, how many arrangements exist, and
@@ -397,8 +399,8 @@ export default function DiscreteMathLineUi() {
                         <Icon size={16} />
                       </div>
                       <div>
-                        <h3 style={{ fontFamily: DISPLAY, fontSize: '1.25rem', letterSpacing: '0.04em',
-                          color: WHITE, lineHeight: 1, marginBottom: '0.5rem' }}>{c.title.toUpperCase()}</h3>
+                        <h3 style={{ fontFamily: DISPLAY, fontSize: '1.25rem', letterSpacing: '-0.01em',
+                          color: WHITE, lineHeight: 1.06, marginBottom: '0.5rem' }}>{c.title}</h3>
                         <p style={{ fontSize: '0.8rem', lineHeight: 1.7, color: MUTED }}>{c.text}</p>
                       </div>
                     </div>
@@ -415,9 +417,9 @@ export default function DiscreteMathLineUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem' }}>
           <FadeIn>
             <p className="label-eyebrow" style={{ color: CONNECT_L, marginBottom: '0.5rem' }}>Questions</p>
-            <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(1.8rem, 3.6vw, 2.9rem)', lineHeight: 0.95,
-              letterSpacing: '0.02em', color: WHITE, marginBottom: '1.25rem' }}>
-              WHAT TEACHERS ASK.
+            <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(1.8rem, 3.6vw, 2.9rem)', lineHeight: 1.06,
+              letterSpacing: '-0.01em', color: WHITE, marginBottom: '1.25rem' }}>
+              What teachers ask.
             </h2>
             <p style={{ fontSize: '0.85rem', lineHeight: 1.8, color: MUTED, maxWidth: '46ch' }}>
               Anything not answered here is worth an email. We would rather field the question
@@ -437,9 +439,9 @@ export default function DiscreteMathLineUi() {
             gap: '3rem', alignItems: 'center' }}>
             <FadeIn>
               <p className="label-eyebrow" style={{ color: GOLD, marginBottom: '0.6rem' }}>Pilot a classroom</p>
-              <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4.5vw, 3.6rem)', lineHeight: 0.95,
-                letterSpacing: '0.02em', color: WHITE, marginBottom: '1.25rem' }}>
-                ONE TEACHER.<br />ONE YEAR.<br /><span style={{ color: GOLD }}>NO COST.</span>
+              <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4.5vw, 3.6rem)', lineHeight: 1.06,
+                letterSpacing: '-0.01em', color: WHITE, marginBottom: '1.25rem' }}>
+                One teacher.<br />One year.<br /><span style={{ color: GOLD }}>No cost.</span>
               </h2>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '48ch',
                 marginBottom: '2rem' }}>

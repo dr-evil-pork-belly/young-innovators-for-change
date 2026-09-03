@@ -20,7 +20,7 @@ export default function GovernanceUi() {
       <Hero
         eyebrow="Governance & Transparency"
         accent={GOLD_L}
-        title={<>EVERYTHING<br /><span style={{ color: GOLD_L }}>CHECKABLE.</span></>}
+        title={<>Everything<br /><span style={{ color: GOLD_L }}>checkable.</span></>}
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
@@ -38,8 +38,8 @@ export default function GovernanceUi() {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
           {trustBadges().map((b) => (
             <span key={b} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem',
-              padding: '0.4rem 0.8rem', background: 'rgba(201,168,76,0.1)',
-              border: '1px solid rgba(201,168,76,0.3)', borderRadius: '2px',
+              padding: '0.4rem 0.8rem', background: 'rgba(255,122,61,0.1)',
+              border: '1px solid rgba(255,122,61,0.3)', borderRadius: '2px',
               fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em',
               textTransform: 'uppercase' as const, color: GOLD_L }}>
               <ShieldCheck size={12} /> {b}
@@ -52,7 +52,7 @@ export default function GovernanceUi() {
       <Section tinted accent={GOLD}>
         <FadeIn style={{ marginBottom: '2rem' }}>
           <Eyebrow color={GOLD_L}>The record</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.2rem)">LEGAL STATUS.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.2rem)">Legal status.</Title>
         </FadeIn>
 
         <FadeIn delay={0.08}>
@@ -111,7 +111,7 @@ export default function GovernanceUi() {
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow>Who is accountable</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.2rem)">PEOPLE.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.2rem)">People.</Title>
         </FadeIn>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
@@ -121,11 +121,11 @@ export default function GovernanceUi() {
               <Card accent={ROYAL_L}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', marginBottom: '0.9rem' }}>
                   <div style={{ width: '46px', height: '46px', borderRadius: '50%', flexShrink: 0,
-                    background: 'linear-gradient(135deg, rgba(37,99,235,0.3), rgba(37,99,235,0.1))',
-                    border: '1px solid rgba(59,130,246,0.25)', display: 'flex',
+                    background: 'linear-gradient(135deg, rgba(45,91,227,0.3), rgba(45,91,227,0.1))',
+                    border: '1px solid rgba(45,91,227,0.25)', display: 'flex',
                     alignItems: 'center', justifyContent: 'center' }}>
                     <span style={{ fontFamily: DISPLAY, fontSize: '1.05rem', color: ROYAL_L,
-                      letterSpacing: '0.06em' }}>{p.initials}</span>
+                      letterSpacing: '-0.01em' }}>{p.initials}</span>
                   </div>
                   <div>
                     <p style={{ fontSize: '0.95rem', fontWeight: 700, color: WHITE }}>{p.name}</p>
@@ -161,10 +161,10 @@ export default function GovernanceUi() {
           </FadeIn>
         ) : (
           <FadeIn>
-            <div style={{ background: 'rgba(180,35,24,0.06)', border: '1px solid rgba(253,162,155,0.25)',
+            <div style={{ background: 'rgba(180,35,24,0.06)', border: '1px solid rgba(180,35,24,0.25)',
               borderRadius: '4px', padding: '1.5rem 1.75rem', maxWidth: '760px' }}>
               <div style={{ display: 'flex', gap: '0.9rem', alignItems: 'flex-start' }}>
-                <AlertTriangle size={17} color="#FDA29B" style={{ flexShrink: 0, marginTop: '3px' }} />
+                <AlertTriangle size={17} color="#B42318" style={{ flexShrink: 0, marginTop: '3px' }} />
                 <div>
                   <p style={{ fontSize: '0.95rem', fontWeight: 700, color: WHITE, marginBottom: '0.5rem' }}>
                     We are recruiting a board of directors.
@@ -190,7 +190,7 @@ export default function GovernanceUi() {
       <Section tinted>
         <FadeIn style={{ marginBottom: '2rem' }}>
           <Eyebrow>Money</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.2rem)">WHAT WE HAVE,<br />AND WHAT WE DO NOT.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.2rem)">What we have,<br />and what we do not.</Title>
         </FadeIn>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
@@ -209,9 +209,9 @@ export default function GovernanceUi() {
             </Card>
           </FadeIn>
           <FadeIn delay={0.08}>
-            <Card accent="#FDA29B">
+            <Card accent="#B42318">
               <div style={{ display: 'flex', gap: '0.7rem', alignItems: 'center', marginBottom: '0.9rem' }}>
-                <AlertTriangle size={16} color="#FDA29B" />
+                <AlertTriangle size={16} color="#B42318" />
                 <p style={{ fontSize: '0.9rem', fontWeight: 700, color: WHITE }}>What we do not have</p>
               </div>
               <ul style={{ margin: 0, paddingLeft: '1.1rem', fontSize: '0.85rem', lineHeight: 1.8, color: MUTED }}>
@@ -229,8 +229,8 @@ export default function GovernanceUi() {
         </div>
 
         <FadeIn delay={0.16}>
-          <div style={{ marginTop: '1.5rem', padding: '1.4rem 1.6rem', background: 'rgba(15,23,42,0.6)',
-            border: '1px solid rgba(37,99,235,0.14)', borderRadius: '4px', maxWidth: '820px' }}>
+          <div style={{ marginTop: '1.5rem', padding: '1.4rem 1.6rem', background: '#FFFFFF',
+            border: '1px solid rgba(45,91,227,0.14)', borderRadius: '4px', maxWidth: '820px' }}>
             <p style={{ fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.16em',
               textTransform: 'uppercase' as const, color: ROYAL_L, marginBottom: '0.6rem' }}>
               Deductibility
@@ -246,11 +246,11 @@ export default function GovernanceUi() {
       <Section>
         <FadeIn>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            flexWrap: 'wrap', gap: '1.5rem', padding: '2rem 2.5rem', background: 'rgba(30,41,59,0.6)',
-            border: '1px solid rgba(201,168,76,0.18)', borderRadius: '4px' }}>
+            flexWrap: 'wrap', gap: '1.5rem', padding: '2rem 2.5rem', background: '#FFFFFF',
+            border: '1px solid rgba(255,122,61,0.18)', borderRadius: '4px' }}>
             <div>
-              <p style={{ fontFamily: DISPLAY, fontSize: '1.8rem', letterSpacing: '0.02em',
-                color: WHITE, marginBottom: '0.4rem' }}>DILIGENCE QUESTIONS?</p>
+              <p style={{ fontFamily: DISPLAY, fontSize: '1.8rem', letterSpacing: '-0.01em',
+                color: WHITE, marginBottom: '0.4rem' }}>Diligence questions?</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '52ch' }}>
                 If you are assessing us for a grant and something here is missing, ask. We would
                 rather send you a document than have you guess.

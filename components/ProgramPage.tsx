@@ -65,15 +65,15 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
             gap: 'clamp(2rem, 5vw, 3.5rem)', alignItems: 'start' }}>
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                padding: '0.4rem 0.85rem', background: 'rgba(232,201,79,0.1)',
-                border: '1px solid rgba(232,201,79,0.3)', borderRadius: '2px',
+                padding: '0.4rem 0.85rem', background: 'rgba(255,196,77,0.1)',
+                border: '1px solid rgba(255,196,77,0.3)', borderRadius: '2px',
                 marginBottom: '1.25rem' }}>
                 <PenTool size={13} color={GOLD_L} />
                 <span style={{ fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.16em',
                   textTransform: 'uppercase' as const, color: GOLD_L }}>Designed, not yet written</span>
               </div>
               <Title size="clamp(1.7rem, 3.4vw, 2.7rem)">
-                READ THIS BEFORE<br />YOU READ THE SYLLABUS.
+                Read this before<br />you read the syllabus.
               </Title>
             </div>
             <div>
@@ -102,8 +102,8 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
                 const on = b.status !== 'n/a';
                 return (
                   <div key={b.band} style={{ padding: '0.9rem 1rem',
-                    background: on ? 'rgba(15,23,42,0.6)' : 'transparent',
-                    border: `1px solid ${on ? 'rgba(232,201,79,0.2)' : 'rgba(148,163,184,0.12)'}`,
+                    background: on ? '#FFFFFF' : 'transparent',
+                    border: `1px solid ${on ? 'rgba(255,196,77,0.2)' : 'rgba(90,104,128,0.12)'}`,
                     borderRadius: '3px' }}>
                     <p style={{ fontSize: '0.8rem', fontWeight: 700,
                       color: on ? WHITE : SLATE_3 }}>{b.band}</p>
@@ -127,7 +127,7 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={accent}>{spec.unitsLabel}</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.2rem)">WHAT IS ACTUALLY<br />IN IT.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.2rem)">What is actually<br />in it.</Title>
           <p style={{ fontSize: '0.92rem', lineHeight: 1.8, color: MUTED, maxWidth: '64ch',
             marginTop: '1rem' }}>
             {spec.unitsIntro}
@@ -139,18 +139,18 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
             <FadeIn key={u.n} delay={Math.min(i, 4) * 0.05}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                 gap: 'clamp(1.25rem, 3vw, 2.5rem)', padding: 'clamp(1.25rem, 3vw, 1.75rem)',
-                background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(37,99,235,0.13)',
+                background: '#FFFFFF', border: '1px solid rgba(45,91,227,0.13)',
                 borderRadius: '4px', borderLeft: `2px solid ${accent}` }}>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.85rem',
                     marginBottom: '0.5rem' }}>
-                    <span style={{ fontFamily: DISPLAY, fontSize: '1.9rem', lineHeight: 1,
-                      color: accent, letterSpacing: '0.04em' }}>{u.n}</span>
+                    <span style={{ fontFamily: DISPLAY, fontSize: '1.9rem', lineHeight: 1.06,
+                      color: accent, letterSpacing: '-0.01em' }}>{u.n}</span>
                     <span style={{ fontSize: '0.64rem', fontWeight: 800, letterSpacing: '0.16em',
                       textTransform: 'uppercase' as const, color: MUTED }}>{u.when}</span>
                   </div>
-                  <h3 style={{ fontFamily: DISPLAY, fontSize: '1.5rem', letterSpacing: '0.03em',
-                    lineHeight: 1.05, color: WHITE }}>{u.title.toUpperCase()}</h3>
+                  <h3 style={{ fontFamily: DISPLAY, fontSize: '1.5rem', letterSpacing: '-0.01em',
+                    lineHeight: 1.05, color: WHITE }}>{u.title}</h3>
                   {u.tagline && (
                     <p style={{ fontSize: '0.83rem', fontStyle: 'italic', color: accent,
                       marginTop: '0.5rem' }}>{u.tagline}</p>
@@ -176,7 +176,7 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
                   </ul>
                   {u.deliverable && (
                     <div style={{ marginTop: '1rem', paddingTop: '0.85rem',
-                      borderTop: '1px solid rgba(148,163,184,0.12)', display: 'flex',
+                      borderTop: '1px solid rgba(90,104,128,0.12)', display: 'flex',
                       gap: '0.55rem', alignItems: 'flex-start' }}>
                       <FileText size={13} color={accent} style={{ flexShrink: 0, marginTop: '2px' }} />
                       <p style={{ fontSize: '0.78rem', lineHeight: 1.6, color: WHITE }}>
@@ -195,7 +195,7 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
       <Section tinted>
         <FadeIn style={{ marginBottom: '2.25rem' }}>
           <Eyebrow color={accent}>Why it is built this way</Eyebrow>
-          <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">THE DECISIONS<br />BEHIND THE SYLLABUS.</Title>
+          <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">The decisions<br />behind the syllabus.</Title>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
           gap: '1rem' }}>
@@ -215,7 +215,7 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
       <Section>
         <FadeIn style={{ marginBottom: '2.25rem' }}>
           <Eyebrow color={GREEN_L}>Written down against still to write</Eyebrow>
-          <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">EXACTLY WHAT<br />EXISTS TODAY.</Title>
+          <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">Exactly what<br />exists today.</Title>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '1rem' }}>
@@ -261,7 +261,7 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
             program needs to know how far away it is, and because a funder who finds the gap
             themselves will reasonably wonder what else was left out.{' '}
             <Link href="/curriculum" style={{ color: ROYAL_L, textDecoration: 'none',
-              borderBottom: '1px solid rgba(59,130,246,0.4)' }}>The full map</Link> carries the
+              borderBottom: '1px solid rgba(45,91,227,0.4)' }}>The full map</Link> carries the
             same status for every grade band we have not reached.
           </p>
         </FadeIn>
@@ -273,7 +273,7 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             flexWrap: 'wrap', gap: '1.75rem' }}>
             <div style={{ maxWidth: '58ch' }}>
-              <Title size="clamp(1.6rem, 3.2vw, 2.5rem)">WANT THIS ONE<br />BUILT SOONER?</Title>
+              <Title size="clamp(1.6rem, 3.2vw, 2.5rem)">Want this one<br />built sooner?</Title>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginTop: '1rem' }}>
                 What moves a program from designed to written is a school willing to run the
                 first one and the funding to write the materials properly. If either of those is

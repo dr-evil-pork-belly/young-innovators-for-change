@@ -65,7 +65,7 @@ export default function ForSchoolsUi() {
     <Page>
       <Hero
         eyebrow={`Grade 2 pilot · ${ORG.serviceArea}`}
-        title={<>ONE TEACHER.<br />ONE YEAR.<br /><span style={{ color: GREEN_L }}>NO COST.</span></>}
+        title={<>One teacher.<br />One year.<br /><span style={{ color: GREEN_L }}>No cost.</span></>}
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
@@ -113,7 +113,7 @@ export default function ForSchoolsUi() {
               <div>
                 <Icon size={17} color={ROYAL_L} />
                 <div style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 3.6vw, 2.9rem)',
-                  lineHeight: 1, color: WHITE, marginTop: '0.6rem' }}>{v}</div>
+                  lineHeight: 1.06, color: WHITE, marginTop: '0.6rem' }}>{v}</div>
                 <div style={{ fontSize: '0.82rem', fontWeight: 700, color: WHITE }}>{l}</div>
                 <div style={{ fontSize: '0.74rem', color: MUTED, marginTop: '0.15rem' }}>{s}</div>
               </div>
@@ -126,7 +126,7 @@ export default function ForSchoolsUi() {
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow>How a pilot runs</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">FOUR STEPS.<br />NO COMMITTEE.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">Four steps.<br />No committee.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '58ch', marginTop: '1rem' }}>
             We have deliberately made this small. A pilot that needs a planning committee will
             not happen, and a program that cannot survive one busy teacher trying it is not
@@ -192,7 +192,7 @@ export default function ForSchoolsUi() {
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GOLD}>Straight answers</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">WHAT PRINCIPALS ASK.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">What principals ask.</Title>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))', gap: '1.75rem 3rem' }}>
           {HONEST.map((f, i) => (
@@ -208,7 +208,7 @@ export default function ForSchoolsUi() {
       <Section tinted>
         <FadeIn style={{ marginBottom: '2rem' }}>
           <Eyebrow>Look before you decide</Eyebrow>
-          <Title size="clamp(1.8rem, 3.6vw, 3rem)">READ IT FIRST.</Title>
+          <Title size="clamp(1.8rem, 3.6vw, 3rem)">Read it first.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '56ch', marginTop: '0.9rem' }}>
             Everything is public. Read the actual workbook and the actual answer key before you
             take a call with us.
@@ -222,7 +222,7 @@ export default function ForSchoolsUi() {
             { href: '/downloads/structure-before-fluency.pdf',          label: 'The research case', meta: 'PDF · working paper', accent: ROYAL_L },
           ].map((d) => (
             <a key={d.href} href={d.href} style={{ display: 'flex', alignItems: 'center', gap: '0.7rem',
-              padding: '0.9rem 1rem', background: 'rgba(15,23,42,0.6)',
+              padding: '0.9rem 1rem', background: '#FFFFFF',
               border: `1px solid ${d.accent}25`, borderRadius: '3px', textDecoration: 'none' }}>
               <Download size={14} color={d.accent} style={{ flexShrink: 0 }} />
               <span>
@@ -237,11 +237,11 @@ export default function ForSchoolsUi() {
       {/* ── CTA ────────────────────────────────────────── */}
       <Section>
         <FadeIn>
-          <div style={{ padding: '2.5rem 2.75rem', background: 'rgba(30,41,59,0.6)',
-            border: '1px solid rgba(37,99,235,0.18)', borderRadius: '4px' }}>
+          <div style={{ padding: '2.5rem 2.75rem', background: '#FFFFFF',
+            border: '1px solid rgba(45,91,227,0.18)', borderRadius: '4px' }}>
             <p style={{ fontFamily: DISPLAY, fontSize: 'clamp(1.9rem, 3.6vw, 2.8rem)',
-              letterSpacing: '0.02em', color: WHITE, lineHeight: 1, marginBottom: '0.9rem' }}>
-              INTERESTED? ONE EMAIL IS ENOUGH.
+              letterSpacing: '-0.01em', color: WHITE, lineHeight: 1.06, marginBottom: '0.9rem' }}>
+              Interested? One email is enough.
             </p>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED, maxWidth: '56ch', marginBottom: '1.5rem' }}>
               Tell us your school, the teacher&rsquo;s name, and a good time to call. There is

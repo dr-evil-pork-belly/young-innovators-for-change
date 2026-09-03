@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import {
-  ArrowUpRight, ExternalLink, BookOpen, FlaskConical, AlertTriangle,
-  CheckCircle, XCircle, Receipt, Download,
+  ArrowUpRight, BookOpen, FlaskConical, AlertTriangle,
+  XCircle,
 } from 'lucide-react';
 import {
   Page, Hero, Section, Eyebrow, Title, FadeIn, Card, FactRow,
@@ -75,7 +75,7 @@ export default function ImpactUi() {
     <Page>
       <Hero
         eyebrow="Evidence & accountability"
-        title={<>NO COHORT<br />HAS RUN YET.<br /><span style={{ color: GOLD_L }}>HERE IS EVERYTHING ELSE.</span></>}
+        title={<>No cohort<br />has run yet.<br /><span style={{ color: GOLD_L }}>Here is everything else.</span></>}
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
@@ -92,8 +92,8 @@ export default function ImpactUi() {
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
           {trustBadges().map((b) => (
-            <span key={b} style={{ padding: '0.35rem 0.75rem', background: 'rgba(201,168,76,0.1)',
-              border: '1px solid rgba(201,168,76,0.28)', borderRadius: '2px', fontSize: '0.66rem',
+            <span key={b} style={{ padding: '0.35rem 0.75rem', background: 'rgba(255,122,61,0.1)',
+              border: '1px solid rgba(255,122,61,0.28)', borderRadius: '2px', fontSize: '0.66rem',
               fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const,
               color: GOLD_L }}>{b}</span>
           ))}
@@ -104,14 +104,14 @@ export default function ImpactUi() {
       <Section tinted>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow>What exists today</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">BUILT, NOT CLAIMED.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">Built, not claimed.</Title>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.75rem' }}>
           {[...VERIFIED_STATS, ...PROGRAM_FACTS].map((s, i) => (
             <FadeIn key={s.label} delay={i * 0.06}>
               <div>
                 <div style={{ fontFamily: DISPLAY, fontSize: 'clamp(2.2rem, 4vw, 3.2rem)',
-                  lineHeight: 1, color: ROYAL_L }}>{s.value}</div>
+                  lineHeight: 1.06, color: ROYAL_L }}>{s.value}</div>
                 <div style={{ fontSize: '0.83rem', fontWeight: 700, color: WHITE, marginTop: '0.3rem' }}>{s.label}</div>
                 {s.note && <div style={{ fontSize: '0.74rem', color: MUTED, marginTop: '0.15rem' }}>{s.note}</div>}
               </div>
@@ -133,7 +133,7 @@ export default function ImpactUi() {
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GOLD}>The research base</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">WHAT THE LITERATURE<br />DOES AND DOES NOT SUPPORT.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">What the literature<br />does and does not support.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
             Four sources carry most of the argument. Each is summarized with its actual weight,
             including where a study is too small or at the wrong grade to prove what we would like
@@ -164,9 +164,9 @@ export default function ImpactUi() {
 
         <FadeIn delay={0.3}>
           <div style={{ marginTop: '1.5rem', background: 'rgba(180,35,24,0.06)',
-            border: '1px solid rgba(253,162,155,0.25)', borderRadius: '4px', padding: '1.5rem 1.75rem' }}>
+            border: '1px solid rgba(180,35,24,0.25)', borderRadius: '4px', padding: '1.5rem 1.75rem' }}>
             <div style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
-              <AlertTriangle size={17} color="#FDA29B" style={{ flexShrink: 0, marginTop: '3px' }} />
+              <AlertTriangle size={17} color="#B42318" style={{ flexShrink: 0, marginTop: '3px' }} />
               <div>
                 <p style={{ fontSize: '0.92rem', fontWeight: 700, color: WHITE, marginBottom: '0.5rem' }}>
                   There is no efficacy trial at this grade level.
@@ -196,7 +196,7 @@ export default function ImpactUi() {
       <Section tinted accent={GOLD}>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GREEN_L}>The evaluation</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">HOW WE WILL KNOW.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">How we will know.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
             A matched-classroom quasi-experiment across four to eight Grade 2 classrooms, run over
             a single school year, with classrooms rather than students as the unit of assignment.
@@ -225,8 +225,8 @@ export default function ImpactUi() {
       {/* ── Disconfirming ──────────────────────────────── */}
       <Section>
         <FadeIn style={{ marginBottom: '2rem' }}>
-          <Eyebrow color="#FDA29B">Pre-committed</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">WHAT WOULD SHOW<br />WE ARE WRONG.</Title>
+          <Eyebrow color="#B42318">Pre-committed</Eyebrow>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">What would show<br />we are wrong.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '62ch', marginTop: '1rem' }}>
             Published before data collection, so it cannot be moved afterward.
           </p>
@@ -234,10 +234,10 @@ export default function ImpactUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
           {DISCONFIRM.map((d, i) => (
             <FadeIn key={i} delay={i * 0.07}>
-              <div style={{ background: 'rgba(15,23,42,0.65)', border: '1px solid rgba(253,162,155,0.18)',
+              <div style={{ background: '#FFFFFF', border: '1px solid rgba(180,35,24,0.18)',
                 borderRadius: '4px', padding: '1.4rem 1.6rem', height: '100%', display: 'flex',
                 gap: '0.75rem', alignItems: 'flex-start' }}>
-                <XCircle size={15} color="#FDA29B" style={{ flexShrink: 0, marginTop: '3px' }} />
+                <XCircle size={15} color="#B42318" style={{ flexShrink: 0, marginTop: '3px' }} />
                 <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: MUTED }}>{d}</p>
               </div>
             </FadeIn>
@@ -250,14 +250,14 @@ export default function ImpactUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
           <FadeIn>
             <Eyebrow>Cost</Eyebrow>
-            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">WHAT A CLASSROOM<br />ACTUALLY COSTS.</Title>
+            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">What a classroom<br />actually costs.</Title>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '52ch', marginTop: '1rem' }}>
               Published so a principal can see there is no catch and a funder can see what a seat
               costs. These are our internal figures at local print rates, not a price.
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <div style={{ background: 'rgba(15,23,42,0.7)', border: '1px solid rgba(201,168,76,0.16)',
+            <div style={{ background: '#FFFFFF', border: '1px solid rgba(255,122,61,0.16)',
               borderRadius: '4px', padding: '1.6rem 1.8rem' }}>
               {[
                 ['Student workbooks, 77 pages, B&W, bound', '$96', '24 copies at $4.00'],
@@ -266,7 +266,7 @@ export default function ImpactUi() {
                 ['Orientation and year-long support', '$0', 'Volunteer-delivered'],
               ].map(([a, b, c]) => (
                 <div key={a} style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem',
-                  padding: '0.7rem 0', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
+                  padding: '0.7rem 0', borderBottom: '1px solid rgba(255,122,61,0.1)' }}>
                   <div>
                     <div style={{ fontSize: '0.85rem', color: WHITE }}>{a}</div>
                     <div style={{ fontSize: '0.72rem', color: SLATE_3 }}>{c}</div>
@@ -294,10 +294,10 @@ export default function ImpactUi() {
       {!hasTestimonials && (
         <Section>
           <FadeIn>
-            <div style={{ background: 'rgba(15,23,42,0.6)', border: '1px dashed rgba(37,99,235,0.25)',
+            <div style={{ background: '#FFFFFF', border: '1px dashed rgba(45,91,227,0.25)',
               borderRadius: '4px', padding: '2.5rem 3rem', maxWidth: '860px' }}>
               <Eyebrow>Voices from the field</Eyebrow>
-              <Title size="clamp(1.7rem, 3.4vw, 2.8rem)">THIS SPACE IS FOR<br />OUR FIRST COHORT.</Title>
+              <Title size="clamp(1.7rem, 3.4vw, 2.8rem)">This space is for<br />our first cohort.</Title>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '58ch', marginTop: '1rem' }}>
                 When students, teachers and families have something to say about the programs,
                 their words will appear here with their permission and their real names, and not
@@ -310,7 +310,7 @@ export default function ImpactUi() {
 
       {hasTestimonials && (
         <Section>
-          <FadeIn style={{ marginBottom: '2rem' }}><Eyebrow>Voices from the field</Eyebrow><Title>WHAT THEY SAY.</Title></FadeIn>
+          <FadeIn style={{ marginBottom: '2rem' }}><Eyebrow>Voices from the field</Eyebrow><Title>What they say.</Title></FadeIn>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
             {TESTIMONIALS.map((t) => (
               <Card key={t.name} accent={ROYAL_L} pad="1.6rem">
@@ -330,8 +330,8 @@ export default function ImpactUi() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             flexWrap: 'wrap', gap: '1.5rem' }}>
             <div>
-              <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '0.02em',
-                color: WHITE, marginBottom: '0.4rem' }}>CHECK US BEFORE YOU FUND US.</p>
+              <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
+                color: WHITE, marginBottom: '0.4rem' }}>Check us before you fund us.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '56ch' }}>
                 Our registration, filings and open gaps are published in full, including a board
                 seat we have not filled. {ORG.legalName} · EIN {ORG.taxStatus.ein}.

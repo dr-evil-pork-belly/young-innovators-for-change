@@ -18,7 +18,7 @@ export default function TeachersUi() {
     <Page>
       <Hero
         eyebrow="For teachers, aides and caretakers"
-        title={<>WE WROTE<br /><span style={{ color: GOLD_L }}>THE EASY HALF.</span></>}
+        title={<>We wrote<br /><span style={{ color: GOLD_L }}>the easy half.</span></>}
         accent={GOLD}
         lede={
           <>
@@ -54,7 +54,7 @@ export default function TeachersUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
           <FadeIn>
             <Eyebrow color={GOLD_L}>The thing we cannot see</Eyebrow>
-            <Title size="clamp(1.9rem, 4vw, 3.2rem)">WE DO NOT KNOW<br />YOUR NAME.</Title>
+            <Title size="clamp(1.9rem, 4vw, 3.2rem)">We do not know<br />your name.</Title>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
@@ -87,7 +87,7 @@ export default function TeachersUi() {
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow>How it is delivered</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">TWO SPEEDS.<br />ONE DELIBERATE<br />BLANK.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">Two speeds.<br />One deliberate<br />blank.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
             The same ideas are shaped twice, because a nine-year-old inside a school year
             and a sixteen-year-old with a free summer are not the same delivery problem.
@@ -108,7 +108,7 @@ export default function TeachersUi() {
             if (m.status === 'not-built') {
               return (
                 <FadeIn key={m.band} delay={i * 0.1}>
-                  <div style={{ background: 'rgba(15,23,42,0.45)',
+                  <div style={{ background: '#FFFFFF',
                     border: `1px dashed ${SLATE_3}88`, borderRadius: '4px',
                     padding: '1.9rem', height: '100%' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
@@ -121,9 +121,9 @@ export default function TeachersUi() {
                         No printed year
                       </span>
                     </div>
-                    <h3 style={{ fontFamily: DISPLAY, fontSize: '1.6rem', letterSpacing: '0.03em',
+                    <h3 style={{ fontFamily: DISPLAY, fontSize: '1.6rem', letterSpacing: '-0.01em',
                       color: MUTED, lineHeight: 1.05, marginBottom: '0.85rem' }}>
-                      {m.shape.toUpperCase()}
+                      {m.shape}
                     </h3>
                     <p style={{ fontSize: '0.86rem', lineHeight: 1.8, color: MUTED, marginBottom: '1.1rem' }}>
                       {m.body}
@@ -158,9 +158,9 @@ export default function TeachersUi() {
                       {live ? 'Running today' : 'Not yet delivered'}
                     </span>
                   </div>
-                  <h3 style={{ fontFamily: DISPLAY, fontSize: '1.6rem', letterSpacing: '0.03em',
+                  <h3 style={{ fontFamily: DISPLAY, fontSize: '1.6rem', letterSpacing: '-0.01em',
                     color: WHITE, lineHeight: 1.05, marginBottom: '0.85rem' }}>
-                    {m.shape.toUpperCase()}
+                    {m.shape}
                   </h3>
                   <p style={{ fontSize: '0.86rem', lineHeight: 1.8, color: MUTED, marginBottom: '1.1rem' }}>
                     {m.body}
@@ -190,12 +190,12 @@ export default function TeachersUi() {
             governs the rest; do not split the two halves of that string. */}
         <FadeIn delay={0.3}>
           <div style={{ marginTop: '2.5rem', padding: 'clamp(1.75rem, 4vw, 2.75rem)',
-            background: 'linear-gradient(135deg, rgba(201,168,76,0.10), rgba(15,23,42,0.75))',
-            border: '1px solid rgba(201,168,76,0.25)', borderRadius: '4px' }}>
+            background: 'linear-gradient(135deg, rgba(255,122,61,0.10), #FFFFFF)',
+            border: '1px solid rgba(255,122,61,0.25)', borderRadius: '4px' }}>
             <Eyebrow color={GOLD_L}>Why it is a cohort</Eyebrow>
             <p style={{ fontFamily: DISPLAY, fontSize: 'clamp(1.7rem, 3.6vw, 2.8rem)',
-              letterSpacing: '0.02em', color: WHITE, lineHeight: 1, margin: '0.4rem 0 1.1rem' }}>
-              FOUR SUMMERS. THE SAME PEOPLE.
+              letterSpacing: '-0.01em', color: WHITE, lineHeight: 1.06, margin: '0.4rem 0 1.1rem' }}>
+              Four summers. The same people.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, maxWidth: '70ch',
               marginBottom: '1rem' }}>
@@ -216,7 +216,7 @@ export default function TeachersUi() {
       <Section tinted>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GREEN_L}>Our side of it</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">IF YOU ARE GOING TO<br />CARRY THIS, HERE IS<br />WHAT WE OWE YOU.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">If you are going to<br />carry this, here is<br />what we owe you.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '60ch', marginTop: '1rem' }}>
             We cannot make the twenty minutes appear. What we can do is make sure not one
             of them is wasted on checking our work, hunting for an answer key, or
@@ -227,7 +227,7 @@ export default function TeachersUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
           {DELIVERY.commitments.map((c, i) => (
             <FadeIn key={c.title} delay={i * 0.06}>
-              <div style={{ background: 'rgba(15,23,42,0.65)', border: '1px solid rgba(37,99,235,0.12)',
+              <div style={{ background: '#FFFFFF', border: '1px solid rgba(45,91,227,0.12)',
                 borderRadius: '4px', padding: '1.4rem 1.6rem', height: '100%' }}>
                 <div style={{ display: 'flex', gap: '0.7rem', alignItems: 'flex-start', marginBottom: '0.7rem' }}>
                   <CheckCircle size={14} color={GREEN_L} style={{ flexShrink: 0, marginTop: '4px' }} />
@@ -244,15 +244,15 @@ export default function TeachersUi() {
       {seeking && (
         <Section accent={GOLD}>
           <FadeIn>
-            <div style={{ padding: 'clamp(2rem, 5vw, 3.25rem)', background: 'rgba(30,41,59,0.6)',
-              border: '1px solid rgba(201,168,76,0.28)', borderRadius: '4px', position: 'relative',
+            <div style={{ padding: 'clamp(2rem, 5vw, 3.25rem)', background: '#FFFFFF',
+              border: '1px solid rgba(255,122,61,0.28)', borderRadius: '4px', position: 'relative',
               overflow: 'hidden' }}>
               <div style={{ position: 'absolute', inset: '0 0 auto 0', height: '2px',
                 background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }} />
               <Eyebrow color={GOLD_L}>An open ask, and the only one on this site</Eyebrow>
               <p style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4.4vw, 3.4rem)',
-                letterSpacing: '0.02em', color: WHITE, lineHeight: 0.98, margin: '0.4rem 0 1.1rem' }}>
-                WE NEED ONE DISTRICT<br />TO SAY YES.
+                letterSpacing: '-0.01em', color: WHITE, lineHeight: 1.06, margin: '0.4rem 0 1.1rem' }}>
+                We need one district<br />to say yes.
               </p>
               <p style={{ fontSize: '0.98rem', lineHeight: 1.8, color: WHITE, maxWidth: '62ch',
                 marginBottom: '0.9rem', fontWeight: 600 }}>
@@ -296,7 +296,7 @@ export default function TeachersUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
           <FadeIn>
             <Eyebrow color={GOLD}>Start anywhere</Eyebrow>
-            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">YOU DO NOT NEED<br />OUR PERMISSION.</Title>
+            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">You do not need<br />our permission.</Title>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1.25rem' }}>

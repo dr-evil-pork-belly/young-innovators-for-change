@@ -10,8 +10,19 @@ import type { Metadata } from 'next'
 //
 // Imported as modules instead, which the bundler cannot silently drop. Self
 // hosting also takes a third-party request off every page load.
-import '@fontsource/bebas-neue/400.css'
-import '@fontsource-variable/dm-sans'
+// Baloo 2 and Public Sans are the two faces the workbooks are set in. See
+// brand/brand.py in the curriculum repository, which names them as
+// FONT_DISPLAY and FONT_BODY.
+//
+// Both are variable, so the display face has a real 800 and the browser never
+// has to synthesize a bold. That is what smeared sixty-three headings when the
+// display face was Bebas Neue, which ships one weight.
+//
+// The registered family names carry the word Variable ('Baloo 2 Variable',
+// 'Public Sans Variable') and globals.css names them that way. Naming only
+// 'Baloo 2' falls through to the fallback silently.
+import '@fontsource-variable/baloo-2'
+import '@fontsource-variable/public-sans'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import { ORG } from '@/content/org'
@@ -83,7 +94,7 @@ export default function RootLayout({
       </head>
       <body>
         <Navbar />
-        <main style={{ paddingTop: '5rem' }}>{children}</main>
+        <main style={{ paddingTop: '4.5rem' }}>{children}</main>
       </body>
     </html>
   )

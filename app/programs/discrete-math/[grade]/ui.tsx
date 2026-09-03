@@ -23,9 +23,11 @@ import {
 } from '@/components/kit';
 import { MATH_LINE, type MathBook } from '@/content/mathLine';
 
-const CONNECT_L = '#7CA6F5';
-const SPARK_L   = '#FF9A69';
-const GROW_L    = '#4FCBA3';
+const CONNECT_L = '#2149C7';
+// Text-safe. The light orange this used to hold, #FF9A69, measures 1.8:1 on the
+// tinted band and was carrying the week numbers and every standard code.
+const SPARK_L   = '#A8380A';
+const GROW_L    = '#0C6B4F';
 // Cycles, so the ladder keeps its rhythm however many books there are.
 const RUNG = [CONNECT_L, SPARK_L, GROW_L];
 
@@ -70,8 +72,8 @@ function Stat({ value, label, sub, accent }: {
 }) {
   return (
     <div>
-      <div style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 3.6vw, 2.9rem)', lineHeight: 1,
-        color: accent, letterSpacing: '0.02em' }}>{value}</div>
+      <div style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 3.6vw, 2.9rem)', lineHeight: 1.06,
+        color: accent, letterSpacing: '-0.01em' }}>{value}</div>
       <div style={{ fontSize: '0.8rem', fontWeight: 700, color: WHITE, marginTop: '0.4rem' }}>{label}</div>
       <div style={{ fontSize: '0.73rem', color: MUTED, marginTop: '0.15rem' }}>{sub}</div>
     </div>
@@ -101,7 +103,7 @@ export default function MathBookUi({ book }: { book: MathBook }) {
       <section style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem' }}>
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
           <div style={{ position: 'absolute', inset: 0,
-            background: 'linear-gradient(145deg, #060C10 0%, #0F172A 58%, #0A1428 100%)' }} />
+            background: '#FFFFFF' }} />
           <div style={{ position: 'absolute', top: '6%', right: '-8%', width: '58%', height: '72%',
             background: `radial-gradient(ellipse, ${accent}1F 0%, transparent 65%)` }} />
           <div style={{ position: 'absolute', inset: 0,
@@ -142,13 +144,13 @@ export default function MathBookUi({ book }: { book: MathBook }) {
             })}
           </div>
 
-          <h1 style={{ fontFamily: DISPLAY, fontSize: 'clamp(2.4rem, 6.5vw, 5.4rem)', lineHeight: 0.94,
-            letterSpacing: '0.02em', color: WHITE, marginBottom: '0.75rem' }}>
-            {book.title.toUpperCase()}
+          <h1 style={{ fontFamily: DISPLAY, fontSize: 'clamp(2.4rem, 6.5vw, 5.4rem)', lineHeight: 1.06,
+            letterSpacing: '-0.01em', color: WHITE, marginBottom: '0.75rem' }}>
+            {book.title}
           </h1>
           <p style={{ fontFamily: DISPLAY, fontSize: 'clamp(1.1rem, 2.2vw, 1.6rem)',
-            letterSpacing: '0.06em', color: accent, marginBottom: '1.5rem' }}>
-            {book.move.toUpperCase()}. {book.moveLine.toUpperCase()}
+            letterSpacing: '-0.01em', color: accent, marginBottom: '1.5rem' }}>
+            {book.move}. {book.moveLine}
           </p>
           <p style={{ fontSize: '1rem', lineHeight: 1.75, color: MUTED, maxWidth: '58ch',
             marginBottom: '2rem' }}>{book.lede}</p>
@@ -187,9 +189,9 @@ export default function MathBookUi({ book }: { book: MathBook }) {
               <p className="label-eyebrow" style={{ color: GROW_L, marginBottom: '0.5rem' }}>
                 What the student ends the year holding
               </p>
-              <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(1.8rem, 3.6vw, 2.9rem)', lineHeight: 0.95,
-                letterSpacing: '0.02em', color: WHITE, marginBottom: '1rem' }}>
-                {book.artifact.toUpperCase()}.
+              <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(1.8rem, 3.6vw, 2.9rem)', lineHeight: 1.06,
+                letterSpacing: '-0.01em', color: WHITE, marginBottom: '1rem' }}>
+                {book.artifact}.
               </h2>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '52ch' }}>
                 {book.artifactLine}
@@ -235,13 +237,13 @@ export default function MathBookUi({ book }: { book: MathBook }) {
               <p className="label-eyebrow" style={{ color: accent, marginBottom: '0.5rem' }}>
                 Every week, in order
               </p>
-              <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', lineHeight: 0.95,
-                letterSpacing: '0.02em', color: WHITE }}>
-                THE WHOLE YEAR.
+              <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4.5vw, 3.4rem)', lineHeight: 1.06,
+                letterSpacing: '-0.01em', color: WHITE }}>
+                The whole year.
               </h2>
             </div>
             <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem',
-              padding: '0.55rem 0.85rem', background: 'rgba(15,23,42,0.7)',
+              padding: '0.55rem 0.85rem', background: '#FFFFFF',
               border: `1px solid ${accent}25`, borderRadius: '3px', minWidth: '240px' }}>
               <Search size={13} color={SLATE_3} />
               <input
@@ -269,7 +271,7 @@ export default function MathBookUi({ book }: { book: MathBook }) {
               <div key={w.n} style={{ display: 'grid',
                 gridTemplateColumns: '46px minmax(130px, 0.7fr) minmax(180px, 1fr) minmax(240px, 1.5fr)',
                 gap: '1rem', padding: '0.7rem 0.5rem',
-                borderBottom: '1px solid rgba(148,163,184,0.08)' }}>
+                borderBottom: '1px solid rgba(90,104,128,0.08)' }}>
                 <div style={{ fontFamily: DISPLAY, fontSize: '1.15rem', color: accent, lineHeight: 1.2,
                   fontVariantNumeric: 'tabular-nums' }}>{String(w.n).padStart(2, '0')}</div>
                 <div style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em',
@@ -334,7 +336,7 @@ export default function MathBookUi({ book }: { book: MathBook }) {
                   meta: 'Web page · all 36 weeks', accent: GROW_L },
               ].map((d) => (
                 <a key={d.href} href={d.href} style={{ display: 'flex', alignItems: 'center',
-                  gap: '0.75rem', padding: '0.9rem 1rem', background: 'rgba(15,23,42,0.6)',
+                  gap: '0.75rem', padding: '0.9rem 1rem', background: '#FFFFFF',
                   border: `1px solid ${d.accent}25`, borderRadius: '3px', textDecoration: 'none' }}>
                   <Download size={14} color={d.accent} style={{ flexShrink: 0 }} />
                   <span>
@@ -369,8 +371,8 @@ export default function MathBookUi({ book }: { book: MathBook }) {
                   color: MUTED, marginBottom: '0.5rem' }}>
                   <ChevronLeft size={12} /> The year before
                 </div>
-                <div style={{ fontFamily: DISPLAY, fontSize: '1.35rem', letterSpacing: '0.03em', color: WHITE }}>
-                  GRADE {prev.grade}: {prev.title.toUpperCase()}
+                <div style={{ fontFamily: DISPLAY, fontSize: '1.35rem', letterSpacing: '-0.01em', color: WHITE }}>
+                  GRADE {prev.grade}: {prev.title}
                 </div>
                 <div style={{ fontSize: '0.78rem', color: MUTED, marginTop: '0.3rem' }}>{prev.move}.</div>
               </Link>
@@ -383,8 +385,8 @@ export default function MathBookUi({ book }: { book: MathBook }) {
                   color: MUTED, marginBottom: '0.5rem' }}>
                   The year after <ChevronRight size={12} />
                 </div>
-                <div style={{ fontFamily: DISPLAY, fontSize: '1.35rem', letterSpacing: '0.03em', color: WHITE }}>
-                  GRADE {next.grade}: {next.title.toUpperCase()}
+                <div style={{ fontFamily: DISPLAY, fontSize: '1.35rem', letterSpacing: '-0.01em', color: WHITE }}>
+                  GRADE {next.grade}: {next.title}
                 </div>
                 <div style={{ fontSize: '0.78rem', color: MUTED, marginTop: '0.3rem' }}>{next.move}.</div>
               </Link>

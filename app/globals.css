@@ -1,21 +1,56 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   The site now uses the same palette and the same two typefaces as the books.
+
+   Before this, the website and the curriculum shared nothing. The workbooks are
+   Baloo 2 and Public Sans, printed in CONNECT blue, SPARK orange, GROW green
+   and SUN gold on white paper. The site was Bebas Neue and DM Sans, in an
+   antique gold (#C9A84C) that appears nowhere in brand.py, on near-black. A
+   teacher who downloaded a book and then visited the site had no way to tell
+   they came from the same organization.
+
+   Every token below is copied from brand/brand.py in the curriculum
+   repository. That file is the source; if a value changes there, change it
+   here.
+   ────────────────────────────────────────────────────────────────────────── */
+
 @theme {
-  --color-obsidian:       #0A0A0B;
-  --color-gold:           #C9A84C;
-  --color-gold-light:     #F0D080;
-  --color-text-primary:   #F0EDEA;
-  --color-text-secondary: #A8A29E;
-  --color-text-muted:     #6B6664;
-  --color-border:         rgba(201, 168, 76, 0.12);
-  --font-display:         'Bebas Neue', Impact, sans-serif;
-  --font-sans:            'DM Sans Variable', 'DM Sans', system-ui, sans-serif;
-  --navbar-height:        5rem;
+  /* Brand hues, exactly as brand.py defines them. Use these for FILLS:
+     bars, chips, dots, icons, rules, illustration. */
+  --color-ink:      #16233A;
+  --color-connect:  #2D5BE3;
+  --color-spark:    #FF7A3D;
+  --color-grow:     #17A67C;
+  --color-sun:      #FFC44D;
+  --color-paper:    #F5F7FA;
+
+  /* Text-safe darkenings of the same hues, for TYPE and small marks on a light
+     ground. SPARK, GROW and SUN measure 2.4:1, 2.9:1 and 1.5:1 as text on
+     paper, which is why they may never carry a word. These are 4.8:1 or better
+     on paper, on white, and on the tinted band. */
+  --color-connect-ink: #2149C7;
+  --color-spark-ink:   #A8380A;
+  --color-grow-ink:    #0F7D5D;
+  --color-sun-ink:     #7A5100;
+
+  /* Grounds */
+  --color-card:     #FFFFFF;
+  --color-band:     #E8EEF7;
+  --color-line:     #DBE3EF;
+
+  /* Type on light. Nothing on this site may use a text color below 4.5:1. */
+  --color-body:     #33415A;
+  --color-muted:    #5A6880;
+
+  --font-display:   'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif;
+  --font-sans:      'Public Sans Variable', 'Public Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --navbar-height:  4.5rem;
 }
 
 /* Wrapped in @layer base so Tailwind's utility layer can still win.
    Unlayered CSS beats every cascade layer in Tailwind v4 regardless of
-   specificity, with this reset unlayered, px-*, py-* and mx-auto were
+   specificity; with this reset unlayered, px-*, py-* and mx-auto were
    silently doing nothing anywhere on the site. */
 @layer base {
   *, *::before, *::after {
@@ -34,39 +69,23 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: #0A0A0B;
-  color: #F0EDEA;
+  background-color: #F5F7FA;
+  color: #33415A;
   min-height: 100dvh;
   overflow-x: hidden;
 }
 
+/* Baloo 2 is a variable face carrying 400 to 800, so unlike the single-weight
+   display face it replaces, a real bold exists and the browser never has to
+   synthesize one. Headings are pinned to 800, the weight the book covers are
+   set in. `font-synthesis` stays off anyway: it is what stopped sixty-three
+   smeared headings the last time, and it costs nothing to keep. */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  line-height: 1;
-  letter-spacing: 0.02em;
-}
-
-/* The display stack has exactly one weight in it.
-
-   Bebas Neue ships 400 and nothing else, and so does the Impact fallback
-   underneath it. Ask either of them for 700 and the browser does not fail: it
-   SYNTHESIZES the bold, drawing each glyph twice a fraction of a pixel apart.
-   On screen that reads as a blurred or doubled title, and it was doing it to
-   63 elements across 11 pages, every one a small card heading that had been
-   given fontWeight 700 in an inline style.
-
-   Two things stop it coming back. Those headings now name the text face
-   explicitly, which really does have a 700. And this rule tells the browser
-   never to fake a weight for display type: if the weight does not exist,
-   render the one that does rather than smearing it. `font-synthesis` is the
-   older spelling and is what Safari before 16.4 understands. */
-h1, h2, h3, h4, h5, h6 {
-  /* The weight the display face actually has. Without this the browser's
-     own default of `h1 { font-weight: bold }` applies, so every heading on
-     the site was asking a single-weight face for a bold and getting a
-     smeared one. Small card headings set their own weight inline and use
-     the text face, which has a real 700, so they are unaffected. */
-  font-weight: 400;
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.005em;
+  color: #16233A;
   font-synthesis: none;
   font-synthesis-weight: none;
 }
@@ -74,100 +93,145 @@ h1, h2, h3, h4, h5, h6 {
 a { color: inherit; text-decoration: none; }
 
 ::selection {
-  background-color: rgba(201, 168, 76, 0.25);
-  color: #F0EDEA;
+  background-color: rgba(45, 91, 227, 0.18);
+  color: #16233A;
 }
 
 :focus-visible {
-  outline: 2px solid #C9A84C;
+  outline: 2px solid #2D5BE3;
   outline-offset: 3px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
-::-webkit-scrollbar        { width: 6px; }
-::-webkit-scrollbar-track  { background: #0A0A0B; }
-::-webkit-scrollbar-thumb  { background: #252527; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(201, 168, 76, 0.4); }
+::-webkit-scrollbar        { width: 10px; }
+::-webkit-scrollbar-track  { background: #E8EEF7; }
+::-webkit-scrollbar-thumb  { background: #C3CFE2; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #2D5BE3; }
 
-/* ── Reusable component classes ─────────────────────────────── */
+/* ── Reusable component classes ─────────────────────────────────────────────
+   The class names are unchanged from the dark version on purpose. Seventeen
+   page files call .btn-gold and .btn-ghost, and renaming them would have meant
+   a rename in every one of those files in the same pass as a repaint. They are
+   aliased below to names that describe what they now are. */
 
-.btn-gold {
+.btn-gold,
+.btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 0.8125rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.75rem 1.75rem;
-  background: linear-gradient(135deg, #C9A84C 0%, #E8C94F 50%, #C9A84C 100%);
-  background-size: 200% auto;
-  color: #0A0A0B;
-  border: none;
-  border-radius: 2px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  padding: 0.8rem 1.5rem;
+  background: #2D5BE3;
+  color: #FFFFFF;
+  border: 1px solid #2D5BE3;
+  border-radius: 8px;
   cursor: pointer;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
   text-decoration: none;
 }
-.btn-gold:hover {
-  box-shadow: 0 0 24px rgba(201, 168, 76, 0.4), 0 4px 16px rgba(0,0,0,0.4);
+.btn-gold:hover,
+.btn-primary:hover {
+  background: #2149C7;
+  border-color: #2149C7;
+  box-shadow: 0 6px 18px rgba(45, 91, 227, 0.28);
   transform: translateY(-1px);
 }
-.btn-gold:active { transform: translateY(0); }
+.btn-gold:active,
+.btn-primary:active { transform: translateY(0); box-shadow: none; }
 
-.btn-ghost {
+.btn-ghost,
+.btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 0.8125rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.6875rem 1.5rem;
-  background: transparent;
-  color: #F0EDEA;
-  border: 1px solid rgba(201, 168, 76, 0.12);
-  border-radius: 2px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  padding: 0.8rem 1.4rem;
+  background: #FFFFFF;
+  color: #16233A;
+  border: 1px solid #C3CFE2;
+  border-radius: 8px;
   cursor: pointer;
-  transition: border-color 0.25s, color 0.25s, background 0.25s;
+  transition: border-color 0.18s, color 0.18s, background 0.18s;
   text-decoration: none;
 }
-.btn-ghost:hover {
-  border-color: #C9A84C;
-  color: #C9A84C;
-  background: rgba(201, 168, 76, 0.05);
+.btn-ghost:hover,
+.btn-secondary:hover {
+  border-color: #2D5BE3;
+  color: #2149C7;
+  background: #F2F6FE;
+}
+
+/* On an ink slab the two buttons swap grounds. */
+.on-ink .btn-gold,
+.on-ink .btn-primary {
+  background: #FF7A3D;
+  border-color: #FF7A3D;
+  color: #16233A;
+}
+.on-ink .btn-gold:hover,
+.on-ink .btn-primary:hover {
+  background: #FF9A69;
+  border-color: #FF9A69;
+  box-shadow: 0 6px 18px rgba(255, 122, 61, 0.3);
+}
+.on-ink .btn-ghost,
+.on-ink .btn-secondary {
+  background: transparent;
+  color: #F5F7FA;
+  border-color: rgba(245, 247, 250, 0.35);
+}
+.on-ink .btn-ghost:hover,
+.on-ink .btn-secondary:hover {
+  background: rgba(245, 247, 250, 0.08);
+  border-color: #F5F7FA;
+  color: #FFFFFF;
 }
 
 .label-eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #C9A84C;
+  color: #2149C7;
 }
 
 .card-glass {
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(201, 168, 76, 0.12);
-  backdrop-filter: blur(12px);
-  border-radius: 2px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: #FFFFFF;
+  border: 1px solid #DBE3EF;
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 .card-glass:hover {
-  border-color: rgba(201, 168, 76, 0.3);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  border-color: #C3CFE2;
+  box-shadow: 0 10px 28px rgba(22, 35, 58, 0.08);
+  transform: translateY(-2px);
 }
 
 .navbar-scrolled {
-  box-shadow: 0 1px 0 rgba(201, 168, 76, 0.1), 0 8px 32px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 1px 0 #DBE3EF, 0 6px 20px rgba(22, 35, 58, 0.06);
 }
 
-/* ── Keyframes ───────────────────────────────────────────────── */
+/* Form controls. The contact form was the one place on the old site with its
+   own button color and its own corner radius; it now uses the same two as
+   everything else, and the fields are white with a real border rather than a
+   dark well. */
+input, select, textarea {
+  font-family: var(--font-sans);
+  color: #16233A;
+  background: #FFFFFF;
+}
+input::placeholder, textarea::placeholder { color: #8A97AC; }
+
+/* ── Keyframes ───────────────────────────────────────────────────────────── */
 
 @keyframes shimmer {
   0%   { background-position: -200% center; }

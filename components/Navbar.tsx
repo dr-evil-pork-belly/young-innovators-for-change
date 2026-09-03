@@ -9,7 +9,26 @@ import {
   useMotionValueEvent,
   type Variants,
 } from 'framer-motion';
-import { Menu, X, ChevronDown, ArrowUpRight, Zap } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
+
+/**
+ * The bar is white on a paper site, and the mark in it is Pip.
+ *
+ * It used to be a lucide `Zap` bolt in a gold box, which is a stock icon that
+ * belongs to no one. The organization has a mascot, drawn in brand.py, printed
+ * on the cover of every one of the thirteen books, and it appeared on exactly
+ * one page of this website. It is the logo now.
+ */
+
+const INK      = '#16233A';
+const BODY     = '#33415A';
+const SUBTLE   = '#5A6880';
+const CONNECT  = '#2D5BE3';
+const CONNECT_INK = '#2149C7';
+const SPARK    = '#FF7A3D';
+const GROW     = '#17A67C';
+const LINE     = '#DBE3EF';
+const DISPLAY  = "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif";
 
 const NAV_LINKS = [
   { label: 'Mission',   href: '/mission',   dropdown: null },
@@ -55,14 +74,19 @@ const mobileMenuVariants: Variants = {
   exit:    { opacity: 0, height: 0,      transition: { duration: 0.25, ease: 'easeIn'  } },
 };
 
-function GoldRule() {
+/** The three map colors from Week 17, which are the three brand colors. */
+function BrandRule() {
   return (
     <motion.div
-      className="absolute bottom-0 left-0 right-0 h-px"
-      style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.5), transparent)' }}
-      initial={{ scaleX: 0, opacity: 0 }}
-      animate={{ scaleX: 1, opacity: 1 }}
-      transition={{ duration: 1.2, delay: 0.4, ease: 'easeOut' }}
+      className="absolute bottom-0 left-0 right-0"
+      style={{
+        height: '3px',
+        transformOrigin: 'left',
+        background: `linear-gradient(90deg, ${CONNECT} 0 34%, ${SPARK} 34% 67%, ${GROW} 67% 100%)`,
+      }}
+      initial={{ scaleX: 0 }}
+      animate={{ scaleX: 1 }}
+      transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
     />
   );
 }
@@ -78,19 +102,19 @@ function NavItem({ link }: { link: (typeof NAV_LINKS)[number] }) {
     >
       <Link
         href={link.href}
-        className="group relative flex items-center gap-1 py-1 text-xs font-medium tracking-widest uppercase transition-colors duration-200"
-        style={{ color: '#A8A29E' }}
-        onMouseEnter={(e) => (e.currentTarget.style.color = '#F0EDEA')}
-        onMouseLeave={(e) => (e.currentTarget.style.color = '#A8A29E')}
+        className="group relative flex items-center gap-1 py-1 text-sm font-semibold transition-colors duration-200"
+        style={{ color: BODY }}
+        onMouseEnter={(e) => (e.currentTarget.style.color = CONNECT_INK)}
+        onMouseLeave={(e) => (e.currentTarget.style.color = BODY)}
       >
         <span
-          className="absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full"
-          style={{ background: 'linear-gradient(90deg, #C9A84C, #E8C050)' }}
+          className="absolute -bottom-1.5 left-0 h-0.5 w-0 rounded-full transition-all duration-300 group-hover:w-full"
+          style={{ background: CONNECT }}
         />
         {link.label}
         {link.dropdown && (
           <ChevronDown
-            size={12}
+            size={13}
             className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
           />
         )}
@@ -104,31 +128,30 @@ function NavItem({ link }: { link: (typeof NAV_LINKS)[number] }) {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="absolute left-0 top-full mt-3 w-64 overflow-hidden"
+              className="absolute left-0 top-full mt-3 w-72 overflow-hidden"
               style={{
-                borderRadius: '2px',
-                border: '1px solid rgba(201,168,76,0.12)',
-                background: 'rgba(17,17,19,0.97)',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.7)',
-                backdropFilter: 'blur(20px)',
+                borderRadius: '12px',
+                border: `1px solid ${LINE}`,
+                background: '#FFFFFF',
+                boxShadow: '0 18px 44px rgba(22,35,58,0.14)',
               }}
             >
-              <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.6), transparent)' }} />
+              <div style={{ height: '3px', background: `linear-gradient(90deg, ${CONNECT} 0 34%, ${SPARK} 34% 67%, ${GROW} 67% 100%)` }} />
               <ul className="py-2">
                 {link.dropdown.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="group/item flex flex-col px-4 py-3 transition-colors duration-150"
-                      style={{ color: '#E0DDD8' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(201,168,76,0.06)')}
+                      className="group/item flex flex-col px-4 py-2.5 transition-colors duration-150"
+                      style={{ color: INK }}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = '#F2F6FE')}
                       onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
                     >
-                      <span className="flex items-center justify-between text-xs font-medium">
+                      <span className="flex items-center justify-between text-sm font-semibold">
                         {item.label}
-                        <ArrowUpRight size={12} className="opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                        <ArrowUpRight size={13} className="opacity-0 group-hover/item:opacity-100 transition-opacity" />
                       </span>
-                      <span className="mt-0.5 text-xs" style={{ color: '#6B6664' }}>{item.desc}</span>
+                      <span className="mt-0.5 text-xs" style={{ color: SUBTLE }}>{item.desc}</span>
                     </Link>
                   </li>
                 ))}
@@ -162,75 +185,57 @@ export default function Navbar() {
         initial="initial"
         animate="animate"
         className="fixed inset-x-0 top-0 z-50 transition-shadow duration-500"
-        style={scrolled ? { boxShadow: '0 1px 0 rgba(201,168,76,0.1), 0 8px 32px rgba(0,0,0,0.7)' } : {}}
+        style={scrolled ? { boxShadow: '0 6px 20px rgba(22,35,58,0.08)' } : {}}
       >
         <div
           className="absolute inset-0 transition-all duration-500"
-          style={{
-            background: scrolled ? 'rgba(7,7,8,0.97)' : 'rgba(10,10,11,0.90)',
-            backdropFilter: 'blur(20px)',
-          }}
+          style={{ background: scrolled ? 'rgba(255,255,255,0.97)' : '#FFFFFF',
+            backdropFilter: 'blur(12px)' }}
         />
 
         <nav
-          className="relative mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-12"
+          className="relative mx-auto flex h-18 max-w-7xl items-center justify-between px-6 lg:px-10"
+          style={{ height: '4.5rem' }}
           aria-label="Primary navigation"
         >
-          {/* Logo */}
-          <Link href="/" className="group relative flex items-center gap-3 select-none">
-            <div
-              className="flex h-9 w-9 items-center justify-center transition-all duration-300"
-              style={{
-                borderRadius: '2px',
-                border: '1px solid rgba(201,168,76,0.25)',
-                background: 'rgba(201,168,76,0.08)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.border = '1px solid rgba(201,168,76,0.5)';
-                e.currentTarget.style.background = 'rgba(201,168,76,0.14)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.border = '1px solid rgba(201,168,76,0.25)';
-                e.currentTarget.style.background = 'rgba(201,168,76,0.08)';
-              }}
-            >
-              <Zap size={18} color="#C9A84C" fill="rgba(201,168,76,0.2)" />
-            </div>
-
+          {/* Logo: Pip, the mascot on the cover of every book. */}
+          <Link href="/" className="group relative flex items-center gap-2.5 select-none">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/pip/pip-mark.svg" alt="" aria-hidden width={36} height={36}
+              style={{ width: '36px', height: '36px', display: 'block' }} />
             <div className="flex flex-col leading-none">
-              <span style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: '1.05rem', letterSpacing: '0.12em', color: '#F0EDEA' }}>
-                YOUNG INNOVATORS
+              <span style={{ fontFamily: DISPLAY, fontWeight: 800, fontSize: '1.15rem',
+                letterSpacing: '-0.01em', color: INK }}>
+                Young Innovators
               </span>
-              <div className="flex items-center gap-2">
-                <span className="h-px flex-1" style={{ background: 'linear-gradient(90deg, #C9A84C, transparent)' }} />
-                <span style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: '0.85rem', letterSpacing: '0.2em', color: '#C9A84C' }}>
-                  FOR CHANGE
-                </span>
-              </div>
+              <span style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: '0.78rem',
+                letterSpacing: '0.16em', color: CONNECT_INK, textTransform: 'uppercase' }}>
+                for change
+              </span>
             </div>
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden items-center gap-8 lg:flex">
+          <div className="hidden items-center gap-7 xl:flex">
             {NAV_LINKS.map((link) => <NavItem key={link.href} link={link} />)}
           </div>
 
-          {/* Desktop CTAs */}
-          <div className="hidden items-center gap-4 lg:flex">
-            <Link href="/partner" className="btn-gold">
-              Partner Now
-              <ArrowUpRight size={13} />
+          {/* Desktop CTA */}
+          <div className="hidden items-center gap-4 xl:flex">
+            <Link href="/partner" className="btn-primary">
+              Partner with us
+              <ArrowUpRight size={14} />
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
+          {/* Hamburger */}
           <button
-            className="flex h-10 w-10 items-center justify-center transition-all duration-200 lg:hidden"
+            className="flex h-10 w-10 items-center justify-center transition-all duration-200 xl:hidden"
             style={{
-              borderRadius: '2px',
-              border: '1px solid rgba(201,168,76,0.12)',
-              background: 'transparent',
-              color: mobileOpen ? '#C9A84C' : '#A8A29E',
+              borderRadius: '8px',
+              border: `1px solid ${LINE}`,
+              background: mobileOpen ? '#F2F6FE' : 'transparent',
+              color: mobileOpen ? CONNECT_INK : INK,
             }}
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -238,18 +243,18 @@ export default function Navbar() {
             <AnimatePresence mode="wait">
               {mobileOpen ? (
                 <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                  <X size={18} />
+                  <X size={19} />
                 </motion.div>
               ) : (
                 <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                  <Menu size={18} />
+                  <Menu size={19} />
                 </motion.div>
               )}
             </AnimatePresence>
           </button>
         </nav>
 
-        <GoldRule />
+        <BrandRule />
       </motion.header>
 
       {/* Mobile menu */}
@@ -260,47 +265,44 @@ export default function Navbar() {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed inset-x-0 top-20 z-40 overflow-hidden lg:hidden"
+            className="fixed inset-x-0 z-40 overflow-hidden xl:hidden"
             style={{
-              borderBottom: '1px solid rgba(201,168,76,0.12)',
-              background: 'rgba(7,7,8,0.98)',
-              backdropFilter: 'blur(24px)',
-              maxHeight: 'calc(100dvh - 5rem)',
+              top: '4.5rem',
+              borderBottom: `1px solid ${LINE}`,
+              background: '#FFFFFF',
+              maxHeight: 'calc(100dvh - 4.5rem)',
+              boxShadow: '0 18px 44px rgba(22,35,58,0.12)',
             }}
           >
-            <div className="overflow-y-auto px-6 pb-8 pt-4">
-              <ul className="flex flex-col" style={{ borderTop: '1px solid rgba(201,168,76,0.06)' }}>
+            <div className="overflow-y-auto px-6 pb-8 pt-2">
+              <ul className="flex flex-col">
                 {NAV_LINKS.map((link, i) => (
                   <motion.li
                     key={link.href}
                     initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.06 + 0.1, duration: 0.3 }}
-                    style={{ borderBottom: '1px solid rgba(201,168,76,0.06)' }}
+                    transition={{ delay: i * 0.05 + 0.08, duration: 0.28 }}
+                    style={{ borderBottom: `1px solid ${LINE}` }}
                   >
                     <Link
                       href={link.href}
                       onClick={closeMobile}
-                      className="flex items-center justify-between py-4 transition-colors duration-150"
-                      style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: '1.25rem', letterSpacing: '0.1em', color: '#A8A29E' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A84C')}
-                      onMouseLeave={(e) => (e.currentTarget.style.color = '#A8A29E')}
+                      className="flex items-center justify-between py-3.5 transition-colors duration-150"
+                      style={{ fontFamily: DISPLAY, fontWeight: 800, fontSize: '1.2rem', color: INK }}
                     >
-                      {link.label.toUpperCase()}
-                      <ArrowUpRight size={16} style={{ opacity: 0.4 }} />
+                      {link.label}
+                      <ArrowUpRight size={16} style={{ color: SUBTLE }} />
                     </Link>
 
                     {link.dropdown && (
-                      <ul className="mb-3 ml-2 space-y-1 pl-4" style={{ borderLeft: '1px solid rgba(201,168,76,0.12)' }}>
+                      <ul className="mb-3 ml-1 space-y-1 pl-4" style={{ borderLeft: `2px solid ${LINE}` }}>
                         {link.dropdown.map((sub) => (
                           <li key={sub.href}>
                             <Link
                               href={sub.href}
                               onClick={closeMobile}
-                              className="block py-1.5 text-xs transition-colors"
-                              style={{ color: '#6B6664' }}
-                              onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A84C')}
-                              onMouseLeave={(e) => (e.currentTarget.style.color = '#6B6664')}
+                              className="block py-1.5 text-sm transition-colors"
+                              style={{ color: BODY }}
                             >
                               {sub.label}
                             </Link>
@@ -313,22 +315,16 @@ export default function Navbar() {
               </ul>
 
               <div className="mt-6 flex flex-col gap-3">
-                <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.32 }}>
-                  <Link href="/partner" onClick={closeMobile} className="btn-gold w-full justify-center">
-                    Partner Now <ArrowUpRight size={14} />
+                <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
+                  <Link href="/partner" onClick={closeMobile} className="btn-primary w-full justify-center">
+                    Partner with us <ArrowUpRight size={14} />
                   </Link>
                 </motion.div>
               </div>
 
-              <motion.p
-                className="label-eyebrow mt-8 text-center"
-                style={{ opacity: 0.3 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.3 }}
-                transition={{ delay: 0.45 }}
-              >
+              <p className="label-eyebrow mt-8 text-center" style={{ color: SUBTLE }}>
                 Free curriculum · K–12 · California 501(c)(3)
-              </motion.p>
+              </p>
             </div>
           </motion.div>
         )}

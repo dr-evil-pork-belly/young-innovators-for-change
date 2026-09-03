@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import {
   Page, Hero, Section, Eyebrow, Title, FadeIn, Card,
-  WHITE, MUTED, SLATE_3, GOLD, GOLD_L, ROYAL_L, GREEN_L, DISPLAY,
+  WHITE, MUTED, SLATE_3, GOLD, GOLD_L, ROYAL, ROYAL_L, GREEN_L, DISPLAY,
 } from '@/components/kit';
 import {
   PATHWAY, NOT_AN_MBA, OPT_IN, RESEARCH, MBA_COST, FOUNDER,
@@ -22,10 +22,10 @@ const BODY: React.CSSProperties = {
 };
 
 const STATUS_STYLE: Record<Status, { fg: string; bg: string; bd: string; icon: React.ElementType }> = {
-  published: { fg: GREEN_L, bg: 'rgba(52,211,153,0.10)', bd: 'rgba(52,211,153,0.32)', icon: CheckCircle },
-  designed:  { fg: GOLD_L,  bg: 'rgba(232,201,79,0.09)', bd: 'rgba(232,201,79,0.28)',  icon: PenTool },
-  planned:   { fg: ROYAL_L, bg: 'rgba(59,130,246,0.07)', bd: 'rgba(59,130,246,0.22)',  icon: MapIcon },
-  'n/a':     { fg: SLATE_3, bg: 'transparent',           bd: 'rgba(148,163,184,0.10)', icon: Minus },
+  published: { fg: GREEN_L, bg: 'rgba(23,166,124,0.10)', bd: 'rgba(23,166,124,0.32)', icon: CheckCircle },
+  designed:  { fg: GOLD_L,  bg: 'rgba(255,196,77,0.09)', bd: 'rgba(255,196,77,0.28)',  icon: PenTool },
+  planned:   { fg: ROYAL,   bg: 'rgba(45,91,227,0.07)', bd: 'rgba(45,91,227,0.22)',  icon: MapIcon },
+  'n/a':     { fg: SLATE_3, bg: 'transparent',           bd: 'rgba(90,104,128,0.10)', icon: Minus },
 };
 
 function StatusChip({ status }: { status: Status }) {
@@ -47,11 +47,11 @@ function Rung({ s }: { s: PathwayStage }) {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'minmax(150px, 190px) 1fr',
       gap: 'clamp(1rem, 3vw, 2rem)', padding: '1.35rem 0',
-      borderTop: '1px solid rgba(37,99,235,0.1)' }}>
+      borderTop: '1px solid rgba(45,91,227,0.1)' }}>
       <div>
-        <p style={{ fontFamily: DISPLAY, fontSize: '1.65rem', letterSpacing: '0.03em',
-          color: s.status === 'published' ? WHITE : MUTED, lineHeight: 1, marginBottom: '0.5rem' }}>
-          {s.grade.toUpperCase()}
+        <p style={{ fontFamily: DISPLAY, fontSize: '1.65rem', letterSpacing: '-0.01em',
+          color: s.status === 'published' ? WHITE : MUTED, lineHeight: 1.06, marginBottom: '0.5rem' }}>
+          {s.grade}
         </p>
         <StatusChip status={s.status} />
         {s.book && (
@@ -84,10 +84,10 @@ function Rung({ s }: { s: PathwayStage }) {
 }
 
 function CitationCard({ c }: { c: Citation }) {
-  const accent = c.countervailing ? '#FDA29B' : ROYAL_L;
+  const accent = c.countervailing ? '#B42318' : ROYAL_L;
   return (
-    <div style={{ background: 'rgba(15,23,42,0.65)',
-      border: `1px solid ${c.countervailing ? 'rgba(253,162,155,0.28)' : 'rgba(37,99,235,0.14)'}`,
+    <div style={{ background: '#FFFFFF',
+      border: `1px solid ${c.countervailing ? 'rgba(180,35,24,0.28)' : 'rgba(45,91,227,0.14)'}`,
       borderRadius: '4px', padding: '1.5rem 1.7rem', height: '100%' }}>
       {c.countervailing && (
         <p style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.62rem',
@@ -134,8 +134,8 @@ export default function PathwayUi() {
       <Hero
         eyebrow="The pathway · Grades 3 to 12"
         accent={GOLD_L}
-        title={<>THE SAME IDEAS.<br />TEN YEARS INSTEAD<br />
-          <span style={{ color: GOLD_L }}>OF TWO. NO TUITION.</span></>}
+        title={<>The same ideas.<br />Ten years instead<br />
+          <span style={{ color: GOLD_L }}>of two. No tuition.</span></>}
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
@@ -167,7 +167,7 @@ export default function PathwayUi() {
           <FadeIn>
             <Eyebrow color={GOLD_L}>Before anything else</Eyebrow>
             <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">
-              {written} OF {total} YEARS<br />ARE ACTUALLY<br />WRITTEN.
+              {written} OF {total} YEARS<br />Are actually<br />written.
             </Title>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -192,7 +192,7 @@ export default function PathwayUi() {
           gap: 'clamp(2rem, 5vw, 4rem)', alignItems: 'start' }}>
           <FadeIn>
             <Eyebrow>Where the idea comes from</Eyebrow>
-            <Title size="clamp(1.9rem, 4vw, 3.2rem)">TWO YEARS IS NOT<br />HOW LONG IT TAKES<br />TO UNDERSTAND IT.</Title>
+            <Title size="clamp(1.9rem, 4vw, 3.2rem)">Two years is not<br />how long it takes<br />to understand it.</Title>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p style={BODY}>
@@ -237,7 +237,7 @@ export default function PathwayUi() {
       <Section tinted>
         <FadeIn style={{ marginBottom: '2rem' }}>
           <Eyebrow color={GOLD}>The ladder</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">ONE IDEA A YEAR,<br />FOR TEN YEARS.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">One idea a year,<br />for ten years.</Title>
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '64ch',
             marginTop: '1rem' }}>
             Each row is a school year, what a student does in it, and the graduate course that
@@ -248,7 +248,7 @@ export default function PathwayUi() {
         </FadeIn>
 
         <div style={{ overflowX: 'auto', paddingBottom: '0.5rem' }}>
-          <div style={{ minWidth: '600px', borderBottom: '1px solid rgba(37,99,235,0.1)' }}>
+          <div style={{ minWidth: '600px', borderBottom: '1px solid rgba(45,91,227,0.1)' }}>
             {PATHWAY.map((s, i) => (
               <FadeIn key={s.grade} delay={Math.min(i * 0.04, 0.3)}><Rung s={s} /></FadeIn>
             ))}
@@ -272,8 +272,8 @@ export default function PathwayUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: 'clamp(2rem, 5vw, 3.5rem)', alignItems: 'start' }}>
           <FadeIn>
-            <Eyebrow color="#FDA29B">Say it before someone else does</Eyebrow>
-            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">THIS IS NOT<br />AN MBA.</Title>
+            <Eyebrow color="#B42318">Say it before someone else does</Eyebrow>
+            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">This is not<br />an MBA.</Title>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '52ch',
               marginTop: '1rem' }}>
               There is a version of this page that ends with a student graduating high school
@@ -286,7 +286,7 @@ export default function PathwayUi() {
               flexDirection: 'column', gap: '0.9rem' }}>
               {NOT_AN_MBA.map((x) => (
                 <li key={x} style={{ display: 'flex', gap: '0.7rem', alignItems: 'flex-start' }}>
-                  <XCircle size={15} color="#FDA29B" style={{ flexShrink: 0, marginTop: '3px' }} />
+                  <XCircle size={15} color="#B42318" style={{ flexShrink: 0, marginTop: '3px' }} />
                   <span style={{ fontSize: '0.88rem', lineHeight: 1.7, color: MUTED }}>{x}</span>
                 </li>
               ))}
@@ -306,7 +306,7 @@ export default function PathwayUi() {
       <Section tinted accent={GOLD}>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GOLD_L}>How a student gets in</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">NOBODY CAN BE<br />MADE TO WANT THIS.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">Nobody can be<br />made to want this.</Title>
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '64ch',
             marginTop: '1rem' }}>
             The pathway is offered, never required, and that is a design constraint rather
@@ -328,7 +328,7 @@ export default function PathwayUi() {
         </div>
         <FadeIn delay={0.3}>
           <div style={{ marginTop: '1.5rem', padding: '1.5rem 1.75rem',
-            background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(201,168,76,0.2)',
+            background: '#FFFFFF', border: '1px solid rgba(255,122,61,0.2)',
             borderRadius: '4px', maxWidth: '76ch' }}>
             <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, margin: 0 }}>
               The honest risk in an opt-in design is that the students who opt in are the ones
@@ -347,7 +347,7 @@ export default function PathwayUi() {
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GREEN_L}>The research this leans on</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">INCLUDING THE PAPER<br />THAT SAYS WE ARE<br />PROBABLY WRONG.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">Including the paper<br />that says we are<br />probably wrong.</Title>
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '66ch',
             marginTop: '1rem' }}>
             None of the work below evaluates our curriculum. It is the published literature on
@@ -380,11 +380,11 @@ export default function PathwayUi() {
       <Section tinted>
         <FadeIn>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            flexWrap: 'wrap', gap: '1.5rem', padding: '2rem 2.5rem', background: 'rgba(30,41,59,0.6)',
-            border: '1px solid rgba(201,168,76,0.18)', borderRadius: '4px' }}>
+            flexWrap: 'wrap', gap: '1.5rem', padding: '2rem 2.5rem', background: '#FFFFFF',
+            border: '1px solid rgba(255,122,61,0.18)', borderRadius: '4px' }}>
             <div>
-              <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '0.02em',
-                color: WHITE, marginBottom: '0.4rem' }}>TEN YEARS STARTS WITH ONE.</p>
+              <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
+                color: WHITE, marginBottom: '0.4rem' }}>Ten years starts with one.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '56ch' }}>
                 {written} of the {total} years are finished and free to download. The fastest
                 way to find out whether any of this holds up is for one teacher to run one of

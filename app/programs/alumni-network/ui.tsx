@@ -84,8 +84,8 @@ export default function AlumniUi() {
       <Hero
         eyebrow="After the program"
         accent={GOLD_L}
-        title={<>NOBODY HAS<br />GRADUATED YET.<br />
-          <span style={{ color: GOLD_L }}>THIS IS THE PROMISE.</span></>}
+        title={<>Nobody has<br />graduated yet.<br />
+          <span style={{ color: GOLD_L }}>This is the promise.</span></>}
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
@@ -110,7 +110,7 @@ export default function AlumniUi() {
       <Section tinted>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GREEN_L}>Fixed in advance</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.2rem)">FIVE THINGS THAT<br />WILL NOT CHANGE.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.2rem)">Five things that<br />will not change.</Title>
           <p style={{ fontSize: '0.92rem', lineHeight: 1.8, color: MUTED, maxWidth: '66ch',
             marginTop: '1rem' }}>
             These are written as commitments rather than intentions, which means we expect to be
@@ -127,7 +127,7 @@ export default function AlumniUi() {
                 <div style={{ display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
                   gap: 'clamp(1rem, 3vw, 2.5rem)', padding: 'clamp(1.25rem, 3vw, 1.75rem)',
-                  background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(37,99,235,0.13)',
+                  background: '#FFFFFF', border: '1px solid rgba(45,91,227,0.13)',
                   borderRadius: '4px', borderLeft: `2px solid ${c.accent}` }}>
                   <div style={{ display: 'flex', gap: '0.9rem', alignItems: 'flex-start' }}>
                     <div style={{ width: '34px', height: '34px', flexShrink: 0, borderRadius: '3px',
@@ -136,9 +136,9 @@ export default function AlumniUi() {
                       color: c.accent }}>
                       <Icon size={15} />
                     </div>
-                    <h3 style={{ fontFamily: DISPLAY, fontSize: '1.4rem', letterSpacing: '0.03em',
+                    <h3 style={{ fontFamily: DISPLAY, fontSize: '1.4rem', letterSpacing: '-0.01em',
                       lineHeight: 1.05, color: WHITE, paddingTop: '3px' }}>
-                      {c.t.toUpperCase()}
+                      {c.t}
                     </h3>
                   </div>
                   <p style={{ fontSize: '0.88rem', lineHeight: 1.85, color: MUTED }}>{c.d}</p>
@@ -155,7 +155,7 @@ export default function AlumniUi() {
           gap: 'clamp(2rem, 5vw, 4rem)', alignItems: 'start' }}>
           <FadeIn>
             <Eyebrow color={GOLD}>The other half</Eyebrow>
-            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">WHAT WE ARE<br />NOT PROMISING.</Title>
+            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">What we are<br />not promising.</Title>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '52ch',
               marginTop: '1rem' }}>
               Every item below is something organizations at our stage routinely imply and
@@ -181,7 +181,7 @@ export default function AlumniUi() {
       <Section tinted accent={GOLD}>
         <FadeIn style={{ marginBottom: '2.25rem' }}>
           <Eyebrow color={ROYAL_L}>Intended, not built</Eyebrow>
-          <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">WHAT WE WANT<br />THIS TO BECOME.</Title>
+          <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">What we want<br />this to become.</Title>
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '62ch',
             marginTop: '1rem' }}>
             Design intent, written down so it can be argued with. None of it exists, and none of
@@ -208,7 +208,7 @@ export default function AlumniUi() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             flexWrap: 'wrap', gap: '1.75rem' }}>
             <div style={{ maxWidth: '60ch' }}>
-              <Title size="clamp(1.6rem, 3.2vw, 2.5rem)">THE WAY TO MAKE<br />THIS PAGE REAL.</Title>
+              <Title size="clamp(1.6rem, 3.2vw, 2.5rem)">The way to make<br />this page real.</Title>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginTop: '1rem' }}>
                 One classroom, one year, one teacher willing to go first. Everything on this page
                 stays hypothetical until that happens, and the Grade 2 mathematics course is

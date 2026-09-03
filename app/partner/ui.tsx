@@ -22,12 +22,15 @@ import {
 import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
 
 // ─── Tokens ───────────────────────────────────────────────────────────────────
-const ROYAL_L = '#3B82F6';
-const ROYAL_D = '#1D4ED8';
-const SLATE   = '#0F172A';
-const SLATE_3 = '#334155';
-const MUTED   = '#94A3B8';
-const WHITE   = '#F8FAFC';
+// From the kit, not redeclared here.
+import { INK, PAPER, BODY, SUBTLE, CONNECT, CONNECT_INK } from '@/components/kit';
+
+const ROYAL_L = CONNECT;
+const ROYAL_D = CONNECT_INK;
+const SLATE   = PAPER;
+const SLATE_3 = SUBTLE;
+const MUTED   = BODY;
+const WHITE   = INK;
 
 // ─── Variants ─────────────────────────────────────────────────────────────────
 const fadeUp: Variants = {
@@ -200,8 +203,8 @@ function LaneCard({ lane, index }: { lane: typeof LANES[number]; index: number }
       onMouseLeave={() => setHovered(false)}
       className="relative flex flex-col"
       style={{
-        background:     hovered ? 'rgba(30,41,59,0.85)' : 'rgba(15,23,42,0.7)',
-        border:         `1px solid ${hovered ? ROYAL_L : 'rgba(37,99,235,0.18)'}`,
+        background:     hovered ? '#FFFFFF' : '#FFFFFF',
+        border:         `1px solid ${hovered ? ROYAL_L : 'rgba(45,91,227,0.18)'}`,
         borderRadius:   '4px',
         padding:        '2rem',
         transition:     'all 0.35s ease',
@@ -211,8 +214,8 @@ function LaneCard({ lane, index }: { lane: typeof LANES[number]; index: number }
     >
       <div className="mb-5 flex items-center gap-3">
         <div style={{
-          width: '40px', height: '40px', background: 'rgba(59,130,246,0.08)',
-          border: '1px solid rgba(59,130,246,0.25)', borderRadius: '3px',
+          width: '40px', height: '40px', background: 'rgba(45,91,227,0.08)',
+          border: '1px solid rgba(45,91,227,0.25)', borderRadius: '3px',
           display: 'flex', alignItems: 'center', justifyContent: 'center', color: ROYAL_L,
         }}>
           <Icon size={18} />
@@ -226,8 +229,8 @@ function LaneCard({ lane, index }: { lane: typeof LANES[number]; index: number }
       </div>
 
       <h3 style={{
-        fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: '1.75rem',
-        letterSpacing: '0.03em', color: WHITE, lineHeight: 1.05, marginBottom: '0.85rem',
+        fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: '1.75rem',
+        letterSpacing: '-0.01em', color: WHITE, lineHeight: 1.05, marginBottom: '0.85rem',
       }}>
         {lane.title}
       </h3>
@@ -256,13 +259,13 @@ function FAQItem({ faq, index }: { faq: typeof FAQS[number]; index: number }) {
   return (
     <motion.div ref={ref} variants={fadeUp} initial="hidden"
       animate={inView ? 'visible' : 'hidden'} transition={{ delay: index * 0.07 }}
-      style={{ borderBottom: '1px solid rgba(37,99,235,0.1)', overflow: 'hidden' }}
+      style={{ borderBottom: '1px solid rgba(45,91,227,0.1)', overflow: 'hidden' }}
     >
       <button onClick={() => setOpen((v) => !v)}
         className="w-full flex items-center justify-between py-5 text-left"
         style={{ background: 'none', border: 'none', cursor: 'pointer' }}
       >
-        <span style={{ fontSize: '0.95rem', fontWeight: 600, color: open ? WHITE : '#CBD5E1', transition: 'color 0.2s', paddingRight: '2rem', lineHeight: 1.5 }}>
+        <span style={{ fontSize: '0.95rem', fontWeight: 600, color: open ? ROYAL_D : WHITE, transition: 'color 0.2s', paddingRight: '2rem', lineHeight: 1.5 }}>
           {faq.q}
         </span>
         <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.25, ease: 'easeOut' }}
@@ -289,7 +292,7 @@ function RecordRow({ label, value, href }: { label: string; value: string; href?
   return (
     <div style={{
       display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-      gap: '1.5rem', padding: '0.85rem 0', borderBottom: '1px solid rgba(37,99,235,0.1)',
+      gap: '1.5rem', padding: '0.85rem 0', borderBottom: '1px solid rgba(45,91,227,0.1)',
     }}>
       <span style={{
         fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em',
@@ -317,8 +320,8 @@ function ContactForm() {
     useContactForm({ name: '', title: '', org: '', email: '', phone: '', role: '', message: '' }, 'Partner inquiry', '/partner');
 
   const inputStyle: React.CSSProperties = {
-    width: '100%', background: 'rgba(15,23,42,0.7)',
-    border: '1px solid rgba(37,99,235,0.18)', borderRadius: '3px',
+    width: '100%', background: '#FFFFFF',
+    border: '1px solid rgba(45,91,227,0.18)', borderRadius: '3px',
     padding: '0.875rem 1rem', color: WHITE, fontSize: '0.875rem',
     outline: 'none', transition: 'border-color 0.2s, box-shadow 0.2s', fontFamily: 'inherit',
   };
@@ -329,10 +332,10 @@ function ContactForm() {
   const focus = {
     onFocus: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       e.target.style.borderColor = ROYAL_L;
-      e.target.style.boxShadow   = '0 0 0 3px rgba(59,130,246,0.1)';
+      e.target.style.boxShadow   = '0 0 0 3px rgba(45,91,227,0.1)';
     },
     onBlur: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-      e.target.style.borderColor = 'rgba(37,99,235,0.18)';
+      e.target.style.borderColor = 'rgba(45,91,227,0.18)';
       e.target.style.boxShadow   = 'none';
     },
   };
@@ -341,13 +344,13 @@ function ContactForm() {
     return (
       <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
         className="flex flex-col items-center justify-center text-center"
-        style={{ background: 'rgba(15,23,42,0.7)', border: '1px solid rgba(37,99,235,0.2)', borderRadius: '4px', padding: '3rem' }}
+        style={{ background: '#FFFFFF', border: '1px solid rgba(45,91,227,0.2)', borderRadius: '4px', padding: '3rem' }}
       >
-        <div style={{ width: '56px', height: '56px', background: 'rgba(37,99,235,0.1)', border: '1px solid rgba(37,99,235,0.3)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+        <div style={{ width: '56px', height: '56px', background: 'rgba(45,91,227,0.1)', border: '1px solid rgba(45,91,227,0.3)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
           <Check size={24} color={ROYAL_L} />
         </div>
-        <h3 style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: '2rem', color: WHITE, marginBottom: '0.75rem', letterSpacing: '0.06em' }}>
-          MESSAGE SENT
+        <h3 style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: '2rem', color: WHITE, marginBottom: '0.75rem', letterSpacing: '-0.01em' }}>
+          Message sent
         </h3>
         <p style={{ fontSize: '0.9rem', color: MUTED, lineHeight: 1.7, maxWidth: '340px' }}>
           Thank you. Your message reached us and someone will read it.
@@ -362,8 +365,8 @@ function ContactForm() {
         tabIndex={-1} autoComplete="off" aria-hidden="true"
         style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }} />
       {error && (
-        <p role="alert" style={{ fontSize: '0.8rem', lineHeight: 1.6, color: '#FDA29B',
-          background: 'rgba(180,35,24,0.12)', border: '1px solid rgba(253,162,155,0.35)',
+        <p role="alert" style={{ fontSize: '0.8rem', lineHeight: 1.6, color: '#B42318',
+          background: 'rgba(180,35,24,0.12)', border: '1px solid rgba(180,35,24,0.35)',
           borderRadius: '3px', padding: '0.7rem 0.9rem' }}>{error}</p>
       )}
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -408,23 +411,20 @@ function ContactForm() {
           placeholder="Tell us what you have in mind, or what you would need to see from us."
           style={{ ...inputStyle, resize: 'vertical', minHeight: '110px' }} {...focus} />
       </div>
-      <button type="submit" disabled={loading} style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-        padding: '1rem 2rem',
-        background: loading ? 'rgba(37,99,235,0.3)' : `linear-gradient(135deg, ${ROYAL_D} 0%, ${ROYAL_L} 100%)`,
-        border: 'none', borderRadius: '3px', color: WHITE, fontSize: '0.8rem', fontWeight: 700,
-        letterSpacing: '0.12em', textTransform: 'uppercase' as const,
-        cursor: loading ? 'wait' : 'pointer', transition: 'all 0.25s ease', fontFamily: 'inherit',
-        boxShadow: loading ? 'none' : '0 4px 24px rgba(37,99,235,0.3)',
-      }}>
+      {/* The only form on the site, and it used to be the only place with its own
+          button color, its own corner radius and its own uppercase label. It is
+          the same button as every other primary action now. */}
+      <button type="submit" disabled={loading} className="btn-primary"
+        style={{ width: '100%', padding: '0.95rem 2rem',
+          opacity: loading ? 0.65 : 1, cursor: loading ? 'wait' : 'pointer' }}>
         {loading ? (
           <>
             <motion.div animate={{ rotate: 360 }} transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
-              style={{ width: 14, height: 14, border: '2px solid rgba(255,255,255,0.3)', borderTopColor: WHITE, borderRadius: '50%' }} />
+              style={{ width: 14, height: 14, border: '2px solid rgba(255,255,255,0.35)', borderTopColor: '#FFFFFF', borderRadius: '50%' }} />
             Sending...
           </>
         ) : (
-          <>Send Message <Send size={13} /></>
+          <>Send message <Send size={14} /></>
         )}
       </button>
       <p style={{ fontSize: '0.7rem', color: SLATE_3, textAlign: 'center', lineHeight: 1.6 }}>
@@ -444,19 +444,19 @@ export default function PartnerPage() {
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ paddingTop: '8rem', paddingBottom: '5rem' }}>
         <div className="absolute inset-0 pointer-events-none">
-          <div style={{ position: 'absolute', top: '-20%', left: '-10%', width: '55%', height: '80%', background: 'radial-gradient(ellipse, rgba(37,99,235,0.14) 0%, transparent 70%)' }} />
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(37,99,235,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.03) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
+          <div style={{ position: 'absolute', top: '-20%', left: '-10%', width: '55%', height: '80%', background: 'radial-gradient(ellipse, rgba(45,91,227,0.14) 0%, transparent 70%)' }} />
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(45,91,227,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(45,91,227,0.03) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
         </div>
         <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
           <motion.div variants={stagger} initial="hidden" animate="visible">
             <motion.div variants={fadeUp} className="mb-5 flex items-center gap-3">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.375rem 0.875rem', background: 'rgba(37,99,235,0.1)', border: '1px solid rgba(37,99,235,0.25)', borderRadius: '2px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.375rem 0.875rem', background: 'rgba(45,91,227,0.1)', border: '1px solid rgba(45,91,227,0.25)', borderRadius: '2px' }}>
                 <Users size={11} color={ROYAL_L} />
                 <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' as const, color: ROYAL_L }}>Partner With Us</span>
               </div>
             </motion.div>
-            <motion.h1 variants={fadeUp} style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 'clamp(3rem, 7vw, 6.5rem)', lineHeight: 0.92, letterSpacing: '0.02em', color: WHITE, marginBottom: '1.5rem', maxWidth: '980px' }}>
-              THE CURRICULUM IS WRITTEN. <span style={{ color: ROYAL_L }}>THE EVIDENCE IS NOT.</span>
+            <motion.h1 variants={fadeUp} style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: 'clamp(3rem, 7vw, 6.5rem)', lineHeight: 1.06, letterSpacing: '-0.01em', color: WHITE, marginBottom: '1.5rem', maxWidth: '980px' }}>
+              The curriculum is written. <span style={{ color: ROYAL_L }}>The evidence is not.</span>
             </motion.h1>
             <motion.p variants={fadeUp} style={{ fontSize: '1.05rem', lineHeight: 1.75, color: MUTED, maxWidth: '620px', marginBottom: '2.5rem' }}>
               {spellOut(PUBLISHED_YEARS.length)} finished school years, {PUBLISHED_WEEKS} weeks of material, free to anyone who wants them, and teachers already using them. What we cannot show you is one measured classroom, because no program with a roster has run and nothing has been evaluated. That is the honest position, and it is the thing we are trying to change.
@@ -479,8 +479,8 @@ export default function PartnerPage() {
       <section className="mx-auto max-w-7xl px-6 pb-24 lg:px-12">
         <Reveal className="mb-10">
           <p className="label-eyebrow mb-2" style={{ color: ROYAL_L }}>Four ways in</p>
-          <h2 style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: WHITE, lineHeight: 1, letterSpacing: '0.03em' }}>
-            WHAT WOULD ACTUALLY HELP
+          <h2 style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: WHITE, lineHeight: 1.06, letterSpacing: '-0.01em' }}>
+            What would actually help
           </h2>
         </Reveal>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-stretch">
@@ -490,13 +490,13 @@ export default function PartnerPage() {
 
       {/* What we are not claiming */}
       {NOT_CLAIMING.length > 0 && (
-        <section style={{ background: 'rgba(15,23,42,0.6)', borderTop: '1px solid rgba(37,99,235,0.1)', borderBottom: '1px solid rgba(37,99,235,0.1)' }}>
+        <section style={{ background: '#FFFFFF', borderTop: '1px solid rgba(45,91,227,0.1)', borderBottom: '1px solid rgba(45,91,227,0.1)' }}>
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
             <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
               <Reveal>
                 <p className="label-eyebrow mb-3" style={{ color: ROYAL_L }}>Read this first</p>
-                <h2 style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 'clamp(2rem, 4vw, 3rem)', color: WHITE, lineHeight: 0.95, letterSpacing: '0.03em', marginBottom: '1rem' }}>
-                  WHAT WE ARE NOT CLAIMING.
+                <h2 style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: 'clamp(2rem, 4vw, 3rem)', color: WHITE, lineHeight: 1.06, letterSpacing: '-0.01em', marginBottom: '1rem' }}>
+                  What we are not claiming.
                 </h2>
                 <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED, maxWidth: '38ch' }}>
                   A funder who finds one inflated claim rereads every other claim differently, including the true ones. So this list comes before the pitch rather than after it.
@@ -508,7 +508,7 @@ export default function PartnerPage() {
                     <li key={line} className="flex items-start gap-3">
                       <div style={{
                         width: '18px', height: '18px', flexShrink: 0, marginTop: '3px',
-                        border: '1px solid rgba(37,99,235,0.3)', background: 'rgba(37,99,235,0.08)',
+                        border: '1px solid rgba(45,91,227,0.3)', background: 'rgba(45,91,227,0.08)',
                         borderRadius: '2px', display: 'flex', alignItems: 'center', justifyContent: 'center',
                         color: ROYAL_L, fontSize: '0.7rem', fontWeight: 700, lineHeight: 1,
                       }} aria-hidden="true">
@@ -530,8 +530,8 @@ export default function PartnerPage() {
           <div>
             <Reveal>
               <p className="label-eyebrow mb-3" style={{ color: ROYAL_L }}>Check us</p>
-              <h2 style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 'clamp(2rem, 4vw, 3rem)', color: WHITE, lineHeight: 0.95, letterSpacing: '0.03em', marginBottom: '1rem' }}>
-                THE PUBLIC RECORD.
+              <h2 style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: 'clamp(2rem, 4vw, 3rem)', color: WHITE, lineHeight: 1.06, letterSpacing: '-0.01em', marginBottom: '1rem' }}>
+                The public record.
               </h2>
               {taxLine() && (
                 <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED, marginBottom: '1.5rem', maxWidth: '46ch' }}>
@@ -543,7 +543,7 @@ export default function PartnerPage() {
                   {badges.map((label) => (
                     <span key={label} style={{
                       display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                      background: 'rgba(30,41,59,0.5)', border: '1px solid rgba(37,99,235,0.15)',
+                      background: '#FFFFFF', border: '1px solid rgba(45,91,227,0.15)',
                       borderRadius: '2px', padding: '0.45rem 0.7rem',
                       fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.06em',
                       textTransform: 'uppercase' as const, color: MUTED,
@@ -556,7 +556,7 @@ export default function PartnerPage() {
             </Reveal>
           </div>
           <Reveal delay={0.1}>
-            <div style={{ background: 'rgba(15,23,42,0.7)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '4px', padding: '1.75rem 2rem' }}>
+            <div style={{ background: '#FFFFFF', border: '1px solid rgba(45,91,227,0.15)', borderRadius: '4px', padding: '1.75rem 2rem' }}>
               <div className="mb-3 flex items-center gap-2">
                 <FileText size={13} color={ROYAL_L} />
                 <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: ROYAL_L }}>
@@ -580,21 +580,21 @@ export default function PartnerPage() {
       </section>
 
       {/* Form + FAQ */}
-      <section id="contact" style={{ background: 'rgba(15,23,42,0.6)', borderTop: '1px solid rgba(37,99,235,0.1)' }}>
+      <section id="contact" style={{ background: '#FFFFFF', borderTop: '1px solid rgba(45,91,227,0.1)' }}>
         <div className="mx-auto max-w-7xl px-6 py-28 lg:px-12">
           <div className="grid grid-cols-1 gap-20 lg:grid-cols-2">
             <div>
               <Reveal>
                 <p className="label-eyebrow mb-3" style={{ color: ROYAL_L }}>Get in touch</p>
-                <h2 style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 'clamp(2rem, 4vw, 3rem)', color: WHITE, lineHeight: 0.95, letterSpacing: '0.03em', marginBottom: '0.75rem' }}>
-                  START THE CONVERSATION.
+                <h2 style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: 'clamp(2rem, 4vw, 3rem)', color: WHITE, lineHeight: 1.06, letterSpacing: '-0.01em', marginBottom: '0.75rem' }}>
+                  Start the conversation.
                 </h2>
                 <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED, marginBottom: '2rem' }}>
                   Whether you run a classroom, a foundation, or neither, this form reaches us directly. Tell us what you would need to see and we will send it if it exists, or say so if it does not.
                 </p>
               </Reveal>
               <Reveal delay={0.1}>
-                <div style={{ background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '4px', padding: '2rem', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ background: '#FFFFFF', border: '1px solid rgba(45,91,227,0.15)', borderRadius: '4px', padding: '2rem', position: 'relative', overflow: 'hidden' }}>
                   <div className="absolute inset-x-0 top-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${ROYAL_L}, transparent)` }} />
                   <ContactForm />
                 </div>
@@ -603,15 +603,15 @@ export default function PartnerPage() {
             <div>
               <Reveal>
                 <p className="label-eyebrow mb-3" style={{ color: ROYAL_L }}>Common questions</p>
-                <h2 style={{ fontFamily: "'Bebas Neue', Impact, sans-serif", fontSize: 'clamp(2rem, 4vw, 3rem)', color: WHITE, lineHeight: 0.95, letterSpacing: '0.03em', marginBottom: '0.75rem' }}>
-                  THE THINGS PEOPLE ASK.
+                <h2 style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: 'clamp(2rem, 4vw, 3rem)', color: WHITE, lineHeight: 1.06, letterSpacing: '-0.01em', marginBottom: '0.75rem' }}>
+                  The things people ask.
                 </h2>
                 <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED, marginBottom: '2rem' }}>
                   Including the two that are least comfortable to answer.
                 </p>
               </Reveal>
               <Reveal delay={0.1}>
-                <div style={{ borderTop: '1px solid rgba(37,99,235,0.1)' }}>
+                <div style={{ borderTop: '1px solid rgba(45,91,227,0.1)' }}>
                   {FAQS.map((faq, i) => <FAQItem key={i} faq={faq} index={i} />)}
                 </div>
               </Reveal>

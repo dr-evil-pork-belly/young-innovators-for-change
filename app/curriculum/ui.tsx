@@ -2,11 +2,11 @@
 
 import Link from 'next/link';
 import {
-  ArrowUpRight, CheckCircle, PenTool, Map as MapIcon, Minus, Download,
+  ArrowUpRight, CheckCircle, PenTool, Map as MapIcon, Minus,
 } from 'lucide-react';
 import {
-  Page, Hero, Section, Eyebrow, Title, FadeIn, Card, Container,
-  WHITE, MUTED, SLATE_3, GOLD, GOLD_L, ROYAL_L, GREEN_L, DISPLAY,
+  Page, Hero, Section, Eyebrow, Title, FadeIn, Card,
+  WHITE, MUTED, SLATE_3, GOLD, GOLD_L, ROYAL, ROYAL_L, GREEN_L, DISPLAY,
 } from '@/components/kit';
 import {
   CURRICULUM, GRADE_BANDS, STATUS_LABEL, countByStatus, AVAILABLE_NOW, spellOut,
@@ -15,22 +15,22 @@ import {
 import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
 
 const STATUS_STYLE: Record<Status, { fg: string; bg: string; bd: string; icon: React.ElementType | null }> = {
-  published: { fg: GREEN_L, bg: 'rgba(52,211,153,0.10)', bd: 'rgba(52,211,153,0.32)', icon: CheckCircle },
-  designed:  { fg: GOLD_L,  bg: 'rgba(232,201,79,0.09)', bd: 'rgba(232,201,79,0.28)',  icon: PenTool },
-  planned:   { fg: ROYAL_L, bg: 'rgba(59,130,246,0.07)', bd: 'rgba(59,130,246,0.22)',  icon: MapIcon },
-  'n/a':     { fg: SLATE_3, bg: 'transparent',           bd: 'rgba(148,163,184,0.10)', icon: Minus },
+  published: { fg: GREEN_L, bg: 'rgba(23,166,124,0.10)', bd: 'rgba(23,166,124,0.32)', icon: CheckCircle },
+  designed:  { fg: GOLD_L,  bg: 'rgba(255,196,77,0.09)', bd: 'rgba(255,196,77,0.28)',  icon: PenTool },
+  planned:   { fg: ROYAL,   bg: 'rgba(45,91,227,0.07)', bd: 'rgba(45,91,227,0.22)',  icon: MapIcon },
+  'n/a':     { fg: SLATE_3, bg: 'transparent',           bd: 'rgba(90,104,128,0.10)', icon: Minus },
 };
 
 /**
- * The hero reads "FIVE SUBJECTS. TWELVE GRADES. N YEARS FINISHED." and the
+ * The hero reads "Five subjects. Twelve grades. N years finished." and the
  * first two are words, so the third has to be. It is still derived: the count
  * comes from the generated list of published books, this only spells it.
  *
  * This used to keep its own word list, which stopped at twelve and so rendered
- * "13 YEARS FINISHED" the day the thirteenth book shipped. It now shares
+ * "13 years finished" the day the thirteenth book shipped. It now shares
  * spellOut() with the rest of the site, so there is one list to extend.
  */
-const spell = (n: number) => spellOut(n).toUpperCase();
+const spell = (n: number) => spellOut(n);
 
 function Cell({ status, note }: { status: Status; note?: string }) {
   const st = STATUS_STYLE[status];
@@ -62,9 +62,9 @@ function StrandRow({ s }: { s: Strand }) {
           color: s.track === 'Academics' ? ROYAL_L : GOLD, marginBottom: '0.25rem' }}>
           {s.track}
         </p>
-        <h3 style={{ fontFamily: DISPLAY, fontSize: '1.5rem', letterSpacing: '0.03em',
-          color: WHITE, lineHeight: 1, marginBottom: '0.45rem' }}>
-          {s.name.toUpperCase()}
+        <h3 style={{ fontFamily: DISPLAY, fontSize: '1.5rem', letterSpacing: '-0.01em',
+          color: WHITE, lineHeight: 1.06, marginBottom: '0.45rem' }}>
+          {s.name}
         </h3>
         <p style={{ fontSize: '0.76rem', lineHeight: 1.6, color: MUTED }}>{s.blurb}</p>
       </div>
@@ -82,8 +82,8 @@ export default function CurriculumUi() {
     <Page>
       <Hero
         eyebrow="Curriculum scope & status"
-        title={<>FIVE SUBJECTS.<br />TWELVE GRADES.<br />
-          <span style={{ color: GOLD_L }}>{spell(PUBLISHED_YEARS.length)} YEARS FINISHED.</span></>}
+        title={<>Five subjects.<br />Twelve grades.<br />
+          <span style={{ color: GOLD_L }}>{spell(PUBLISHED_YEARS.length)} years finished.</span></>}
         accent={GOLD_L}
         lede={
           <>
@@ -121,7 +121,7 @@ export default function CurriculumUi() {
                 <div>
                   <Icon size={17} color={x.c} />
                   <div style={{ fontFamily: DISPLAY, fontSize: 'clamp(2.2rem, 4vw, 3.2rem)',
-                    lineHeight: 1, color: x.c, marginTop: '0.5rem' }}>{x.n}</div>
+                    lineHeight: 1.06, color: x.c, marginTop: '0.5rem' }}>{x.n}</div>
                   <div style={{ fontSize: '0.85rem', fontWeight: 700, color: WHITE }}>
                     {x.l} <span style={{ color: MUTED, fontWeight: 400 }}>grade bands</span>
                   </div>
@@ -137,7 +137,7 @@ export default function CurriculumUi() {
       <Section>
         <FadeIn style={{ marginBottom: '2rem' }}>
           <Eyebrow>The map</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">EVERY SUBJECT,<br />EVERY GRADE BAND.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">Every subject,<br />every grade band.</Title>
         </FadeIn>
 
         <div style={{ overflowX: 'auto', paddingBottom: '0.5rem' }}>
@@ -180,7 +180,7 @@ export default function CurriculumUi() {
       <Section tinted>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GOLD}>How it fits together</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">TWO TRACKS.<br />ONE ARGUMENT.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">Two tracks.<br />One argument.</Title>
         </FadeIn>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
@@ -190,9 +190,9 @@ export default function CurriculumUi() {
                 textTransform: 'uppercase' as const, color: ROYAL_L, marginBottom: '0.6rem' }}>
                 Academics · Grades 1–12
               </p>
-              <h3 style={{ fontFamily: DISPLAY, fontSize: '1.9rem', letterSpacing: '0.03em',
-                color: WHITE, lineHeight: 1, marginBottom: '0.9rem' }}>
-                MATHEMATICS &amp; SCIENCE
+              <h3 style={{ fontFamily: DISPLAY, fontSize: '1.9rem', letterSpacing: '-0.01em',
+                color: WHITE, lineHeight: 1.06, marginBottom: '0.9rem' }}>
+                Mathematics &amp; science
               </h3>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
                 Weekly enrichment that runs alongside the state curriculum. Reasoning-first,
@@ -218,9 +218,9 @@ export default function CurriculumUi() {
                 textTransform: 'uppercase' as const, color: GOLD, marginBottom: '0.6rem' }}>
                 Enterprise · Grades 3–12
               </p>
-              <h3 style={{ fontFamily: DISPLAY, fontSize: '1.9rem', letterSpacing: '0.03em',
-                color: WHITE, lineHeight: 1, marginBottom: '0.9rem' }}>
-                LEADERSHIP, VENTURE &amp; MONEY
+              <h3 style={{ fontFamily: DISPLAY, fontSize: '1.9rem', letterSpacing: '-0.01em',
+                color: WHITE, lineHeight: 1.06, marginBottom: '0.9rem' }}>
+                Leadership, venture &amp; money
               </h3>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
                 In the elementary grades this runs as a full school year, one assignment a
@@ -246,8 +246,8 @@ export default function CurriculumUi() {
         </div>
 
         <FadeIn delay={0.2}>
-          <div style={{ marginTop: '1.5rem', padding: '1.5rem 1.75rem', background: 'rgba(15,23,42,0.6)',
-            border: '1px solid rgba(37,99,235,0.14)', borderRadius: '4px', maxWidth: '860px' }}>
+          <div style={{ marginTop: '1.5rem', padding: '1.5rem 1.75rem', background: '#FFFFFF',
+            border: '1px solid rgba(45,91,227,0.14)', borderRadius: '4px', maxWidth: '860px' }}>
             <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, margin: 0 }}>
               The two tracks share one idea: the material that decides how far a child gets is
               usually rationed by what their family already knows or can pay for. We write it
@@ -261,7 +261,7 @@ export default function CurriculumUi() {
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GREEN_L}>Build order</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">WHAT COMES NEXT,<br />AND WHY IN THAT ORDER.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">What comes next,<br />and why in that order.</Title>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
           {[
@@ -287,7 +287,7 @@ export default function CurriculumUi() {
           ].map((s, i) => (
             <FadeIn key={s.n} delay={i * 0.06}>
               <div style={{ borderTop: `2px solid ${s.a}`, paddingTop: '1rem', height: '100%' }}>
-                <div style={{ fontFamily: DISPLAY, fontSize: '1.7rem', color: s.a, lineHeight: 1 }}>{s.n}</div>
+                <div style={{ fontFamily: DISPLAY, fontSize: '1.7rem', color: s.a, lineHeight: 1.06 }}>{s.n}</div>
                 <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.92rem', fontWeight: 700, color: WHITE, margin: '0.5rem 0 0.4rem' }}>{s.t}</h3>
                 <p style={{ fontSize: '0.79rem', lineHeight: 1.7, color: MUTED }}>{s.d}</p>
               </div>
@@ -302,8 +302,8 @@ export default function CurriculumUi() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             flexWrap: 'wrap', gap: '1.5rem' }}>
             <div>
-              <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '0.02em',
-                color: WHITE, marginBottom: '0.4rem' }}>THIS GRID FILLS IN FASTER WITH HELP.</p>
+              <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
+                color: WHITE, marginBottom: '0.4rem' }}>This grid fills in faster with help.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '56ch' }}>
                 Curriculum writers, subject specialists and funders all move cells from planned to
                 published. So does one teacher willing to run the year that already exists.
