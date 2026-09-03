@@ -67,9 +67,10 @@ export const ORG = {
    *  reach a person without filling in a form.
    *
    *  Two separate things have to be true for a message to arrive, and they are
-   *  easy to confuse. This address must RECEIVE mail, which needs an inbox and
-   *  MX records on the root domain. The API route SENDS through Resend from
-   *  CONTACT_FROM, which needs its own records on the `send.` subdomain. Neither
+   *  easy to confuse. This address must RECEIVE mail, which is Porkbun's free
+   *  forwarding and needs MX records on the root domain. The API route SENDS
+   *  through Resend from CONTACT_FROM, which needs Resend's own records, which
+   *  Resend places on the `send.` subdomain so the two cannot collide. Neither
    *  one implies the other, and setting only the second is the state this site
    *  was in for a month. See `claude/19-contact-and-email.md`. */
   contactEmail: 'hello@innovateyouth.org',
