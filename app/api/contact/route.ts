@@ -8,15 +8,16 @@ import { ORG } from '@/content/org';
  *
  *   RESEND_API_KEY=re_...                 from resend.com (free tier is ample)
  *   CONTACT_TO=hello@innovateyouth.org    the monitored inbox
- *   CONTACT_FROM=site@send.innovateyouth.org   a verified sender on your domain
+ *   CONTACT_FROM=site@innovateyouth.org   a verified sender on your domain
  *
  * If the key is missing the route returns 503 and the form shows a real error
  * naming the address to write to instead. It never pretends to have sent
  * something it did not send: the implementation before this one faked success
  * and silently dropped every inquiry.
  *
- * The full setup sequence, including the DNS records and why CONTACT_FROM sits
- * on a `send.` subdomain, is in `claude/19-contact-and-email.md` in the project.
+ * The full setup sequence, including the DNS records and the fact that this
+ * domain's registrar and its DNS host are two different companies, is in
+ * `claude/19-contact-and-email.md` in the project.
  */
 
 export const runtime = 'nodejs';
