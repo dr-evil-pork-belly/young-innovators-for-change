@@ -104,7 +104,8 @@ export default function AboutUi() {
           </>
         }
       >
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.75rem', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.75rem', alignItems: 'center',
+          marginBottom: '1.75rem' }}>
           {[
             { icon: MapPin, label: FOUNDER.raisedIn },
             { icon: GraduationCap, label: FOUNDER.college },
@@ -115,6 +116,12 @@ export default function AboutUi() {
               <Icon size={14} color={GOLD} /> {label}
             </span>
           ))}
+        </div>
+        {/* A founder story is a page people leave from. It should hand them the
+            thing the story is about on the way out. */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
+          <Link href="/resources" className="btn-gold">Read what she built <ArrowUpRight size={14} /></Link>
+          <Link href="/governance" className="btn-ghost">Check the record <ArrowUpRight size={13} /></Link>
         </div>
       </Hero>
 
@@ -130,8 +137,9 @@ export default function AboutUi() {
             of dirt.
           </p>
           <p style={BODY}>
-            School had one thing she stayed late for. Teachers in her LAUSD elementary put out
-            board games and table games at the end of the day, and she stayed to play them, not because anyone made her, and not for a grade.
+            School had one thing she stayed late for. Teachers in her LAUSD elementary put
+            out board games at the end of the day, and she stayed to play them. Nobody made
+            her, and nothing about it was graded.
           </p>
           <div style={{ marginTop: '1.75rem', padding: '1.35rem 1.6rem',
             background: 'rgba(255,122,61,0.06)', border: '1px solid rgba(255,122,61,0.2)',

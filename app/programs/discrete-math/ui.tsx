@@ -13,7 +13,7 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
-  ArrowUpRight, ChevronRight, ChevronDown, Clock, Printer, GraduationCap,
+  ChevronRight, ChevronDown, Clock, Printer, GraduationCap,
   Lightbulb, Shapes, Sparkles, Download, Layers,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -216,11 +216,11 @@ export default function DiscreteMathLineUi() {
                   </motion.p>
 
                   <motion.div variants={fadeUp} style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-                    <Link href="#years" className="btn-gold">
-                      See the {spell(MATH_LINE.length)} years <ChevronDown size={14} />
+                    <Link href="/resources" className="btn-gold">
+                      Take all {spell(MATH_LINE.length)} years, free <Download size={14} />
                     </Link>
-                    <Link href="/resources" className="btn-ghost">
-                      Download everything <Download size={13} />
+                    <Link href="#years" className="btn-ghost">
+                      What each year teaches <ChevronDown size={13} />
                     </Link>
                   </motion.div>
                 </div>
@@ -450,8 +450,13 @@ export default function DiscreteMathLineUi() {
                 No year has been run start to finish yet, and the first teacher to do it will
                 change how every later book gets written.
               </p>
+              {/* The packet used to sit behind a contact form. It is a free PDF
+                  and a principal should be able to read it before deciding
+                  whether to talk to us at all. */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-                <Link href="/partner" className="btn-gold">Request the packet <ArrowUpRight size={14} /></Link>
+                <a href="/downloads/discrete-math-pilot-packet.pdf" className="btn-gold">
+                  Read the pilot packet <Download size={14} />
+                </a>
                 <Link href="/for-schools" className="btn-ghost">What a pilot involves <ChevronRight size={14} /></Link>
               </div>
             </FadeIn>

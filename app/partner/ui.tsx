@@ -110,18 +110,18 @@ const LANES = [
     icon:  Building2,
     label: 'Foundations and grantmakers',
     title: 'Fund the first cohorts',
-    body:  'We are pre-cohort. There are no outcome numbers to show you and we are not going to pretend otherwise. What we can show you is the curriculum, the evaluation design we have committed to, and a complete public record. Start a conversation and we will send whatever you need to assess us.',
+    body:  'We are pre-cohort. There are no outcome numbers to show you and we will not dress up the ones we do not have. What we can show you is the finished curriculum, the evaluation design we have already committed to in public, and a clean record you can pull up without asking us. Tell us what you would need to see and we will send it, or say plainly that it does not exist yet.',
     href:  '#contact',
-    cta:   'Start a conversation',
+    cta:   'Tell us what you need to see',
   },
   {
     id:    'individuals',
     icon:  Users,
     label: 'Individuals',
     title: 'Open a door',
-    body:  'The materials are free and they stay free, so there is nothing to buy. The most useful thing anyone can offer right now is an introduction to a teacher or a principal who might want to try a year of this with their students.',
+    body:  'The materials are free and they stay free, so there is nothing to buy and nothing to sponsor. The single most useful thing anyone can do right now is forward this to one teacher or one principal who might want to try a year of it.',
     href:  '#contact',
-    cta:   'Get in touch',
+    cta:   'Introduce us to someone',
   },
 ];
 
@@ -353,7 +353,8 @@ function ContactForm() {
           Message sent
         </h3>
         <p style={{ fontSize: '0.9rem', color: MUTED, lineHeight: 1.7, maxWidth: '340px' }}>
-          Thank you. Your message reached us and someone will read it.
+          Thank you. It landed in a monitored inbox, and a person reads that inbox rather than
+          an autoresponder. In the meantime, everything we have built is free to take.
         </p>
       </motion.div>
     );
@@ -458,9 +459,22 @@ export default function PartnerPage() {
             <motion.h1 variants={fadeUp} style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: 'clamp(3rem, 7vw, 6.5rem)', lineHeight: 1.06, letterSpacing: '-0.01em', color: WHITE, marginBottom: '1.5rem', maxWidth: '980px' }}>
               The curriculum is written. <span style={{ color: ROYAL_L }}>The evidence is not.</span>
             </motion.h1>
-            <motion.p variants={fadeUp} style={{ fontSize: '1.05rem', lineHeight: 1.75, color: MUTED, maxWidth: '620px', marginBottom: '2.5rem' }}>
-              {spellOut(PUBLISHED_YEARS.length)} finished school years, {PUBLISHED_WEEKS} weeks of material, free to anyone who wants them, and teachers already using them. What we cannot show you is one measured classroom, because no program with a roster has run and nothing has been evaluated. That is the honest position, and it is the thing we are trying to change.
+            <motion.p variants={fadeUp} style={{ fontSize: '1.05rem', lineHeight: 1.75, color: MUTED, maxWidth: '620px', marginBottom: '2rem' }}>
+              {spellOut(PUBLISHED_YEARS.length)} finished school years, {PUBLISHED_WEEKS} weeks of material, free to anyone who wants them, and teachers already using them. What we cannot show you is a single measured classroom, because no program with a roster has run and nothing has been evaluated. That is the honest position, and closing it is the only thing we are asking anyone for.
             </motion.p>
+            <motion.p variants={fadeUp} style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED, maxWidth: '620px', marginBottom: '2.5rem' }}>
+              So this page leads with what we are not claiming, then shows you the public record, then gives you a form. If you are doing diligence, everything you need is on the way down.
+            </motion.p>
+            {/* A funding page with no button in its hero. Diligence readers scroll;
+                the ones who already know what they want should not have to. */}
+            <motion.div variants={fadeUp} className="mb-10 flex flex-wrap items-center gap-3">
+              <Link href="#contact" className="btn-primary">
+                Write to us <ArrowUpRight size={14} />
+              </Link>
+              <Link href="/impact" className="btn-secondary">
+                See the evaluation design <ArrowUpRight size={14} />
+              </Link>
+            </motion.div>
             {HERO_FACTS.length > 0 && (
               <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-x-8 gap-y-3">
                 {HERO_FACTS.map((fact) => (
@@ -587,10 +601,10 @@ export default function PartnerPage() {
               <Reveal>
                 <p className="label-eyebrow mb-3" style={{ color: ROYAL_L }}>Get in touch</p>
                 <h2 style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: 'clamp(2rem, 4vw, 3rem)', color: WHITE, lineHeight: 1.06, letterSpacing: '-0.01em', marginBottom: '0.75rem' }}>
-                  Start the conversation.
+                  Say hello in three lines.
                 </h2>
                 <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED, marginBottom: '2rem' }}>
-                  Whether you run a classroom, a foundation, or neither, this form reaches us directly. Tell us what you would need to see and we will send it if it exists, or say so if it does not.
+                  Who you are, what you are looking at, and what would be useful. Whether you run a classroom, a foundation, or neither, this form goes to a monitored inbox rather than a ticket system. Tell us what you would need to see and we will send it if it exists, or say so if it does not.
                 </p>
               </Reveal>
               <Reveal delay={0.1}>

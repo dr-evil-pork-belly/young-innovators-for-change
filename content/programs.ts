@@ -265,7 +265,7 @@ const venture: ProgramSpec = {
     'All eight summer weeks, with the deliverable defined for each',
     'The frameworks and worksheets each week is built around',
     'The pitch structure and the feedback form',
-    'The Grade 4 and Grade 5 full-year versions, written and published in full',
+    'The Grade 4, 5 and 6 full-year versions, written and published in full',
   ],
   notYet: [
     'The printed student venture file',
@@ -281,7 +281,7 @@ const finance: ProgramSpec = {
   slug: 'financial-literacy',
   strandKey: 'finance',
   name: 'Financial Literacy',
-  eyebrow: 'Enterprise track · Grade 3, and Grades 9 to 12',
+  eyebrow: 'Enterprise track · Grades 3 to 6, and Grades 9 to 12',
   titleLines: ['THE MONEY KNOWLEDGE', 'THAT USUALLY ARRIVES', 'THROUGH A FAMILY.'],
   accent: 'green',
   lede: [
@@ -294,10 +294,13 @@ const finance: ProgramSpec = {
     + 'Its content is credit scores, interest rates and index funds, and it belongs where '
     + 'a student is close to meeting those things. It used to say Grades 3 to 12, which '
     + 'was wrong, and the page said so publicly for a month.',
-    'Financial literacy in the elementary grades is a different subject. It starts at '
-    + 'Grade 3 with The Choosing Year, a full 36-week book about a student\'s own money: '
-    + 'there is enough for one of two things, and every choice costs them the other. That '
-    + 'book is written and free to download today.',
+    'Financial literacy in the elementary grades is a different subject, and four full '
+    + 'years of it are written and free to download today. Grade 3, The Choosing Year: '
+    + 'there is enough for one of two things, and every choice costs you the other. Grade '
+    + '4, The Planning Year: decide before you spend rather than while you are spending. '
+    + 'Grade 5, The Keeping Year: a price is what you pay once, a cost is what it keeps '
+    + 'costing. Grade 6, The Asking Year: the numbers other people put in front of you, and '
+    + 'what would have to be true for them to hold.',
     'Eight weeks inside one summer, built so that a student leaves with their own budget, '
     + 'their own '
     + 'projection and their own plan, using their own numbers rather than a worksheet '
@@ -383,16 +386,18 @@ const finance: ProgramSpec = {
        + 'simulation that only ever goes up teaches the wrong lesson about risk.' },
   ],
   exists: [
-    'The Grade 3 book, The Choosing Year: 36 weeks, 77 pages, written and free',
+    'Four elementary years, Grades 3 to 6: The Choosing Year, The Planning Year, '
+    + 'The Keeping Year and The Asking Year. 36 weeks each, written and free',
+    'A teacher guide for each of the four, with every numeric answer recomputed from the '
+    + 'problems by a script that refuses to build the book if one disagrees',
     'All eight weeks of the Grades 9 to 12 summer intensive, with skills defined per week',
     'The sequence and the reasoning behind its order',
-    'The exercises each week is built around',
   ],
   notYet: [
     'The student workbook and projection templates for the eight-week summer intensive',
     'The facilitator guide for the summer intensive',
     'A pre and post assessment',
-    'Any classroom delivery, of either the Grade 3 book or the summer intensive',
+    'Any classroom delivery, of the four elementary years or of the summer intensive',
   ],
 };
 

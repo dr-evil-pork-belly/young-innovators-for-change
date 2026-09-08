@@ -90,13 +90,19 @@ export default function ImpactUi() {
           </>
         }
       >
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.75rem' }}>
           {trustBadges().map((b) => (
             <span key={b} style={{ padding: '0.35rem 0.75rem', background: 'rgba(255,122,61,0.1)',
               border: '1px solid rgba(255,122,61,0.28)', borderRadius: '2px', fontSize: '0.66rem',
               fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const,
               color: GOLD_L }}>{b}</span>
           ))}
+        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
+          <Link href="/partner" className="btn-gold">Fund the first measured year <ArrowUpRight size={14} /></Link>
+          <a href="/downloads/structure-before-fluency.pdf" className="btn-ghost">
+            Read the working paper <FlaskConical size={13} />
+          </a>
         </div>
       </Hero>
 
@@ -333,13 +339,14 @@ export default function ImpactUi() {
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
                 color: WHITE, marginBottom: '0.4rem' }}>Check us before you fund us.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '56ch' }}>
-                Our registration, filings and open gaps are published in full, including a board
-                seat we have not filled. {ORG.legalName} · EIN {ORG.taxStatus.ein}.
+                Registration, filings and open gaps are published in full, including the board
+                seats we have not filled. If something you need is missing, ask and we will
+                send it. {ORG.legalName} · EIN {ORG.taxStatus.ein}.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/governance" className="btn-gold">Governance <ArrowUpRight size={14} /></Link>
-              <Link href="/partner" className="btn-ghost">Support the work <ArrowUpRight size={13} /></Link>
+              <Link href="/partner" className="btn-gold">Fund the first cohort <ArrowUpRight size={14} /></Link>
+              <Link href="/governance" className="btn-ghost">Read the filings <ArrowUpRight size={13} /></Link>
             </div>
           </div>
         </FadeIn>

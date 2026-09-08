@@ -155,7 +155,7 @@ export default function PathwayUi() {
         }
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-          <Link href="/resources" className="btn-gold">Download what is written <ArrowUpRight size={14} /></Link>
+          <Link href="/resources" className="btn-gold">Take the {written} written years <ArrowUpRight size={14} /></Link>
           <Link href="/curriculum" className="btn-ghost">The full K&ndash;12 map <ArrowUpRight size={13} /></Link>
         </div>
       </Hero>
@@ -167,15 +167,14 @@ export default function PathwayUi() {
           <FadeIn>
             <Eyebrow color={GOLD_L}>Before anything else</Eyebrow>
             <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">
-              {written} OF {total} YEARS<br />Are actually<br />written.
+              {written} of the {total} years<br />are actually<br />written.
             </Title>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p style={{ ...BODY }}>
-              Everything on this page below the fold is a design. {written} of its {total} years
-              exist as finished books that a teacher could photocopy tomorrow. The other{' '}
-              {total - written} are a plan, and the ladder marks each one so you never have to
-              guess which you are reading.
+              {written} of the {total} rungs below exist as finished books a teacher could
+              photocopy tomorrow. The other {total - written} are a plan. The ladder labels
+              every rung, so you never have to guess which one you are reading.
             </p>
             <p style={{ ...BODY, marginBottom: 0, color: WHITE }}>
               No student has completed this pathway, because no student could have. It is
@@ -258,11 +257,11 @@ export default function PathwayUi() {
         <FadeIn delay={0.2}>
           <p style={{ fontSize: '0.78rem', lineHeight: 1.7, color: SLATE_3, marginTop: '1.5rem',
             maxWidth: '74ch' }}>
-            Grades 4, 5 and 6 are written because that is where the work started, not
-            because they are the most important rungs. The elementary band is now
-            continuous. Grade 3 and the upper grades are the furthest out and the most
-            likely to change once a teacher has run a full year and told us what actually
-            happened.
+            The written rungs are the bottom {written}, Grades 3 through 6, because that is
+            where the work started rather than because they matter most. The elementary band
+            runs continuously now. Everything from Grade 7 up is the furthest out and the most
+            likely to change, and the thing most likely to change it is one teacher finishing
+            a year and telling us what actually happened.
           </p>
         </FadeIn>
       </Section>

@@ -10,7 +10,7 @@ import {
 } from '@/components/kit';
 import {
   CURRICULUM, GRADE_BANDS, STATUS_LABEL, countByStatus, AVAILABLE_NOW, spellOut,
-  type Status, type Strand,
+  foundedYear, type Status, type Strand,
 } from '@/content/org';
 import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
 
@@ -89,19 +89,19 @@ export default function CurriculumUi() {
           <>
             <p style={{ marginBottom: '0.9rem' }}>
               We are building mathematics and science across Grades 1&ndash;12, and leadership,
-              entrepreneurship and financial literacy from Grade 3 upward. That is the plan, and
-              it will take years.
+              entrepreneurship and financial literacy from Grade 3 upward. That is the plan. It
+              will take years, and most of the grid below still says so.
             </p>
             <p style={{ margin: 0 }}>
-              This page shows every cell of it with an honest label, so nobody has to guess which
-              parts exist. <strong style={{ color: WHITE }}>Available today: {AVAILABLE_NOW}</strong>
+              Every cell carries an honest label, so nobody has to guess which parts are real.{' '}
+              <strong style={{ color: WHITE }}>Ready to run today: {AVAILABLE_NOW}</strong>
             </p>
           </>
         }
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-          <Link href="/resources" className="btn-gold">Download what exists <ArrowUpRight size={14} /></Link>
-          <Link href="/for-schools" className="btn-ghost">Run it in a classroom <ArrowUpRight size={13} /></Link>
+          <Link href="/resources" className="btn-gold">Take the finished years <ArrowUpRight size={14} /></Link>
+          <Link href="/for-schools" className="btn-ghost">Run one in a classroom <ArrowUpRight size={13} /></Link>
         </div>
       </Hero>
 
@@ -167,11 +167,11 @@ export default function CurriculumUi() {
             written; Grades 7 and 8 are not, and the cells say so.
           </p>
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '0.75rem', maxWidth: '72ch' }}>
-            Much of this grid still says <em>planned</em>, and that is the point of publishing
-            it. An organization two years old with {PUBLISHED_YEARS.length} finished years of
-            curriculum, {PUBLISHED_WEEKS} weekly assignments and no completed cohort is exactly
-            what we are. The grid is the plan for turning that into a K&ndash;12 program, one
-            honest cell at a time.
+            Much of this grid still says <em>planned</em>, and publishing it that way is the
+            point. An organization founded in {foundedYear()} with {PUBLISHED_YEARS.length}{' '}
+            finished years of curriculum, {PUBLISHED_WEEKS} weekly assignments and no completed
+            cohort is exactly what we are. The grid is how that becomes a K&ndash;12 program,
+            one honest cell at a time.
           </p>
         </FadeIn>
       </Section>
@@ -303,15 +303,16 @@ export default function CurriculumUi() {
             flexWrap: 'wrap', gap: '1.5rem' }}>
             <div>
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
-                color: WHITE, marginBottom: '0.4rem' }}>This grid fills in faster with help.</p>
+                color: WHITE, marginBottom: '0.4rem' }}>Green cells move faster than gray ones.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '56ch' }}>
-                Curriculum writers, subject specialists and funders all move cells from planned to
-                published. So does one teacher willing to run the year that already exists.
+                Curriculum writers, subject specialists and funders all turn planned cells into
+                published ones. So does one teacher willing to run a year that already exists
+                and tell us where it broke.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/for-schools" className="btn-gold">For schools <ArrowUpRight size={14} /></Link>
-              <Link href="/partner" className="btn-ghost">Get involved <ArrowUpRight size={13} /></Link>
+              <Link href="/for-schools" className="btn-gold">Run a finished year <ArrowUpRight size={14} /></Link>
+              <Link href="/partner" className="btn-ghost">Help write an unfinished one <ArrowUpRight size={13} /></Link>
             </div>
           </div>
         </FadeIn>

@@ -23,25 +23,25 @@ export default function TeachersUi() {
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              A workbook on a shelf teaches nobody. It is paper until an adult opens it
-              with a child, reads the week before the week happens, notices which student
-              has gone quiet, and decides to spend the extra twenty minutes. That decision
-              is the program. Everything we publish is the part that can be done alone, at
-              a desk, by someone who will never meet your students.
+              A workbook on a shelf teaches nobody. It is paper until an adult opens it with
+              a child, reads the week before the week happens, notices which student has
+              gone quiet, and decides to spend the extra twenty minutes. That decision is
+              the program. Everything we publish is the part that can be done alone, at a
+              desk, by someone who will never meet your students.
             </p>
             <p style={{ marginBottom: '0.9rem' }}>
               {DELIVERY.claim}
             </p>
             <p style={{ margin: 0 }}>
-              When people compliment this organization, they compliment the books. The
-              books were the easy half.
+              When people compliment this organization, they compliment the books. The books
+              were the easy half.
             </p>
           </>
         }
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
           <Link href="/resources" className="btn-gold">
-            Take the whole library <Download size={14} />
+            Take a year, free <Download size={14} />
           </Link>
           <Link href="/for-schools" className="btn-ghost">
             What running a year involves <ArrowUpRight size={13} />

@@ -35,7 +35,7 @@ export default function GovernanceUi() {
           </>
         }
       >
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.75rem' }}>
           {trustBadges().map((b) => (
             <span key={b} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem',
               padding: '0.4rem 0.8rem', background: 'rgba(255,122,61,0.1)',
@@ -45,6 +45,13 @@ export default function GovernanceUi() {
               <ShieldCheck size={12} /> {b}
             </span>
           ))}
+        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
+          <a href={PUBLIC_RECORDS.irsSearchUrl} target="_blank" rel="noopener noreferrer"
+            className="btn-gold">
+            Verify us with the IRS <ExternalLink size={13} />
+          </a>
+          <Link href="/partner" className="btn-ghost">Ask us for a document <ArrowUpRight size={13} /></Link>
         </div>
       </Hero>
 
@@ -250,10 +257,11 @@ export default function GovernanceUi() {
             border: '1px solid rgba(255,122,61,0.18)', borderRadius: '4px' }}>
             <div>
               <p style={{ fontFamily: DISPLAY, fontSize: '1.8rem', letterSpacing: '-0.01em',
-                color: WHITE, marginBottom: '0.4rem' }}>Diligence questions?</p>
+                color: WHITE, marginBottom: '0.4rem' }}>Something missing?</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '52ch' }}>
-                If you are assessing us for a grant and something here is missing, ask. We would
-                rather send you a document than have you guess.
+                If you are assessing us for a grant and a document you need is not on this
+                page, ask for it by name. We would rather send it than have you guess, and we
+                would rather tell you it does not exist than let you assume it does.
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end',

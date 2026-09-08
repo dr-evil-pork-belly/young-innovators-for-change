@@ -34,12 +34,14 @@ export const metadata: Metadata = {
     template: '%s · Young Innovators for Change',
   },
   description:
-    'We build rigorous K–12 business and mathematics curriculum and give it away. ' +
-    'A California 501(c)(3) placing full-year programs in classrooms at no cost to students or schools.',
+    'Full school years of mathematics, entrepreneurship and financial literacy for ' +
+    'Grades 1 to 6. Workbooks and answer keys, mapped to California standards, free to ' +
+    'download and free to run. A California 501(c)(3).',
   applicationName: ORG.legalName,
   keywords: [
-    'nonprofit', 'K-12 education', 'financial literacy', 'entrepreneurship education',
-    'discrete mathematics', 'Grade 2 curriculum', 'free curriculum', 'California',
+    'free curriculum', 'free math workbook', 'free teacher guide', 'K-12 education',
+    'financial literacy for kids', 'entrepreneurship education', 'discrete mathematics',
+    'elementary math enrichment', 'printable workbook', 'California standards', 'nonprofit',
   ],
   openGraph: {
     type: 'website',
@@ -47,13 +49,15 @@ export const metadata: Metadata = {
     url: ORG.url,
     title: 'Young Innovators for Change',
     description:
-      'We build rigorous K–12 curriculum and give it away. A California 501(c)(3).',
+      'Full school years of math, money and business curriculum for Grades 1 to 6. ' +
+      'Written properly, given away. A California 501(c)(3).',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: ORG.legalName }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Young Innovators for Change',
-    description: 'We build rigorous K–12 curriculum and give it away.',
+    description:
+      'Full school years of math, money and business curriculum for Grades 1 to 6, free.',
     images: ['/og.png'],
   },
   robots: { index: true, follow: true },

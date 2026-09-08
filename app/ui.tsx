@@ -8,7 +8,7 @@ import {
 } from 'framer-motion';
 import { ArrowUpRight, GraduationCap, Users, MapPin, Star, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
-import { VERIFIED_STATS, PROGRAM_FACTS, FOUNDER, DELIVERY, usd, uscTwoYearTotal } from '@/content/org';
+import { VERIFIED_STATS, PROGRAM_FACTS, FOUNDER, DELIVERY, usd, uscTwoYearTotal, spellOut } from '@/content/org';
 import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
@@ -217,6 +217,11 @@ export default function HomePage() {
                 Free K&ndash;12 curriculum &middot; California 501(c)(3)
               </motion.p>
 
+              {/* The headline used to be "We build it properly. Then we give it
+                  away," which is a sentence about our method. A stranger arriving
+                  from a search has three seconds and no interest in our method.
+                  This one states the problem and the offer in one breath, and the
+                  offer is the thing the button below actually does. */}
               <motion.h1
                 variants={fadeUp}
                 style={{
@@ -229,28 +234,37 @@ export default function HomePage() {
                   marginBottom:  '1.25rem',
                 }}
               >
-                We build it properly.
+                Some kids learn how money
                 <br />
-                Then we <span style={{ color: CONNECT }}>give it away.</span>
+                works at home. The rest
+                <br />
+                can <span style={{ color: CONNECT }}>download it here.</span>
               </motion.h1>
+
+              <motion.p
+                variants={fadeUp}
+                style={{ fontSize: '1.05rem', lineHeight: 1.7, color: BODY, maxWidth: '56ch',
+                  marginBottom: '1.25rem' }}
+              >
+                {spellOut(PUBLISHED_YEARS.length)} full school years of mathematics, money
+                and business, finished and free this minute. Every week is two pages, tied
+                to a California standard, proofed to print on the copier down the hall, with
+                the answer key beside it. No account, no email wall, no license.
+              </motion.p>
 
               <motion.p
                 variants={fadeUp}
                 style={{ fontSize: '1.05rem', lineHeight: 1.7, color: BODY, maxWidth: '56ch',
                   marginBottom: '1.9rem' }}
               >
-                Some children learn how business and money work at home. The rest are
-                expected to buy it later, compressed into two years, at graduate school
-                prices. We write that material for the children whose families do not have
-                it to give, and publish every page of it free. {PUBLISHED_YEARS.length} full
-                school years are finished and downloadable today. None of it teaches
-                anybody. That part is done by a teacher, an aide or a caretaker in a room,
-                and it is the half that decides everything.
+                None of it teaches anybody. A teacher, an aide or a grandparent at a kitchen
+                table does that, and that is the half that decides everything. If that is
+                you, take a year and start Monday.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
                 <Link href="/resources" className="btn-primary">
-                  Take the whole library
+                  Take a year, free
                   <ArrowUpRight size={14} />
                 </Link>
                 <Link href="/curriculum" className="btn-secondary">
@@ -261,9 +275,9 @@ export default function HomePage() {
 
               {/* What has been built, not what it has achieved. */}
               <motion.div variants={fadeUp} className="hero-stats">
-                <StatPill value={String(PUBLISHED_WEEKS)} label="Weekly assignments" hue={CONNECT} />
-                <StatPill value={String(PUBLISHED_YEARS.length)} label="School years published" hue={GROW} />
-                <StatPill value="$0" label="Cost to a school" hue={SPARK} />
+                <StatPill value={String(PUBLISHED_WEEKS)} label="Weeks written" hue={CONNECT} />
+                <StatPill value={String(PUBLISHED_YEARS.length)} label="Full school years" hue={GROW} />
+                <StatPill value="$0" label="Price, to anyone" hue={SPARK} />
               </motion.div>
             </motion.div>
 
@@ -314,22 +328,26 @@ export default function HomePage() {
                 letterSpacing: '-0.01em',
                 color:         WHITE,
               }}>
-                Some children learn<br />
-                <span style={{ color: ROYAL_L }}>this at home.</span><br />
-                The rest pay later.
+                Adults pay<br />
+                <span style={{ color: ROYAL_L }}>{usd(uscTwoYearTotal())} for this.</span><br />
+                Nine-year-olds get it free.
               </h2>
             </div>
             <div className="max-w-sm">
               <p style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED, marginBottom: '1rem' }}>
-                Two years of a full-time MBA runs to {usd(uscTwoYearTotal())} at USC
-                and more than that at Stanford, which is the price of admission to how
-                pricing, capital and ownership actually work. We are writing the same ideas
-                for children, one assignment a week, and publishing them free.
+                That is USC&rsquo;s own published figure for two years of a full-time MBA,
+                and Stanford asks more. It buys you how pricing, capital and ownership
+                actually work, at twenty-eight, on a payment plan. We write the same ideas
+                for children, one assignment a week, and charge nobody.
+              </p>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED, marginBottom: '1rem' }}>
+                It is not a degree and we say so at length. It is the material, ten years
+                early, with the price taken off.
               </p>
               <Link href="/pathway" style={{ display: 'inline-flex', alignItems: 'center',
                 gap: '0.4rem', fontSize: '0.8rem', fontWeight: 600, color: GOLD,
                 textDecoration: 'none' }}>
-                The ten-year pathway <ArrowUpRight size={13} />
+                See which idea lands in which grade <ArrowUpRight size={13} />
               </Link>
             </div>
           </div>
@@ -338,10 +356,14 @@ export default function HomePage() {
         {/* Four strands, two tracks */}
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
           {[
-            { num: '01', title: 'Mathematics', body: 'Reasoning-first weekly enrichment beside the state curriculum, Grades 1–12. Six complete years are written, Grades 1 through 6, standards-mapped and free to download today.' },
-            { num: '02', title: 'Science', body: 'Investigation-led, low materials cost, printable in black and white. Grades 1–12, and the largest part of the roadmap still to write.' },
-            { num: '03', title: 'Leadership & Venture', body: 'One student, one product, one market day, then a team and a real profit split. The Grades 4, 5 and 6 years are written and free. From Grade 7 the same ideas run as an eight-week summer intensive, and in high school as one cohort across four summers.' },
-            { num: '04', title: 'Financial Literacy', body: 'Budgeting, credit, compounding and unit economics: the money knowledge that usually arrives through a family rather than a school.' },
+            { num: '01', title: 'Mathematics', href: '/programs/discrete-math', cta: 'The six years',
+              body: 'Sorting, maps, proofs, routes and rules, beside the state curriculum rather than on top of it. Six complete years, Grades 1 through 6, standards-mapped and downloadable today. It asks for reasoning rather than speed, which is why it reaches the child who is still shaky on regrouping.' },
+            { num: '02', title: 'Science', href: '/curriculum', cta: 'Where it sits on the map',
+              body: 'Investigation-led, almost no materials cost, printable in black and white. Nothing is written yet. It is the largest blank on our map and we would rather point at it than dress it up.' },
+            { num: '03', title: 'Leadership & Venture', href: '/pathway', cta: 'The ten-year ladder',
+              body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4, 5 and 6 are written and free. High school runs the opposite shape: one cohort, four summers, eight weeks each.' },
+            { num: '04', title: 'Financial Literacy', href: '/programs/financial-literacy', cta: 'The four money years',
+              body: 'A child’s own money first, then a plan, then the gap between a price and a cost, then the numbers other people put in front of them. Grades 3 through 6 are written and free. This is the knowledge that usually arrives through a family, which is exactly why it belongs in a school.' },
           ].map((pillar, i) => (
             <RevealSection key={pillar.num} delay={i * 0.1}>
               <div
@@ -387,9 +409,14 @@ export default function HomePage() {
                 <p style={{ fontSize: '0.875rem', lineHeight: 1.7, color: MUTED }}>
                   {pillar.body}
                 </p>
-                <div className="mt-6 flex items-center gap-2" style={{ color: ROYAL_L, fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                  Learn more <ArrowUpRight size={12} />
-                </div>
+                {/* This was a "Learn more" div that linked nowhere, on all four
+                    cards, on the home page. It is a real destination now, and it
+                    names what is on the other side of it. */}
+                <Link href={pillar.href} className="mt-6 flex items-center gap-2"
+                  style={{ color: ROYAL_L, fontSize: '0.75rem', fontWeight: 600,
+                    letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none' }}>
+                  {pillar.cta} <ArrowUpRight size={12} />
+                </Link>
               </div>
             </RevealSection>
           ))}
@@ -430,11 +457,13 @@ export default function HomePage() {
                 {DELIVERY.claim}
               </p>
               <p style={{ fontSize: '1rem', lineHeight: 1.8, color: MUTED, marginBottom: '2rem' }}>
-                {DELIVERY.anonymity} {DELIVERY.inUse.known} If a child has learned one
-                thing from these pages, an adult did that. Not the paper, and not us.
+                {DELIVERY.inUse.known} We could not tell you their names if we tried, because
+                nothing we publish asks for one. What we can tell you is that if a child has
+                learned one thing from these pages, an adult did that. Not the paper, and not
+                us.
               </p>
               <Link href="/teachers" className="btn-gold" style={{ fontSize: '0.8rem', display: 'inline-flex' }}>
-                What we owe them
+                If you teach, this page is for you
                 <ArrowUpRight size={13} />
               </Link>
             </RevealSection>
@@ -619,14 +648,14 @@ export default function HomePage() {
               />
               <CredentialCard
                 icon={<MapPin size={18} />}
-                title="Built for Public Schools"
-                subtitle="Designed against the California pacing guide and proofed for a black-and-white classroom copier, so cost is never the reason a school says no."
+                title="Built for a public school budget"
+                subtitle="Written against the California pacing guide and proofed on a black-and-white copier, so money is never the reason a school says no."
                 delay={0.3}
               />
               <CredentialCard
                 icon={<Star size={18} />}
-                title="Everything Published Free"
-                subtitle="Workbooks, answer keys and the research behind them are downloadable in full, no license, no email wall, no partial preview."
+                title="Published whole, or not at all"
+                subtitle="Workbooks, answer keys and the research behind them, in full. No license, no email wall, no sample chapter with the rest behind a call."
                 delay={0.4}
               />
 
@@ -697,19 +726,19 @@ export default function HomePage() {
             </h2>
             <p className="mx-auto" style={{ fontSize: '1rem', lineHeight: 1.75, color: '#D7DFEC',
               maxWidth: '62ch', marginBottom: '2rem' }}>
-              {PUBLISHED_YEARS.length} finished years, free to download and free to run.
-              {' '}{DELIVERY.inUse.known} We could not name most of them if we tried,
-              because nothing we publish asks for a name. What has not happened is a
-              measured classroom. If you teach, take a year. If you fund, fund the first
-              one anybody can actually check.
+              {PUBLISHED_YEARS.length} finished years, free to download and free to run, and
+              teachers have written to say they are running them. What has never happened is
+              a classroom with a roster, a pre and post, and somebody watching. That is the
+              only thing missing, and it is not something we can do by ourselves. If you
+              teach, take a year. If you fund, fund the first one anybody can check.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <Link href="/partner" className="btn-primary">
-                Partner with us
+              <Link href="/resources" className="btn-primary">
+                Take a year, free
                 <ArrowUpRight size={14} />
               </Link>
-              <Link href="/teachers" className="btn-secondary">
-                If you teach, read this
+              <Link href="/partner" className="btn-secondary">
+                Fund the first measured one
               </Link>
             </div>
           </InkSlab>

@@ -19,6 +19,9 @@ import { bookBySlug } from '@/content/mathLine';
 const G2_STANDARDS =
   PUBLISHED_YEARS.find((y) => y.label === 'Grade 2 mathematics')?.standards ?? 0;
 
+/** Typed once, linked from the hero and from the materials strip below. */
+const PILOT_PACKET = '/downloads/discrete-math-pilot-packet.pdf';
+
 /** The pilot book itself, so its two file paths cannot be typed here.
  *  They were, and renaming the Grade 2 book on 3 September 2026 turned both of
  *  them into 404s that nothing on this page or in mksite.py would have caught. */
@@ -80,15 +83,14 @@ export default function ForSchoolsUi() {
               California pacing guide so it reinforces what you are already teaching.
             </p>
             <p style={{ marginBottom: '0.9rem' }}>
-              We are looking for teachers, not buyers. Everything is free, including the
-              printing, and the person who makes it work is already in your building.
+              We are looking for teachers, not buyers. Everything is free, the printing
+              included, and the person who makes it work is already in your building.
             </p>
             <p style={{ margin: 0, fontSize: '0.88rem' }}>
-              Grade 2 is where we are placing the first pilots, because it is the year with a
-              pilot packet and a measurement plan behind it. The other mathematics years and
-              the Grades 3 to 6 money and venture years are written and free to download right
-              now, and any teacher is welcome to take one without telling us.{' '}
-              <Link href="/curriculum" style={{ color: GREEN_L }}>See exactly where each one
+              Grade 2 is where the first pilots go, because it is the year with a pilot packet
+              and a measurement plan behind it. Every other year is free to download right now
+              and any teacher may take one without telling us.{' '}
+              <Link href="/curriculum" style={{ color: GREEN_L }}>See where each one
               stands</Link>, or read{' '}
               <Link href="/teachers" style={{ color: GREEN_L }}>what we owe the person
               delivering it</Link>.
@@ -98,11 +100,11 @@ export default function ForSchoolsUi() {
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
           <Link href="/partner" className="btn-gold">
-            Start a conversation <ArrowUpRight size={14} />
+            Talk to us about a pilot <ArrowUpRight size={14} />
           </Link>
-          <Link href="/programs/discrete-math" className="btn-ghost">
-            See the program <ArrowUpRight size={13} />
-          </Link>
+          <a href={PILOT_PACKET} className="btn-ghost">
+            Read the packet first <Download size={13} />
+          </a>
         </div>
       </Hero>
 
@@ -226,7 +228,7 @@ export default function ForSchoolsUi() {
               meta: `PDF · ${G2?.pages ?? 77} pages`, accent: ROYAL_L },
             { href: G2?.guide ?? '/resources',    label: 'Teacher guide',
               meta: 'Web · all 36 weeks', accent: GREEN_L },
-            { href: '/downloads/discrete-math-pilot-packet.pdf',        label: 'Pilot packet',     meta: 'PDF · 10 pages', accent: GOLD },
+            { href: PILOT_PACKET,                                       label: 'Pilot packet',     meta: 'PDF · 10 pages', accent: GOLD },
             { href: '/downloads/structure-before-fluency.pdf',          label: 'The research case', meta: 'PDF · working paper', accent: ROYAL_L },
           ].map((d) => (
             <a key={d.href} href={d.href} style={{ display: 'flex', alignItems: 'center', gap: '0.7rem',
@@ -249,15 +251,16 @@ export default function ForSchoolsUi() {
             border: '1px solid rgba(45,91,227,0.18)', borderRadius: '4px' }}>
             <p style={{ fontFamily: DISPLAY, fontSize: 'clamp(1.9rem, 3.6vw, 2.8rem)',
               letterSpacing: '-0.01em', color: WHITE, lineHeight: 1.06, marginBottom: '0.9rem' }}>
-              Interested? One email is enough.
+              Three lines is a complete inquiry.
             </p>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED, maxWidth: '56ch', marginBottom: '1.5rem' }}>
-              Tell us your school, the teacher&rsquo;s name, and a good time to call. There is
-              nothing to sign and no budget conversation.
+              Your school, the teacher&rsquo;s name, and a good time to call. That is the
+              whole process. Nothing to sign, no budget conversation, and no obligation
+              attached to asking.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-              <Link href="/partner" className="btn-gold">Start a conversation <ArrowUpRight size={14} /></Link>
-              <Link href="/governance" className="btn-ghost">Check our credentials <ArrowUpRight size={13} /></Link>
+              <Link href="/partner" className="btn-gold">Send those three lines <ArrowUpRight size={14} /></Link>
+              <Link href="/governance" className="btn-ghost">Check us out first <ArrowUpRight size={13} /></Link>
             </div>
             <p style={{ fontSize: '0.75rem', color: SLATE_3, marginTop: '1.25rem' }}>
               {ORG.legalName} · 501(c)(3) · EIN {ORG.taxStatus.ein}

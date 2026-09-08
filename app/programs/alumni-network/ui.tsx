@@ -101,9 +101,14 @@ export default function AlumniUi() {
           </>
         }
       >
-        <Link href="/governance" className="btn-ghost">
-          How we hold ourselves to things <ArrowUpRight size={13} />
-        </Link>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
+          <Link href="/for-schools" className="btn-gold">
+            Host the first cohort <ArrowUpRight size={14} />
+          </Link>
+          <Link href="/governance" className="btn-ghost">
+            How we hold ourselves to things <ArrowUpRight size={13} />
+          </Link>
+        </div>
       </Hero>
 
       {/* ── The commitments ────────────────────────────── */}
@@ -210,9 +215,9 @@ export default function AlumniUi() {
             <div style={{ maxWidth: '60ch' }}>
               <Title size="clamp(1.6rem, 3.2vw, 2.5rem)">The way to make<br />this page real.</Title>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginTop: '1rem' }}>
-                One classroom, one year, one teacher willing to go first. Everything on this page
-                stays hypothetical until that happens, and the Grade 2 mathematics course is
-                written, printed and ready for it now.
+                One classroom, one year, one teacher willing to go first. Every commitment on
+                this page stays hypothetical until that happens. The books are written, printed
+                and sitting there, which means the only missing piece is a room.
               </p>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>

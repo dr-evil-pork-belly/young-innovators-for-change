@@ -85,27 +85,33 @@ export default function MissionUi() {
     <Page>
       <Hero
         eyebrow="Mission & theory of change"
-        title={<>Some children learn<br />how money works<br /><span style={{ color: ROYAL_L }}>at home.</span></>}
+        title={<>Here is the bet.<br />Here is how you<br /><span style={{ color: ROYAL_L }}>would know we lost.</span></>}
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              The rest are expected to buy it later, compressed into two years, at graduate
-              school prices. {MISSION.statement} {MISSION.agency}
+              Some children hear cost, margin and risk discussed at a kitchen table for
+              eighteen years before anyone calls it a subject. The rest are expected to buy
+              it later, compressed into two years, at graduate school prices.{' '}
+              {MISSION.statement} {MISSION.agency}
             </p>
             <p style={{ marginBottom: '0.9rem' }}>
-              We write that material and publish all of it free: mathematics and science
-              across Grades 1&ndash;12, and leadership, entrepreneurship and financial
-              literacy from Grade 3 up. The barrier was never capability. It was whether
-              anyone handed them the material.
+              So we write that material and publish every page of it free: mathematics and
+              science across Grades 1&ndash;12, and leadership, entrepreneurship and
+              financial literacy from Grade 3 up. The barrier was never what a child could
+              understand. It was whether anybody put it in front of them.
             </p>
             <p style={{ margin: 0 }}>
-              This page sets out what we think the problem is, exactly what we do about it, what
-              would have to be true for that to work, and what would tell us we were wrong.
+              This page is the argument rather than the brochure. What we think the problem
+              is, what we actually do about it, what would have to be true for that to work,
+              and the specific results that would tell us we were wrong.
             </p>
           </>
         }
       >
-        <Link href="/for-schools" className="btn-gold">Bring it to a classroom <ArrowUpRight size={14} /></Link>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
+          <Link href="/for-schools" className="btn-gold">Bring it to a classroom <ArrowUpRight size={14} /></Link>
+          <Link href="/resources" className="btn-ghost">Or just take the books <ArrowUpRight size={13} /></Link>
+        </div>
       </Hero>
 
       {/* ── The problem ────────────────────────────────── */}
@@ -117,16 +123,16 @@ export default function MissionUi() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              The children who get taught how capital, pricing and negotiation actually work
-              are the ones whose families already know. Everyone else is expected to buy it
-              later, compressed into two years, at graduate school prices.
+              Nobody sits a child down and teaches them how a price gets set. It is absorbed,
+              at a table, across years, in a household where somebody already knows. Which
+              means it is a distribution problem wearing the costume of an aptitude problem.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              It is not a knowledge gap in the ordinary sense. A child in a household that runs
-              a business hears cost, margin and risk discussed at the table for eighteen years
-              before anyone calls it a subject. A child in a household that does not hears none
-              of it, then arrives at adulthood expected to make the same decisions with none of
-              the practice.
+              A child in a household that runs a business hears cost, margin and risk
+              discussed for eighteen years before anyone calls it a subject. A child in a
+              household that does not hears none of it, then arrives at adulthood expected to
+              make the same decisions with none of the practice. Both children then get told
+              the difference was talent.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
               The same pattern shows up earlier, and more quietly, in mathematics. By the end of
@@ -317,19 +323,18 @@ export default function MissionUi() {
             border: '1px solid rgba(255,122,61,0.18)', borderRadius: '4px' }}>
             <div>
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
-                color: WHITE, marginBottom: '0.4rem' }}>The first measured classroom matters most.</p>
+                color: WHITE, marginBottom: '0.4rem' }}>Everything above turns on one classroom.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '54ch' }}>
-                Teachers are already running this material on their own. What nobody has done
-                is run it with a roster and measure what happened, so everything to the right
-                of the outputs above is still intent. The curriculum is the half we can finish
-                alone; the half that decides whether a child learns anything belongs to
-                whoever opens the book with them.
+                Teachers are running this material on their own already. What nobody has done
+                is run it with a roster and measure what happened, which is why everything to
+                the right of the outputs above is still intent rather than achievement. We can
+                finish the curriculum alone. We cannot finish the argument alone.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/teachers" className="btn-gold">For teachers <ArrowUpRight size={14} /></Link>
-              <Link href="/for-schools" className="btn-ghost">For schools <ArrowUpRight size={13} /></Link>
-              <Link href="/partner" className="btn-ghost">For funders <ArrowUpRight size={13} /></Link>
+              <Link href="/for-schools" className="btn-gold">Host the first one <ArrowUpRight size={14} /></Link>
+              <Link href="/teachers" className="btn-ghost">If you teach <ArrowUpRight size={13} /></Link>
+              <Link href="/partner" className="btn-ghost">If you fund <ArrowUpRight size={13} /></Link>
             </div>
           </div>
         </FadeIn>

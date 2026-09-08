@@ -35,24 +35,25 @@ const NAV_LINKS = [
   {
     label: 'Curriculum', href: '/curriculum',
     dropdown: [
-      { label: 'The full K–12 map',   href: '/curriculum',                  desc: 'Five subjects, twelve grades, honest status' },
+      { label: 'The full K–12 map',   href: '/curriculum',                  desc: 'Every subject, every grade, honest status' },
       { label: 'The ten-year pathway', href: '/pathway',                    desc: 'Grades 3–12 · business school, uncompressed' },
-      { label: 'Discrete Math',       href: '/programs/discrete-math',      desc: 'Grades 1–6 · six years, published and free' },
-      { label: 'Leadership',          href: '/programs/leadership',         desc: 'Grades 3–12 · designed'          },
-      { label: 'Venture Lab',         href: '/programs/venture-lab',        desc: 'Grades 3–12 · designed'          },
-      { label: 'Financial Literacy',  href: '/programs/financial-literacy', desc: 'Grades 3–12 · designed'          },
+      { label: 'Discrete Math',       href: '/programs/discrete-math',      desc: 'Grades 1–6 · six years, free today' },
+      { label: 'Venture Lab',         href: '/programs/venture-lab',        desc: 'Grades 4–6 free · summer track designed' },
+      { label: 'Financial Literacy',  href: '/programs/financial-literacy', desc: 'Grades 3–6 free · summer track designed' },
+      { label: 'Leadership',          href: '/programs/leadership',         desc: 'Grades 3–12 · designed, not yet written' },
       { label: 'After the program',   href: '/programs/alumni-network',     desc: 'What we commit to students' },
     ],
   },
   { label: 'Teachers',    href: '/teachers',    dropdown: null },
   { label: 'For Schools', href: '/for-schools', dropdown: null },
-  { label: 'Resources',   href: '/resources',   dropdown: null },
+  { label: 'Free books',  href: '/resources',   dropdown: null },
   { label: 'Evidence',    href: '/impact',      dropdown: null },
   {
     label: 'About', href: '/about',
     dropdown: [
-      { label: 'About us',   href: '/about',      desc: 'Who we are and what we have built' },
-      { label: 'Governance', href: '/governance', desc: 'Registration, filings and open gaps' },
+      { label: 'About us',       href: '/about',      desc: 'Who we are and what we have built' },
+      { label: 'Governance',     href: '/governance', desc: 'Registration, filings and open gaps' },
+      { label: 'Partner with us', href: '/partner',   desc: 'Schools, funders, and the one open ask' },
     ],
   },
 ];
@@ -220,10 +221,14 @@ export default function Navbar() {
             {NAV_LINKS.map((link) => <NavItem key={link.href} link={link} />)}
           </div>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA
+              This was "Partner with us", pointing at the funding page, on every
+              page of a site whose visitors are overwhelmingly teachers and
+              parents looking for material. The one button that is always on
+              screen should be the one thing anybody can do in the next minute. */}
           <div className="hidden items-center gap-4 xl:flex">
-            <Link href="/partner" className="btn-primary">
-              Partner with us
+            <Link href="/resources" className="btn-primary">
+              Get the books, free
               <ArrowUpRight size={14} />
             </Link>
           </div>
@@ -316,8 +321,8 @@ export default function Navbar() {
 
               <div className="mt-6 flex flex-col gap-3">
                 <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-                  <Link href="/partner" onClick={closeMobile} className="btn-primary w-full justify-center">
-                    Partner with us <ArrowUpRight size={14} />
+                  <Link href="/resources" onClick={closeMobile} className="btn-primary w-full justify-center">
+                    Get the books, free <ArrowUpRight size={14} />
                   </Link>
                 </motion.div>
               </div>

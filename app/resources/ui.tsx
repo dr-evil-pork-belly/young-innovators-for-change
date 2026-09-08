@@ -204,6 +204,10 @@ const MONEY_BOOKS: Book[] = [
   },
 ];
 
+/** Typed once. The hero links it too, and two copies of a path is how the
+ *  Grade 2 rename shipped 404s the last time. */
+const PILOT_PACKET = '/downloads/discrete-math-pilot-packet.pdf';
+
 const DOCUMENTS = [
   {
     file: '/downloads/structure-before-fluency.pdf',
@@ -216,7 +220,7 @@ const DOCUMENTS = [
         + 'does not support, including the absence of any efficacy trial at this grade.',
   },
   {
-    file: '/downloads/discrete-math-pilot-packet.pdf',
+    file: PILOT_PACKET,
     label: 'Pilot Adoption Packet',
     kind: 'For a principal',
     meta: 'PDF · 10 pages',
@@ -313,50 +317,62 @@ export default function ResourcesUi() {
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              Everything we build is published in full, the student workbook, the complete answer
-              key, the research behind it, and the packet we hand to principals. No email wall, no
-              license, no partial preview.
+              <strong style={{ color: INK }}>
+                {PUBLISHED_YEARS.length} complete school years, {PUBLISHED_WEEKS} weekly
+                assignments, and the full teacher guide for every one of them.
+              </strong>{' '}
+              Plus the research paper underneath it and the packet we hand to principals.
+              Nothing is a preview and nothing is behind a form.
             </p>
             <p style={{ marginBottom: '0.9rem' }}>
-              Use it in your classroom, adapt it for your district, or read it to decide whether we
-              know what we are doing. All three are the point. You owe us no report, no email and
-              no account, and if a year of this works it will be because of{' '}
+              Run it in your classroom, adapt it for your district, or read it purely to
+              decide whether we know what we are doing. All three are the point. You owe us
+              no report, no email and no account.
+            </p>
+            <p style={{ margin: 0 }}>
+              And if a year of this works, it will be because of{' '}
               <Link href="/teachers" style={{ color: CONNECT_INK, fontWeight: 600 }}>the person who ran it</Link>,
               not the paper.
             </p>
-            <p style={{ margin: 0 }}>
-              On this page:{' '}
-              <strong style={{ color: INK }}>
-                {PUBLISHED_YEARS.length} complete school years, {PUBLISHED_WEEKS} weekly
-                assignments, and the teacher guide for every one of them.
-              </strong>
-            </p>
           </>
         }
-      />
+      >
+        {/* The download page used to open with no download on it. You had to
+            scroll past a full hero to reach the first file. */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
+          <a href="#books" className="btn-primary">
+            Jump to the books <Download size={14} />
+          </a>
+          <a href={PILOT_PACKET} className="btn-secondary">
+            The packet for a principal <Download size={14} />
+          </a>
+        </div>
+      </Hero>
 
-      <Section tinted>
+      <Section id="books" tinted>
         <StrandBlock
           title="Mathematics"
           hue={STRAND_HUE['Mathematics']}
-          note="Six school years of discrete mathematics, Grades 1 to 6. One weekly assignment,
-                two pages, sequenced against the California pacing guide so it reinforces what the
-                class is already doing that month."
+          note="Six school years of discrete mathematics, Grades 1 to 6. One assignment a week,
+                two pages, sequenced against the California pacing guide so each week lands near
+                the standard the class is already teaching. Each year stands alone: starting at
+                Grade 5 leaves nothing missing."
           books={MATH_BOOKS}
         />
         <StrandBlock
           title="Entrepreneurship"
           hue={STRAND_HUE['Entrepreneurship']}
           note="Three school years, Grades 4 to 6. One student, one product and one market day in
-                the first year, then teams, forecasts and a rival in the two that follow."
+                the first year. Then teams with a written profit split, a forecast made before
+                anything is sold, and finally a rival pricing against you in the open."
           books={ENTERPRISE_BOOKS}
         />
         <StrandBlock
           title="Financial literacy"
           hue={STRAND_HUE['Financial literacy']}
-          note="Four school years, Grades 3 to 6. A student's own money first, then a plan, then
-                the difference between a price and a cost, then the numbers other people put in
-                front of them."
+          note="Four school years, Grades 3 to 6. A child's own money first, then a plan, then the
+                difference between what a thing costs once and what it keeps costing, then the
+                numbers other people put in front of them and how to check one."
           books={MONEY_BOOKS}
         />
 
@@ -450,19 +466,21 @@ export default function ResourcesUi() {
                 <p style={{ fontFamily: DISPLAY, fontWeight: 800, fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
                   color: '#FFFFFF', marginBottom: '0.5rem' }}>More is coming.</p>
                 <p style={{ fontSize: '0.92rem', lineHeight: 1.75, color: '#D7DFEC', maxWidth: '58ch' }}>
-                  Assessment instruments and a teacher training deck next, then Grade 1 to close the
-                  bottom of the mathematics line. Science and the Grades 6 to 12 enterprise
-                  materials follow. The full map, with an honest status on every grade band, is on
-                  the curriculum page.
+                  Assessment instruments and a teacher training deck next. Then these{' '}
+                  {PUBLISHED_WEEKS} weeks split into single downloadable assignments, so trying
+                  one costs a teacher an afternoon instead of a year. Science and the
+                  upper-grade enterprise material are the furthest out, and we would rather say
+                  that than imply they are nearly done.
                 </p>
               </div>
-              <Link href="/for-schools" className="btn-primary">Run the pilot <ArrowUpRight size={14} /></Link>
+              <Link href="/for-schools" className="btn-primary">Run one in a classroom <ArrowUpRight size={14} /></Link>
             </div>
           </InkSlab>
           <p style={{ fontSize: '0.82rem', color: SUBTLE, marginTop: '1.5rem', maxWidth: '72ch' }}>
             Nothing here has been taught start to finish in a classroom yet, and none of it carries
             an outcome claim, because there is no cohort to draw one from. What you can check today
-            is whether the material is any good.
+            is whether the material is any good, which is the whole reason it is all sitting here
+            in the open.
           </p>
         </FadeIn>
       </Section>

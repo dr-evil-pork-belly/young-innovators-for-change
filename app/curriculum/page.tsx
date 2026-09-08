@@ -1,17 +1,22 @@
 import type { Metadata } from 'next';
+import { PUBLISHED_YEARS } from '@/content/published';
 import Ui from './ui';
+
+/** The OG line here named a single published book for a month after there were
+ *  thirteen. Counted rather than typed now, like everything else. */
+const DESC =
+  'The full K–12 scope: mathematics and science across Grades 1–12, plus leadership, '
+  + 'entrepreneurship and financial literacy from Grade 3 up. Every cell is labeled '
+  + `published, designed or planned, so nobody has to guess. ${PUBLISHED_YEARS.length} `
+  + 'complete school years are written and free today.';
 
 export const metadata: Metadata = {
   title: 'Curriculum',
-  description:
-    'The full K–12 scope: mathematics and science across Grades 1–12, plus leadership, ' +
-    'entrepreneurship and financial literacy from Grade 3 up, with an honest status on every cell.',
+  description: DESC,
   alternates: { canonical: '/curriculum' },
   openGraph: {
     title: 'Curriculum',
-    description:
-      'Five subjects, twelve grades, and an honest label on every one. Grade 2 mathematics is ' +
-      'published and free today; the rest is designed or planned.',
+    description: DESC,
     url: '/curriculum',
   },
 };

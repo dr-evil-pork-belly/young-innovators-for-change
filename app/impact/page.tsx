@@ -1,15 +1,19 @@
 import type { Metadata } from 'next';
 import Ui from './ui';
 
+const DESC =
+  'No cohort has run, so there are no outcome numbers on this page. Instead: what has been '
+  + 'built, what a classroom actually costs, the research it leans on including the paper '
+  + 'that argues against the whole category, and the specific results we have pre-committed '
+  + 'to publishing if they go against us.';
+
 export const metadata: Metadata = {
   title: 'Evidence & Accountability',
-  description:
-    'What we have built, what it costs, how we intend to measure it, and what we will publish, including results that do not favor us.',
+  description: DESC,
   alternates: { canonical: '/impact' },
   openGraph: {
     title: 'Evidence & Accountability',
-    description:
-      'What we have built, what it costs, how we intend to measure it, and what we will publish, including results that do not favor us.',
+    description: DESC,
     url: '/impact',
   },
 };
