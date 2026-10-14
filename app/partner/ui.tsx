@@ -16,7 +16,7 @@ import Link from 'next/link';
 import { useContactForm } from '@/components/useContactForm';
 import {
   ORG, PUBLIC_RECORDS, TRANSPARENCY, PROGRAM_FACTS, DELIVERY,
-  taxLine, trustBadges, fmtDate, spellOut,
+  taxLine, trustBadges, fmtDate, spellOut, addressLines,
   hasOutcomeStats, hasTestimonials, hasAdvisors,
 } from '@/content/org';
 import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
@@ -148,8 +148,8 @@ const FAQS = [
   {
     q: 'What has actually been built?',
     a: `${spellOut(PUBLISHED_YEARS.length)} complete 36-week years of curriculum, `
-     + `${PUBLISHED_WEEKS} weeks in all, across mathematics, entrepreneurship and `
-     + 'financial literacy. Each year is a student workbook plus a teacher guide, mapped '
+     + `${PUBLISHED_WEEKS} weeks in all, across mathematics, science, entrepreneurship `
+     + 'and financial literacy. Each year is a student workbook plus a teacher guide, mapped '
      + 'to California standards, and each is on the resources page as a free download. '
      + 'Nothing is behind a form or a fee.',
   },
@@ -586,7 +586,8 @@ export default function PartnerPage() {
               {TRANSPARENCY.form990Filed && TRANSPARENCY.form990Form && (
                 <RecordRow label="Latest filing" value={`${TRANSPARENCY.form990Form}, ${TRANSPARENCY.form990LatestPeriod}`} />
               )}
-              <RecordRow label="Registered office" value={`${ORG.registeredAddress.line1}, ${ORG.registeredAddress.line2}`} />
+              <RecordRow label="Registered office" value={addressLines(ORG.address).join(', ')} />
+              <RecordRow label="Mailing address" value={addressLines(ORG.mailingAddress).join(', ')} />
               <RecordRow label="Programs aimed at" value={ORG.serviceArea} />
             </div>
           </Reveal>

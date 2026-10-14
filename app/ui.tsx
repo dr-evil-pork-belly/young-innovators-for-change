@@ -246,8 +246,8 @@ export default function HomePage() {
                 style={{ fontSize: '1.05rem', lineHeight: 1.7, color: BODY, maxWidth: '56ch',
                   marginBottom: '1.25rem' }}
               >
-                {spellOut(PUBLISHED_YEARS.length)} full school years of mathematics, money
-                and business, finished and free this minute. Every week is two pages, tied
+                {spellOut(PUBLISHED_YEARS.length)} full school years of mathematics, science,
+                money and business, finished and free this minute. Every week is two pages, tied
                 to a California standard, proofed to print on the copier down the hall, with
                 the answer key beside it. No account, no email wall, no license.
               </motion.p>
@@ -359,7 +359,7 @@ export default function HomePage() {
             { num: '01', title: 'Mathematics', href: '/programs/discrete-math', cta: 'The six years',
               body: 'Sorting, maps, proofs, routes and rules, beside the state curriculum rather than on top of it. Six complete years, Grades 1 through 6, standards-mapped and downloadable today. It asks for reasoning rather than speed, which is why it reaches the child who is still shaky on regrouping.' },
             { num: '02', title: 'Science', href: '/curriculum', cta: 'Where it sits on the map',
-              body: 'Investigation-led, almost no materials cost, printable in black and white. Nothing is written yet. It is the largest blank on our map and we would rather point at it than dress it up.' },
+              body: 'Investigation-led, almost no materials cost, printable in black and white. Grades 1 to 6 are written and free: Look and Listen (plants, sound, light and the sky), Look Closer (land, materials and living things), What Made That Happen? (finding causes with a fair test), Where Did It Go? (following energy), Too Small to See (particles, ecosystems and the sky) and Inside the System (systems from a cell to the climate), 36 weeks each. Grades 7 and 8 are deliberately unwritten, and high school science is not written yet.' },
             { num: '03', title: 'Leadership & Venture', href: '/pathway', cta: 'The ten-year ladder',
               body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4, 5 and 6 are written and free. High school runs the opposite shape: one cohort, four summers, eight weeks each.' },
             { num: '04', title: 'Financial Literacy', href: '/programs/financial-literacy', cta: 'The four money years',

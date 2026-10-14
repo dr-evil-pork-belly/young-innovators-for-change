@@ -9,19 +9,25 @@
  */
 
 export const PUBLISHED_YEARS = [
-  { label: 'Grade 1 mathematics', file: '/downloads/what-goes-together-grade1.pdf', standards: 15 },
+  { label: 'Grade 1 mathematics', file: '/downloads/what-goes-together-grade1.pdf', standards: 14 },
   { label: 'Grade 2 mathematics', file: '/downloads/things-worth-noticing-grade2.pdf', standards: 19 },
   { label: 'Grade 3 mathematics', file: '/downloads/count-every-way-grade3.pdf', standards: 18 },
   { label: 'Grade 4 mathematics', file: '/downloads/it-cannot-be-done-grade4.pdf', standards: 15 },
-  { label: 'Grade 5 mathematics', file: '/downloads/the-best-way-grade5.pdf', standards: 15 },
+  { label: 'Grade 5 mathematics', file: '/downloads/the-best-way-grade5.pdf', standards: 14 },
   { label: 'Grade 6 mathematics', file: '/downloads/find-the-rule-grade6.pdf', standards: 21 },
-  { label: 'Grade 4 entrepreneurship', file: '/downloads/venture-year-grade4.pdf', standards: 11 },
-  { label: 'Grade 5 entrepreneurship', file: '/downloads/numbers-year-grade5.pdf', standards: 14 },
+  { label: 'Grade 4 entrepreneurship', file: '/downloads/venture-year-grade4.pdf', standards: 10 },
+  { label: 'Grade 5 entrepreneurship', file: '/downloads/numbers-year-grade5.pdf', standards: 11 },
   { label: 'Grade 6 entrepreneurship', file: '/downloads/market-year-grade6.pdf', standards: 13 },
   { label: 'Grade 3 financial literacy', file: '/downloads/choosing-year-grade3.pdf', standards: 11 },
-  { label: 'Grade 4 financial literacy', file: '/downloads/planning-year-grade4.pdf', standards: 11 },
+  { label: 'Grade 4 financial literacy', file: '/downloads/planning-year-grade4.pdf', standards: 10 },
   { label: 'Grade 5 financial literacy', file: '/downloads/keeping-year-grade5.pdf', standards: 9 },
   { label: 'Grade 6 financial literacy', file: '/downloads/asking-year-grade6.pdf', standards: 13 },
+  { label: 'Grade 1 science', file: '/downloads/look-and-listen-grade1.pdf', standards: 12 },
+  { label: 'Grade 2 science', file: '/downloads/look-closer-grade2.pdf', standards: 14 },
+  { label: 'Grade 3 science', file: '/downloads/what-made-that-happen-grade3.pdf', standards: 17 },
+  { label: 'Grade 4 science', file: '/downloads/where-did-it-go-grade4.pdf', standards: 16 },
+  { label: 'Grade 5 science', file: '/downloads/too-small-to-see-grade5.pdf', standards: 14 },
+  { label: 'Grade 6 science', file: '/downloads/inside-the-system-grade6.pdf', standards: 18 },
 ] as const;
 
 /** 36 weeks each, so this is the count of published years times 36. */
@@ -31,4 +37,11 @@ export const PUBLISHED_WEEKS = PUBLISHED_YEARS.length * 36;
  * Distinct CCSS-M codes named in the 'In class this week' line across every
  * published year. Books overlap: the per-book counts sum higher than this.
  */
-export const PUBLISHED_STANDARDS = 121;
+export const PUBLISHED_STANDARDS = 120;
+
+/**
+ * Distinct California NGSS science performance expectations named in the
+ * 'Sits beside' line across every published science year. Kept apart from
+ * PUBLISHED_STANDARDS, which is mathematics codes only.
+ */
+export const PUBLISHED_SCIENCE_STANDARDS = 86;

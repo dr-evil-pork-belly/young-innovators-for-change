@@ -89,12 +89,16 @@ const FAQS = [
   },
   {
     q: 'How do you know the answer keys are right?',
-    a: `${CHECKED.length} of the ${MATH_LINE.length} books ship a script that recomputes every `
-     + 'numeric answer in the teacher guide from the problem as the workbook states it. Across '
-     + `those books that is ${MATH_CHECK_COUNT.toLocaleString('en-US')} answers, rechecked on `
-     + 'every build, so a fix to a page that changes an answer fails the build until the guide '
-     + `agrees. ${UNCHECKED.map((b) => b.title).join(' and ')} predates that discipline and `
-     + 'is not machine checked yet.',
+    a: (CHECKED.length === MATH_LINE.length
+       ? 'Every one of the books ships'
+       : `${CHECKED.length} of the ${MATH_LINE.length} books ship`)
+     + ' a script that checks the teacher guide’s answers against the problems '
+     + `as the workbook states them: ${MATH_CHECK_COUNT.toLocaleString('en-US')} checks across `
+     + 'them, rerun on every build, so a fix to a page that changes an answer fails the build '
+     + 'until the guide agrees.'
+     + (UNCHECKED.length
+       ? ` ${UNCHECKED.map((b) => b.title).join(' and ')} is not machine checked yet.`
+       : ''),
   },
 ];
 

@@ -16,7 +16,9 @@
  * typed by hand went stale the first time a book shipped.
  */
 
-import { PUBLISHED_STANDARDS, PUBLISHED_WEEKS, PUBLISHED_YEARS } from './published';
+import {
+  PUBLISHED_SCIENCE_STANDARDS, PUBLISHED_STANDARDS, PUBLISHED_WEEKS, PUBLISHED_YEARS,
+} from './published';
 
 // ─── Organization ─────────────────────────────────────────────────────────────
 
@@ -34,7 +36,13 @@ export const ORG = {
     initialFilingDate: '2024-10-17',
     status:           'Active',
     standings:        ['Secretary of State', 'Franchise Tax Board', 'Agent', 'VCFCF'],
-    statementOfInfoDue: '2026-10-31',
+    /** verified, the filed Statement of Information. Nonprofit corporations
+     *  file every two years, in the month of original filing and the five
+     *  months before it. First filed October 2024, so the windows are
+     *  October 2026, October 2028, and so on. */
+    statementOfInfoFiled:  '2026-10-05',
+    statementOfInfoFileNo: 'BA20261884943',
+    statementOfInfoDue:    '2028-10-31',
   },
 
   /** verified, IRS Tax Exempt Organization Search */
@@ -48,18 +56,36 @@ export const ORG = {
     fiscalSponsor: null as string | null,
   },
 
-  /** Registered office of the corporation. This is the legal address of record,
-   *  not where programs are delivered, see `serviceArea`. */
-  registeredAddress: {
-    line1: '28 Geary Street, Suite 650',
-    line2: 'San Francisco, CA 94108',
+  /** verified, CA Secretary of State. Principal office of the corporation,
+   *  the legal address of record, as filed on the Statement of Information of
+   *  5 October 2026 (`incorporation.statementOfInfoFileNo`). It replaced the
+   *  original registered office at 28 Geary Street, Suite 650, San Francisco,
+   *  CA 94108. This is where the organization is, not where programs are
+   *  delivered, see `serviceArea`. */
+  address: {
+    street:  '301 E Arrow Hwy, Ste 101',
+    city:    'San Dimas',
+    state:   'CA',
+    zip:     '91773',
     country: 'United States',
   },
 
-  /** TODO, CONFIRM. The corporation is registered in San Francisco; the programs
-   *  described on this site are aimed at schools in the San Gabriel Valley. Grant
-   *  applications ask for both, and they ask separately. Make sure this line
-   *  matches what you put on an application. */
+  /** verified, same Statement of Information. Where mail goes: same building,
+   *  with a box number. Also the address of the agent for service of process.
+   *  Use this on anything that will be mailed back: grant correspondence, IRS
+   *  and FTB notices, checks. */
+  mailingAddress: {
+    street:  '301 E Arrow Hwy, Ste 101 - #829',
+    city:    'San Dimas',
+    state:   'CA',
+    zip:     '91773',
+    country: 'United States',
+  },
+
+  /** TODO, CONFIRM. The office is in San Dimas; the programs described on this
+   *  site are aimed at schools in the San Gabriel Valley. Grant applications ask
+   *  for both, and they ask separately. Make sure this line matches what you
+   *  put on an application. */
   serviceArea: 'San Gabriel Valley, California',
 
   /** The monitored inbox. Every form submission is delivered here, and the
@@ -215,8 +241,11 @@ export const PROGRAM_FACTS: Stat[] = [
   { value: '4',    label: 'Programs Designed', note: 'Discrete Math, Leadership, Venture Lab, Financial Literacy' },
   { value: String(PUBLISHED_WEEKS), label: 'Weeks of Curriculum',
     note: `${PUBLISHED_YEARS.length} full school years, 36 weeks each` },
-  { value: String(PUBLISHED_STANDARDS), label: 'CA Standards Mapped',
-    note: `Distinct standards named in the “In class this week” line across all ${PUBLISHED_WEEKS} weeks` },
+  // Mathematics (CCSS-M) and science (CA NGSS) codes, each read off the
+  // published PDFs by brand/mksite.py and counted separately there, so neither
+  // number can quietly absorb the other.
+  { value: String(PUBLISHED_STANDARDS + PUBLISHED_SCIENCE_STANDARDS), label: 'CA Standards Mapped',
+    note: `Distinct California mathematics and science standards named across all ${PUBLISHED_WEEKS} weeks` },
   { value: '$0',   label: 'Cost to Students' },
   { value: '100%', label: 'Materials Open', note: 'Every workbook and guide is free to download' },
 ];
@@ -405,6 +434,14 @@ export function fmtDate(iso: string): string {
   });
 }
 
+type PostalAddress = typeof ORG.address | typeof ORG.mailingAddress;
+
+/** The two printed lines of an address, e.g.
+ *  ["301 E Arrow Hwy, Ste 101", "San Dimas, CA 91773"]. */
+export function addressLines(a: PostalAddress): [string, string] {
+  return [a.street, `${a.city}, ${a.state} ${a.zip}`];
+}
+
 // ─── Curriculum scope ─────────────────────────────────────────────────────────
 
 /**
@@ -458,9 +495,14 @@ export const CURRICULUM: Strand[] = [
     blurb: 'Investigation-led science built on the same principle as the mathematics: low '
          + 'materials cost, high reasoning demand, and every lesson printable on a school copier.',
     bands: [
-      { band: 'Grades 1–2',  status: 'planned' },
-      { band: 'Grades 3–5',  status: 'planned' },
-      { band: 'Grades 6–8',  status: 'planned' },
+      { band: 'Grades 1–2',  status: 'published',
+        note: 'Grades 1 and 2 complete: Look and Listen and Look Closer, 36 weeks each.' },
+      { band: 'Grades 3–5',  status: 'published',
+        note: 'Grades 3 to 5 complete: What Made That Happen?, Where Did It Go? and Too '
+            + 'Small to See, 36 weeks each.' },
+      { band: 'Grades 6–8',  status: 'published',
+        note: 'Grade 6 complete: Inside the System, 36 weeks. Grades 7 and 8 are '
+            + 'deliberately unwritten: print is the wrong medium for that age.' },
       { band: 'Grades 9–12', status: 'planned' },
     ],
   },
@@ -535,7 +577,9 @@ export const AVAILABLE_NOW =
   `${PUBLISHED_YEARS.length} full years, 36 weeks each: the complete Grades 1 to 6 discrete `
   + 'mathematics line, plus The Venture Year (Grade 4 entrepreneurship) and The Numbers Year '
   + '(Grade 5) and The Market Year (Grade 6), plus the complete Grades 3 to 6 '
-  + 'financial literacy line.';
+  + 'financial literacy line, and the complete Grades 1 to 6 science line: Look and '
+  + 'Listen (Grade 1), Look Closer (Grade 2), What Made That Happen? (Grade 3), Where '
+  + 'Did It Go? (Grade 4), Too Small to See (Grade 5) and Inside the System (Grade 6).';
 
 // ─── The pathway ──────────────────────────────────────────────────────────────
 

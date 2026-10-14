@@ -349,9 +349,9 @@ export default function MathBookUi({ book }: { book: MathBook }) {
             <p style={{ fontSize: '0.78rem', lineHeight: 1.75, color: MUTED, marginTop: '1.1rem',
               maxWidth: '48ch' }}>
               {book.checks > 0
-                ? `Every one of the ${book.checks.toLocaleString('en-US')} numeric answers in that `
-                  + 'guide is recomputed from the problem as the workbook states it, by a script '
-                  + 'that ships with the source and runs on every build.'
+                ? 'The answers in that guide are checked against the problems as the workbook '
+                  + 'states them by a script that ships with the source and runs on every build: '
+                  + `${book.checks.toLocaleString('en-US')} checks.`
                 : 'This guide predates the checking script the four later books ship with, so its '
                   + 'answers have been read rather than recomputed. Writing that check is on the list.'}
             </p>

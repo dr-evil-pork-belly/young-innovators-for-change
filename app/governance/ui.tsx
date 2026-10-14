@@ -9,7 +9,7 @@ import {
 } from '@/components/kit';
 import {
   ORG, TRANSPARENCY, PUBLIC_RECORDS, LEADERSHIP, BOARD,
-  hasBoard, trustBadges, taxLine, fmtDate,
+  hasBoard, trustBadges, taxLine, fmtDate, addressLines,
 } from '@/content/org';
 
 export default function GovernanceUi() {
@@ -81,11 +81,14 @@ export default function GovernanceUi() {
             <FactRow label="Most recent filing"
               value={`Form ${TRANSPARENCY.form990Form}, tax period ${TRANSPARENCY.form990LatestPeriod}`}
               source={`Gross receipts attested at or below $${TRANSPARENCY.grossReceiptsUnder.toLocaleString()}`} />
-            <FactRow label="Next filing due"
-              value={`California Statement of Information, due ${fmtDate(inc.statementOfInfoDue)}`} />
+            <FactRow label="Statement of Information"
+              value={`Filed ${fmtDate(inc.statementOfInfoFiled)}; next due ${fmtDate(inc.statementOfInfoDue)}`}
+              source={`California Secretary of State file no. ${inc.statementOfInfoFileNo}`} />
             <FactRow label="Registered office"
-              value={<>{ORG.registeredAddress.line1}<br />{ORG.registeredAddress.line2}</>}
+              value={<>{addressLines(ORG.address)[0]}<br />{addressLines(ORG.address)[1]}</>}
               source="Registered office of the corporation; programs are delivered in the service area below" />
+            <FactRow label="Mailing address"
+              value={<>{addressLines(ORG.mailingAddress)[0]}<br />{addressLines(ORG.mailingAddress)[1]}</>} />
             <FactRow label="Service area" value={ORG.serviceArea} />
             {ORG.contactEmail && (
               <FactRow label="Contact"

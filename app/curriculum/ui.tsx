@@ -205,6 +205,12 @@ export default function CurriculumUi() {
                 generalize it. Any one of them runs on its own, and the elementary band is now
                 continuous from Grade 1 to Grade 6.
               </p>
+              <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
+                Science has six years: Look and Listen (Grade 1), Look Closer (Grade 2),
+                What Made That Happen? (Grade 3), Where Did It Go? (Grade 4), Too Small to See
+                (Grade 5) and Inside the System (Grade 6), thirty-six weeks each. Grades 7 and 8
+                are deliberately unwritten, and high school science is not written yet.
+              </p>
               <Link href="/programs/discrete-math" style={{ display: 'inline-flex', alignItems: 'center',
                 gap: '0.4rem', fontSize: '0.8rem', fontWeight: 600, color: ROYAL_L,
                 textDecoration: 'none' }}>
@@ -282,8 +288,9 @@ export default function CurriculumUi() {
                + 'older-student tracks are designed and not written out, and turning a '
                + 'syllabus into materials a volunteer can teach from is the work.' },
             { n: '05', a: SLATE_3, t: 'Science, and the upper grades',
-              d: 'The largest part of the grid and the furthest out. We would rather say that '
-               + 'plainly than imply it is nearly done.' },
+              d: 'Grades 1 to 6 science are written. High school science and the upper grades are '
+               + 'still the largest part of the grid and the furthest out. We would rather say '
+               + 'that plainly than imply they are nearly done.' },
           ].map((s, i) => (
             <FadeIn key={s.n} delay={i * 0.06}>
               <div style={{ borderTop: `2px solid ${s.a}`, paddingTop: '1rem', height: '100%' }}>
