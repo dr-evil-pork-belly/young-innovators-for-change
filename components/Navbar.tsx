@@ -16,8 +16,8 @@ import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
  *
  * It used to be a lucide `Zap` bolt in a gold box, which is a stock icon that
  * belongs to no one. The organization has a mascot, drawn in brand.py, printed
- * on the cover of every one of the thirteen books, and it appeared on exactly
- * one page of this website. It is the logo now.
+ * on the cover of every published book, and it appeared on exactly one page of
+ * this website. It is the logo now.
  */
 
 const INK      = '#16233A';

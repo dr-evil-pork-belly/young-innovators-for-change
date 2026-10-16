@@ -292,8 +292,9 @@ const finance: ProgramSpec = {
     + 'to 12 and runs as a cohort, the same students returning for four consecutive '
     + 'summers. '
     + 'Its content is credit scores, interest rates and index funds, and it belongs where '
-    + 'a student is close to meeting those things. It used to say Grades 3 to 12, which '
-    + 'was wrong, and the page said so publicly for a month.',
+    + 'a student is close to meeting those things. It is built so that a student leaves '
+    + 'with their own budget, their own projection and their own plan, using their own '
+    + 'numbers rather than a worksheet about somebody else.',
     'Financial literacy in the elementary grades is a different subject, and four full '
     + 'years of it are written and free to download today. Grade 3, The Choosing Year: '
     + 'there is enough for one of two things, and every choice costs you the other. Grade '
@@ -301,10 +302,6 @@ const finance: ProgramSpec = {
     + 'Grade 5, The Keeping Year: a price is what you pay once, a cost is what it keeps '
     + 'costing. Grade 6, The Asking Year: the numbers other people put in front of you, and '
     + 'what would have to be true for them to hold.',
-    'Eight weeks inside one summer, built so that a student leaves with their own budget, '
-    + 'their own '
-    + 'projection and their own plan, using their own numbers rather than a worksheet '
-    + 'about somebody else.',
   ],
   unitsLabel: 'The eight weeks',
   unitsIntro:

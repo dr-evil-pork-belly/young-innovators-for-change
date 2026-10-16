@@ -215,14 +215,14 @@ export default function AlumniUi() {
             <div style={{ maxWidth: '60ch' }}>
               <Title size="clamp(1.6rem, 3.2vw, 2.5rem)">The way to make<br />this page real.</Title>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginTop: '1rem' }}>
-                One classroom, one year, one teacher willing to go first. Every commitment on
+                One cohort, one summer, one district willing to host it. Every commitment on
                 this page stays hypothetical until that happens. The books are written and
                 sitting there, free, which means the only missing piece is a room.
               </p>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-              <Link href="/teachers" className="btn-gold">If you teach <ArrowUpRight size={14} /></Link>
-              <Link href="/curriculum" className="btn-ghost">The full map <ArrowUpRight size={13} /></Link>
+              <Link href="/partner" className="btn-gold">Host the first cohort <ArrowUpRight size={14} /></Link>
+              <Link href="/teachers" className="btn-ghost">If you teach <ArrowUpRight size={13} /></Link>
             </div>
           </div>
           <p style={{ fontSize: '0.8rem', lineHeight: 1.7, color: SLATE_3, marginTop: '2rem',

@@ -4,8 +4,9 @@ import Ui from './ui';
 
 const DESC =
   `${PUBLISHED_YEARS.length} complete school years, ${PUBLISHED_WEEKS} weekly assignments, `
-  + 'and the full teacher guide for every one of them. Discrete mathematics for Grades 1 to '
-  + '6, entrepreneurship and financial literacy for Grades 3 to 6. Free to download, free to '
+  + 'and the full teacher guide for every one of them. Discrete mathematics and science for '
+  + 'Grades 1 to 6, financial literacy for Grades 3 to 6 and entrepreneurship for Grades 4 '
+  + 'to 6. Free to download, free to '
   + 'print, free to run. No account, no email wall, no sample chapter.';
 
 export const metadata: Metadata = {

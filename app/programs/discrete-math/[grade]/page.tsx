@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { MATH_LINE, bookBySlug } from '@/content/mathLine';
 import Ui from './ui';
 
-/** Five static routes, one per book. No other slug resolves. */
+/** One static route per book in the line. No other slug resolves. */
 export function generateStaticParams() {
   return MATH_LINE.map((b) => ({ grade: b.slug }));
 }

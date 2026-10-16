@@ -163,8 +163,8 @@ export default function CurriculumUi() {
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '1.25rem', maxWidth: '72ch' }}>
             A band marked <em>published</em> means at least one complete year in it can be
             downloaded and run today, and the note on the cell names exactly which grades those
-            are. Mathematics reads published across three bands because Grades 1 through 6 are
-            written; Grades 7 and 8 are not, and the cells say so.
+            are. Mathematics and science read published across three bands because Grades 1
+            through 6 are written; Grades 7 and 8 are not, and the cells say so.
           </p>
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '0.75rem', maxWidth: '72ch' }}>
             Much of this grid still says <em>planned</em>, and publishing it that way is the
@@ -232,10 +232,11 @@ export default function CurriculumUi() {
                 In the elementary grades this runs as a full school year, one assignment a
                 week, delivered by whoever is already in the room, because younger students
                 hold this better spread out than compressed. The Grades 4, 5 and 6 years are
-                written, which makes the elementary band continuous. From Grade 7 up it takes
+                written, which makes the elementary band continuous. In high school it takes
                 the opposite shape: an eight-week summer intensive, run the way a business
-                school runs. In high school it runs as a cohort, the same students returning
-                for four consecutive summers.{' '}
+                school runs, as one cohort, the same students returning for four consecutive
+                summers. Grades 7 and 8 are deliberately unwritten, except Leadership, which is
+                taught in a room rather than read off a page.{' '}
                 <Link href="/teachers" style={{ color: GOLD_L }}>Why the two shapes differ</Link>.
               </p>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>

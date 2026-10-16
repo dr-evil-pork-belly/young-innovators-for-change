@@ -51,7 +51,7 @@ export default function GovernanceUi() {
             className="btn-gold">
             Verify us with the IRS <ExternalLink size={13} />
           </a>
-          <Link href="/partner" className="btn-ghost">Ask us for a document <ArrowUpRight size={13} /></Link>
+          <Link href="/partner#contact" className="btn-ghost">Ask us for a document <ArrowUpRight size={13} /></Link>
         </div>
       </Hero>
 
@@ -86,7 +86,7 @@ export default function GovernanceUi() {
               source={`California Secretary of State file no. ${inc.statementOfInfoFileNo}`} />
             <FactRow label="Registered office"
               value={<>{addressLines(ORG.address)[0]}<br />{addressLines(ORG.address)[1]}</>}
-              source="Registered office of the corporation; programs are delivered in the service area below" />
+              source="Registered office of the corporation; programs are aimed at the service area below" />
             <FactRow label="Mailing address"
               value={<>{addressLines(ORG.mailingAddress)[0]}<br />{addressLines(ORG.mailingAddress)[1]}</>} />
             <FactRow label="Service area" value={ORG.serviceArea} />
@@ -186,7 +186,7 @@ export default function GovernanceUi() {
                     governed a small education nonprofit, or you work in K&ndash;12 curriculum,
                     school administration, or nonprofit finance, we would like to talk.
                   </p>
-                  <Link href="/partner" className="btn-ghost">
+                  <Link href="/partner#contact" className="btn-ghost">
                     Talk to us about the board <ArrowUpRight size={13} />
                   </Link>
                 </div>
@@ -269,7 +269,7 @@ export default function GovernanceUi() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end',
               gap: '0.6rem' }}>
-              <Link href="/partner" className="btn-gold">
+              <Link href="/partner#contact" className="btn-gold">
                 Contact us <ArrowUpRight size={14} />
               </Link>
               {ORG.contactEmail && (

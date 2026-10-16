@@ -4,8 +4,8 @@
  * One renderer for every book in the math line.
  *
  * The three enterprise program pages were once three near-identical hand-written
- * files totalling 353KB, and stale content hid in them for months. Five grade
- * pages would have been the same mistake with a different subject, so this is
+ * files totalling 353KB, and stale content hid in them for months. One page per
+ * grade would have been the same mistake with a different subject, so this is
  * one component driven by content/mathLine.ts, which is itself generated from
  * the books. The week table below is the book's own table of contents: week
  * number, strand, assignment title and the one-line subtitle printed under it.
@@ -282,7 +282,7 @@ export default function MathBookUi({ book }: { book: MathBook }) {
             ))}
             {weeks.length === 0 && (
               <p style={{ fontSize: '0.85rem', color: MUTED, padding: '1.5rem 0.5rem' }}>
-                Nothing in this year matches “{q}”. The other four books are on the{' '}
+                Nothing in this year matches “{q}”. The other {MATH_LINE.length - 1} books are on the{' '}
                 <Link href="/programs/discrete-math" style={{ color: accent }}>line page</Link>.
               </p>
             )}
@@ -352,7 +352,7 @@ export default function MathBookUi({ book }: { book: MathBook }) {
                 ? 'The answers in that guide are checked against the problems as the workbook '
                   + 'states them by a script that ships with the source and runs on every build: '
                   + `${book.checks.toLocaleString('en-US')} checks.`
-                : 'This guide predates the checking script the four later books ship with, so its '
+                : 'This guide predates the checking script the later books ship with, so its '
                   + 'answers have been read rather than recomputed. Writing that check is on the list.'}
             </p>
           </FadeIn>
@@ -372,7 +372,7 @@ export default function MathBookUi({ book }: { book: MathBook }) {
                   <ChevronLeft size={12} /> The year before
                 </div>
                 <div style={{ fontFamily: DISPLAY, fontSize: '1.35rem', letterSpacing: '-0.01em', color: WHITE }}>
-                  GRADE {prev.grade}: {prev.title}
+                  Grade {prev.grade}: {prev.title}
                 </div>
                 <div style={{ fontSize: '0.78rem', color: MUTED, marginTop: '0.3rem' }}>{prev.move}.</div>
               </Link>
@@ -386,7 +386,7 @@ export default function MathBookUi({ book }: { book: MathBook }) {
                   The year after <ChevronRight size={12} />
                 </div>
                 <div style={{ fontFamily: DISPLAY, fontSize: '1.35rem', letterSpacing: '-0.01em', color: WHITE }}>
-                  GRADE {next.grade}: {next.title}
+                  Grade {next.grade}: {next.title}
                 </div>
                 <div style={{ fontSize: '0.78rem', color: MUTED, marginTop: '0.3rem' }}>{next.move}.</div>
               </Link>

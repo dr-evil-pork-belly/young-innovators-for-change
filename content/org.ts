@@ -237,18 +237,10 @@ export const VERIFIED_STATS: Stat[] = [];
  * that had been retired for the grades that actually have material. The
  * Executives Track remains in CURRICULUM and PATHWAY, correctly marked designed.
  */
-export const PROGRAM_FACTS: Stat[] = [
-  { value: '4',    label: 'Programs Designed', note: 'Discrete Math, Leadership, Venture Lab, Financial Literacy' },
-  { value: String(PUBLISHED_WEEKS), label: 'Weeks of Curriculum',
-    note: `${PUBLISHED_YEARS.length} full school years, 36 weeks each` },
-  // Mathematics (CCSS-M) and science (CA NGSS) codes, each read off the
-  // published PDFs by brand/mksite.py and counted separately there, so neither
-  // number can quietly absorb the other.
-  { value: String(PUBLISHED_STANDARDS + PUBLISHED_SCIENCE_STANDARDS), label: 'CA Standards Mapped',
-    note: `Distinct California mathematics and science standards named across all ${PUBLISHED_WEEKS} weeks` },
-  { value: '$0',   label: 'Cost to Students' },
-  { value: '100%', label: 'Materials Open', note: 'Every workbook and guide is free to download' },
-];
+// PROGRAM_FACTS is declared after CURRICULUM, below, because its first entry
+// counts the subject lines in that array rather than typing the number. It said
+// "4 Programs Designed" and named four of them for three days after the science
+// line, the fifth, was published.
 
 // ─── People ───────────────────────────────────────────────────────────────────
 
@@ -568,6 +560,25 @@ export function countByStatus(s: Status): number {
   return CURRICULUM.reduce((n, st) => n + st.bands.filter((b) => b.status === s).length, 0);
 }
 
+/** "Mathematics, science, leadership, entrepreneurship and financial literacy". */
+function subjectList(): string {
+  const names = CURRICULUM.map((s, i) => (i === 0 ? s.name : s.name.toLowerCase()));
+  return `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`;
+}
+
+export const PROGRAM_FACTS: Stat[] = [
+  { value: String(CURRICULUM.length), label: 'Subject Lines', note: subjectList() },
+  { value: String(PUBLISHED_WEEKS), label: 'Weeks of Curriculum',
+    note: `${PUBLISHED_YEARS.length} full school years, 36 weeks each` },
+  // Mathematics (CCSS-M) and science (CA NGSS) codes, each read off the
+  // published PDFs by brand/mksite.py and counted separately there, so neither
+  // number can quietly absorb the other.
+  { value: String(PUBLISHED_STANDARDS + PUBLISHED_SCIENCE_STANDARDS), label: 'CA Standards Mapped',
+    note: `Distinct California mathematics and science standards named across all ${PUBLISHED_WEEKS} weeks` },
+  { value: '$0',   label: 'Cost to Students' },
+  { value: '100%', label: 'Materials Open', note: 'Every workbook and guide is free to download' },
+];
+
 /**
  * Where a school can actually start today. The year count is computed from the
  * generated list of published books rather than typed, because it was typed
@@ -655,7 +666,7 @@ export const PATHWAY: PathwayStage[] = [
            + 'every other team’s numbers and moves at the same time.',
     mbaCourse: 'Competitive strategy',
     note: '36 weeks, written in full, free to download today. Written before the first '
-        + 'cohort ran, so the first revision after a pilot will be substantial.',
+        + 'cohort ran, so the first revision after one will be substantial.',
   },
   {
     grade: 'Grade 7', status: 'planned',
@@ -754,6 +765,42 @@ export const OPT_IN: { title: string; body: string }[] = [
     body: 'The material is written to reward work rather than speed or prior exposure. '
         + 'Whether that is enough is an open question, and it is on the evidence page '
         + 'as one we could be wrong about.' },
+];
+
+// ─── Load-bearing assumptions ─────────────────────────────────────────────────
+
+/**
+ * What has to be true for the theory of change to hold, each with the specific
+ * way it could fail. Rendered on /mission as the assumptions and on /impact as
+ * the questions the first cohort study has to answer, from this one list, so
+ * the two pages cannot drift apart. Moved here from app/mission/ui.tsx on
+ * 16 October 2026 when /impact lost its Grade 2 classroom study and needed the
+ * same list.
+ */
+export const ASSUMPTIONS: { text: string; risk: string }[] = [
+  { text: 'That an adult with the book in front of them will do the part the book '
+        + 'cannot do.',
+    risk: 'This is the assumption the whole organization rests on and the one we control '
+        + 'least. A year run without conviction is a stack of worksheets. We can make the '
+        + 'material short, correct and free; we cannot supply the thirty-five minutes a '
+        + 'week, and no amount of curriculum quality substitutes for a person who cares '
+        + 'whether the child in the third row understood it.' },
+  { text: 'That what a child learns about money reaches the household behind them.',
+    risk: 'The one randomized trial that found this ran in Peruvian high schools with a '
+        + 'short course. If it does not transfer to a compressed program here, half the '
+        + 'reason this organization exists does nothing.' },
+  { text: 'That an opt-in program does not simply gather the students who were already '
+        + 'going to be fine.',
+    risk: 'If it does, we widen the gap we set out to close and this becomes another '
+        + 'gifted program. It is the likeliest way for us to fail while appearing to '
+        + 'succeed.' },
+  { text: 'That real stakes and spacing hold an effect after the program ends.',
+    risk: 'The largest meta-analysis in our research list found financial education '
+        + 'effects negligible 20 months out. Our answer is to spread the material and '
+        + 'attach it to real money. Neither has been tested.' },
+  { text: 'That a school district will host a program from an organization with no '
+        + 'track record.',
+    risk: 'This is the assumption we are testing first, and the one most likely to fail.' },
 ];
 
 // ─── Delivery ─────────────────────────────────────────────────────────────────
@@ -920,8 +967,9 @@ export const DELIVERY = {
          + 'lead, or a caretaker at a kitchen table.',
       body: 'Thirty-six weeks, one assignment a week, sequenced against the '
           + 'California pacing guide so it reinforces what the class is already '
-          + 'doing that month. The mathematics years run from Grade 1 and the '
-          + 'money and venture years from Grade 3. It is built this way because '
+          + 'doing that month. The mathematics and science years run from Grade 1, '
+          + 'the money years from Grade 3 and the venture years from Grade 4. It is '
+          + 'built this way because '
           + 'it asks for the one resource an elementary school actually has, '
           + 'which is a little time every week for a long time.',
       status: 'published' as const,

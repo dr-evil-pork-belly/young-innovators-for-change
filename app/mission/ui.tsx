@@ -6,7 +6,7 @@ import {
   Page, Hero, Section, Eyebrow, Title, FadeIn, Card,
   WHITE, MUTED, SLATE_3, GOLD, GOLD_L, ROYAL_L, GREEN_L, DISPLAY,
 } from '@/components/kit';
-import { MISSION } from '@/content/org';
+import { MISSION, ASSUMPTIONS } from '@/content/org';
 import { PUBLISHED_WEEKS } from '@/content/published';
 
 // ── Logic model ───────────────────────────────────────────────────────────────
@@ -25,7 +25,7 @@ const CHAIN = [
     stage: 'Activities',
     accent: ROYAL_L,
     items: ['Publishing every year in full, free to anyone (running today)',
-            'A delivered program with a roster, five to six weeks, real money (not yet run)',
+            'A delivered program with a roster, eight weeks in one summer, real money (not yet run)',
             'Family sessions where the student teaches the adult (not yet run)',
             'Teacher orientation and support'],
   },
@@ -54,31 +54,7 @@ const CHAIN = [
   },
 ];
 
-const ASSUMPTIONS = [
-  { text: 'That an adult with the book in front of them will do the part the book '
-        + 'cannot do.',
-    risk: 'This is the assumption the whole organization rests on and the one we control '
-        + 'least. A year run without conviction is a stack of worksheets. We can make the '
-        + 'material short, correct and free; we cannot supply the thirty-five minutes a '
-        + 'week, and no amount of curriculum quality substitutes for a person who cares '
-        + 'whether the child in the third row understood it.' },
-  { text: 'That what a child learns about money reaches the household behind them.',
-    risk: 'The one randomized trial that found this ran in Peruvian high schools with a '
-        + 'short course. If it does not transfer to a compressed program here, half the '
-        + 'reason this organization exists does nothing.' },
-  { text: 'That an opt-in program does not simply gather the students who were already '
-        + 'going to be fine.',
-    risk: 'If it does, we widen the gap we set out to close and this becomes another '
-        + 'gifted program. It is the likeliest way for us to fail while appearing to '
-        + 'succeed.' },
-  { text: 'That real stakes and spacing hold an effect after the program ends.',
-    risk: 'The largest meta-analysis in our research list found financial education '
-        + 'effects negligible 20 months out. Our answer is to spread the material and '
-        + 'attach it to real money. Neither has been tested.' },
-  { text: 'That a school or expanded learning site will run a program from an '
-        + 'organization with no track record.',
-    risk: 'This is the assumption we are testing first, and the one most likely to fail.' },
-];
+// ASSUMPTIONS lives in content/org.ts now, shared with /impact.
 
 export default function MissionUi() {
   return (
@@ -323,7 +299,7 @@ export default function MissionUi() {
             border: '1px solid rgba(255,122,61,0.18)', borderRadius: '4px' }}>
             <div>
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
-                color: WHITE, marginBottom: '0.4rem' }}>Everything above turns on one classroom.</p>
+                color: WHITE, marginBottom: '0.4rem' }}>Everything above turns on one cohort.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '54ch' }}>
                 Teachers are running this material on their own already. What nobody has done
                 is run it with a roster and measure what happened, which is why everything to

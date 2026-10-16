@@ -2,20 +2,37 @@
 
 import Link from 'next/link';
 import {
-  ArrowUpRight, BookOpen, FlaskConical, AlertTriangle,
-  XCircle,
+  ArrowUpRight, BookOpen, FlaskConical, AlertTriangle, ExternalLink,
+  CheckCircle,
 } from 'lucide-react';
 import {
-  Page, Hero, Section, Eyebrow, Title, FadeIn, Card, FactRow,
+  Page, Hero, Section, Eyebrow, Title, FadeIn, Card,
   WHITE, MUTED, SLATE_3, GOLD, GOLD_L, ROYAL_L, GREEN_L, DISPLAY,
 } from '@/components/kit';
 import {
   PROGRAM_FACTS, VERIFIED_STATS, hasOutcomeStats, hasTestimonials,
-  TESTIMONIALS, trustBadges, ORG,
+  TESTIMONIALS, trustBadges, ORG, RESEARCH, ASSUMPTIONS, DELIVERY,
 } from '@/content/org';
 
-// ── The literature actually consulted ─────────────────────────────────────────
-const SOURCES = [
+/**
+ * Until 16 October 2026 this page described the evaluation of a Grade 2
+ * classroom pilot: a matched-classroom quasi-experiment across four to eight
+ * classrooms, five measures, and three pre-committed disconfirming results.
+ * That pilot was retired with /for-schools (claude/38-retiring-for-schools.md).
+ * The first program the organization runs and measures is the summer cohort
+ * in DELIVERY.summerIntensive, and its design is not registered yet, so this
+ * page says what will be registered and when, and does not invent measures to
+ * fill the space. The classroom study's withdrawal is stated on the page
+ * rather than deleted quietly, because a pre-commitment that disappears
+ * without a word is worse than one that is withdrawn in public.
+ */
+
+// ── The literature behind the mathematics line ───────────────────────────────
+// These four are the case for discrete mathematics as elementary enrichment.
+// They are the working paper's sources, and they say nothing about the
+// business and money line, whose research base is RESEARCH in org.ts and is
+// rendered in full on /pathway.
+const MATH_SOURCES = [
   {
     cite: 'Rosenstein, Franzblau & Roberts (eds.), 1997',
     title: 'Discrete Mathematics in the Schools',
@@ -53,24 +70,10 @@ const SOURCES = [
   },
 ];
 
-const DISCONFIRM = [
-  'Grade-level benchmark performance declines relative to comparison classrooms. That would mean '
-  + 'the opportunity cost is real and the supplement is not affordable.',
-  'Participation breadth does not move, or moves toward students already identified as '
-  + 'high-achieving. That would mean we built a better gifted program, not a wider door.',
-  'Teachers do not complete the year. Below roughly two-thirds of weeks, the design has failed '
-  + 'regardless of what the other measures say.',
-];
-
-const MEASURES = [
-  { c: 'Mathematical disposition', i: 'Established elementary attitude scale, administered orally', t: 'Pre and post' },
-  { c: 'Reasoning and justification', i: 'Task-based interview on two unfamiliar problems, scored by rubric', t: 'Pre and post' },
-  { c: 'Grade-level achievement', i: 'The district’s existing benchmark, no additional testing', t: 'District schedule' },
-  { c: 'Participation breadth', i: 'Teacher log: which students volunteer explanations, by week', t: 'Continuous' },
-  { c: 'Feasibility', i: 'Weeks completed, minutes spent, teacher exit interview', t: 'Continuous, then post' },
-];
-
 export default function ImpactUi() {
+  const cohort = DELIVERY.summerIntensive;
+  const countervailing = RESEARCH.filter((c) => c.countervailing).length;
+
   return (
     <Page>
       <Hero
@@ -80,9 +83,9 @@ export default function ImpactUi() {
           <>
             <p style={{ marginBottom: '0.9rem' }}>
               Most organizations put their best numbers on this page. We do not have any yet, so
-              this page holds what we do have: what has been built, the research it rests on, what
-              it costs, exactly how we intend to measure it, and the results that would tell us we
-              were wrong.
+              this page holds what we do have: what has been built, the research it rests on,
+              how the first cohort will be measured, and the assumptions that would have to
+              fail for the whole thing to be wrong.
             </p>
             <p style={{ margin: 0 }}>
               When there are outcomes, they will appear here, favorable or not.
@@ -99,10 +102,10 @@ export default function ImpactUi() {
           ))}
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-          <Link href="/partner" className="btn-gold">Fund the first measured year <ArrowUpRight size={14} /></Link>
-          <a href="/downloads/structure-before-fluency.pdf" className="btn-ghost">
-            Read the working paper <FlaskConical size={13} />
-          </a>
+          <Link href="/partner" className="btn-gold">Fund the first cohort <ArrowUpRight size={14} /></Link>
+          <Link href="/pathway#research" className="btn-ghost">
+            The research, paper by paper <ArrowUpRight size={13} />
+          </Link>
         </div>
       </Hero>
 
@@ -128,7 +131,7 @@ export default function ImpactUi() {
           <FadeIn delay={0.3}>
             <p style={{ fontSize: '0.82rem', color: SLATE_3, marginTop: '2rem', maxWidth: '68ch' }}>
               Note what is absent: students served, districts reached, engagement, score gains.
-              Those are outcome claims and we have none, because no class has run the program.
+              Those are outcome claims and we have none, because no cohort has run the program.
               This section will grow from the left as that changes.
             </p>
           </FadeIn>
@@ -141,14 +144,71 @@ export default function ImpactUi() {
           <Eyebrow color={GOLD}>The research base</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">What the literature<br />does and does not support.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
-            Four sources carry most of the argument. Each is summarized with its actual weight,
-            including where a study is too small or at the wrong grade to prove what we would like
-            it to prove.
+            The design of the business and money line leans on {RESEARCH.length} published
+            papers, {countervailing} of which argue against the whole category. None of them
+            evaluates our curriculum. Each is summarized on the pathway page with what it found
+            and exactly where its support for us runs out; the list is below so a reader can
+            see at a glance what the argument stands on.
+          </p>
+        </FadeIn>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '0.75rem' }}>
+          {RESEARCH.map((c, i) => {
+            const accent = c.countervailing ? '#B42318' : ROYAL_L;
+            return (
+              <FadeIn key={c.title} delay={Math.min(i * 0.04, 0.3)}>
+                <a href={c.url} target="_blank" rel="noopener noreferrer"
+                  style={{ display: 'block', height: '100%', padding: '1rem 1.15rem',
+                    background: '#FFFFFF', borderRadius: '4px', textDecoration: 'none',
+                    border: `1px solid ${c.countervailing ? 'rgba(180,35,24,0.28)' : 'rgba(45,91,227,0.14)'}`,
+                    borderLeft: `2px solid ${accent}` }}>
+                  {c.countervailing && (
+                    <p style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.6rem',
+                      fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase' as const,
+                      color: accent, marginBottom: '0.45rem' }}>
+                      <AlertTriangle size={11} /> Argues against us
+                    </p>
+                  )}
+                  <p style={{ fontSize: '0.88rem', fontWeight: 700, color: WHITE, lineHeight: 1.4,
+                    marginBottom: '0.3rem' }}>{c.title}</p>
+                  <p style={{ fontSize: '0.74rem', color: MUTED, display: 'flex', alignItems: 'center',
+                    gap: '0.35rem' }}>
+                    {c.authors}, {c.year} <ExternalLink size={10} color={accent} />
+                  </p>
+                </a>
+              </FadeIn>
+            );
+          })}
+        </div>
+
+        <FadeIn delay={0.3}>
+          <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginTop: '1.5rem', maxWidth: '70ch' }}>
+            The paper that argues against us is the one to read first. If a one-time course
+            fades within two years, the answer is not a better one-time course, and whether
+            spreading the same material across ten years defeats that decay is untested,
+            including by us.{' '}
+            <Link href="/pathway#research" style={{ color: ROYAL_L, textDecoration: 'none',
+              borderBottom: '1px solid rgba(45,91,227,0.4)' }}>
+              What each paper does and does not support
+            </Link>.
+          </p>
+        </FadeIn>
+      </Section>
+
+      {/* ── The mathematics line's base ────────────────── */}
+      <Section tinted>
+        <FadeIn style={{ marginBottom: '2.5rem' }}>
+          <Eyebrow>The mathematics line</Eyebrow>
+          <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">Four sources, and<br />a gap we could not close.</Title>
+          <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
+            The discrete mathematics years rest on a different literature. Four sources carry
+            that argument, each summarized with its actual weight, including where a study is
+            too small or at the wrong grade to prove what we would like it to prove.
           </p>
         </FadeIn>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))', gap: '1rem' }}>
-          {SOURCES.map((s, i) => (
+          {MATH_SOURCES.map((s, i) => (
             <FadeIn key={s.cite} delay={i * 0.07}>
               <Card accent={i === 1 ? GOLD : ROYAL_L} pad="1.6rem">
                 <div style={{ display: 'flex', justifyContent: 'space-between', gap: '0.75rem',
@@ -157,7 +217,7 @@ export default function ImpactUi() {
                   <span style={{ padding: '0.2rem 0.55rem', border: `1px solid ${i === 1 ? GOLD : ROYAL_L}30`,
                     borderRadius: '2px', fontSize: '0.58rem', fontWeight: 800, letterSpacing: '0.12em',
                     textTransform: 'uppercase' as const, color: i === 1 ? GOLD : ROYAL_L,
-                    whiteSpace: 'nowrap' }}>{s.strength}</span>
+                    textAlign: 'right', lineHeight: 1.5 }}>{s.strength}</span>
                 </div>
                 <h3 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.98rem', fontWeight: 700, color: WHITE, lineHeight: 1.4 }}>{s.title}</h3>
                 <p style={{ fontSize: '0.74rem', color: i === 1 ? GOLD : ROYAL_L, fontWeight: 600, margin: '0.2rem 0 0.15rem' }}>{s.cite}</p>
@@ -181,7 +241,7 @@ export default function ImpactUi() {
                   We could locate no randomized or quasi-experimental study of a discrete
                   mathematics enrichment program in the early elementary grades with measured
                   outcomes. Anyone who tells you the evidence base here is strong is overstating
-                  it. That gap is the reason the study below exists.
+                  it. The working paper sets out that case and that gap in full.
                 </p>
               </div>
             </div>
@@ -199,52 +259,91 @@ export default function ImpactUi() {
       </Section>
 
       {/* ── How we will measure ────────────────────────── */}
-      <Section tinted accent={GOLD}>
+      <Section accent={GOLD}>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GREEN_L}>The evaluation</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">How we will know.</Title>
-          <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
-            A matched-classroom quasi-experiment across four to eight Grade 2 classrooms, run over
-            a single school year, with classrooms rather than students as the unit of assignment.
-            A randomized design is not realistic at this scale and we will report it as what it is.
-          </p>
         </FadeIn>
 
-        <div style={{ maxWidth: '900px' }}>
-          {MEASURES.map((m) => (
-            <FadeIn key={m.c}>
-              <FactRow label={m.c} value={m.i} source={m.t} />
-            </FadeIn>
-          ))}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: 'clamp(2rem, 5vw, 3.5rem)', alignItems: 'start' }}>
+          <FadeIn>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
+              The first program we run and measure is the summer cohort. {cohort.theClaim}
+            </p>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
+              Its evaluation design will be registered on the Open Science Framework before the
+              first summer starts, so that the measures, the comparison, and the results that
+              would count against us are fixed in public before any data exists and cannot be
+              moved afterward.
+            </p>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE }}>
+              It is not registered yet, because there is no host district yet, and a design
+              written for a program whose site, dates and cohort size are unknown would have to
+              be quietly rewritten once they were. {cohort.ask}{' '}
+              <Link href="/partner" style={{ color: GOLD_L, textDecoration: 'none',
+                borderBottom: `1px solid ${GOLD}55` }}>That is the open ask</Link>.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <div style={{ background: '#FFFFFF', border: '1px solid rgba(45,91,227,0.14)',
+              borderRadius: '4px', padding: '1.5rem 1.75rem' }}>
+              <p style={{ fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.18em',
+                textTransform: 'uppercase' as const, color: GREEN_L, marginBottom: '0.9rem' }}>
+                What the registration will fix in advance
+              </p>
+              <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex',
+                flexDirection: 'column', gap: '0.65rem' }}>
+                {[
+                  'The questions, which are the assumptions below, each with the result that would mean it failed',
+                  'The measures and when they are taken, including a follow-up after the program ends',
+                  'Who is compared with whom, and why that comparison is the honest one available',
+                  'A commitment to publish the result either way, here, with the data where consent allows',
+                ].map((x) => (
+                  <li key={x} style={{ display: 'flex', gap: '0.6rem', fontSize: '0.86rem',
+                    lineHeight: 1.65, color: MUTED }}>
+                    <CheckCircle size={14} color={GREEN_L} style={{ flexShrink: 0, marginTop: '3px' }} />
+                    {x}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeIn>
         </div>
 
         <FadeIn delay={0.2}>
-          <p style={{ fontSize: '0.88rem', lineHeight: 1.8, color: MUTED, maxWidth: '66ch', marginTop: '1.75rem' }}>
-            The participation-breadth measure is the one we care about most, because it
-            operationalizes the actual hypothesis: that a different kind of content changes{' '}
-            <em style={{ color: WHITE }}>who</em> gets to be the child explaining something to the
-            class.
+          <p style={{ fontSize: '0.8rem', lineHeight: 1.75, color: SLATE_3, marginTop: '2rem', maxWidth: '74ch' }}>
+            Until 16 October 2026 this page carried the design of a Grade 2 classroom study, with
+            five measures and three pre-committed results that would have shown it failed. That
+            study is withdrawn, because there is no classroom pilot: the first measured program
+            is the cohort above. We say so here rather than letting the commitment disappear.
           </p>
         </FadeIn>
       </Section>
 
-      {/* ── Disconfirming ──────────────────────────────── */}
-      <Section>
+      {/* ── What would show we are wrong ───────────────── */}
+      <Section tinted>
         <FadeIn style={{ marginBottom: '2rem' }}>
-          <Eyebrow color="#B42318">Pre-committed</Eyebrow>
+          <Eyebrow color="#B42318">Load-bearing</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">What would show<br />we are wrong.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '62ch', marginTop: '1rem' }}>
-            Published before data collection, so it cannot be moved afterward.
+            The cohort study exists to test these. Each one is an assumption the design rests
+            on, with the specific way it could fail. The same list is on the mission page, read
+            from the same file, so the two cannot drift apart.
           </p>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
-          {DISCONFIRM.map((d, i) => (
-            <FadeIn key={i} delay={i * 0.07}>
+          {ASSUMPTIONS.map((a, i) => (
+            <FadeIn key={a.text} delay={i * 0.06}>
               <div style={{ background: '#FFFFFF', border: '1px solid rgba(180,35,24,0.18)',
-                borderRadius: '4px', padding: '1.4rem 1.6rem', height: '100%', display: 'flex',
-                gap: '0.75rem', alignItems: 'flex-start' }}>
-                <XCircle size={15} color="#B42318" style={{ flexShrink: 0, marginTop: '3px' }} />
-                <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: MUTED }}>{d}</p>
+                borderRadius: '4px', padding: '1.4rem 1.6rem', height: '100%' }}>
+                <p style={{ fontSize: '0.9rem', lineHeight: 1.7, color: WHITE, fontWeight: 600,
+                  marginBottom: '0.75rem' }}>{a.text}</p>
+                <div style={{ display: 'flex', gap: '0.7rem', alignItems: 'flex-start',
+                  paddingTop: '0.75rem', borderTop: '1px solid rgba(180,35,24,0.12)' }}>
+                  <AlertTriangle size={14} color="#B42318" style={{ flexShrink: 0, marginTop: '3px' }} />
+                  <p style={{ fontSize: '0.82rem', lineHeight: 1.7, color: MUTED }}>{a.risk}</p>
+                </div>
               </div>
             </FadeIn>
           ))}
@@ -252,53 +351,48 @@ export default function ImpactUi() {
       </Section>
 
       {/* ── Money ──────────────────────────────────────── */}
-      <Section tinted>
+      {/* Until 16 October 2026 this section carried a cost table: workbooks at
+          a typed print rate, $105 per classroom of 24, $4.40 a student. Nothing
+          in content/org.ts held those numbers and nobody had computed them
+          (05-open-decisions.md, item 8). The same figure was pulled off
+          /for-schools the same day. No dollar figure returns here until it is
+          a number somebody calculated, with the working kept. */}
+      <Section>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
           <FadeIn>
             <Eyebrow>Cost</Eyebrow>
-            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">What a classroom<br />actually costs.</Title>
+            <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">What a program<br />actually costs.</Title>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '52ch', marginTop: '1rem' }}>
-              Published so a principal can see there is no catch and a funder can see what a seat
-              costs. These are our internal figures at local print rates, not a price.
+              Not published yet, and not because it is embarrassing. We have not finished
+              computing it, and a figure written for a web page is not the same thing as a
+              figure somebody worked out.
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <div style={{ background: '#FFFFFF', border: '1px solid rgba(255,122,61,0.16)',
               borderRadius: '4px', padding: '1.6rem 1.8rem' }}>
-              {[
-                ['Student workbooks, 77 pages, B&W, bound', '$96', '24 copies at $4.00'],
-                ['Teacher guide, printed and bound', '$9', 'One copy; also free online'],
-                ['Classroom kit', '$0', 'Already in the room'],
-                ['Orientation and year-long support', '$0', 'Volunteer-delivered'],
-              ].map(([a, b, c]) => (
-                <div key={a} style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem',
-                  padding: '0.7rem 0', borderBottom: '1px solid rgba(255,122,61,0.1)' }}>
-                  <div>
-                    <div style={{ fontSize: '0.85rem', color: WHITE }}>{a}</div>
-                    <div style={{ fontSize: '0.72rem', color: SLATE_3 }}>{c}</div>
-                  </div>
-                  <div style={{ fontFamily: DISPLAY, fontSize: '1.3rem', color: GOLD_L, whiteSpace: 'nowrap' }}>{b}</div>
-                </div>
-              ))}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-                gap: '1rem', paddingTop: '1rem' }}>
-                <div>
-                  <div style={{ fontSize: '0.9rem', fontWeight: 700, color: WHITE }}>Total per classroom of 24</div>
-                  <div style={{ fontSize: '0.75rem', color: MUTED }}>about $4.40 per student for the year</div>
-                </div>
-                <div style={{ fontFamily: DISPLAY, fontSize: '2rem', color: GOLD }}>$105</div>
-              </div>
+              <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginBottom: '0.9rem' }}>
+                The materials cost nothing. Every workbook and teacher guide is free to download,
+                so a school with its own copier runs a year for the cost of paper.
+              </p>
+              <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginBottom: '0.9rem' }}>
+                What a delivered program costs, with instructor hours at a real rate, printing,
+                materials and the seed money the venture weeks need, is being worked out with the
+                arithmetic kept. When it is done it goes here, and on the partner page, as one
+                number with its working.
+              </p>
+              <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: WHITE }}>
+                If you are assessing us and need that figure before it is published, ask, and we
+                will send what we have and say what it does not yet include.
+              </p>
             </div>
-            <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '1rem' }}>
-              A school with its own reprographics can run the program for the cost of paper, since every file is free to download.
-            </p>
           </FadeIn>
         </div>
       </Section>
 
       {/* ── Voices, withheld ───────────────────────────── */}
       {!hasTestimonials && (
-        <Section>
+        <Section tinted>
           <FadeIn>
             <div style={{ background: '#FFFFFF', border: '1px dashed rgba(45,91,227,0.25)',
               borderRadius: '4px', padding: '2.5rem 3rem', maxWidth: '860px' }}>
@@ -315,7 +409,7 @@ export default function ImpactUi() {
       )}
 
       {hasTestimonials && (
-        <Section>
+        <Section tinted>
           <FadeIn style={{ marginBottom: '2rem' }}><Eyebrow>Voices from the field</Eyebrow><Title>What they say.</Title></FadeIn>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
             {TESTIMONIALS.map((t) => (
@@ -331,7 +425,7 @@ export default function ImpactUi() {
       )}
 
       {/* ── CTA ────────────────────────────────────────── */}
-      <Section tinted>
+      <Section>
         <FadeIn>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             flexWrap: 'wrap', gap: '1.5rem' }}>

@@ -34,14 +34,15 @@ export const metadata: Metadata = {
     template: '%s · Young Innovators for Change',
   },
   description:
-    'Full school years of mathematics, entrepreneurship and financial literacy for ' +
-    'Grades 1 to 6. Workbooks and answer keys, mapped to California standards, free to ' +
-    'download and free to run. A California 501(c)(3).',
+    'Full school years of mathematics, science, entrepreneurship and financial literacy ' +
+    'for Grades 1 to 6. Workbooks and answer keys, mapped to California standards, free ' +
+    'to download and free to run. A California 501(c)(3).',
   applicationName: ORG.legalName,
   keywords: [
     'free curriculum', 'free math workbook', 'free teacher guide', 'K-12 education',
     'financial literacy for kids', 'entrepreneurship education', 'discrete mathematics',
-    'elementary math enrichment', 'printable workbook', 'California standards', 'nonprofit',
+    'elementary science', 'elementary math enrichment', 'printable workbook',
+    'California standards', 'nonprofit',
   ],
   openGraph: {
     type: 'website',
@@ -49,15 +50,15 @@ export const metadata: Metadata = {
     url: ORG.url,
     title: 'Young Innovators for Change',
     description:
-      'Full school years of math, money and business curriculum for Grades 1 to 6. ' +
-      'Written properly, given away. A California 501(c)(3).',
+      'Full school years of math, science, money and business curriculum for Grades 1 ' +
+      'to 6. Written properly, given away. A California 501(c)(3).',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: ORG.legalName }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Young Innovators for Change',
     description:
-      'Full school years of math, money and business curriculum for Grades 1 to 6, free.',
+      'Full school years of math, science, money and business curriculum for Grades 1 to 6, free.',
     images: ['/og.png'],
   },
   robots: { index: true, follow: true },

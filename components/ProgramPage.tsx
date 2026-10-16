@@ -20,9 +20,12 @@ const ACCENT: Record<Accent, string> = {
 /**
  * One renderer for all three enterprise programs.
  *
- * The status banner is not decoration. Every one of these programs is designed
- * and not yet written, and a visitor should know that before they read a
- * syllabus that reads like a finished product.
+ * The status banner is not decoration. The syllabus every one of these pages
+ * carries is the eight-week summer intensive, which is designed and not yet
+ * written, and a visitor should know that before they read a syllabus that
+ * reads like a finished product. The elementary years in the same strand are
+ * published, and the band grid under the banner says so, grade band by grade
+ * band, straight from CURRICULUM.
  */
 export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
   const accent = ACCENT[spec.accent];
@@ -78,9 +81,9 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
             </div>
             <div>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-                The syllabus below is real and it is finished. The materials that would let a
-                teacher run it are not. No class has taken this program, so there is nothing on
-                this page about results, and there will not be until there is something true to
+                The summer syllabus below is real and it is finished. The materials that would
+                let anyone run it are not. No cohort has taken it, so there is nothing on this
+                page about results, and there will not be until there is something true to
                 report.
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE }}>

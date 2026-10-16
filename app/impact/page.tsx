@@ -3,9 +3,9 @@ import Ui from './ui';
 
 const DESC =
   'No cohort has run, so there are no outcome numbers on this page. Instead: what has been '
-  + 'built, what a classroom actually costs, the research it leans on including the paper '
-  + 'that argues against the whole category, and the specific results we have pre-committed '
-  + 'to publishing if they go against us.';
+  + 'built, the research it leans on including the paper that argues against the whole '
+  + 'category, how the first cohort will be measured, and the assumptions that would have '
+  + 'to fail for us to be wrong.';
 
 export const metadata: Metadata = {
   title: 'Evidence & Accountability',

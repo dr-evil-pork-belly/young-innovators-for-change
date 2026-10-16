@@ -234,7 +234,7 @@ export default function DiscreteMathLineUi() {
                     <div style={{ position: 'absolute', inset: '-14%',
                       background: 'radial-gradient(circle, rgba(45,91,227,0.16) 0%, transparent 68%)' }} />
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/pip/pip-wave-dark.svg"
+                    <img src="/pip/pip-wave.svg"
                       alt="Pip, a friendly character drawn as a vertex with five edges"
                       className="pip-float"
                       style={{ position: 'relative', width: '100%', height: 'auto', display: 'block' }} />
@@ -270,7 +270,7 @@ export default function DiscreteMathLineUi() {
         </div>
       </Section>
 
-      {/* ── The five years ────────────────────────────── */}
+      {/* ── The years, one per book ───────────────────── */}
       <Section id="years">
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <p className="label-eyebrow" style={{ color: CONNECT_L, marginBottom: '0.5rem' }}>
@@ -472,7 +472,7 @@ export default function DiscreteMathLineUi() {
                   <div style={{ position: 'absolute', inset: '-16%',
                     background: 'radial-gradient(circle, rgba(255,196,77,0.14) 0%, transparent 68%)' }} />
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/pip/pip-cheer-dark.svg" alt="Pip celebrating"
+                  <img src="/pip/pip-cheer.svg" alt="Pip celebrating"
                     style={{ position: 'relative', width: '100%', height: 'auto', display: 'block' }} />
                 </div>
               </div>

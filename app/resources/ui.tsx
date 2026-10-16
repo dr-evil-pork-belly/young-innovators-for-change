@@ -461,39 +461,44 @@ export default function ResourcesUi() {
         </div>
       </Hero>
 
+      {/* The strand notes are concatenated single-line strings on purpose. They
+          were multi-line JSX attribute strings, and in a CRLF file that reaches
+          the client bundle with the line breaks kept and the server bundle with
+          them collapsed to spaces, so every visit to this page hydrated with a
+          text mismatch and React rebuilt the whole page on the client. */}
       <Section id="books" tinted>
         <StrandBlock
           title="Mathematics"
           hue={STRAND_HUE['Mathematics']}
-          note="Six school years of discrete mathematics, Grades 1 to 6. One assignment a week,
-                two pages, sequenced against the California pacing guide so each week lands near
-                the standard the class is already teaching. Each year stands alone: starting at
-                Grade 5 leaves nothing missing."
+          note={'Six school years of discrete mathematics, Grades 1 to 6. One assignment a week, '
+                + 'two pages, sequenced against the California pacing guide so each week lands near '
+                + 'the standard the class is already teaching. Each year stands alone: starting at '
+                + 'Grade 5 leaves nothing missing.'}
           books={MATH_BOOKS}
         />
         <StrandBlock
           title="Science"
           hue={STRAND_HUE['Science']}
-          note="Six school years, Grades 1 to 6, complete. Looking and listening, then the
-                land and what things are made of, then causes, where energy goes, what is too
-                small or too far to see, and systems from a cell to the climate, with materials a
-                classroom mostly already has and every step printable in black and white."
+          note={'Six school years, Grades 1 to 6, complete. Looking and listening, then the '
+                + 'land and what things are made of, then causes, where energy goes, what is too '
+                + 'small or too far to see, and systems from a cell to the climate, with materials a '
+                + 'classroom mostly already has and every step printable in black and white.'}
           books={SCIENCE_BOOKS}
         />
         <StrandBlock
           title="Entrepreneurship"
           hue={STRAND_HUE['Entrepreneurship']}
-          note="Three school years, Grades 4 to 6. One student, one product and one market day in
-                the first year. Then teams with a written profit split, a forecast made before
-                anything is sold, and finally a rival pricing against you in the open."
+          note={'Three school years, Grades 4 to 6. One student, one product and one market day in '
+                + 'the first year. Then teams with a written profit split, a forecast made before '
+                + 'anything is sold, and finally a rival pricing against you in the open.'}
           books={ENTERPRISE_BOOKS}
         />
         <StrandBlock
           title="Financial literacy"
           hue={STRAND_HUE['Financial literacy']}
-          note="Four school years, Grades 3 to 6. A child's own money first, then a plan, then the
-                difference between what a thing costs once and what it keeps costing, then the
-                numbers other people put in front of them and how to check one."
+          note={'Four school years, Grades 3 to 6. A child\'s own money first, then a plan, then the '
+                + 'difference between what a thing costs once and what it keeps costing, then the '
+                + 'numbers other people put in front of them and how to check one.'}
           books={MONEY_BOOKS}
         />
 
@@ -572,7 +577,7 @@ export default function ResourcesUi() {
                 If you adapt it for another grade or another district, we would genuinely like to
                 hear how it went, including if it did not work.
               </p>
-              <Link href="/partner" className="btn-secondary">Tell us how it went <ArrowUpRight size={14} /></Link>
+              <Link href="/partner#contact" className="btn-secondary">Tell us how it went <ArrowUpRight size={14} /></Link>
             </div>
           </FadeIn>
         </div>
@@ -591,8 +596,7 @@ export default function ResourcesUi() {
                   {PUBLISHED_WEEKS} weeks split into single downloadable assignments, so trying
                   one costs a teacher an afternoon instead of a year. Science is
                   complete for Grades 1 to 6. The upper-grade enterprise material is further
-                  out, and we would rather say that than imply they are
-                  nearly done.
+                  out, and we would rather say that than imply it is nearly done.
                 </p>
               </div>
               <Link href="/teachers" className="btn-primary">What running a year involves <ArrowUpRight size={14} /></Link>
