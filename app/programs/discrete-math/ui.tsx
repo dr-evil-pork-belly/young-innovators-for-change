@@ -436,32 +436,34 @@ export default function DiscreteMathLineUi() {
         </div>
       </Section>
 
-      {/* ── Pilot CTA ─────────────────────────────────── */}
-      <section id="pilot" style={{ background: SLATE_2, borderTop: '1px solid rgba(45,91,227,0.1)' }}>
+      {/* ── Close ──────────────────────────────────────── */}
+      {/* This used to offer a Grade 2 classroom pilot, printing included,
+          with a link to /for-schools. That page was retired on 16 October
+          2026: the organization is not placing pilots, and the first thing
+          it runs is the summer cohort. What is left is what was always true,
+          that any teacher may take a year without asking. */}
+      <section id="run" style={{ background: SLATE_2, borderTop: '1px solid rgba(45,91,227,0.1)' }}>
         <Container style={{ paddingTop: 'clamp(3.5rem, 7vw, 6rem)', paddingBottom: 'clamp(3.5rem, 7vw, 6rem)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: '3rem', alignItems: 'center' }}>
             <FadeIn>
-              <p className="label-eyebrow" style={{ color: GOLD, marginBottom: '0.6rem' }}>Pilot a classroom</p>
+              <p className="label-eyebrow" style={{ color: GOLD, marginBottom: '0.6rem' }}>Run a year</p>
               <h2 style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4.5vw, 3.6rem)', lineHeight: 1.06,
                 letterSpacing: '-0.01em', color: WHITE, marginBottom: '1.25rem' }}>
-                One teacher.<br />One year.<br /><span style={{ color: GOLD }}>No cost.</span>
+                One teacher.<br />One year.<br /><span style={{ color: GOLD }}>Nothing to ask.</span>
               </h2>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '48ch',
                 marginBottom: '2rem' }}>
-                We are placing these years in elementary classrooms across the San Gabriel Valley.
-                A pilot is one teacher, one class, one school year, materials and support provided.
+                Every year in this line is free to download and free to run. One page a week,
+                the answers in the guide, and no account, license or permission in the way.
                 No year has been run start to finish yet, and the first teacher to do it will
                 change how every later book gets written.
               </p>
-              {/* The packet used to sit behind a contact form. It is a free PDF
-                  and a principal should be able to read it before deciding
-                  whether to talk to us at all. */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-                <a href="/downloads/discrete-math-pilot-packet.pdf" className="btn-gold">
-                  Read the pilot packet <Download size={14} />
-                </a>
-                <Link href="/for-schools" className="btn-ghost">What a pilot involves <ChevronRight size={14} /></Link>
+                <Link href="/resources" className="btn-gold">
+                  Take a year, free <Download size={14} />
+                </Link>
+                <Link href="/teachers" className="btn-ghost">What we owe whoever runs it <ChevronRight size={14} /></Link>
               </div>
             </FadeIn>
             <FadeIn delay={0.12}>

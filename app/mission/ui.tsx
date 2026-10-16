@@ -109,8 +109,8 @@ export default function MissionUi() {
         }
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-          <Link href="/for-schools" className="btn-gold">Bring it to a classroom <ArrowUpRight size={14} /></Link>
-          <Link href="/resources" className="btn-ghost">Or just take the books <ArrowUpRight size={13} /></Link>
+          <Link href="/resources" className="btn-gold">Take the books, free <ArrowUpRight size={14} /></Link>
+          <Link href="/teachers" className="btn-ghost">If you teach <ArrowUpRight size={13} /></Link>
         </div>
       </Hero>
 
@@ -178,7 +178,7 @@ export default function MissionUi() {
                + 'mapped to the standards a class is already teaching that month, with an honest '
                + 'status published on every grade band we have not reached yet.' },
             { t: 'Publish all of it, free', a: GOLD,
-              d: 'Workbook, answer key, research paper, adoption packet. No email wall. A school '
+              d: 'Workbook, answer key, research paper. No email wall. A school '
                + 'that never speaks to us can still run the program.' },
             { t: 'Remove every barrier to trying', a: GREEN_L,
               d: 'No cost, no devices, no subscription, no training week. Crayons, counters and a '
@@ -332,9 +332,9 @@ export default function MissionUi() {
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/for-schools" className="btn-gold">Host the first one <ArrowUpRight size={14} /></Link>
+              <Link href="/partner" className="btn-gold">Host the first cohort <ArrowUpRight size={14} /></Link>
               <Link href="/teachers" className="btn-ghost">If you teach <ArrowUpRight size={13} /></Link>
-              <Link href="/partner" className="btn-ghost">If you fund <ArrowUpRight size={13} /></Link>
+              <Link href="/partner#contact" className="btn-ghost">If you fund <ArrowUpRight size={13} /></Link>
             </div>
           </div>
         </FadeIn>

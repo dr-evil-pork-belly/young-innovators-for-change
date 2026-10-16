@@ -47,7 +47,6 @@ const NAV_LINKS = [
     ],
   },
   { label: 'Teachers',    href: '/teachers',    dropdown: null },
-  { label: 'For Schools', href: '/for-schools', dropdown: null },
   { label: 'Free books',  href: '/resources',   dropdown: null },
   { label: 'Evidence',    href: '/impact',      dropdown: null },
   {

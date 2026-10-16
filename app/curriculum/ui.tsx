@@ -101,7 +101,7 @@ export default function CurriculumUi() {
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
           <Link href="/resources" className="btn-gold">Take the finished years <ArrowUpRight size={14} /></Link>
-          <Link href="/for-schools" className="btn-ghost">Run one in a classroom <ArrowUpRight size={13} /></Link>
+          <Link href="/teachers" className="btn-ghost">What running a year involves <ArrowUpRight size={13} /></Link>
         </div>
       </Hero>
 
@@ -318,7 +318,7 @@ export default function CurriculumUi() {
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/for-schools" className="btn-gold">Run a finished year <ArrowUpRight size={14} /></Link>
+              <Link href="/resources" className="btn-gold">Take a finished year <ArrowUpRight size={14} /></Link>
               <Link href="/partner" className="btn-ghost">Help write an unfinished one <ArrowUpRight size={13} /></Link>
             </div>
           </div>

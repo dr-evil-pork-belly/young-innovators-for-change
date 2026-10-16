@@ -339,7 +339,7 @@ export default function AboutUi() {
             maxWidth: '70ch' }}>
             A founder&rsquo;s story is the easiest place on a website to quietly inflate, which is
             why this section exists. The materials are published in full, workbook, answer key,
-            research paper, adoption packet, so that the argument rests on them and not on the
+            research paper, so that the argument rests on them and not on the
             biography above.{' '}
             <Link href="/resources" style={{ color: ROYAL_L, textDecoration: 'none',
               borderBottom: '1px solid rgba(45,91,227,0.4)' }}>Read them yourself</Link>.
@@ -438,8 +438,8 @@ export default function AboutUi() {
           <FadeIn delay={0.1}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {[
-                { label: 'Bring it to a classroom', sub: 'What a pilot involves, and what it costs', href: '/for-schools' },
-                { label: 'Download the materials', sub: 'Workbook, answer key, research paper, packet', href: '/resources' },
+                { label: 'Work with us', sub: 'Schools, districts, funders, and the open ask', href: '/partner' },
+                { label: 'Download the materials', sub: 'Workbook, answer key, research paper', href: '/resources' },
                 { label: 'Governance and filings', sub: 'Records, standing, and the open gaps', href: '/governance' },
                 { label: 'Evidence and accountability', sub: 'What we would measure, and what would disprove us', href: '/impact' },
               ].map(({ label, sub, href }) => (

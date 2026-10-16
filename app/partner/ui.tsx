@@ -15,7 +15,7 @@ import {
 import Link from 'next/link';
 import { useContactForm } from '@/components/useContactForm';
 import {
-  ORG, PUBLIC_RECORDS, TRANSPARENCY, PROGRAM_FACTS, DELIVERY,
+  ORG, PUBLIC_RECORDS, TRANSPARENCY, PROGRAM_FACTS, DELIVERY, RESEARCH,
   taxLine, trustBadges, fmtDate, spellOut, addressLines,
   hasOutcomeStats, hasTestimonials, hasAdvisors,
 } from '@/content/org';
@@ -23,7 +23,13 @@ import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
 
 // ─── Tokens ───────────────────────────────────────────────────────────────────
 // From the kit, not redeclared here.
-import { INK, PAPER, BODY, SUBTLE, CONNECT, CONNECT_INK } from '@/components/kit';
+import { INK, PAPER, BODY, SUBTLE, CONNECT, CONNECT_INK, GROW_INK, BAND } from '@/components/kit';
+
+/** The one study on this site that tests whether what a child learns reaches
+ *  the household, and in which households. Read off the citation list rather
+ *  than typed, so the author and year here cannot drift from the entry the
+ *  pathway page renders in full, with its limits. */
+const SPILLOVER = RESEARCH.find((c) => c.authors === 'Veronica Frisancho');
 
 const ROYAL_L = CONNECT;
 const ROYAL_D = CONNECT_INK;
@@ -83,14 +89,20 @@ const HERO_FACTS = PROGRAM_FACTS.filter((f) => HERO_FACT_LABELS.includes(f.label
 
 // ─── Ways to work with us. None of these involve a payment. ───────────────────
 const LANES = [
+  // Until 16 October 2026 this lane offered a Grade 2 classroom pilot, with
+  // printing included and a page of its own at /for-schools. That page is
+  // retired and the lane now says what is actually being asked of a district:
+  // design the implementation with us. The teachers hand out the books, and the
+  // teachers who know the students are how the summer cohort gets found. The
+  // entry criterion is unchanged and is OPT_IN: wanting to do it.
   {
     id:    'schools',
     icon:  BookOpen,
     label: 'Schools and districts',
-    title: 'Host the first measured classroom',
-    body:  'Every workbook and teacher guide is finished, mapped to California standards, and free to download today, and teachers are already using them on their own. What does not exist is a classroom running one with a roster, a pre and post, and somebody watching. We are looking for the first few.',
-    href:  '/for-schools',
-    cta:   'What a pilot involves',
+    title: 'Design the implementation with us',
+    body:  'Every workbook and teacher guide is finished, mapped to California standards, and free to download today. What we are looking for is one district to work out the rest with: how the books reach classrooms, which teachers run them, and how those teachers, who know the students, help find the ones who want the summer cohort. It only works for a student who wants to be there, so that is the whole entry requirement.',
+    href:  '#contact',
+    cta:   'Start that conversation',
   },
   {
     id:    'summer',
@@ -499,6 +511,66 @@ export default function PartnerPage() {
         </Reveal>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-stretch">
           {LANES.map((lane, i) => <LaneCard key={lane.id} lane={lane} index={i} />)}
+        </div>
+      </section>
+
+      {/* Who it is for. Written 16 October 2026 for the retired /for-schools
+          page as "Who the pilots are for" and moved here the same day when
+          that page went. The policy is unchanged; only the word "pilot" is
+          gone, because there is no pilot. What we place our own money and
+          attention in is the district work and the summer cohort. */}
+      <section id="who" style={{ background: BAND, borderTop: '1px solid rgba(45,91,227,0.1)' }}>
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-start">
+            <Reveal>
+              <p className="label-eyebrow mb-3" style={{ color: GROW_INK }}>Who it is for</p>
+              <h2 style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: 'clamp(2rem, 4vw, 3rem)', color: WHITE, lineHeight: 1.06, letterSpacing: '-0.01em', marginBottom: '1rem' }}>
+                Any school can download it. We work with Title I districts.
+              </h2>
+              <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED, maxWidth: '40ch' }}>
+                We get asked, kindly and often, to bring the program first to schools whose
+                families could buy this education several times over. The answer is no, and
+                this is why.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1.1rem' }}>
+                The workbooks are free to any teacher, anywhere. We do not ask who downloads
+                them and we do not restrict them.
+              </p>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1.1rem' }}>
+                Our own money and attention are different. Those go to Title I public school
+                districts in {ORG.serviceArea}, starting where most students qualify for free
+                or reduced-price meals. The best evidence we have found on financial education
+                shows its effect concentrating in lower-income households, including a
+                measurable spillover to parents, with almost no effect in higher-income
+                households
+                {SPILLOVER && (
+                  <>
+                    {' '}(<a href={SPILLOVER.url} target="_blank" rel="noopener noreferrer"
+                      style={{ color: GROW_INK }}>{SPILLOVER.authors}, {SPILLOVER.year}</a>; our
+                    reading of it, limits included, is on the{' '}
+                    <Link href="/pathway#research" style={{ color: GROW_INK }}>pathway page</Link>)
+                  </>
+                )}. Children whose parents run businesses will usually learn this at home. The
+                children we are built for will not, unless someone brings it to them.
+              </p>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE, marginBottom: '1.5rem' }}>
+                If you lead a school that does not fit that description and want the
+                materials, download them. They are yours. If you want to help us reach the
+                districts we are built for, an introduction to a superintendent in a Title I
+                district is the most useful thing you can offer.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a href="#contact" className="btn-primary">
+                  Introduce us to a superintendent <ArrowUpRight size={14} />
+                </a>
+                <Link href="/resources" className="btn-secondary">
+                  Download the books <ArrowUpRight size={14} />
+                </Link>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 

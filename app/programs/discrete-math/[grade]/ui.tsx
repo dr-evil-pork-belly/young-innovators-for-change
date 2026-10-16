@@ -412,7 +412,7 @@ export default function MathBookUi({ book }: { book: MathBook }) {
               be the first teacher to do it, we would like to hear from you.
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/partner" className="btn-gold">Run a pilot <ArrowUpRight size={14} /></Link>
+              <Link href="/partner#contact" className="btn-gold">Write to us <ArrowUpRight size={14} /></Link>
               <Link href="/programs/discrete-math" className="btn-ghost">All {MATH_LINE.length} years <ChevronRight size={13} /></Link>
             </div>
           </div>

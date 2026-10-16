@@ -336,14 +336,14 @@ export default function PathwayUi() {
               as a stated risk on the{' '}
               <Link href="/impact" style={{ color: GOLD_L, textDecoration: 'none',
                 borderBottom: `1px solid ${GOLD}55` }}>evidence page</Link>, and it is one of
-              the first things a pilot would need to measure.
+              the first things the first cohort would need to measure.
             </p>
           </div>
         </FadeIn>
       </Section>
 
       {/* ── Research ───────────────────────────────────── */}
-      <Section>
+      <Section id="research">
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GREEN_L}>The research this leans on</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">Including the paper<br />that says we are<br />probably wrong.</Title>
@@ -391,7 +391,7 @@ export default function PathwayUi() {
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/for-schools" className="btn-gold">For schools <ArrowUpRight size={14} /></Link>
+              <Link href="/teachers" className="btn-gold">If you teach <ArrowUpRight size={14} /></Link>
               <Link href="/resources" className="btn-ghost">Download the books <ArrowUpRight size={13} /></Link>
             </div>
           </div>

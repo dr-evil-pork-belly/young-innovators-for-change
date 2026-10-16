@@ -43,8 +43,8 @@ export default function TeachersUi() {
           <Link href="/resources" className="btn-gold">
             Take a year, free <Download size={14} />
           </Link>
-          <Link href="/for-schools" className="btn-ghost">
-            What running a year involves <ArrowUpRight size={13} />
+          <Link href="/curriculum" className="btn-ghost">
+            See every finished year <ArrowUpRight size={13} />
           </Link>
         </div>
       </Hero>

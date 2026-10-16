@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowUpRight, Download, ExternalLink, FileText, FlaskConical } from 'lucide-react';
+import { ArrowUpRight, Download, ExternalLink, FlaskConical } from 'lucide-react';
 import {
   Page, Hero, Section, Eyebrow, Title, FadeIn, InkSlab,
   INK, BODY, SUBTLE, CARD_BG, LINE, LINE_2,
@@ -323,11 +323,16 @@ const MONEY_BOOKS: Book[] = [
 
 /** Typed once. The hero links it too, and two copies of a path is how the
  *  Grade 2 rename shipped 404s the last time. */
-const PILOT_PACKET = '/downloads/discrete-math-pilot-packet.pdf';
+const WORKING_PAPER = '/downloads/structure-before-fluency.pdf';
 
+/* The Pilot Adoption Packet (discrete-math-pilot-packet.pdf) was listed here
+ * until 16 October 2026, as the hero's second button and as a card. It offers
+ * a Grade 2 classroom pilot with a cost sheet, and that offer is retired along
+ * with /for-schools. The file is left in public/downloads/ so nothing that
+ * already linked it breaks, but nothing on the site points at it now. */
 const DOCUMENTS = [
   {
-    file: '/downloads/structure-before-fluency.pdf',
+    file: WORKING_PAPER,
     label: 'Structure Before Fluency',
     kind: 'The research case',
     meta: 'PDF · working paper · 10 pages',
@@ -335,16 +340,6 @@ const DOCUMENTS = [
     desc: 'The case for discrete mathematics as early-elementary enrichment: the literature, the '
         + 'standards argument, the equity case, plus an explicit account of what the evidence '
         + 'does not support, including the absence of any efficacy trial at this grade.',
-  },
-  {
-    file: PILOT_PACKET,
-    label: 'Pilot Adoption Packet',
-    kind: 'For a principal',
-    meta: 'PDF · 10 pages',
-    icon: FileText,
-    desc: 'What a principal needs to decide: the one-pager, what a pilot involves, the full '
-        + 'standards crosswalk, the cost sheet, and a complete sample week reproduced exactly '
-        + 'as a student receives it.',
   },
 ];
 
@@ -438,8 +433,8 @@ export default function ResourcesUi() {
                 {PUBLISHED_YEARS.length} complete school years, {PUBLISHED_WEEKS} weekly
                 assignments, and the full teacher guide for every one of them.
               </strong>{' '}
-              Plus the research paper underneath it and the packet we hand to principals.
-              Nothing is a preview and nothing is behind a form.
+              Plus the research paper underneath it. Nothing is a preview and nothing is
+              behind a form.
             </p>
             <p style={{ marginBottom: '0.9rem' }}>
               Run it in your classroom, adapt it for your district, or read it purely to
@@ -460,8 +455,8 @@ export default function ResourcesUi() {
           <a href="#books" className="btn-primary">
             Jump to the books <Download size={14} />
           </a>
-          <a href={PILOT_PACKET} className="btn-secondary">
-            The packet for a principal <Download size={14} />
+          <a href={WORKING_PAPER} className="btn-secondary">
+            The research case <Download size={14} />
           </a>
         </div>
       </Hero>
@@ -509,7 +504,7 @@ export default function ResourcesUi() {
               background: LINE_2, display: 'inline-block' }} />
             <h2 style={{ fontFamily: DISPLAY, fontWeight: 800, fontSize: 'clamp(1.5rem, 2.6vw, 2rem)',
               color: INK }}>Not books</h2>
-            <span style={{ fontSize: '0.85rem', color: SUBTLE }}>the argument, and the packet</span>
+            <span style={{ fontSize: '0.85rem', color: SUBTLE }}>the argument</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
             gap: '1.25rem' }}>
@@ -600,7 +595,7 @@ export default function ResourcesUi() {
                   nearly done.
                 </p>
               </div>
-              <Link href="/for-schools" className="btn-primary">Run one in a classroom <ArrowUpRight size={14} /></Link>
+              <Link href="/teachers" className="btn-primary">What running a year involves <ArrowUpRight size={14} /></Link>
             </div>
           </InkSlab>
           <p style={{ fontSize: '0.82rem', color: SUBTLE, marginTop: '1.5rem', maxWidth: '72ch' }}>

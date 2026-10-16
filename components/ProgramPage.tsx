@@ -84,10 +84,11 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
                 report.
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE }}>
-                One thing is written, printed and free to run this year: the Grade 2 mathematics
-                course. If you want a program in a classroom in September, that is the one.{' '}
-                <Link href="/for-schools" style={{ color: GOLD_L, textDecoration: 'none',
-                  borderBottom: `1px solid ${GOLD}55` }}>Start there</Link>.
+                What is written is elementary material, free and ready to run today, one page
+                a week inside the school year. The bands below say where this line stands,
+                grade by grade.{' '}
+                <Link href="/resources" style={{ color: GOLD_L, textDecoration: 'none',
+                  borderBottom: `1px solid ${GOLD}55` }}>Take a finished year</Link>.
               </p>
             </div>
           </div>
@@ -282,7 +283,7 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
               <Link href="/partner" className="btn-gold">Start a conversation <ArrowUpRight size={14} /></Link>
-              <Link href="/for-schools" className="btn-ghost">Run the finished one <ArrowUpRight size={13} /></Link>
+              <Link href="/resources" className="btn-ghost">Take a finished year <ArrowUpRight size={13} /></Link>
             </div>
           </div>
         </FadeIn>
