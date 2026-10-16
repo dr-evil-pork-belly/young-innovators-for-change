@@ -35,12 +35,14 @@ const NAV_LINKS = [
   {
     label: 'Curriculum', href: '/curriculum',
     dropdown: [
-      { label: 'The full K–12 map',   href: '/curriculum',                  desc: 'Every subject, every grade, honest status' },
+      // Business line first, then the academic lines, then the map. The
+      // mission is the business line; mathematics and science sit beside it.
       { label: 'The ten-year pathway', href: '/pathway',                    desc: 'Grades 3–12 · business school, uncompressed' },
-      { label: 'Discrete Math',       href: '/programs/discrete-math',      desc: 'Grades 1–6 · six years, free today' },
       { label: 'Venture Lab',         href: '/programs/venture-lab',        desc: 'Grades 4–6 free · summer track designed' },
       { label: 'Financial Literacy',  href: '/programs/financial-literacy', desc: 'Grades 3–6 free · summer track designed' },
       { label: 'Leadership',          href: '/programs/leadership',         desc: 'Grades 3–12 · designed, not yet written' },
+      { label: 'Discrete Math',       href: '/programs/discrete-math',      desc: 'Grades 1–6 · six years, free today' },
+      { label: 'The full K–12 map',   href: '/curriculum',                  desc: 'Every subject, every grade, honest status' },
       { label: 'After the program',   href: '/programs/alumni-network',     desc: 'What we commit to students' },
     ],
   },

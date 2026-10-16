@@ -214,14 +214,17 @@ export default function HomePage() {
             <motion.div variants={stagger} initial="hidden" animate="visible" style={{ minWidth: 0 }}>
 
               <motion.p variants={fadeIn} className="label-eyebrow" style={{ marginBottom: '0.9rem' }}>
-                Free K&ndash;12 curriculum &middot; California 501(c)(3)
+                Business, money and math for kids &middot; Free &middot; California 501(c)(3)
               </motion.p>
 
-              {/* The headline used to be "We build it properly. Then we give it
-                  away," which is a sentence about our method. A stranger arriving
-                  from a search has three seconds and no interest in our method.
-                  This one states the problem and the offer in one breath, and the
-                  offer is the thing the button below actually does. */}
+              {/* Rewritten 15 October 2026. The previous headline ("Some kids learn
+                  how money works at home. The rest can download it here.") led
+                  with the download, and the library had quietly become the front
+                  door of a site whose reason to exist is the business line. The
+                  mission in org.ts never changed; the home page had stopped
+                  quoting it first. This headline states who it is for and what
+                  they get, and the library appears third, as the proof the
+                  thing is real rather than as the product. */}
               <motion.h1
                 variants={fadeUp}
                 style={{
@@ -234,11 +237,11 @@ export default function HomePage() {
                   marginBottom:  '1.25rem',
                 }}
               >
-                Some kids learn how money
+                Some kids grow up hearing
                 <br />
-                works at home. The rest
+                how a business works.
                 <br />
-                can <span style={{ color: CONNECT }}>download it here.</span>
+                The rest can <span style={{ color: CONNECT }}>start in third grade.</span>
               </motion.h1>
 
               <motion.p
@@ -246,10 +249,23 @@ export default function HomePage() {
                 style={{ fontSize: '1.05rem', lineHeight: 1.7, color: BODY, maxWidth: '56ch',
                   marginBottom: '1.25rem' }}
               >
-                {spellOut(PUBLISHED_YEARS.length)} full school years of mathematics, science,
-                money and business, finished and free this minute. Every week is two pages, tied
-                to a California standard, proofed to print on the copier down the hall, with
-                the answer key beside it. No account, no email wall, no license.
+                Price, cost, margin, risk, credit and ownership: the ideas a graduate business
+                school compresses into two years for adults, written for children one
+                assignment a week, Grade 3 through high school. It is built for students in
+                lower income schools whose families have no business background, and it is
+                free to anyone.
+              </motion.p>
+
+              <motion.p
+                variants={fadeUp}
+                style={{ fontSize: '1.05rem', lineHeight: 1.7, color: BODY, maxWidth: '56ch',
+                  marginBottom: '1.25rem' }}
+              >
+                It is opt-in. Nobody is made to take it, and a student who wants it gets
+                helped all the way. The part we care about most happens after the worksheet:
+                a child who can price something goes home and explains it at the table, and
+                the household gets the idea too. That is the design. No cohort has run yet,
+                and this site says so wherever it matters.
               </motion.p>
 
               <motion.p
@@ -257,18 +273,21 @@ export default function HomePage() {
                 style={{ fontSize: '1.05rem', lineHeight: 1.7, color: BODY, maxWidth: '56ch',
                   marginBottom: '1.9rem' }}
               >
-                None of it teaches anybody. A teacher, an aide or a grandparent at a kitchen
-                table does that, and that is the half that decides everything. If that is
-                you, take a year and start Monday.
+                {spellOut(PUBLISHED_YEARS.length)} full school years are written and free this
+                minute: the business and money years for Grades 3 to 6, with mathematics and
+                science for Grades 1 to 6 beside them. Two pages a week, a California standard
+                on each, the answer key alongside, proofed for the copier down the hall. No
+                account, no email wall. A workbook teaches nobody; a teacher, an aide or a
+                parent at a kitchen table does. If that is you, take a year and start Monday.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
-                <Link href="/resources" className="btn-primary">
-                  Take a year, free
+                <Link href="/pathway" className="btn-primary">
+                  See the ten-year pathway
                   <ArrowUpRight size={14} />
                 </Link>
-                <Link href="/curriculum" className="btn-secondary">
-                  See the full map
+                <Link href="/resources" className="btn-secondary">
+                  Take a year, free
                   <ChevronRight size={14} />
                 </Link>
               </motion.div>
@@ -342,7 +361,9 @@ export default function HomePage() {
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED, marginBottom: '1rem' }}>
                 It is not a degree and we say so at length. It is the material, ten years
-                early, with the price taken off.
+                early, with the price taken off, for the child whose family could not have
+                handed it down. And, by design, for the family: the student is meant to go
+                home and teach it.
               </p>
               <Link href="/pathway" style={{ display: 'inline-flex', alignItems: 'center',
                 gap: '0.4rem', fontSize: '0.8rem', fontWeight: 600, color: GOLD,
@@ -356,14 +377,18 @@ export default function HomePage() {
         {/* Four strands, two tracks */}
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
           {[
-            { num: '01', title: 'Mathematics', href: '/programs/discrete-math', cta: 'The six years',
-              body: 'Sorting, maps, proofs, routes and rules, beside the state curriculum rather than on top of it. Six complete years, Grades 1 through 6, standards-mapped and downloadable today. It asks for reasoning rather than speed, which is why it reaches the child who is still shaky on regrouping.' },
-            { num: '02', title: 'Science', href: '/curriculum', cta: 'Where it sits on the map',
-              body: 'Investigation-led, almost no materials cost, printable in black and white. Grades 1 to 6 are written and free: Look and Listen (plants, sound, light and the sky), Look Closer (land, materials and living things), What Made That Happen? (finding causes with a fair test), Where Did It Go? (following energy), Too Small to See (particles, ecosystems and the sky) and Inside the System (systems from a cell to the climate), 36 weeks each. Grades 7 and 8 are deliberately unwritten, and high school science is not written yet.' },
-            { num: '03', title: 'Leadership & Venture', href: '/pathway', cta: 'The ten-year ladder',
+            /* Order matters. Business and money first, because they are the
+               reason the organization exists; mathematics and science beside
+               them, because they were built and are free, not because they
+               are the mission. Reordered 15 October 2026. */
+            { num: '01', title: 'Leadership & Venture', href: '/pathway', cta: 'The ten-year ladder',
               body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4, 5 and 6 are written and free. High school runs the opposite shape: one cohort, four summers, eight weeks each.' },
-            { num: '04', title: 'Financial Literacy', href: '/programs/financial-literacy', cta: 'The four money years',
+            { num: '02', title: 'Financial Literacy', href: '/programs/financial-literacy', cta: 'The four money years',
               body: 'A child’s own money first, then a plan, then the gap between a price and a cost, then the numbers other people put in front of them. Grades 3 through 6 are written and free. This is the knowledge that usually arrives through a family, which is exactly why it belongs in a school.' },
+            { num: '03', title: 'Mathematics', href: '/programs/discrete-math', cta: 'The six years',
+              body: 'Sorting, maps, proofs, routes and rules, beside the state curriculum rather than on top of it. Six complete years, Grades 1 through 6, standards-mapped and downloadable today. It asks for reasoning rather than speed, which is why it reaches the child who is still shaky on regrouping.' },
+            { num: '04', title: 'Science', href: '/curriculum', cta: 'Where it sits on the map',
+              body: 'Investigation-led, almost no materials cost, printable in black and white. Grades 1 to 6 are written and free: Look and Listen (plants, sound, light and the sky), Look Closer (land, materials and living things), What Made That Happen? (finding causes with a fair test), Where Did It Go? (following energy), Too Small to See (particles, ecosystems and the sky) and Inside the System (systems from a cell to the climate), 36 weeks each. Grades 7 and 8 are deliberately unwritten, and high school science is not written yet.' },
           ].map((pillar, i) => (
             <RevealSection key={pillar.num} delay={i * 0.1}>
               <div
