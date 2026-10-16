@@ -235,13 +235,11 @@ export default function HomePage() {
                   letterSpacing: '-0.02em',
                   color:         INK,
                   marginBottom:  '1.25rem',
+                  textWrap:      'balance',
                 }}
               >
-                Some kids hear how business
-                <br />
-                works at home. The rest
-                <br />
-                can <span style={{ color: CONNECT }}>start in third grade.</span>
+                Some kids hear how business works at home. The
+                rest can <span style={{ color: CONNECT }}>start in third grade.</span>
               </motion.h1>
 
               <motion.p
@@ -252,8 +250,8 @@ export default function HomePage() {
                 Price, cost, margin, risk, credit and ownership: the ideas a graduate business
                 school compresses into two years for adults, written for children one
                 assignment a week, Grade 3 through high school. It is built for students in
-                lower income schools whose families have no business background, and it is
-                free to anyone.
+                Title I schools whose families have no business background, and it is free
+                to anyone.
               </motion.p>
 
               <motion.p
@@ -274,11 +272,9 @@ export default function HomePage() {
                   marginBottom: '1.9rem' }}
               >
                 {spellOut(PUBLISHED_YEARS.length)} full school years are written and free this
-                minute: the business and money years for Grades 3 to 6, with mathematics and
-                science for Grades 1 to 6 beside them. Two pages a week, a California standard
-                on each, the answer key alongside, proofed for the copier down the hall. No
-                account, no email wall. A workbook teaches nobody; a teacher, an aide or a
-                parent at a kitchen table does. If that is you, take a year and start Monday.
+                minute, with mathematics and science for Grades 1 to 6 beside the business
+                line. A workbook teaches nobody; a teacher, an aide or a parent at a kitchen
+                table does. If that is you, take a year and start Monday.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
