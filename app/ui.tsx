@@ -214,7 +214,7 @@ export default function HomePage() {
             <motion.div variants={stagger} initial="hidden" animate="visible" style={{ minWidth: 0 }}>
 
               <motion.p variants={fadeIn} className="label-eyebrow" style={{ marginBottom: '0.9rem' }}>
-                Business, money and math for kids &middot; Free &middot; California 501(c)(3)
+                Business, money, math and science for kids &middot; Free &middot; California 501(c)(3)
               </motion.p>
 
               {/* Rewritten 15 October 2026. The previous headline ("Some kids learn
@@ -237,11 +237,11 @@ export default function HomePage() {
                   marginBottom:  '1.25rem',
                 }}
               >
-                Some kids grow up hearing
+                Some kids hear how business
                 <br />
-                how a business works.
+                works at home. The rest
                 <br />
-                The rest can <span style={{ color: CONNECT }}>start in third grade.</span>
+                can <span style={{ color: CONNECT }}>start in third grade.</span>
               </motion.h1>
 
               <motion.p

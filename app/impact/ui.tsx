@@ -26,7 +26,7 @@ const SOURCES = [
     strength: 'Curricular argument',
   },
   {
-    cite: 'Hamkins, 2013',
+    cite: 'Hamkins, 2014',
     title: 'Math for seven-year-olds',
     where: 'Second-grade classroom account',
     says: 'Vertex coloring, chromatic numbers, Eulerian paths and the Seven Bridges of '
@@ -41,7 +41,7 @@ const SOURCES = [
     says: 'Map coloring, the four-color theorem, Eulerian paths, the handshake problem and '
         + 'vertex degree with primary students aged 6–11. Reports increased motivation and the '
         + 'emergence of real problem-solving strategies.',
-    strength: 'Small study, seven gifted students',
+    strength: 'Small study, seven students selected for high performance',
   },
   {
     cite: 'Ferrarello, Gionfriddo, Grasso & Mammana, 2022',
