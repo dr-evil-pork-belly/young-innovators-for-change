@@ -567,16 +567,16 @@ function subjectList(): string {
 }
 
 export const PROGRAM_FACTS: Stat[] = [
-  { value: String(CURRICULUM.length), label: 'Subject Lines', note: subjectList() },
-  { value: String(PUBLISHED_WEEKS), label: 'Weeks of Curriculum',
+  { value: String(CURRICULUM.length), label: 'Subjects', note: subjectList() },
+  { value: String(PUBLISHED_WEEKS), label: 'Weeks of Lessons',
     note: `${PUBLISHED_YEARS.length} full school years, 36 weeks each` },
   // Mathematics (CCSS-M) and science (CA NGSS) codes, each read off the
   // published PDFs by brand/mksite.py and counted separately there, so neither
   // number can quietly absorb the other.
-  { value: String(PUBLISHED_STANDARDS + PUBLISHED_SCIENCE_STANDARDS), label: 'CA Standards Mapped',
-    note: `Distinct California mathematics and science standards named across all ${PUBLISHED_WEEKS} weeks` },
+  { value: String(PUBLISHED_STANDARDS + PUBLISHED_SCIENCE_STANDARDS), label: 'California Standards Matched',
+    note: `Different California math and science standards the lessons are matched to, across all ${PUBLISHED_WEEKS} weeks` },
   { value: '$0',   label: 'Cost to Students' },
-  { value: '100%', label: 'Materials Open', note: 'Every workbook and guide is free to download' },
+  { value: '100%', label: 'Free to Download', note: 'Every workbook and teacher guide' },
 ];
 
 /**
@@ -803,24 +803,25 @@ export const OPT_IN: { title: string; body: string }[] = [
 export const ASSUMPTIONS: { text: string; risk: string }[] = [
   { text: 'That an adult with the book in front of them will do the part the book '
         + 'cannot do.',
-    risk: 'This is the assumption the whole organization rests on and the one we control '
-        + 'least. A year run without conviction is a stack of worksheets. We can make the '
-        + 'material short, correct and free; we cannot supply the thirty-five minutes a '
-        + 'week, and no amount of curriculum quality substitutes for a person who cares '
-        + 'whether the child in the third row understood it.' },
-  { text: 'That what a child learns about money reaches the household behind them.',
-    risk: 'The one randomized trial that found this ran in Peruvian high schools with a '
-        + 'short course. If it does not transfer to a compressed program here, half the '
-        + 'reason this organization exists does nothing.' },
-  { text: 'That an opt-in program does not simply gather the students who were already '
-        + 'going to be fine.',
-    risk: 'If it does, we widen the gap we set out to close and this becomes another '
-        + 'gifted program. It is the likeliest way for us to fail while appearing to '
-        + 'succeed.' },
-  { text: 'That real stakes and spacing hold an effect after the program ends.',
-    risk: 'The largest meta-analysis in our research list found financial education '
-        + 'effects negligible 20 months out. Our answer is to spread the material and '
-        + 'attach it to real money. Neither has been tested.' },
+    risk: 'Everything rests on this, and it is the part we control least. A year taught '
+        + 'without care is just a stack of worksheets. We can make the books short, correct '
+        + 'and free. We cannot supply the thirty-five minutes a week, and no book, however '
+        + 'good, replaces a person who cares whether the child in the third row understood '
+        + 'it.' },
+  { text: 'That what a child learns about money makes it home to their family.',
+    risk: 'The only real experiment that found this happening was a short course in high '
+        + 'schools in Peru. If it does not hold up here, half the reason this organization '
+        + 'exists does nothing.' },
+  { text: 'That a program students choose to join does not just attract the ones who '
+        + 'were already going to be fine.',
+    risk: 'If it does, we widen the gap we set out to close, and this becomes one more '
+        + 'program for students who were already ahead. It is the likeliest way for us to '
+        + 'fail while looking like a success.' },
+  { text: 'That using real money, and spreading the lessons over years, makes the '
+        + 'learning last after the program ends.',
+    risk: 'The biggest review in our research list found that money classes had almost '
+        + 'no effect 20 months later. Our answer is to spread the lessons out and tie them '
+        + 'to real money. Neither has been tested.' },
   { text: 'That a school district will host a program from an organization with no '
         + 'track record.',
     risk: 'This is the assumption we are testing first, and the one most likely to fail.' },
@@ -1016,7 +1017,7 @@ export const DELIVERY = {
   summerIntensive: {
     status: 'seeking' as 'seeking' | 'scheduled' | 'running',
     ask: 'We are looking for one school district willing to host the first '
-       + 'cohort.',
+       + 'summer program.',
     detail:
       'We are asking a district to commit to one summer. Eight weeks, a room, '
       + 'a schedule, and permission to teach a cohort. Nothing is bought, '

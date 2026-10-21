@@ -77,18 +77,17 @@ export default function ImpactUi() {
   return (
     <Page>
       <Hero
-        eyebrow="Evidence & accountability"
-        title={<>No cohort<br />has run yet.<br /><span style={{ color: GOLD_L }}>Here is everything else.</span></>}
+        eyebrow="Evidence"
+        title={<>Our first program<br />has not run yet.<br /><span style={{ color: GOLD_L }}>Here is everything else.</span></>}
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              Most organizations put their best numbers on this page. We do not have any yet, so
-              this page holds what we do have: what has been built, the research it rests on,
-              how the first cohort will be measured, and the assumptions that would have to
-              fail for the whole thing to be wrong.
+              Most groups put their best numbers on this page. We do not have any yet. So this
+              page shows what we do have: what we have built, the research behind it, how we
+              will measure the first group of students, and what would prove us wrong.
             </p>
             <p style={{ margin: 0 }}>
-              When there are outcomes, they will appear here, favorable or not.
+              When we have results, good or bad, they will go here.
             </p>
           </>
         }
@@ -102,9 +101,9 @@ export default function ImpactUi() {
           ))}
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-          <Link href="/partner" className="btn-gold">Fund the first cohort <ArrowUpRight size={14} /></Link>
+          <Link href="/partner" className="btn-gold">Fund the first summer <ArrowUpRight size={14} /></Link>
           <Link href="/pathway#research" className="btn-ghost">
-            The research, paper by paper <ArrowUpRight size={13} />
+            Every study, in plain words <ArrowUpRight size={13} />
           </Link>
         </div>
       </Hero>
@@ -130,9 +129,9 @@ export default function ImpactUi() {
         {!hasOutcomeStats && (
           <FadeIn delay={0.3}>
             <p style={{ fontSize: '0.82rem', color: SLATE_3, marginTop: '2rem', maxWidth: '68ch' }}>
-              Note what is absent: students served, districts reached, engagement, score gains.
-              Those are outcome claims and we have none, because no cohort has run the program.
-              This section will grow from the left as that changes.
+              Notice what is missing: how many students we have served, which districts we work
+              with, and test score gains. We have none of those numbers, because the program has
+              not run yet. They will be added here when they are real.
             </p>
           </FadeIn>
         )}
@@ -141,7 +140,7 @@ export default function ImpactUi() {
       {/* ── The research base ──────────────────────────── */}
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
-          <Eyebrow color={GOLD}>The research base</Eyebrow>
+          <Eyebrow color={GOLD}>The research</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">What the research<br />does and does not show.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
             Our business and money lessons are built on {RESEARCH.length} published studies,
@@ -251,7 +250,7 @@ export default function ImpactUi() {
         <FadeIn delay={0.36}>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '1.5rem' }}>
             <a href="/downloads/structure-before-fluency.pdf" className="btn-gold">
-              <FlaskConical size={14} /> Read the working paper
+              <FlaskConical size={14} /> Read our draft research paper
             </a>
             <Link href="/resources" className="btn-ghost">All materials <ArrowUpRight size={13} /></Link>
           </div>
@@ -261,7 +260,7 @@ export default function ImpactUi() {
       {/* ── How we will measure ────────────────────────── */}
       <Section accent={GOLD}>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
-          <Eyebrow color={GREEN_L}>The evaluation</Eyebrow>
+          <Eyebrow color={GREEN_L}>How we will measure it</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">How we will know.</Title>
         </FadeIn>
 
@@ -269,20 +268,23 @@ export default function ImpactUi() {
           gap: 'clamp(2rem, 5vw, 3.5rem)', alignItems: 'start' }}>
           <FadeIn>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              The first program we run and measure is the summer cohort. {cohort.theClaim}
+              The first program we will run and measure is the summer program for high school
+              students. {cohort.theClaim}
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              Its evaluation design will be registered on the Open Science Framework before the
-              first summer starts, so that the measures, the comparison, and the results that
-              would count against us are fixed in public before any data exists and cannot be
-              moved afterward.
+              Before the first summer starts, we will post our plan for measuring it on the Open
+              Science Framework, a public site where researchers lock in their plans ahead of
+              time. That way, what we measure, who we compare, and what result would count
+              against us are all set in public before we have any data. We cannot change them
+              later to look better.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE }}>
-              It is not registered yet, because there is no host district yet, and a design
-              written for a program whose site, dates and cohort size are unknown would have to
-              be quietly rewritten once they were. {cohort.ask}{' '}
+              We have not posted it yet because no school district has agreed to host the
+              program. A plan written before we know the place, the dates and the number of
+              students would have to be rewritten later, and quietly rewriting it is exactly
+              what posting it in advance is meant to prevent. {cohort.ask}{' '}
               <Link href="/partner" style={{ color: GOLD_L, textDecoration: 'none',
-                borderBottom: `1px solid ${GOLD}55` }}>That is the open ask</Link>.
+                borderBottom: `1px solid ${GOLD}55` }}>That is what we are asking for</Link>.
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -290,15 +292,15 @@ export default function ImpactUi() {
               borderRadius: '4px', padding: '1.5rem 1.75rem' }}>
               <p style={{ fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.18em',
                 textTransform: 'uppercase' as const, color: GREEN_L, marginBottom: '0.9rem' }}>
-                What the registration will fix in advance
+                What the plan will lock in ahead of time
               </p>
               <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex',
                 flexDirection: 'column', gap: '0.65rem' }}>
                 {[
-                  'The questions, which are the assumptions below, each with the result that would mean it failed',
-                  'The measures and when they are taken, including a follow-up after the program ends',
-                  'Who is compared with whom, and why that comparison is the honest one available',
-                  'A commitment to publish the result either way, here, with the data where consent allows',
+                  'The questions we are testing (the list below), and for each one, the result that would mean we were wrong',
+                  'What we measure and when, including a check-in after the program ends',
+                  'Which students we compare with which, and why that is the fairest comparison we can make',
+                  'A promise to publish the results here, good or bad, with the data when families agree to share it',
                 ].map((x) => (
                   <li key={x} style={{ display: 'flex', gap: '0.6rem', fontSize: '0.86rem',
                     lineHeight: 1.65, color: MUTED }}>
@@ -313,10 +315,11 @@ export default function ImpactUi() {
 
         <FadeIn delay={0.2}>
           <p style={{ fontSize: '0.8rem', lineHeight: 1.75, color: SLATE_3, marginTop: '2rem', maxWidth: '74ch' }}>
-            Until 16 October 2026 this page carried the design of a Grade 2 classroom study, with
-            five measures and three pre-committed results that would have shown it failed. That
-            study is withdrawn, because there is no classroom pilot: the first measured program
-            is the cohort above. We say so here rather than letting the commitment disappear.
+            Until October 16, 2026, this page described a different plan: a study in Grade 2
+            classrooms, with five measures and three results we said in advance would show it
+            failed. We dropped that study because we are no longer running a classroom pilot.
+            The summer program above is now the first one we will measure. We are saying so
+            here instead of quietly deleting the old promise.
           </p>
         </FadeIn>
       </Section>
@@ -324,12 +327,13 @@ export default function ImpactUi() {
       {/* ── What would show we are wrong ───────────────── */}
       <Section tinted>
         <FadeIn style={{ marginBottom: '2rem' }}>
-          <Eyebrow color="#B42318">Load-bearing</Eyebrow>
+          <Eyebrow color="#B42318">What we are betting on</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">What would show<br />we are wrong.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '62ch', marginTop: '1rem' }}>
-            The cohort study exists to test these. Each one is an assumption the design rests
-            on, with the specific way it could fail. The same list is on the mission page, read
-            from the same file, so the two cannot drift apart.
+            These are the things that have to be true for this to work. Each one says how it
+            could turn out to be false. Measuring the first summer program is how we will test
+            them. The mission page shows the same list, pulled from the same place, so the two
+            always match.
           </p>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
@@ -363,9 +367,9 @@ export default function ImpactUi() {
             <Eyebrow>Cost</Eyebrow>
             <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">What a program<br />actually costs.</Title>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '52ch', marginTop: '1rem' }}>
-              Not published yet, and not because it is embarrassing. We have not finished
-              computing it, and a figure written for a web page is not the same thing as a
-              figure somebody worked out.
+              We have not published it yet, and not because it is embarrassing. We have not
+              finished working it out, and a number made up for a web page is not the same as a
+              number someone actually calculated.
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -376,14 +380,15 @@ export default function ImpactUi() {
                 so a school with its own copier runs a year for the cost of paper.
               </p>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginBottom: '0.9rem' }}>
-                What a delivered program costs, with instructor hours at a real rate, printing,
-                materials and the seed money the venture weeks need, is being worked out with the
-                arithmetic kept. When it is done it goes here, and on the partner page, as one
-                number with its working.
+                We are still adding up what it costs to actually run the program: paying the
+                teacher a real wage, printing, supplies, and the small amount of starting money
+                students use in the weeks they run a business. We are keeping every step of the
+                math. When it is done, it goes here and on the partner page as one number, with
+                the math shown.
               </p>
               <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: WHITE }}>
-                If you are assessing us and need that figure before it is published, ask, and we
-                will send what we have and say what it does not yet include.
+                If you are deciding whether to fund us and need the number sooner, ask. We will
+                send what we have and tell you what it leaves out.
               </p>
             </div>
           </FadeIn>
@@ -397,7 +402,7 @@ export default function ImpactUi() {
             <div style={{ background: '#FFFFFF', border: '1px dashed rgba(45,91,227,0.25)',
               borderRadius: '4px', padding: '2.5rem 3rem', maxWidth: '860px' }}>
               <Eyebrow>Voices from the field</Eyebrow>
-              <Title size="clamp(1.7rem, 3.4vw, 2.8rem)">This space is for<br />our first cohort.</Title>
+              <Title size="clamp(1.7rem, 3.4vw, 2.8rem)">This space is for<br />our first students.</Title>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '58ch', marginTop: '1rem' }}>
                 When students, teachers and families have something to say about the programs,
                 their words will appear here with their permission and their real names, and not
@@ -433,13 +438,13 @@ export default function ImpactUi() {
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
                 color: WHITE, marginBottom: '0.4rem' }}>Check us before you fund us.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '56ch' }}>
-                Registration, filings and open gaps are published in full, including the board
-                seats we have not filled. If something you need is missing, ask and we will
-                send it. {ORG.legalName} · EIN {ORG.taxStatus.ein}.
+                Our registration, tax filings and the gaps we still have are all public,
+                including the board seats we have not filled yet. If something you need is
+                missing, ask and we will send it. {ORG.legalName} · EIN {ORG.taxStatus.ein}.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/partner" className="btn-gold">Fund the first cohort <ArrowUpRight size={14} /></Link>
+              <Link href="/partner" className="btn-gold">Fund the first summer <ArrowUpRight size={14} /></Link>
               <Link href="/governance" className="btn-ghost">Read the filings <ArrowUpRight size={13} /></Link>
             </div>
           </div>

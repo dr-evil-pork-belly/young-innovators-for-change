@@ -84,7 +84,7 @@ function Reveal({ children, delay = 0, className = '' }: {
  */
 
 // ─── What has been built. Every entry comes from org.ts. ──────────────────────
-const HERO_FACT_LABELS = ['Weeks of Curriculum', 'Cost to Students', 'Materials Open'];
+const HERO_FACT_LABELS = ['Weeks of Lessons', 'Cost to Students', 'Free to Download'];
 const HERO_FACTS = PROGRAM_FACTS.filter((f) => HERO_FACT_LABELS.includes(f.label));
 
 // ─── Ways to work with us. None of these involve a payment. ───────────────────
