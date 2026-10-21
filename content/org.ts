@@ -1101,7 +1101,10 @@ export const DELIVERY = {
  *
  * RULE: every entry is a real, locatable publication, cited with enough detail
  * that a reader can pull it up and check whether we characterized it correctly.
- * `bearing` must state the limit of the claim. The literature here is about
+ * `bearing` must state the limit of the claim. `plain` says the same thing in
+ * words a parent with no degree reads once and understands: the finding, what
+ * it means for us, and its limit. It restates the two fields below and adds
+ * nothing they do not already say. The literature here is about
  * financial and entrepreneurship education in general. None of it evaluates our
  * curriculum, and one of the strongest papers in the list is a critique.
  */
@@ -1111,6 +1114,8 @@ export type Citation = {
   title: string;
   publication: string;
   url: string;
+  /** The finding and its limit, in plain words. Rendered first. */
+  plain: string;
   /** What the study found, in its own terms. */
   finding: string;
   /** What it does and does not support about our design. */
@@ -1125,6 +1130,10 @@ export const RESEARCH: Citation[] = [
     title: 'The Process of Education',
     publication: 'Harvard University Press',
     url: 'https://www.hup.harvard.edu/books/9780674710016',
+    plain: 'Children can learn big ideas early if you keep coming back to them, a little '
+         + 'deeper each year. That is the shape of our program. It is an idea from 1960, '
+         + 'not a test, so it tells us the plan makes sense. It does not tell us the plan '
+         + 'works.',
     finding: 'Sets out the spiral curriculum: "A curriculum as it develops should revisit '
            + 'these basic ideas repeatedly, building upon them until the student has grasped '
            + 'the full formal apparatus that goes with them" (p. 13), on the hypothesis that '
@@ -1140,6 +1149,10 @@ export const RESEARCH: Citation[] = [
          + 'Recommendations',
     publication: 'U.S. Consumer Financial Protection Bureau',
     url: 'https://files.consumerfinance.gov/f/documents/092016_cfpb_BuildingBlocksReport_ModelAndRecommendations_web.pdf',
+    plain: 'Children form money habits between about ages 6 and 12, and learn the formal '
+         + 'rules as teenagers. That is why our early grades build habits and the later '
+         + 'grades teach the reasoning. It is a guide built from research, not a test of '
+         + 'any program.',
     finding: 'Places executive function in early childhood (ages 3 to 5), financial habits '
            + 'and norms in middle childhood (ages 6 to 12), and explicit financial knowledge '
            + 'and decision-making skills in adolescence and young adulthood (ages 13 to 21).',
@@ -1153,6 +1166,11 @@ export const RESEARCH: Citation[] = [
     title: 'Distributed Practice in Verbal Recall Tasks: A Review and Quantitative Synthesis',
     publication: 'Psychological Bulletin 132(3), 354 to 380',
     url: 'https://doi.org/10.1037/0033-2909.132.3.354',
+    plain: 'People remember more when they learn a little at a time over a long stretch '
+         + 'than when they cram. The longer you need to remember something, the more you '
+         + 'should spread it out. That is why this is one lesson a week for ten years. One '
+         + 'limit: most of these studies tested word lists in a lab, not business lessons '
+         + 'in a classroom.',
     finding: '839 assessments across 317 experiments in 184 articles. Spaced study beats '
            + 'massed study, and the gap that produces the best retention grows as the delay '
            + 'before the test grows.',
@@ -1168,6 +1186,9 @@ export const RESEARCH: Citation[] = [
          + 'Directions From Cognitive and Educational Psychology',
     publication: 'Psychological Science in the Public Interest 14(1), 4 to 58',
     url: 'https://doi.org/10.1177/1529100612453266',
+    plain: 'Researchers checked ten common ways to study. Only two held up well across the '
+         + 'board, and spreading practice out over time was one of them. It backs how we '
+         + 'teach. It says nothing about what we chose to teach.',
     finding: 'Reviews ten study techniques against the evidence and rates only two as high '
            + 'utility across materials, learners and settings. Distributed practice is one of '
            + 'them.',
@@ -1179,6 +1200,12 @@ export const RESEARCH: Citation[] = [
     title: 'Financial Literacy, Financial Education, and Downstream Financial Behaviors',
     publication: 'Management Science 60(8), 1861 to 1883',
     url: 'https://doi.org/10.1287/mnsc.2013.1849',
+    plain: 'Across 168 studies, money classes barely changed how people actually handled '
+         + 'money. What they learned wore off, and even long classes had almost no effect '
+         + 'about two years later. They worked even less for lower-income families, who '
+         + 'are the children we serve. We built the program around this problem, but '
+         + 'nobody, including us, has shown that spreading lessons over ten years solves '
+         + 'it.',
     finding: 'A meta-analysis of 168 papers covering 201 studies. Interventions to improve '
            + 'financial literacy explained 0.1 percent of the variance in the financial '
            + 'behaviors studied, effects decayed over time, and even large interventions with '
@@ -1197,6 +1224,10 @@ export const RESEARCH: Citation[] = [
     title: 'Financial Education Affects Financial Knowledge and Downstream Behaviors',
     publication: 'Journal of Financial Economics 145(2), 255 to 272',
     url: 'https://doi.org/10.1016/j.jfineco.2021.09.022',
+    plain: 'A newer review of 76 experiments, with more than 160,000 people, found that '
+         + 'money classes do help people know more and handle money better, with effects '
+         + 'at least three times larger than earlier studies found. This review and the '
+         + 'one above disagree. We would rather tell you that than pick a side.',
     finding: 'A meta-analysis of 76 randomized experiments with over 160,000 participants. '
            + 'Financial education has positive causal effects on financial knowledge and on '
            + 'downstream behavior, comparable in size to educational interventions in other '
@@ -1212,6 +1243,10 @@ export const RESEARCH: Citation[] = [
     title: 'State Mandated Financial Education and the Credit Behavior of Young Adults',
     publication: 'Federal Reserve Board, Finance and Economics Discussion Series 2014-68',
     url: 'https://www.federalreserve.gov/pubs/feds/2014/201468/201468abs.html',
+    plain: 'After Georgia, Idaho and Texas began requiring money classes in school, young '
+         + 'people there later had better credit scores and fell behind on payments less '
+         + 'often than young people in other states. It shows school lessons can pay off '
+         + 'years later. It cannot tell you which lessons did it.',
     finding: 'Young people in school after Georgia, Idaho and Texas introduced a financial '
            + 'education requirement in 2007 had higher relative credit scores and lower '
            + 'relative delinquency rates than comparable young people in states without one.',
@@ -1225,6 +1260,11 @@ export const RESEARCH: Citation[] = [
          + 'on Parents',
     publication: 'Journal of Financial Literacy and Wellbeing 1(1), 138 to 153',
     url: 'https://doi.org/10.1017/flw.2023.2',
+    plain: 'In Peru, high school students took a short money class. Three years later, in '
+         + 'lower-income homes, the chance that a parent defaulted on a loan was 26 '
+         + 'percent lower, and wealthier homes saw almost no change. So children can carry '
+         + 'lessons home. But these were older students in another country taking a short '
+         + 'course, so it does not prove our program will do the same.',
     finding: 'A randomized controlled trial across 300 public high schools in Peru. '
            + 'Teachers delivered 16 to 32 hours of financial education inside an existing '
            + 'class to nearly 20,000 students in grades 9 to 11. Three years later the '
@@ -1248,6 +1288,11 @@ export const RESEARCH: Citation[] = [
          + 'Entrepreneurial Performance',
     publication: 'Journal of Economic Behavior & Organization 111, 209 to 223',
     url: 'https://doi.org/10.1016/j.jebo.2014.12.020',
+    plain: 'In Sweden, teenagers who ran a small business in high school were followed for '
+         + 'up to 16 years. They were more likely to start a company and earned more from '
+         + 'it. Their companies were no more likely to last. The study compared similar '
+         + 'students rather than running an experiment, and they were teenagers, not '
+         + 'nine-year-olds.',
     finding: 'Swedish students who took part in the Junior Achievement Company Program in high '
            + 'school, followed for up to 16 years, were more likely to start a firm and earned '
            + 'higher entrepreneurial incomes than matched peers. There was no effect on firm '
@@ -1263,6 +1308,10 @@ export const RESEARCH: Citation[] = [
          + 'Development, and Well-Being',
     publication: 'American Psychologist 55(1), 68 to 78',
     url: 'https://doi.org/10.1037/0003-066X.55.1.68',
+    plain: 'People stay motivated when they have a real choice, feel they can do the work, '
+         + 'and feel connected to others. Interest that is chosen lasts, and interest that '
+         + 'is forced usually does not. That is why joining is optional. The risk is that '
+         + 'the children who sign up are not the ones who needed it most.',
     finding: 'Sustained motivation depends on three conditions being met: autonomy, competence '
            + 'and relatedness. Interest that is chosen holds; interest that is imposed tends '
            + 'not to.',

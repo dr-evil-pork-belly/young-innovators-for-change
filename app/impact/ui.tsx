@@ -37,36 +37,36 @@ const MATH_SOURCES = [
     cite: 'Rosenstein, Franzblau & Roberts (eds.), 1997',
     title: 'Discrete Mathematics in the Schools',
     where: 'DIMACS Vol. 36 · American Mathematical Society and NCTM',
-    says: 'The foundational curricular case that discrete mathematics can and should be taught '
-        + 'in K–12, including material for the K–2 band, and framed as a vehicle for teaching '
-        + 'reasoning rather than an extra topic competing for time.',
-    strength: 'Curricular argument',
+    says: 'The founding case that discrete math (the math of counting, networks and logic '
+        + 'puzzles) can and should be taught in school, starting as early as kindergarten, '
+        + 'as a way to teach reasoning rather than one more topic fighting for time.',
+    strength: 'An argument, not a test',
   },
   {
     cite: 'Hamkins, 2014',
     title: 'Math for seven-year-olds',
     where: 'Second-grade classroom account',
-    says: 'Vertex coloring, chromatic numbers, Eulerian paths and the Seven Bridges of '
-        + 'Königsberg taught to seven- and eight-year-olds, who went on to build their own '
-        + 'challenge graphs. Almost exactly the content of Weeks 17, 18, 26 and 27.',
-    strength: 'Existence proof',
+    says: 'Children aged seven and eight learned map-coloring puzzles and the Seven Bridges '
+        + 'of Königsberg (can you find a walk that crosses every bridge exactly once?), then '
+        + 'made up puzzles of their own. Almost exactly the content of Weeks 17, 18, 26 and 27.',
+    strength: 'Shows it can be done',
   },
   {
     cite: 'Blanco & García-Moya, 2021',
     title: 'Graph theory for primary school students with high skills in mathematics',
     where: 'Mathematics 9(13), 1567',
-    says: 'Map coloring, the four-color theorem, Eulerian paths, the handshake problem and '
-        + 'vertex degree with primary students aged 6–11. Reports increased motivation and the '
-        + 'emergence of real problem-solving strategies.',
-    strength: 'Small study, seven students selected for high performance',
+    says: 'Children aged 6 to 11 worked on map coloring, routes through networks and the '
+        + 'handshake problem. They became more motivated and started finding their own ways '
+        + 'to solve problems.',
+    strength: 'Small study, seven top students',
   },
   {
     cite: 'Ferrarello, Gionfriddo, Grasso & Mammana, 2022',
     title: 'Graph theory and combinatorial calculus',
     where: 'ZDM – Mathematics Education 54, 847–864',
-    says: 'A careful study within the Teaching for Robust Understanding framework showing '
-        + 'students can model real situations as graphs and reason about constrained arrangements.',
-    strength: 'Strong method, but eighth grade',
+    says: 'A careful study showing students can turn real situations into network diagrams '
+        + 'and reason about how things can be arranged when there are rules to follow.',
+    strength: 'Careful study, but eighth grade',
   },
 ];
 
@@ -142,13 +142,13 @@ export default function ImpactUi() {
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow color={GOLD}>The research base</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">What the literature<br />does and does not support.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">What the research<br />does and does not show.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
-            The design of the business and money line leans on {RESEARCH.length} published
-            papers, {countervailing} of which argue against the whole category. None of them
-            evaluates our curriculum. Each is summarized on the pathway page with what it found
-            and exactly where its support for us runs out; the list is below so a reader can
-            see at a glance what the argument stands on.
+            Our business and money lessons are built on {RESEARCH.length} published studies,
+            and {countervailing === 1 ? 'one of them argues' : `${countervailing} of them argue`} against
+            money classes like ours. None of them tested our lessons. Each one is below in
+            plain words. The pathway page has the full detail on every study, including where
+            it stops backing us up.
           </p>
         </FadeIn>
 
@@ -169,8 +169,8 @@ export default function ImpactUi() {
                       <AlertTriangle size={11} /> Argues against us
                     </p>
                   )}
-                  <p style={{ fontSize: '0.88rem', fontWeight: 700, color: WHITE, lineHeight: 1.4,
-                    marginBottom: '0.3rem' }}>{c.title}</p>
+                  <p style={{ fontSize: '0.86rem', lineHeight: 1.65, color: WHITE,
+                    marginBottom: '0.5rem' }}>{c.plain}</p>
                   <p style={{ fontSize: '0.74rem', color: MUTED, display: 'flex', alignItems: 'center',
                     gap: '0.35rem' }}>
                     {c.authors}, {c.year} <ExternalLink size={10} color={accent} />
@@ -183,13 +183,13 @@ export default function ImpactUi() {
 
         <FadeIn delay={0.3}>
           <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginTop: '1.5rem', maxWidth: '70ch' }}>
-            The paper that argues against us is the one to read first. If a one-time course
-            fades within two years, the answer is not a better one-time course, and whether
-            spreading the same material across ten years defeats that decay is untested,
-            including by us.{' '}
+            Start with the study that argues against us. It found that what people learn in
+            a money class mostly wears off within two years. Our answer is to spread the
+            lessons over ten years instead of one course, but nobody has tested whether that
+            works, including us.{' '}
             <Link href="/pathway#research" style={{ color: ROYAL_L, textDecoration: 'none',
               borderBottom: '1px solid rgba(45,91,227,0.4)' }}>
-              What each paper does and does not support
+              Every study, with its limits
             </Link>.
           </p>
         </FadeIn>
@@ -201,9 +201,9 @@ export default function ImpactUi() {
           <Eyebrow>The mathematics line</Eyebrow>
           <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">Four sources, and<br />a gap we could not close.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
-            The discrete mathematics years rest on a different literature. Four sources carry
-            that argument, each summarized with its actual weight, including where a study is
-            too small or at the wrong grade to prove what we would like it to prove.
+            The discrete math years rest on different research. Four sources make that case.
+            Each one says what it actually shows, including where a study is too small, or
+            used older students, to prove what we would like it to prove.
           </p>
         </FadeIn>
 
@@ -235,13 +235,13 @@ export default function ImpactUi() {
               <AlertTriangle size={17} color="#B42318" style={{ flexShrink: 0, marginTop: '3px' }} />
               <div>
                 <p style={{ fontSize: '0.92rem', fontWeight: 700, color: WHITE, marginBottom: '0.5rem' }}>
-                  There is no efficacy trial at this grade level.
+                  No one has tested a program like this at this age.
                 </p>
                 <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: MUTED, maxWidth: '70ch' }}>
-                  We could locate no randomized or quasi-experimental study of a discrete
-                  mathematics enrichment program in the early elementary grades with measured
-                  outcomes. Anyone who tells you the evidence base here is strong is overstating
-                  it. The working paper sets out that case and that gap in full.
+                  We could not find a single study that compared young elementary students who
+                  got a discrete math program with students who did not, and measured the
+                  results. Anyone who tells you the evidence here is strong is overstating it.
+                  The working paper lays out the case, and the gap, in full.
                 </p>
               </div>
             </div>

@@ -96,25 +96,26 @@ function CitationCard({ c }: { c: Citation }) {
           <AlertTriangle size={12} /> Argues against us
         </p>
       )}
-      <p style={{ fontSize: '0.95rem', fontWeight: 700, color: WHITE, lineHeight: 1.45,
-        marginBottom: '0.35rem' }}>
-        {c.title}
+      {/* The plain line leads. The study's own terms and our reading of its
+          limits sit one click below it, for the reader who wants to check us. */}
+      <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: WHITE, marginBottom: '0.9rem' }}>
+        {c.plain}
       </p>
-      <p style={{ fontSize: '0.75rem', color: MUTED, marginBottom: '0.9rem' }}>
-        {c.authors} ({c.year}). <em>{c.publication}</em>.
+      <p style={{ fontSize: '0.75rem', lineHeight: 1.6, color: MUTED, marginBottom: '0.9rem' }}>
+        {c.authors} ({c.year}). {c.title}. <em>{c.publication}</em>.
       </p>
-      <p style={{ fontSize: '0.83rem', lineHeight: 1.75, color: MUTED, marginBottom: '0.9rem' }}>
-        {c.finding}
-      </p>
-      <p style={{ fontSize: '0.83rem', lineHeight: 1.75, color: WHITE,
-        paddingTop: '0.85rem', borderTop: `1px solid ${accent}22` }}>
-        <span style={{ fontSize: '0.62rem', fontWeight: 800, letterSpacing: '0.16em',
-          textTransform: 'uppercase' as const, color: accent, display: 'block',
-          marginBottom: '0.4rem' }}>
-          What it does and does not support
-        </span>
-        {c.bearing}
-      </p>
+      <details style={{ paddingTop: '0.8rem', borderTop: `1px solid ${accent}22` }}>
+        <summary style={{ cursor: 'pointer', fontSize: '0.62rem', fontWeight: 800,
+          letterSpacing: '0.16em', textTransform: 'uppercase' as const, color: accent }}>
+          The study in detail, and its limits
+        </summary>
+        <p style={{ fontSize: '0.83rem', lineHeight: 1.75, color: MUTED, margin: '0.8rem 0' }}>
+          {c.finding}
+        </p>
+        <p style={{ fontSize: '0.83rem', lineHeight: 1.75, color: WHITE, margin: 0 }}>
+          {c.bearing}
+        </p>
+      </details>
       <a href={c.url} target="_blank" rel="noopener noreferrer"
         style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
           fontSize: '0.73rem', color: accent, textDecoration: 'none', marginTop: '0.9rem' }}>
@@ -349,11 +350,12 @@ export default function PathwayUi() {
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">Including the paper<br />that says we are<br />probably wrong.</Title>
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '66ch',
             marginTop: '1rem' }}>
-            None of the work below evaluates our curriculum. It is the published literature on
-            spacing, on childhood financial development, on entrepreneurship education and on
-            motivation, and it is what the design is reasoning from. Each entry says what the
-            study found and where its support for us runs out. The field is contested, and the
-            strongest single result in it cuts against the whole category.
+            None of these studies tested our program. They are what researchers have found
+            about how people remember, how children learn about money, what happens when
+            teenagers run a business, and what keeps people motivated. We built the design on
+            them. Each card says in plain words what the study found and where it stops
+            backing us up. Researchers disagree about whether money classes work at all, and
+            one of the strongest studies says they barely do.
           </p>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
@@ -367,10 +369,9 @@ export default function PathwayUi() {
         <FadeIn delay={0.3}>
           <p style={{ fontSize: '0.82rem', lineHeight: 1.8, color: SLATE_3, marginTop: '2rem',
             maxWidth: '74ch' }}>
-            If you know this literature better than we do and think we have characterized a
-            paper wrongly, we would rather hear it than not. The citation list lives in one
-            file in the site&rsquo;s source, the same file every other factual claim on this site
-            is held in.
+            If you know this research and think we have described a study wrong, please tell
+            us. Every study on this page lives in one file in the site&rsquo;s code, the same
+            file that holds every other fact on this site.
           </p>
         </FadeIn>
       </Section>
