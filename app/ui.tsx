@@ -250,8 +250,8 @@ export default function HomePage() {
                 Price, cost, margin, risk, credit and ownership: the ideas a graduate business
                 school compresses into two years for adults, written for children one
                 assignment a week, Grade 3 through high school. It is built for students in
-                Title I schools whose families have no business background, and it is free
-                to anyone.
+                lower-income communities whose families have no formal business background,
+                and it is free to anyone.
               </motion.p>
 
               <motion.p

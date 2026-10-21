@@ -525,7 +525,7 @@ export default function PartnerPage() {
             <Reveal>
               <p className="label-eyebrow mb-3" style={{ color: GROW_INK }}>Who it is for</p>
               <h2 style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: 'clamp(2rem, 4vw, 3rem)', color: WHITE, lineHeight: 1.06, letterSpacing: '-0.01em', marginBottom: '1rem' }}>
-                Any school can download it. We work with Title I districts.
+                Any school can download it. We work in lower-income districts.
               </h2>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED, maxWidth: '40ch' }}>
                 We get asked, kindly and often, to bring the program first to schools whose
@@ -539,9 +539,9 @@ export default function PartnerPage() {
                 them and we do not restrict them.
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1.1rem' }}>
-                Our own money and attention are different. Those go to Title I public school
-                districts in {ORG.serviceArea}, starting where most students qualify for free
-                or reduced-price meals. The best evidence we have found on financial education
+                Our own money and attention are different. Those go to public school
+                districts in {ORG.serviceArea} where most students qualify for free or
+                reduced-price meals. The best evidence we have found on financial education
                 shows its effect concentrating in lower-income households, including a
                 measurable spillover to parents, with almost no effect in higher-income
                 households
@@ -558,8 +558,8 @@ export default function PartnerPage() {
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE, marginBottom: '1.5rem' }}>
                 If you lead a school that does not fit that description and want the
                 materials, download them. They are yours. If you want to help us reach the
-                districts we are built for, an introduction to a superintendent in a Title I
-                district is the most useful thing you can offer.
+                districts we are built for, an introduction to a superintendent in a
+                lower-income district is the most useful thing you can offer.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href="#contact" className="btn-primary">

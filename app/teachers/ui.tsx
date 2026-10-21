@@ -201,6 +201,13 @@ export default function TeachersUi() {
               marginBottom: '1rem' }}>
               {DELIVERY.summerIntensive.whyCohort}
             </p>
+            {(DELIVERY.summerIntensive.entrySummer || DELIVERY.summerIntensive.cohortName) && (
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, maxWidth: '70ch',
+                marginBottom: '1rem' }}>
+                {[DELIVERY.summerIntensive.entrySummer, DELIVERY.summerIntensive.cohortName]
+                  .filter(Boolean).join(' ')}
+              </p>
+            )}
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE, maxWidth: '70ch',
               fontWeight: 600 }}>
               {DELIVERY.summerIntensive.theClaim}{' '}

@@ -752,11 +752,27 @@ export const OPT_IN: { title: string; body: string }[] = [
   { title: 'Offered to every student, required of none',
     body: 'The pathway sits beside the school day rather than inside a graduation '
         + 'requirement. A student who is not interested this year loses nothing and '
-        + 'can start next year.' },
-  { title: 'No screening, no application, no prerequisite',
+        + 'can start next year. The summer cohort is the one exception: it forms once, '
+        + 'with 16 students, because that is how many one instructor can teach well. '
+        + 'A new student joins later only when a seat opens, from the waitlist.' },
+  // Retitled 20 October 2026, when the summer cohort's 16 seats needed a fair
+  // way to choose. Fit, in David's words: a student who is hungry and has a
+  // real interest in business, not one a parent signed up to fill the summer.
+  // Family business background is not part of it. Each interested student
+  // writes a short proposal in their own words, like a college essay, so they
+  // get a taste of applying. It is written by hand and in person, with no
+  // parent or AI help (decided 20 October 2026). Staff read it for one thing, whether the student
+  // wants this, and answer yes or no; the writing is not graded, grades do not
+  // count, and nobody is ranked. A lottery picks among the yeses.
+  { title: 'No test, no ranking, no prerequisite',
     body: 'There is no test to get in and no prior year to have completed. Wanting to '
-        + 'do it is the entire entry criterion, which is the opposite of how access to '
-        + 'this material usually works.' },
+        + 'do it is the entry criterion, which is the opposite of how access to this '
+        + 'material usually works. The summer cohort has 16 seats, so each student '
+        + 'who wants in writes a short proposal in their own words, by hand and in '
+        + 'person, the way an applicant would. Teachers read it for one thing: that '
+        + 'the student asked for '
+        + 'this themselves and means it. The writing is not graded, grades do not '
+        + 'count, nobody is ranked, and a lottery picks the 16.' },
   { title: 'The ceiling is not set by us',
     body: 'A student who wants to go further than the year they are in should be handed '
         + 'the next book, not held at their grade level. Every year is published in '
@@ -765,6 +781,13 @@ export const OPT_IN: { title: string; body: string }[] = [
     body: 'The material is written to reward work rather than speed or prior exposure. '
         + 'Whether that is enough is an open question, and it is on the evidence page '
         + 'as one we could be wrong about.' },
+  // Decided 20 October 2026. Closes the open question in claude/21: the cohort
+  // asks a student to come back, and it does not close the door on one who
+  // could not.
+  { title: 'Missing a summer does not cost your place',
+    body: 'A student in the summer cohort who misses one summer is welcome back the '
+        + 'next, and their seat is held. The cohort asks students to come back. It '
+        + 'does not shut out one who could not.' },
 ];
 
 // ─── Load-bearing assumptions ─────────────────────────────────────────────────
@@ -1037,12 +1060,22 @@ export const DELIVERY = {
       + 'tuition either.',
 
     /**
-     * Undecided, and deliberately absent from every page until it is settled.
-     * The cohort starts either the summer before ninth grade or the summer
-     * after it. The copy says "four summers across high school", which is true
-     * of both, so nothing has to be corrected once this is chosen.
+     * Decided 20 October 2026: the summer before ninth grade, so all four
+     * summers fall inside high school and recruiting runs through middle
+     * school teachers and counselors. Rendered on /teachers under whyCohort.
+     * Every other page still says "four summers across high school", which
+     * stays true. Set back to null to take the line off the page.
      */
-    entrySummer: null as string | null,
+    entrySummer: ('The cohort starts the summer before ninth grade, so all four '
+      + 'summers fall inside high school.') as string | null,
+
+    /**
+     * Decided 20 October 2026. No year is named here because no host district
+     * has signed; the proposals name the first cohort (the Class of 2031 if it
+     * starts in summer 2027). Rendered on /teachers beside entrySummer.
+     */
+    cohortName: ('Each cohort is named for the year it graduates from high school, '
+      + 'the way a business school names its classes.') as string | null,
 
     /**
      * Who teaches it, and why that is the argument rather than a staffing note.
