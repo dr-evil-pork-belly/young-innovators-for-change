@@ -3,7 +3,7 @@ import Ui from './ui';
 
 const DESC =
   'Executive presence, decision-making and team dynamics for Grades 3 to 12. The eight-week ' +
-  'syllabus is designed and published here; the materials are not written yet, and we say ' +
+  'outline is designed and published here; the lessons are not written yet, and we say ' +
   'which is which.';
 
 export const metadata: Metadata = {

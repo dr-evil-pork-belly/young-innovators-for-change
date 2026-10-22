@@ -63,15 +63,16 @@ const leadership: ProgramSpec = {
     + 'wrong and expensive: it tells the quiet child the door is closed, and it tells the '
     + 'loud one there is nothing left to learn.',
     'This program treats leadership as a set of specific, nameable behaviors, and teaches '
-    + 'them one at a time. An eight-week summer intensive, scaling in difficulty from a '
-    + 'Founders Track in the middle grades to an Executives Track in high school, where '
-    + 'one cohort runs it together for four consecutive summers.',
+    + 'them one at a time. The syllabus below was written as an eight-week summer program, '
+    + 'scaling in difficulty from a Founders Track in the middle grades to an Executives '
+    + 'Track in high school. Summer programs were cut in October 2026. From Grade 7 these '
+    + 'ideas belong to the Grades 7 to 12 program, lessons in an app plus in-person '
+    + 'sessions, which is designed and not built.',
     'In the middle grades this is the one part of the program that is not really about '
     + 'business at all. A thirteen-year-old who can structure an argument, read a room '
     + 'and carry a decision is better off for it in every other part of their life, the '
     + 'high school years they are walking toward included, whether or not they ever '
-    + 'start anything. It is taught in a room rather than read off a page, which is why '
-    + 'it holds an age that a printed year does not.',
+    + 'start anything.',
   ],
   unitsLabel: 'The three strands',
   unitsIntro:
@@ -131,21 +132,25 @@ const leadership: ProgramSpec = {
       d: 'A leadership program that rewards the child who already dominates the room has '
        + 'taught nothing. The design deliberately measures change from a student\'s own '
        + 'starting point rather than against the loudest person present.' },
-    { t: 'No equipment, no subscription',
-      d: 'Everything runs with a room, paper, and a phone camera if one is available. The '
-       + 'moment a program needs a device per child it stops reaching the schools it was '
-       + 'written for.' },
+    // Until 21 October 2026 this said "the moment a program needs a device per
+    // child it stops reaching the schools it was written for", which the
+    // Grades 7 to 12 app now contradicts. Stated as the open question it is.
+    { t: 'No equipment to buy',
+      d: 'The outline runs with a room, paper, and a phone camera if one is available. '
+       + 'The app that replaces the summer format needs a screen, and a program that '
+       + 'needs a device per child can stop reaching the schools it was written for. '
+       + 'Whether students can use the devices they already have is a question the first '
+       + 'pilot has to answer.' },
   ],
   exists: [
-    'The full eight-week summer structure, strand by strand',
+    'The three strands, written as an eight-week summer outline',
     'Learning objectives written as observable behaviors',
-    'The Founders Track and Executives Track difficulty split',
+    'A difficulty split between a middle grades and a high school version',
   ],
   notYet: [
-    'Session-by-session facilitator scripts',
-    'The student workbook',
+    'The lessons themselves, for the app or in any other form',
     'Any assessment instrument, piloted or otherwise',
-    'A single classroom that has run it',
+    'A single student who has worked through it',
   ],
 };
 
@@ -155,28 +160,25 @@ const venture: ProgramSpec = {
   slug: 'venture-lab',
   strandKey: 'venture',
   name: 'Venture Lab',
-  eyebrow: 'Enterprise track · Grades 9 to 12 · summer intensive',
-  titleLines: ['ONE SUMMER.', 'ONE REAL BUSINESS.', 'ONE REAL PITCH.'],
+  eyebrow: 'Enterprise track · Grades 4 to 12',
+  titleLines: ['ONE REAL PROBLEM.', 'ONE REAL BUSINESS.', 'ONE REAL PITCH.'],
   accent: 'gold',
   lede: [
     'Not a case study and not a simulation. Each student or team carries one venture the '
     + 'whole way through: a problem they found themselves, a customer they actually spoke '
     + 'to, a price they had to defend, and a pitch delivered to a panel at the end.',
-    'This is the summer intensive format, written for Grades 9 to 12: eight weeks inside '
-    + 'one summer, run as a cohort, the same students returning for four consecutive '
-    + 'summers. That is the Executives Track. Grades 4 to 6 get the same ideas as a full '
-    + 'school year instead, one assignment a week, because younger students learn this '
-    + 'better spread out than compressed. All three years, Grades 4, 5 and 6, are '
-    + 'written and free to download today.',
-    'Grades 7 and 8 have neither, and that is a decision rather than a gap. A printed '
-    + 'year is the wrong medium for that age and a summer cohort is aimed at older '
-    + 'students, so the band stays blank until there is a form of delivery we believe '
-    + 'in for it.',
+    'Grades 4 to 6 get these ideas as a full school year, one assignment a week, because '
+    + 'younger students learn this better spread out than compressed. All three years, '
+    + 'Grades 4, 5 and 6, are written and free to download today.',
+    'The syllabus below was written for Grades 9 to 12 as an eight-week summer program. '
+    + 'That format was cut in October 2026. From Grade 7 these ideas belong to the Grades '
+    + '7 to 12 program, self-paced lessons in an app plus in-person sessions, which is '
+    + 'designed and not built.',
   ],
-  unitsLabel: 'The eight weeks',
+  unitsLabel: 'The eight-week outline',
   unitsIntro:
-    'Every week of the summer ends in something the student made, not something they were '
-    + 'shown. The deliverables accumulate into a real venture file by week eight.',
+    'Every step ends in something the student made, not something they were shown. The '
+    + 'deliverables accumulate into a real venture file by the end.',
   units: [
     {
       n: '01', when: 'Weeks 1 to 2', title: 'Discover the problem',
@@ -262,16 +264,16 @@ const venture: ProgramSpec = {
        + 'rest, which is the outcome we are trying to avoid.' },
   ],
   exists: [
-    'All eight summer weeks, with the deliverable defined for each',
-    'The frameworks and worksheets each week is built around',
+    'An eight-week outline, with the deliverable defined for each step',
+    'The frameworks and worksheets each step is built around',
     'The pitch structure and the feedback form',
     'The Grade 4, 5 and 6 full-year versions, written and published in full',
   ],
   notYet: [
-    'The printed student venture file',
-    'The facilitator guide',
+    'The Grades 7 to 12 lessons, in the app or in any other form',
+    'The student venture file',
     'The simplified financial model spreadsheet',
-    'Any pitch panel, because no cohort has reached week eight',
+    'Any pitch panel, because no student has reached the end',
   ],
 };
 
@@ -288,9 +290,10 @@ const finance: ProgramSpec = {
     'Compound interest, credit, margin and risk are not difficult. They are simply not '
     + 'taught, so most people meet them for the first time in a contract they have already '
     + 'signed.',
-    'This page describes the eight-week summer intensive, which is written for Grades 9 '
-    + 'to 12 and runs as a cohort, the same students returning for four consecutive '
-    + 'summers. '
+    'The syllabus below was written for Grades 9 to 12 as an eight-week summer program. '
+    + 'That format was cut in October 2026. From Grade 7 these ideas belong to the Grades '
+    + '7 to 12 program, self-paced lessons in an app plus in-person sessions, which is '
+    + 'designed and not built. '
     + 'Its content is credit scores, interest rates and index funds, and it belongs where '
     + 'a student is close to meeting those things. It is built so that a student leaves '
     + 'with their own budget, their own projection and their own plan, using their own '
@@ -303,7 +306,7 @@ const finance: ProgramSpec = {
     + 'costing. Grade 6, The Asking Year: the numbers other people put in front of you, and '
     + 'what would have to be true for them to hold.',
   ],
-  unitsLabel: 'The eight weeks',
+  unitsLabel: 'The eight-week outline',
   unitsIntro:
     'The sequence is deliberate. Cash flow before budgeting, budgeting before compounding, '
     + 'and credit only after a student can already see what interest does over time.',
@@ -387,14 +390,14 @@ const finance: ProgramSpec = {
     + 'The Keeping Year and The Asking Year. 36 weeks each, written and free',
     'A teacher guide for each of the four, with every numeric answer recomputed from the '
     + 'problems by a script that refuses to build the book if one disagrees',
-    'All eight weeks of the Grades 9 to 12 summer intensive, with skills defined per week',
+    'An eight-week outline for Grades 9 to 12, with skills defined per week',
     'The sequence and the reasoning behind its order',
   ],
   notYet: [
-    'The student workbook and projection templates for the eight-week summer intensive',
-    'The facilitator guide for the summer intensive',
+    'The Grades 7 to 12 lessons and projection templates, in the app or in any other form',
     'A pre and post assessment',
-    'Any classroom delivery, of the four elementary years or of the summer intensive',
+    'Any delivery we have run ourselves, of the four elementary years or of the older '
+    + 'material',
   ],
 };
 

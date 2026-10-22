@@ -262,8 +262,8 @@ export default function HomePage() {
                 It is opt-in. Nobody is made to take it, and a student who wants it gets
                 helped all the way. The part we care about most happens after the worksheet:
                 a child who can price something goes home and explains it at the table, and
-                the household gets the idea too. That is the design. No cohort has run yet,
-                and this site says so wherever it matters.
+                the household gets the idea too. That is the design. No program of ours has
+                run with students yet, and this site says so wherever it matters.
               </motion.p>
 
               <motion.p
@@ -378,7 +378,7 @@ export default function HomePage() {
                them, because they were built and are free, not because they
                are the mission. Reordered 15 October 2026. */
             { num: '01', title: 'Leadership & Venture', href: '/pathway', cta: 'The ten-year ladder',
-              body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4, 5 and 6 are written and free. High school runs the opposite shape: one cohort, four summers, eight weeks each.' },
+              body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4, 5 and 6 are written and free. From Grade 7 it moves to an app, at each student’s own pace, with guest speakers in person. That part is designed, not built.' },
             { num: '02', title: 'Financial Literacy', href: '/programs/financial-literacy', cta: 'The four money years',
               body: 'A child’s own money first, then a plan, then the gap between a price and a cost, then the numbers other people put in front of them. Grades 3 through 6 are written and free. This is the knowledge that usually arrives through a family, which is exactly why it belongs in a school.' },
             { num: '03', title: 'Mathematics', href: '/programs/discrete-math', cta: 'The six years',
@@ -509,7 +509,7 @@ export default function HomePage() {
                           textTransform: 'uppercase', color: live ? ROYAL_L : MUTED,
                           border: `1px solid ${live ? ROYAL_L : SLATE_3}66`, borderRadius: '2px',
                           padding: '0.18rem 0.42rem' }}>
-                          {live ? 'Running today' : 'Not yet delivered'}
+                          {live ? 'Running today' : 'Not yet built'}
                         </span>
                       </div>
                       <p style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: '1.5rem',
@@ -537,11 +537,11 @@ export default function HomePage() {
                   </p>
                   <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: WHITE, fontWeight: 600,
                     marginBottom: '0.7rem' }}>
-                    {DELIVERY.summerIntensive.ask}
+                    {DELIVERY.pilot.ask}
                   </p>
                   <p style={{ fontSize: '0.83rem', lineHeight: 1.75, color: MUTED, marginBottom: '1.1rem' }}>
-                    One summer, eight weeks, the first of four with the same students.
-                    Cindy Ha will teach it herself.
+                    One unit in the spring as a test, then the full Grade 7 year. Cindy Ha
+                    will host the in-person sessions herself.
                   </p>
                   <Link href="/teachers" style={{ display: 'inline-flex', alignItems: 'center',
                     gap: '0.4rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em',

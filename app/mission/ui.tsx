@@ -17,7 +17,8 @@ const CHAIN = [
     items: [`${PUBLISHED_WEEKS} weeks of curriculum, written in-house`,
             'A teacher, an aide or a caretaker willing to spend the time, which is the '
             + 'input we do not control and the one that decides everything',
-            'One instructor, and volunteers where we have them',
+            'An app with an AI tutor, teaching only from lessons we write and check (not yet built)',
+            'Guest speakers from business, and someone to host them in person',
             'Printing, materials, and a small seed fund per team',
             'A published research base, including the paper that argues against us'],
   },
@@ -25,7 +26,7 @@ const CHAIN = [
     stage: 'Activities',
     accent: ROYAL_L,
     items: ['Publishing every year in full, free to anyone (running today)',
-            'A delivered program with a roster, eight weeks in one summer, real money (not yet run)',
+            'A delivered program with a roster for Grades 7 to 12: self-paced lessons, and in-person sessions with guests (not yet run)',
             'Family sessions where the student teaches the adult (not yet run)',
             'Teacher orientation and support'],
   },
@@ -299,7 +300,7 @@ export default function MissionUi() {
             border: '1px solid rgba(255,122,61,0.18)', borderRadius: '4px' }}>
             <div>
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
-                color: WHITE, marginBottom: '0.4rem' }}>Everything above turns on one cohort.</p>
+                color: WHITE, marginBottom: '0.4rem' }}>Everything above turns on one pilot.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '54ch' }}>
                 Teachers are running this material on their own already. What nobody has done
                 is run it with a roster and measure what happened, which is why everything to
@@ -308,7 +309,7 @@ export default function MissionUi() {
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/partner" className="btn-gold">Host the first cohort <ArrowUpRight size={14} /></Link>
+              <Link href="/partner" className="btn-gold">Host the first pilot <ArrowUpRight size={14} /></Link>
               <Link href="/teachers" className="btn-ghost">If you teach <ArrowUpRight size={13} /></Link>
               <Link href="/partner#contact" className="btn-ghost">If you fund <ArrowUpRight size={13} /></Link>
             </div>

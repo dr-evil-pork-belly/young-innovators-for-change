@@ -227,8 +227,8 @@ export default function GovernanceUi() {
               <ul style={{ margin: 0, paddingLeft: '1.1rem', fontSize: '0.85rem', lineHeight: 1.8, color: MUTED }}>
                 <li>No independent audit. At our size the 990-N threshold does not trigger one,
                 and we will not imply otherwise.</li>
-                <li>No published annual report yet. The first one follows the first cohort.</li>
-                <li>No measured program outcomes. No cohort has completed.</li>
+                <li>No published annual report yet. The first one follows the first pilot.</li>
+                <li>No measured program outcomes. No program of ours has run with students.</li>
                 {!TRANSPARENCY.caRegistryConfirmed && (
                   <li>California Registry of Charities standing is being confirmed and will be
                   posted here with the registration number.</li>

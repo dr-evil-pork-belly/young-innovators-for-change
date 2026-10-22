@@ -604,7 +604,7 @@ export default function ResourcesUi() {
           </InkSlab>
           <p style={{ fontSize: '0.82rem', color: SUBTLE, marginTop: '1.5rem', maxWidth: '72ch' }}>
             Nothing here has been taught start to finish in a classroom yet, and none of it carries
-            an outcome claim, because there is no cohort to draw one from. What you can check today
+            an outcome claim, because no program of ours has run to draw one from. What you can check today
             is whether the material is any good, which is the whole reason it is all sitting here
             in the open.
           </p>

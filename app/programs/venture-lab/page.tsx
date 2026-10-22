@@ -3,9 +3,9 @@ import Ui from './ui';
 
 const DESC =
   'Three complete school years for Grades 4 to 6, written and free: one product and one ' +
-  'market day, then teams and a forecast, then a rival pricing against you. The Grades 9 ' +
-  'to 12 summer version, eight weeks from unmet problem to live pitch, is designed and ' +
-  'published here; its materials are not written yet.';
+  'market day, then teams and a forecast, then a rival pricing against you. From Grade 7 ' +
+  'the same ideas move to a self-paced app with in-person sessions, which is designed and ' +
+  'not built; its eight-week outline is published here.';
 
 export const metadata: Metadata = {
   title: 'Venture Lab',

@@ -10,7 +10,7 @@ import {
 import {
   ArrowUpRight, Check, ChevronDown, Shield, FileText, ExternalLink,
   Building2, Mail, User, Phone, MessageSquare, Send,
-  BookOpen, Users, Sun
+  BookOpen, Users, Laptop
 } from 'lucide-react';
 import Link from 'next/link';
 import { useContactForm } from '@/components/useContactForm';
@@ -92,28 +92,29 @@ const LANES = [
   // Until 16 October 2026 this lane offered a Grade 2 classroom pilot, with
   // printing included and a page of its own at /for-schools. That page is
   // retired and the lane now says what is actually being asked of a district:
-  // design the implementation with us. The teachers hand out the books, and the
-  // teachers who know the students are how the summer cohort gets found. The
-  // entry criterion is unchanged and is OPT_IN: wanting to do it.
+  // design the implementation with us. The teachers hand out the books. Since
+  // 21 October 2026 the second lane asks for the Grade 7 app pilot instead of
+  // a summer cohort. The entry criterion is unchanged and is OPT_IN: wanting
+  // to do it.
   {
     id:    'schools',
     icon:  BookOpen,
     label: 'Schools and districts',
     title: 'Design the implementation with us',
-    body:  'Every workbook and teacher guide is finished, mapped to California standards, and free to download today. What we are looking for is one district to work out the rest with: how the books reach classrooms, which teachers run them, and how those teachers, who know the students, help find the ones who want the summer cohort. It only works for a student who wants to be there, so that is the whole entry requirement.',
+    body:  'Every workbook and teacher guide is finished, mapped to California standards, and free to download today. What we are looking for is one district to work out the rest with: how the books reach classrooms, which teachers run them, and how those teachers, who know the students, let the ones who want more know that the Grades 7 to 12 program exists. It only works for a student who wants to be there, so that is the whole entry requirement.',
     href:  '#contact',
     cta:   'Start that conversation',
   },
   {
-    id:    'summer',
-    icon:  Sun,
-    label: 'Districts and high schools',
-    title: 'Host the first cohort',
-    body:  `${DELIVERY.summerIntensive.ask} Eight weeks of one summer: a room, a schedule, `
-         + 'and permission to teach. Nothing is bought and nothing past that summer is '
-         + 'signed for, though what we are building is four of them with the same '
-         + 'students. Cindy Ha, the founder, will teach the first herself rather than hand '
-         + 'a district a binder and wish it luck.',
+    id:    'pilot',
+    icon:  Laptop,
+    label: 'Districts and middle schools',
+    title: 'Host the first pilot',
+    body:  `${DELIVERY.pilot.ask} One unit in the spring as a test, then the full Grade 7 `
+         + 'year: a teacher to sponsor it, a room for the in-person sessions, and a signed '
+         + 'student data privacy agreement. Nothing is bought and it costs the district '
+         + 'nothing. Cindy Ha, the founder, will host the sessions herself rather than hand '
+         + 'a district an app and wish it luck.',
     href:  '/teachers',
     cta:   'Read the ask',
   },
@@ -121,8 +122,8 @@ const LANES = [
     id:    'funders',
     icon:  Building2,
     label: 'Foundations and grantmakers',
-    title: 'Fund the first cohorts',
-    body:  'We are pre-cohort. There are no outcome numbers to show you and we will not dress up the ones we do not have. What we can show you is the finished curriculum, the evaluation design we have already committed to in public, and a clean record you can pull up without asking us. Tell us what you would need to see and we will send it, or say plainly that it does not exist yet.',
+    title: 'Fund the first pilot',
+    body:  'Nothing of ours has run with students yet. There are no outcome numbers to show you and we will not dress up the ones we do not have. What we can show you is the finished curriculum, the evaluation design we have already committed to in public, and a clean record you can pull up without asking us. Tell us what you would need to see and we will send it, or say plainly that it does not exist yet.',
     href:  '#contact',
     cta:   'Tell us what you need to see',
   },
@@ -141,7 +142,7 @@ const LANES = [
 // ─── disappears on its own when it stops being true. ──────────────────────────
 const NOT_CLAIMING: string[] = [
   ...(!hasOutcomeStats
-    ? ['No cohort has run. We publish no outcome statistics, no engagement figures, and no claim about test scores.']
+    ? ['No program of ours has run with students. We publish no outcome statistics, no engagement figures, and no claim about test scores.']
     : []),
   'No usage figures. Teachers have told us they use the free material and we are glad of it, but an inbox is not a roster, so there is no number here and there will not be an estimate.',
   'No district, school or city named as a user of these materials. A teacher downloading a free PDF has not asked to be associated with us, and neither has her employer.',
@@ -171,9 +172,10 @@ const FAQS = [
      + 'does, and that is the half of this work that decides whether a child learns '
      + 'anything. We publish with no login and no email wall, so we cannot see who is '
      + 'doing it and we will not describe them on this site as though we could. The one '
-     + 'program we intend to run ourselves is the high school summer intensive, one cohort '
-     + 'returning for four consecutive summers, which Cindy Ha will teach herself for the '
-     + 'first cohort. We are still looking for a district willing to host it.',
+     + 'program we intend to run ourselves is for Grades 7 to 12: self-paced lessons in an '
+     + 'app with an AI tutor, and in-person sessions with guests that Cindy Ha will host '
+     + 'herself. It is designed, not built, and we are still looking for a district '
+     + 'willing to host the first pilot.',
   },
   {
     q: 'Has any of it been taught to students?',
@@ -517,8 +519,9 @@ export default function PartnerPage() {
       {/* Who it is for. Written 16 October 2026 for the retired /for-schools
           page as "Who the pilots are for" and moved here the same day when
           that page went. The policy is unchanged; only the word "pilot" is
-          gone, because there is no pilot. What we place our own money and
-          attention in is the district work and the summer cohort. */}
+          gone, because there was no pilot then. What we place our own money and
+          attention in is the district work and, since 21 October 2026, the Grade 7
+          app pilot. */}
       <section id="who" style={{ background: BAND, borderTop: '1px solid rgba(45,91,227,0.1)' }}>
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-start">

@@ -21,6 +21,7 @@ const ROUTES = [
   { path: '/teachers',                     priority: 0.95, changeFrequency: 'monthly' as const },
   { path: '/about',                        priority: 0.8,  changeFrequency: 'monthly' as const },
   { path: '/governance',                   priority: 0.8,  changeFrequency: 'yearly'  as const },
+  { path: '/privacy',                      priority: 0.6,  changeFrequency: 'yearly'  as const },
   { path: '/resources',                    priority: 0.8,  changeFrequency: 'monthly' as const },
   { path: '/partner',                      priority: 0.8,  changeFrequency: 'monthly' as const },
   { path: '/programs/discrete-math',       priority: 0.9,  changeFrequency: 'monthly' as const },

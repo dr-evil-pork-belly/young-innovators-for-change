@@ -169,8 +169,8 @@ export default function CurriculumUi() {
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '0.75rem', maxWidth: '72ch' }}>
             Much of this grid still says <em>planned</em>, and publishing it that way is the
             point. An organization founded in {foundedYear()} with {PUBLISHED_YEARS.length}{' '}
-            finished years of curriculum, {PUBLISHED_WEEKS} weekly assignments and no completed
-            cohort is exactly what we are. The grid is how that becomes a K&ndash;12 program,
+            finished years of curriculum, {PUBLISHED_WEEKS} weekly assignments and no program
+            yet run with students is exactly what we are. The grid is how that becomes a K&ndash;12 program,
             one honest cell at a time.
           </p>
         </FadeIn>
@@ -232,11 +232,10 @@ export default function CurriculumUi() {
                 In the elementary grades this runs as a full school year, one assignment a
                 week, delivered by whoever is already in the room, because younger students
                 hold this better spread out than compressed. The Grades 4, 5 and 6 years are
-                written, which makes the elementary band continuous. In high school it takes
-                the opposite shape: an eight-week summer intensive, run the way a business
-                school runs, as one cohort, the same students returning for four consecutive
-                summers. Grades 7 and 8 are deliberately unwritten, except Leadership, which is
-                taught in a room rather than read off a page.{' '}
+                written, which makes the elementary band continuous. From Grade 7 it takes a
+                different shape: self-paced lessons in an app, with an AI tutor, and
+                in-person sessions with guests from business in place of classwork. That
+                part is designed and not built.{' '}
                 <Link href="/teachers" style={{ color: GOLD_L }}>Why the two shapes differ</Link>.
               </p>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>

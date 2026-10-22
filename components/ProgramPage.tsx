@@ -21,8 +21,9 @@ const ACCENT: Record<Accent, string> = {
  * One renderer for all three enterprise programs.
  *
  * The status banner is not decoration. The syllabus every one of these pages
- * carries is the eight-week summer intensive, which is designed and not yet
- * written, and a visitor should know that before they read a syllabus that
+ * carries is an eight-week summer outline. The summer format was cut on
+ * 21 October 2026, the lessons are not written, and the Grades 7 to 12 app
+ * that replaces it is not built, and a visitor should know that before they read a syllabus that
  * reads like a finished product. The elementary years in the same strand are
  * published, and the band grid under the banner says so, grade band by grade
  * band, straight from CURRICULUM.
@@ -81,10 +82,11 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
             </div>
             <div>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-                The summer syllabus below is real and it is finished. The materials that would
-                let anyone run it are not. No cohort has taken it, so there is nothing on this
-                page about results, and there will not be until there is something true to
-                report.
+                The outline below is real and it is finished. It was written for a summer
+                program that has since been cut, and the lessons that would let anyone teach
+                it, in the Grades 7 to 12 app or anywhere else, are not written. No student
+                has worked through it, so there is nothing on this page about results, and
+                there will not be until there is something true to report.
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE }}>
                 What is written is elementary material, free and ready to run today, one page

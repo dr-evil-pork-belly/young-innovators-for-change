@@ -337,7 +337,7 @@ export default function PathwayUi() {
               as a stated risk on the{' '}
               <Link href="/impact" style={{ color: GOLD_L, textDecoration: 'none',
                 borderBottom: `1px solid ${GOLD}55` }}>evidence page</Link>, and it is one of
-              the first things the first cohort would need to measure.
+              the first things the first pilot would need to measure.
             </p>
           </div>
         </FadeIn>

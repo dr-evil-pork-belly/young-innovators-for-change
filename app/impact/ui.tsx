@@ -19,8 +19,9 @@ import {
  * classroom pilot: a matched-classroom quasi-experiment across four to eight
  * classrooms, five measures, and three pre-committed disconfirming results.
  * That pilot was retired with /for-schools (claude/38-retiring-for-schools.md).
- * The first program the organization runs and measures is the summer cohort
- * in DELIVERY.summerIntensive, and its design is not registered yet, so this
+ * The first program the organization runs and measures was then the summer
+ * cohort; since 21 October 2026 it is the Grade 7 app pilot in DELIVERY.pilot.
+ * Its design is not registered yet, so this
  * page says what will be registered and when, and does not invent measures to
  * fill the space. The classroom study's withdrawal is stated on the page
  * rather than deleted quietly, because a pre-commitment that disappears
@@ -71,7 +72,7 @@ const MATH_SOURCES = [
 ];
 
 export default function ImpactUi() {
-  const cohort = DELIVERY.summerIntensive;
+  const pilot = DELIVERY.pilot;
   const countervailing = RESEARCH.filter((c) => c.countervailing).length;
 
   return (
@@ -101,7 +102,7 @@ export default function ImpactUi() {
           ))}
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-          <Link href="/partner" className="btn-gold">Fund the first summer <ArrowUpRight size={14} /></Link>
+          <Link href="/partner" className="btn-gold">Fund the first pilot <ArrowUpRight size={14} /></Link>
           <Link href="/pathway#research" className="btn-ghost">
             Every study, in plain words <ArrowUpRight size={13} />
           </Link>
@@ -268,11 +269,12 @@ export default function ImpactUi() {
           gap: 'clamp(2rem, 5vw, 3.5rem)', alignItems: 'start' }}>
           <FadeIn>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              The first program we will run and measure is the summer program for high school
-              students. {cohort.theClaim}
+              The first program we will run and measure is the Grade 7 pilot: self-paced
+              lessons in an app with an AI tutor, plus in-person sessions with guests, for
+              every seventh grader in one middle school who wants it. {pilot.theClaim}
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              Before the first summer starts, we will post our plan for measuring it on the Open
+              Before the first lesson, we will post our plan for measuring it on the Open
               Science Framework, a public site where researchers lock in their plans ahead of
               time. That way, what we measure, who we compare, and what result would count
               against us are all set in public before we have any data. We cannot change them
@@ -282,7 +284,9 @@ export default function ImpactUi() {
               We have not posted it yet because no school district has agreed to host the
               program. A plan written before we know the place, the dates and the number of
               students would have to be rewritten later, and quietly rewriting it is exactly
-              what posting it in advance is meant to prevent. {cohort.ask}{' '}
+              what posting it in advance is meant to prevent. Because anyone who wants in
+              gets in, the students who join will not be a random draw, and the plan will say
+              how it deals with that rather than pretend otherwise. {pilot.ask}{' '}
               <Link href="/partner" style={{ color: GOLD_L, textDecoration: 'none',
                 borderBottom: `1px solid ${GOLD}55` }}>That is what we are asking for</Link>.
             </p>
@@ -318,7 +322,7 @@ export default function ImpactUi() {
             Until October 16, 2026, this page described a different plan: a study in Grade 2
             classrooms, with five measures and three results we said in advance would show it
             failed. We dropped that study because we are no longer running a classroom pilot.
-            The summer program above is now the first one we will measure. We are saying so
+            The Grade 7 pilot above is now the first one we will measure. We are saying so
             here instead of quietly deleting the old promise.
           </p>
         </FadeIn>
@@ -331,7 +335,7 @@ export default function ImpactUi() {
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">What would show<br />we are wrong.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '62ch', marginTop: '1rem' }}>
             These are the things that have to be true for this to work. Each one says how it
-            could turn out to be false. Measuring the first summer program is how we will test
+            could turn out to be false. Measuring the first pilot is how we will test
             them. The mission page shows the same list, pulled from the same place, so the two
             always match.
           </p>
@@ -444,7 +448,7 @@ export default function ImpactUi() {
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/partner" className="btn-gold">Fund the first summer <ArrowUpRight size={14} /></Link>
+              <Link href="/partner" className="btn-gold">Fund the first pilot <ArrowUpRight size={14} /></Link>
               <Link href="/governance" className="btn-ghost">Read the filings <ArrowUpRight size={13} /></Link>
             </div>
           </div>

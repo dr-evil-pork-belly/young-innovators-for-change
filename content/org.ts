@@ -197,9 +197,10 @@ export const MISSION = {
 
   /** Say these before anything else, on any page that draws on the mission. */
   notYetTrue: [
-    'No cohort has run. The delivered program described on this site is designed, '
-    + 'not delivered. Teachers using the free material on their own are not a '
-    + 'program we ran, and must never be counted as one.',
+    'No program of ours has run with students. The delivered program described on '
+    + 'this site is designed, not delivered, and the app it runs on is not built. '
+    + 'Teachers using the free material on their own are not a program we ran, and '
+    + 'must never be counted as one.',
     'We do not know who downloads the free materials, and we will not describe them as '
     + 'low income until we can.',
     'Nothing here has been measured. The evaluation design is published. The results do '
@@ -234,8 +235,12 @@ export const VERIFIED_STATS: Stat[] = [];
  * The `8 Week Program` figure was removed on 31 August 2026. The 36-week years
  * supersede the older Founders Track for Grades 4 to 6, so advertising an
  * eight-week program alongside the published school years described something
- * that had been retired for the grades that actually have material. The
- * Executives Track remains in CURRICULUM and PATHWAY, correctly marked designed.
+ * that had been retired for the grades that actually have material.
+ *
+ * On 21 October 2026 the high school summer program (the Executives Track) was
+ * cut. Grades 7 to 12 are now one designed program: self-paced lessons in an
+ * app with an AI tutor, plus in-person sessions with guests. See
+ * DELIVERY.models and DELIVERY.pilot, and claude/42-the-grade7-app-pilot.md.
  */
 // PROGRAM_FACTS is declared after CURRICULUM, below, because its first entry
 // counts the subject lines in that array rather than typing the number. It said
@@ -504,14 +509,18 @@ export const CURRICULUM: Strand[] = [
          + 'scenarios rather than textbooks.',
     bands: [
       { band: 'Grades 1–2',  status: 'n/a' },
+      // The Founders Track was a summer program. Summer programs were cut on
+      // 21 October 2026 and Grades 1 to 6 are printed workbooks only, so this
+      // band keeps its design and has no form of delivery.
       { band: 'Grades 3–5',  status: 'designed',
-        note: 'Founders Track, an 8-week summer intensive.' },
+        note: 'Designed as a summer program, and summer programs have been cut. No '
+            + 'leadership workbook is written for these grades.' },
       { band: 'Grades 6–8',  status: 'designed',
-        note: 'Kept for this band deliberately. It is taught in a room rather than '
-            + 'read off a page, and the behaviors are worth having at thirteen '
-            + 'whether or not a business is ever attached to them.' },
+        note: 'From Grade 7, part of the Grades 7 to 12 program: lessons in an app, '
+            + 'and in-person sessions with guests. Designed, not built.' },
       { band: 'Grades 9–12', status: 'designed',
-        note: 'Executives Track: one cohort, four summers of eight weeks each.' },
+        note: 'Part of the Grades 7 to 12 program: lessons in an app, and in-person '
+            + 'sessions with guests. Designed, not built.' },
     ],
   },
   {
@@ -525,10 +534,11 @@ export const CURRICULUM: Strand[] = [
         note: 'Grades 4 and 5 complete: The Venture Year and The Numbers Year, 36 weeks '
             + 'each, standards-mapped and free. No Grade 3 year is written.' },
       { band: 'Grades 6–8',  status: 'published',
-        note: 'Grade 6 complete: The Market Year, 36 weeks. Grades 7 and 8 are '
-            + 'deliberately unwritten: print is the wrong medium for that age.' },
+        note: 'Grade 6 complete: The Market Year, 36 weeks. From Grade 7 it moves '
+            + 'to the app, which is designed and not built. No printed year is planned.' },
       { band: 'Grades 9–12', status: 'designed',
-        note: 'Executives Track: one cohort, four summers of eight weeks each.' },
+        note: 'Part of the Grades 7 to 12 program: lessons in an app, and in-person '
+            + 'sessions with guests. Designed, not built.' },
     ],
   },
   {
@@ -542,9 +552,11 @@ export const CURRICULUM: Strand[] = [
         note: 'Complete: The Choosing Year, The Planning Year and The Keeping '
             + 'Year, 36 weeks each.' },
       { band: 'Grades 6–8',  status: 'published',
-        note: 'Grade 6 complete: The Asking Year, 36 weeks. Grades 7 and 8 are '
-            + 'deliberately unwritten: print is the wrong medium for that age.' },
-      { band: 'Grades 9–12', status: 'designed' },
+        note: 'Grade 6 complete: The Asking Year, 36 weeks. From Grade 7 it moves '
+            + 'to the app, which is designed and not built. No printed year is planned.' },
+      { band: 'Grades 9–12', status: 'designed',
+        note: 'Part of the Grades 7 to 12 program: lessons in an app, and in-person '
+            + 'sessions with guests. Designed, not built.' },
     ],
   },
 ];
@@ -665,26 +677,24 @@ export const PATHWAY: PathwayStage[] = [
            + 'substitutes, market share, and a response round where every team sees '
            + 'every other team’s numbers and moves at the same time.',
     mbaCourse: 'Competitive strategy',
-    note: '36 weeks, written in full, free to download today. Written before the first '
-        + 'cohort ran, so the first revision after one will be substantial.',
+    note: '36 weeks, written in full, free to download today. Written before any class '
+        + 'ran it, so the first revision after one will be substantial.',
   },
   {
     grade: 'Grade 7', status: 'planned',
     concept: 'Cash against profit. Why a sale and money in hand are different events, '
            + 'what inventory ties up, and how a profitable business runs out of money.',
     mbaCourse: 'Financial accounting',
-    note: 'Planned as content, not as a book. Print is the wrong medium for this '
-        + 'age, so nothing is written for it until there is a digital form to '
-        + 'deliver it in. See DELIVERY.middleGrades.',
+    note: 'The first year of the Grades 7 to 12 app, and the year the first pilot '
+        + 'would teach. Planned, not written: nothing is published until it is checked '
+        + 'the way the books are. See DELIVERY.pilot.',
   },
   {
     grade: 'Grade 8', status: 'planned',
     concept: 'What capital costs. Interest, simple and compound, the arithmetic of a '
            + 'loan, and the reason the same purchase costs two people different amounts.',
     mbaCourse: 'Corporate finance',
-    note: 'Planned as content, not as a book. Print is the wrong medium for this '
-        + 'age, so nothing is written for it until there is a digital form to '
-        + 'deliver it in. See DELIVERY.middleGrades.',
+    note: 'Planned for the Grades 7 to 12 app, which is designed and not built.',
   },
   {
     grade: 'Grade 9', status: 'designed',
@@ -692,8 +702,8 @@ export const PATHWAY: PathwayStage[] = [
            + 'break-even, and the questions to ask when the numbers and the story '
            + 'disagree.',
     mbaCourse: 'Financial statement analysis',
-    note: 'Covered in part by the Executives Track, the four-summer cohort. '
-        + 'The full year is not written.',
+    note: 'Parts of it are outlined in the Venture Lab and Financial Literacy '
+        + 'syllabi. Planned for the Grades 7 to 12 app. The full year is not written.',
   },
   {
     grade: 'Grade 10', status: 'designed',
@@ -701,7 +711,8 @@ export const PATHWAY: PathwayStage[] = [
            + 'what happens to a plan when the people executing it are not the people '
            + 'who wrote it.',
     mbaCourse: 'Organizational behavior',
-    note: 'Covered in part by the Leadership track. The full year is not written.',
+    note: 'Parts of it are outlined in the Leadership syllabus. Planned for the '
+        + 'Grades 7 to 12 app. The full year is not written.',
   },
   {
     grade: 'Grade 11', status: 'planned',
@@ -749,30 +760,20 @@ export const NOT_AN_MBA: string[] = [
  * Written as a commitment because it constrains program design, not as a slogan.
  */
 export const OPT_IN: { title: string; body: string }[] = [
+  // Rewritten 21 October 2026, when the 16-seat summer cohort was cut. Its
+  // waitlist, handwritten proposal and lottery went with it: the Grades 7 to 12
+  // program runs in an app, so it needs no seat limit and nobody has to be
+  // chosen. Fit is unchanged, in David's words: a student who is hungry and has
+  // a real interest in business. Family business background is not part of it.
   { title: 'Offered to every student, required of none',
     body: 'The pathway sits beside the school day rather than inside a graduation '
         + 'requirement. A student who is not interested this year loses nothing and '
-        + 'can start next year. The summer cohort is the one exception: it forms once, '
-        + 'with 16 students, because that is how many one instructor can teach well. '
-        + 'A new student joins later only when a seat opens, from the waitlist.' },
-  // Retitled 20 October 2026, when the summer cohort's 16 seats needed a fair
-  // way to choose. Fit, in David's words: a student who is hungry and has a
-  // real interest in business, not one a parent signed up to fill the summer.
-  // Family business background is not part of it. Each interested student
-  // writes a short proposal in their own words, like a college essay, so they
-  // get a taste of applying. It is written by hand and in person, with no
-  // parent or AI help (decided 20 October 2026). Staff read it for one thing, whether the student
-  // wants this, and answer yes or no; the writing is not graded, grades do not
-  // count, and nobody is ranked. A lottery picks among the yeses.
+        + 'can start next year. From Grade 7 the lessons run in an app, so there is no '
+        + 'seat limit: every student who wants in gets in.' },
   { title: 'No test, no ranking, no prerequisite',
-    body: 'There is no test to get in and no prior year to have completed. Wanting to '
-        + 'do it is the entry criterion, which is the opposite of how access to this '
-        + 'material usually works. The summer cohort has 16 seats, so each student '
-        + 'who wants in writes a short proposal in their own words, by hand and in '
-        + 'person, the way an applicant would. Teachers read it for one thing: that '
-        + 'the student asked for '
-        + 'this themselves and means it. The writing is not graded, grades do not '
-        + 'count, nobody is ranked, and a lottery picks the 16.' },
+    body: 'There is no test to get in, no application to be ranked, and no prior '
+        + 'year to have completed. Wanting to do it is the entry criterion, which is '
+        + 'the opposite of how access to this material usually works.' },
   { title: 'The ceiling is not set by us',
     body: 'A student who wants to go further than the year they are in should be handed '
         + 'the next book, not held at their grade level. Every year is published in '
@@ -781,13 +782,11 @@ export const OPT_IN: { title: string; body: string }[] = [
     body: 'The material is written to reward work rather than speed or prior exposure. '
         + 'Whether that is enough is an open question, and it is on the evidence page '
         + 'as one we could be wrong about.' },
-  // Decided 20 October 2026. Closes the open question in claude/21: the cohort
-  // asks a student to come back, and it does not close the door on one who
-  // could not.
-  { title: 'Missing a summer does not cost your place',
-    body: 'A student in the summer cohort who misses one summer is welcome back the '
-        + 'next, and their seat is held. The cohort asks students to come back. It '
-        + 'does not shut out one who could not.' },
+  // Was "Missing a summer does not cost your place" (20 October 2026). The
+  // principle survived the cohort: a student who stops is not shut out.
+  { title: 'Stopping does not close the door',
+    body: 'A student who stops can come back. The program asks students to keep '
+        + 'going. It does not shut out one who could not.' },
 ];
 
 // ─── Load-bearing assumptions ─────────────────────────────────────────────────
@@ -795,7 +794,7 @@ export const OPT_IN: { title: string; body: string }[] = [
 /**
  * What has to be true for the theory of change to hold, each with the specific
  * way it could fail. Rendered on /mission as the assumptions and on /impact as
- * the questions the first cohort study has to answer, from this one list, so
+ * the questions the first pilot study has to answer, from this one list, so
  * the two pages cannot drift apart. Moved here from app/mission/ui.tsx on
  * 16 October 2026 when /impact lost its Grade 2 classroom study and needed the
  * same list.
@@ -822,6 +821,17 @@ export const ASSUMPTIONS: { text: string; risk: string }[] = [
     risk: 'The biggest review in our research list found that money classes had almost '
         + 'no effect 20 months later. Our answer is to spread the lessons out and tie them '
         + 'to real money. Neither has been tested.' },
+  // The next two were added 21 October 2026 with the Grades 7 to 12 app. They
+  // name the two ways the app could fail that the old summer room could not.
+  { text: 'That a student will keep working through lessons on their own, with a '
+        + 'tutor that is not a person.',
+    risk: 'If students start and drift off, the app reaches many students and teaches '
+        + 'few. The in-person sessions are our answer to that, and they have not been '
+        + 'tested.' },
+  { text: 'That an AI tutor teaches the lessons we wrote, and nothing else.',
+    risk: 'A tutor that is confidently wrong teaches a child something false. Ours works '
+        + 'only from lessons we have written and checked, and adults can read every '
+        + 'conversation it has. Neither safeguard has been tried with a student yet.' },
   { text: 'That a school district will host a program from an organization with no '
         + 'track record.',
     risk: 'This is the assumption we are testing first, and the one most likely to fail.' },
@@ -845,8 +855,17 @@ export const ASSUMPTIONS: { text: string; risk: string }[] = [
  * "teachers are using it" is a sentence this file does not support, and the
  * honest version, "we cannot see who is using it", is the one written below.
  *
- * `summerIntensive.status` is 'seeking'. It becomes something else only when a
- * district has agreed in writing and the agreement is on file.
+ * `pilot.status` is 'seeking'. It becomes something else only when a district
+ * has agreed in writing and the agreement is on file.
+ *
+ * Changed 21 October 2026. The high school summer cohort (one instructor, 16
+ * seats, four summers) was cut because it could not reach enough students.
+ * Grades 7 to 12 became one designed program, self-paced lessons in an app
+ * with an AI tutor plus in-person sessions with guests, and `summerIntensive`
+ * became `pilot`. The deliberate blank for Grades 7 and 8 (`middleGrades`,
+ * written 2 September 2026) was retired the same day, as its own comment said
+ * it should be once a digital form of delivery existed. The app is designed,
+ * not built, and every line below says so.
  */
 export const DELIVERY = {
   /** The argument, in one sentence, in the founder's framing. */
@@ -890,60 +909,6 @@ export const DELIVERY = {
   ],
 
   /**
-   * THE DELIBERATE BLANK, Grades 7 and 8.
-   *
-   * Added 2 September 2026. Every version of the curriculum map before this said
-   * some form of "not started" for these two grades, which reads as a backlog
-   * item somebody has not got to. It is not. It is a decision, and the decision
-   * is about the medium rather than the material.
-   *
-   * READ THIS BEFORE EDITING. This is the argument of the whole delivery page
-   * turned back on the organization, and it is load-bearing for exactly that
-   * reason: a site that says curriculum is worthless without good delivery, and
-   * then publishes for an age band it does not believe it can deliver to, has
-   * refuted itself in public. Do not quietly fill this band in to make the
-   * roadmap look complete. Fill it in when there is something to deliver it
-   * with.
-   *
-   * Nothing here promises a web app, a date, or a budget. It states why the
-   * blank exists and what would have to change.
-   */
-  middleGrades: {
-    band: 'Grades 7 and 8',
-    shape: 'Not built, and not for lack of time',
-    body: 'No printed year is written for Grade 7 or Grade 8, and the reason is '
-        + 'the medium rather than the material. A printed workbook holds a '
-        + 'seven-year-old who has an adult sitting beside them, and eight weeks '
-        + 'in a summer room holds a sixteen-year-old. We do not believe paper '
-        + 'holds a thirteen-year-old. Writing thirty-six weeks of it for that '
-        + 'age would be writing something we did not expect anyone to finish.',
-
-    /**
-     * The exception, and it is not a hedge on the blank. It is the same test
-     * applied and passed: Leadership survives this band precisely because it is
-     * delivered by a person in a room rather than off a page, which is the
-     * thing this entire page argues decides everything.
-     *
-     * The second half is the founder's reason and it is a claim about value,
-     * not about evidence. Nothing here says it has been measured, because it
-     * has not, and MISSION.notYetTrue governs this file as it governs the rest.
-     */
-    exception:
-      'Leadership is the one part that stays. It is taught in a room rather '
-      + 'than read off a page, so the medium problem does not apply to it, and '
-      + 'the behaviors it teaches are worth having at thirteen whether or not a '
-      + 'business is ever attached to them. A student walking toward high '
-      + 'school can use them everywhere else in their life.',
-    whatWouldChangeIt:
-      'That band needs a different form of delivery, almost certainly digital, '
-      + 'and we have not built one. Until it exists the honest thing is a blank '
-      + 'rather than a book. This is the argument of this whole page turned on '
-      + 'ourselves: a curriculum is only as good as its delivery, which means '
-      + 'there are ages we should not publish for until we can reach them.',
-    status: 'not-built' as const,
-  },
-
-  /**
    * WHAT WE KNOW ABOUT USE, which is very little, and how little is the point.
    *
    * FOUNDER-ATTESTED. Like the biography in FOUNDER and unlike the EIN, none of
@@ -982,7 +947,12 @@ export const DELIVERY = {
       + 'not going to estimate one and call it a figure.',
   },
 
-  /** The two delivery models. Slow for the elementary years, intensive for the older ones. */
+  /**
+   * The two delivery models. Slow and printed for the elementary years; for the
+   * older ones, self-paced in an app plus a room. The second is DESIGNED: no
+   * lesson in it is written and the app is not built. Its status changes only
+   * when a student has used it.
+   */
   models: [
     {
       band: 'Grades 1 to 6',
@@ -999,53 +969,59 @@ export const DELIVERY = {
       status: 'published' as const,
     },
     {
-      band: 'Grades 9 to 12',
-      shape: 'One cohort, four summers, eight weeks each',
-      who: 'Taught by Cindy Ha, the founder, in person, for the first cohort.',
-      body: 'The same ideas in the opposite shape. Eight weeks inside one '
-          + 'summer, run the way a business school runs, and then the same '
-          + 'students come back and do it again the next summer, and the next, '
-          + 'across their high school years. An older student can hold a whole '
-          + 'idea at once, and a summer can be given over to it in a way a '
-          + 'Tuesday afternoon cannot. This is the Executives Track. It is '
-          + 'designed and not yet delivered.',
+      band: 'Grades 7 to 12',
+      shape: 'At their own pace, with a room to meet in',
+      who: 'An AI tutor for the lessons, which tells students plainly that it is '
+         + 'one. Cindy Ha, the founder, hosting the in-person sessions, with a '
+         + 'teacher from the school in the room.',
+      body: 'The ideas a business school teaches, spread over six years instead '
+          + 'of two. Every student gets the same written lessons and works through '
+          + 'them on their own time, as fast or as slowly as they need, with an AI '
+          + 'tutor that explains, asks questions and gives feedback on their work. '
+          + 'The tutor teaches from lessons we write and check; it does not make up '
+          + 'the course. The room is for what an app cannot do: guest speakers from '
+          + 'business, and conversations about what is happening in it now. It is '
+          + 'designed, and not yet built.',
       status: 'designed' as const,
     },
   ],
 
   /** The open ask. Change `status` only against a signed agreement. */
-  summerIntensive: {
+  pilot: {
     status: 'seeking' as 'seeking' | 'scheduled' | 'running',
     ask: 'We are looking for one school district willing to host the first '
-       + 'summer program.',
-    detail:
-      'We are asking a district to commit to one summer. Eight weeks, a room, '
-      + 'a schedule, and permission to teach a cohort. Nothing is bought, '
-      + 'nothing is adopted, and nothing past that first summer is signed for. '
-      + 'What we are building is four of those summers with the same students, '
-      + 'so the conversation we would rather have is about the first of four '
-      + 'than about a one-off. Nobody is handed a binder and wished luck, '
-      + 'because a program has to be run by the people who wrote it before it '
-      + 'can honestly be handed to anyone else.',
+       + 'pilot: one middle school, and every seventh grader there who wants it.',
 
     /**
-     * Why it is a cohort and not a course offered four times. This constrains
-     * program design, so it is written as a commitment rather than a slogan.
-     *
-     * It sits close to a real tension with OPT_IN, which promises no screening
-     * and says a student who sits out a year loses nothing. Both are kept: the
-     * entry criterion is still only wanting to do it. What the cohort asks for
-     * is the opposite of a screen, which is that a student comes back.
+     * Decided 21 October 2026: one unit in the spring as a test, then the full
+     * Grade 7 year from the fall, open to every interested seventh grader. No
+     * year is named because no district has signed. The session cadence is not
+     * decided (open decision 18), so this does not state one.
      */
-    whyCohort:
-      'A group that has been through three summers together can attempt things '
-      + 'a group meeting for the first time cannot. That is the entire reason '
-      + 'this is one cohort rather than a course offered four times. There is '
-      + 'still no test to get in and no prior year to have completed for the '
-      + 'first summer.',
+    detail:
+      'The first pilot is one unit in the spring, as a test, and then the full '
+      + 'Grade 7 year the following fall. We ask a district for a teacher to '
+      + 'sponsor it, a room for the in-person sessions, help letting seventh '
+      + 'graders know it exists, and a signed student data privacy agreement. '
+      + 'Nothing is bought and it costs the district nothing. Nobody is handed an '
+      + 'app and wished luck, because a program has to be run by the people who '
+      + 'wrote it before it can honestly be handed to anyone else.',
 
     /**
-     * The founder's sentence for what four summers add up to, and the
+     * Why there is a room at all, when the lessons run in an app. This
+     * constrains program design, so it is written as a commitment rather than a
+     * slogan. "Is meant to be" is deliberate: nothing here has been tried.
+     */
+    whyInPerson:
+      'An app can teach the ideas. It cannot make a thirteen-year-old want '
+      + 'them, and it cannot introduce them to someone who does this for a '
+      + 'living. That is what the room is for: a guest lecture, or a fireside '
+      + 'conversation about something happening in business now, with the other '
+      + 'students who chose to be there. The app is how this reaches every '
+      + 'student who wants it. The room is meant to be why they keep going.',
+
+    /**
+     * The founder's sentence for what the six years add up to, and the
      * disclaimer it must never travel without.
      *
      * "This would be their business school" is the true and useful half of the
@@ -1053,45 +1029,166 @@ export const DELIVERY = {
      * site has already been burned once by a sentence that read well and
      * conferred a credential nobody grants. Both halves stay in one string so
      * they cannot be separated by a later edit that keeps only the good line.
+     * Never write "MBA" into the positive half.
      */
     theClaim:
-      'Eight weeks a summer, four summers, the same room and the same people: '
-      + 'for a student who has one, this is their business school. It is also '
-      + 'not a business school. No degree, no credit, no transcript, and no '
-      + 'tuition either.',
+      'Six years of the ideas a business school teaches, at their own pace, '
+      + 'alongside people who do the work: for a student who has nothing else '
+      + 'like it, this is their business school. It is also not a business '
+      + 'school. No degree, no credit, no transcript, and no tuition either.',
 
     /**
-     * Decided 20 October 2026: the summer before ninth grade, so all four
-     * summers fall inside high school and recruiting runs through middle
-     * school teachers and counselors. Rendered on /teachers under whyCohort.
-     * Every other page still says "four summers across high school", which
-     * stays true. Set back to null to take the line off the page.
+     * What the tutor will and will not do. Design commitments, written into the
+     * first district proposal on 21 October 2026, so they are binding on the
+     * build. The district's data agreement, not this list, is what binds us
+     * legally, and the page says so.
      */
-    entrySummer: ('The cohort starts the summer before ninth grade, so all four '
-      + 'summers fall inside high school.') as string | null,
+    tutorRules: [
+      { title: 'It says it is an AI',
+        body: 'Every screen where the tutor speaks says so. No student should ever '
+            + 'wonder whether a person is on the other end.' },
+      { title: 'It stays on the lessons',
+        body: 'It does not play a character, keep up a friendship, or chat about '
+            + 'anything else. On a personal or safety topic it stops and points the '
+            + 'student to a trusted adult at school.' },
+      { title: 'Adults can read every conversation',
+        body: 'The school\'s sponsor and our staff can review what the tutor said to '
+            + 'any student, at any time.' },
+      { title: 'The least data that works',
+        body: 'Students join with a code from their school. We do not collect phone '
+            + 'numbers, home addresses or personal email addresses.' },
+      { title: 'Nothing sold, nothing trained',
+        body: 'No ads. Student work is never sold, and never used to train an AI '
+            + 'model.' },
+      { title: 'Nobody starts without signatures',
+        body: 'No student logs in until the district has signed a data privacy '
+            + 'agreement and a parent has signed a consent form.' },
+    ],
 
     /**
-     * Decided 20 October 2026. No year is named here because no host district
-     * has signed; the proposals name the first cohort (the Class of 2031 if it
-     * starts in summer 2027). Rendered on /teachers beside entrySummer.
-     */
-    cohortName: ('Each cohort is named for the year it graduates from high school, '
-      + 'the way a business school names its classes.') as string | null,
-
-    /**
-     * Who teaches it, and why that is the argument rather than a staffing note.
+     * Who hosts, and why that is the argument rather than a staffing note.
      *
      * Cindy Ha is listed in LEADERSHIP with a documented role, so she can be
      * named here. Everything this draws on is already founder-attested on the
      * About page: she built and sold a business first and met the formal
      * material afterward. Nothing is added to her biography by this sentence.
      */
-    whoTeaches:
-      'Cindy Ha will teach the first cohort herself. She built a business '
-      + 'without this material and met the formal version of it years later, '
-      + 'which is the whole reason the organization exists. The first summer is '
-      + 'where what she learned late gets handed over early, in person, by her.',
+    whoHosts:
+      'Cindy Ha will host the in-person sessions herself, with a teacher from '
+      + 'the school in the room. She built a business without this material and '
+      + 'met the formal version of it years later, which is the whole reason the '
+      + 'organization exists. The sessions are where what she learned late gets '
+      + 'handed over early, in person.',
   },
+} as const;
+
+// ─── Student privacy ──────────────────────────────────────────────────────────
+
+/**
+ * STUDENT PRIVACY, for the Grades 7 to 12 app. Rendered on /privacy.
+ *
+ * Added 21 October 2026. This is the public half of what the compliance memo
+ * (claude/43-compliance-memo.md) says must exist before any student logs in:
+ * COPPA requires the online notice to carry a written data retention policy
+ * (16 CFR 312.4(d), 312.10), and Anthropic's guidelines for organizations
+ * serving minors ask for COPPA compliance to be stated publicly.
+ *
+ * READ THIS BEFORE EDITING. `collecting` is false because the app is not
+ * built and no student data exists. Every line below is a commitment about
+ * what will happen, written in the future tense on purpose. Flip `collecting`
+ * only when the first district agreement is signed, and reread every line
+ * against the app as built when you do. The district's data agreement binds
+ * us; this page must never promise more than it does.
+ *
+ * Decided by David, 21 October 2026: the AI provider is Anthropic, and
+ * student data is deleted 60 days after the school year ends.
+ */
+export const STUDENT_PRIVACY = {
+  collecting: false,
+
+  provider: {
+    name: 'Anthropic',
+    product: 'Claude',
+    /** Commercial Terms, section B, checked 21 October 2026. */
+    noTraining: 'Anthropic’s commercial terms say it may not train its models on '
+      + 'what customers send it.',
+    termsUrl: 'https://www.anthropic.com/legal/commercial-terms',
+    minorsUrl: 'https://support.claude.com/en/articles/9307344-responsible-use-of-anthropic-s-models-guidelines-for-organizations-serving-minors',
+  },
+
+  /** What the app will collect, and why each item is needed. */
+  collected: [
+    { item: 'First name and last initial',
+      why: 'So the student’s school sponsor knows whose work is whose.' },
+    { item: 'The class code from the school',
+      why: 'So only students the school has signed up can get in.' },
+    { item: 'Lesson progress and answers to practice problems',
+      why: 'So a student can pick up where they stopped, and the app can mark '
+         + 'numeric answers.' },
+    { item: 'Work the student submits',
+      why: 'Each unit ends in something the student made, and they should be able '
+         + 'to keep it.' },
+    { item: 'Conversations with the tutor',
+      why: 'So the tutor can answer, and so the school sponsor and our staff can '
+         + 'check what it told a student.' },
+  ],
+
+  /** What it will not collect. */
+  notCollected: [
+    'Phone numbers',
+    'Home addresses',
+    'Personal email addresses',
+    'Photos, voice recordings or location',
+    'Birthdates',
+  ],
+
+  /** Who can see a student's data. */
+  whoSees: [
+    'The student.',
+    'The teacher at the school who sponsors the program.',
+    'Our staff, to check that the tutor is teaching what the lessons say.',
+    'Anthropic, which processes each message to the tutor in order to write its '
+    + 'reply, and may not train its models on it.',
+  ],
+
+  /** The written retention policy COPPA requires in the online notice. */
+  retention:
+    'We keep a student’s data only for the school year it was collected in. '
+    + 'Sixty days after that school year ends, we delete it. We delete it sooner if '
+    + 'the school or a parent asks. Before it is deleted, a student can download '
+    + 'everything they made, and bring it back the next year.',
+
+  /** What we will never do with it. */
+  never: [
+    'Show ads to students, in the app or anywhere else.',
+    'Sell student information to anyone.',
+    'Build a profile of a student for any reason other than their lessons.',
+    'Use student work or conversations to train or build an AI system.',
+  ],
+
+  /** What a parent can do. COPPA gives these rights to the parent of a child under 13; we extend them to every family. */
+  parentRights: [
+    'See what we hold about their child.',
+    'Have it deleted.',
+    'Stop us from collecting any more, which ends the child’s use of the app.',
+  ],
+
+  /** Nothing starts until both are signed. */
+  beforeStart:
+    'No student logs in until two things are signed: a student data privacy '
+    + 'agreement between us and the school district, and a consent form from the '
+    + 'student’s parent or guardian. We ask every family for consent, not only '
+    + 'families of children under 13.',
+
+  laws: [
+    'The Children’s Online Privacy Protection Act (COPPA)',
+    'The Family Educational Rights and Privacy Act (FERPA)',
+    'California’s student online privacy law (Business and Professions Code '
+    + 'section 22584), including the limits on artificial intelligence that take '
+    + 'effect January 1, 2027',
+    'California Education Code section 49073.1, which sets what a district’s '
+    + 'contract with us must contain',
+  ],
 } as const;
 
 // ─── Research base ────────────────────────────────────────────────────────────

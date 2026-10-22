@@ -317,7 +317,7 @@ export default function AboutUi() {
                + 'curriculum is built against published standards and published research, and '
                + 'both are cited so you can check the work rather than trust the author.' },
             { t: 'She has not run a school', a: GREEN_L,
-              d: 'No cohort has completed a program and no outcome has been measured. What we '
+              d: 'No program of ours has run with students and no outcome has been measured. What we '
                + 'would count, and what would tell us the program does not work, is written '
                + 'down in advance on the evidence page.' },
             { t: 'One business is not a proof', a: GREEN_L,

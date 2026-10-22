@@ -70,12 +70,12 @@ const INTENT = [
     d: 'Graduates choose to be listed. Nobody is added by default, and anyone can leave and '
      + 'be removed from the record rather than archived.' },
   { t: 'Older students teaching younger ones',
-    d: 'The most useful thing a high school graduate of the Executives Track can do is run a '
-     + 'session for the Founders Track. It is also the cheapest way for this to keep '
-     + 'running without us.' },
+    d: 'The most useful thing a high school graduate of the program can do is stand in front '
+     + 'of a room of seventh graders and tell them what the six years were like. It is also '
+     + 'the cheapest way for this to keep running without us.' },
   { t: 'A standing invitation back',
-    d: 'Anyone who has been through a program can come back to a later cohort as a guest, a '
-     + 'panelist or a co-instructor, at whatever level of commitment they have room for.' },
+    d: 'Anyone who has been through a program can come back to a later in-person session as a '
+     + 'guest, a panelist or a host, at whatever level of commitment they have room for.' },
 ];
 
 export default function AlumniUi() {
@@ -89,7 +89,7 @@ export default function AlumniUi() {
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              No cohort has run, so this organization has no alumni, no success stories and no
+              No program of ours has run, so this organization has no alumni, no success stories and no
               network. A page claiming otherwise would be the easiest lie on this website to
               tell and the hardest one to walk back.
             </p>
@@ -103,7 +103,7 @@ export default function AlumniUi() {
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
           <Link href="/partner" className="btn-gold">
-            Host the first cohort <ArrowUpRight size={14} />
+            Host the first pilot <ArrowUpRight size={14} />
           </Link>
           <Link href="/governance" className="btn-ghost">
             How we hold ourselves to things <ArrowUpRight size={13} />
@@ -190,7 +190,7 @@ export default function AlumniUi() {
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '62ch',
             marginTop: '1rem' }}>
             Design intent, written down so it can be argued with. None of it exists, and none of
-            it will until there is a first cohort to build it around.
+            it will until there are first students to build it around.
           </p>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
@@ -215,13 +215,14 @@ export default function AlumniUi() {
             <div style={{ maxWidth: '60ch' }}>
               <Title size="clamp(1.6rem, 3.2vw, 2.5rem)">The way to make<br />this page real.</Title>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginTop: '1rem' }}>
-                One cohort, one summer, one district willing to host it. Every commitment on
-                this page stays hypothetical until that happens. The books are written and
-                sitting there, free, which means the only missing piece is a room.
+                One pilot, one middle school, one district willing to host it. Every commitment
+                on this page stays hypothetical until that happens. The elementary books are
+                written and sitting there, free. What is missing is a district that says yes,
+                and the app we are building for it.
               </p>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-              <Link href="/partner" className="btn-gold">Host the first cohort <ArrowUpRight size={14} /></Link>
+              <Link href="/partner" className="btn-gold">Host the first pilot <ArrowUpRight size={14} /></Link>
               <Link href="/teachers" className="btn-ghost">If you teach <ArrowUpRight size={13} /></Link>
             </div>
           </div>

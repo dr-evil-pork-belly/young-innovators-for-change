@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import {
-  ArrowUpRight, CheckCircle, CalendarDays, Sun, Mail, Download, MinusCircle,
+  ArrowUpRight, CheckCircle, CalendarDays, Laptop, Mail, Download, ShieldCheck,
 } from 'lucide-react';
 import {
   Page, Hero, Section, Eyebrow, Title, FadeIn, Card,
@@ -12,7 +12,8 @@ import { DELIVERY, ORG } from '@/content/org';
 import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
 
 export default function TeachersUi() {
-  const seeking = DELIVERY.summerIntensive.status === 'seeking';
+  const pilot = DELIVERY.pilot;
+  const seeking = pilot.status === 'seeking';
 
   return (
     <Page>
@@ -87,61 +88,25 @@ export default function TeachersUi() {
       <Section>
         <FadeIn style={{ marginBottom: '2.5rem' }}>
           <Eyebrow>How it is delivered</Eyebrow>
-          <Title size="clamp(1.9rem, 4vw, 3.4rem)">Two speeds.<br />One deliberate<br />blank.</Title>
+          <Title size="clamp(1.9rem, 4vw, 3.4rem)">Two speeds,<br />one for each age.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
-            The same ideas are shaped twice, because a nine-year-old inside a school year
-            and a sixteen-year-old with a free summer are not the same delivery problem.
-            Which shape a year takes is decided by who is available to teach it and how
-            much of their attention we can honestly ask for. Where neither shape fits we
-            have not written a year, and the third card below is that, along with the one
-            thing that survives it.
+            The same ideas are shaped twice, because a nine-year-old with a teacher beside
+            them and a thirteen-year-old who can work on their own are not the same
+            delivery problem. Printed weeks hold the first. We do not believe paper holds
+            the second, so from Grade 7 the lessons move to an app that lets each student
+            go at their own pace, and the time we ask a school for goes to a room instead.
+            The second card is designed and not built, and it says so.
           </p>
         </FadeIn>
 
-        {/* Three cards, and the middle one is empty on purpose. DELIVERY.models
-            holds the two shapes that exist; DELIVERY.middleGrades is the band we
-            have decided not to publish for until we can deliver to it. It is
-            rendered between them rather than after, because that is the order a
-            reader goes through the grades in, and the blank is the point. */}
+        {/* Two cards. Until 21 October 2026 there were three, and the middle one
+            was a deliberate blank for Grades 7 and 8 (DELIVERY.middleGrades): the
+            band we would not publish for until we could deliver to it. A digital
+            form now exists as a design, so the blank gave way to it, as the blank's
+            own comment said it should. */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
-          {[DELIVERY.models[0], DELIVERY.middleGrades, DELIVERY.models[1]].map((m, i) => {
-            if (m.status === 'not-built') {
-              return (
-                <FadeIn key={m.band} delay={i * 0.1}>
-                  <div style={{ background: '#FFFFFF',
-                    border: `1px dashed ${SLATE_3}88`, borderRadius: '4px',
-                    padding: '1.9rem', height: '100%' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
-                      <MinusCircle size={16} color={SLATE_3} />
-                      <span style={{ fontSize: '0.64rem', fontWeight: 800, letterSpacing: '0.16em',
-                        textTransform: 'uppercase' as const, color: SLATE_3 }}>{m.band}</span>
-                      <span style={{ marginLeft: 'auto', fontSize: '0.62rem', fontWeight: 700,
-                        letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: SLATE_3,
-                        border: `1px solid ${SLATE_3}55`, borderRadius: '2px', padding: '0.2rem 0.45rem' }}>
-                        No printed year
-                      </span>
-                    </div>
-                    <h3 style={{ fontFamily: DISPLAY, fontSize: '1.6rem', letterSpacing: '-0.01em',
-                      color: MUTED, lineHeight: 1.05, marginBottom: '0.85rem' }}>
-                      {m.shape}
-                    </h3>
-                    <p style={{ fontSize: '0.86rem', lineHeight: 1.8, color: MUTED, marginBottom: '1.1rem' }}>
-                      {m.body}
-                    </p>
-                    <p style={{ fontSize: '0.8rem', lineHeight: 1.75, color: MUTED, paddingTop: '1rem',
-                      borderTop: `1px solid ${SLATE_3}33` }}>
-                      <strong style={{ color: GREEN_L, fontWeight: 700 }}>What stays: </strong>
-                      {m.exception}
-                    </p>
-                    <p style={{ fontSize: '0.8rem', lineHeight: 1.75, color: MUTED, paddingTop: '0.9rem' }}>
-                      <strong style={{ color: WHITE, fontWeight: 700 }}>What would change the rest: </strong>
-                      {m.whatWouldChangeIt}
-                    </p>
-                  </div>
-                </FadeIn>
-              );
-            }
-            const Icon = m.status === 'published' ? CalendarDays : Sun;
+          {DELIVERY.models.map((m, i) => {
+            const Icon = m.status === 'published' ? CalendarDays : Laptop;
             const live = m.status === 'published';
             const accent = live ? GREEN_L : GOLD;
             return (
@@ -155,7 +120,7 @@ export default function TeachersUi() {
                       letterSpacing: '0.12em', textTransform: 'uppercase' as const,
                       color: live ? GREEN_L : SLATE_3, border: `1px solid ${live ? GREEN_L : SLATE_3}55`,
                       borderRadius: '2px', padding: '0.2rem 0.45rem' }}>
-                      {live ? 'Running today' : 'Not yet delivered'}
+                      {live ? 'Running today' : 'Not yet built'}
                     </span>
                   </div>
                   <h3 style={{ fontFamily: DISPLAY, fontSize: '1.6rem', letterSpacing: '-0.01em',
@@ -181,39 +146,56 @@ export default function TeachersUi() {
             {PUBLISHED_YEARS.length} full school years, {PUBLISHED_WEEKS} weeks in all, are
             written and free to download today. Which grades those cover, and which are
             still only designed, is set out honestly on the{' '}
-            <Link href="/curriculum" style={{ color: GOLD_L }}>curriculum map</Link>, which
-            says the same thing about Grades 7 and 8 in every strand it appears in.
+            <Link href="/curriculum" style={{ color: GOLD_L }}>curriculum map</Link>.
           </p>
         </FadeIn>
 
-        {/* The cohort claim. theClaim carries its own disclaimer and NOT_AN_MBA
-            governs the rest; do not split the two halves of that string. */}
+        {/* Why there is a room, and what the tutor will and will not do.
+            Replaced the "Why it is a cohort" panel on 21 October 2026. theClaim
+            carries its own disclaimer and NOT_AN_MBA governs the rest; do not
+            split the two halves of that string. */}
         <FadeIn delay={0.3}>
           <div style={{ marginTop: '2.5rem', padding: 'clamp(1.75rem, 4vw, 2.75rem)',
             background: 'linear-gradient(135deg, rgba(255,122,61,0.10), #FFFFFF)',
             border: '1px solid rgba(255,122,61,0.25)', borderRadius: '4px' }}>
-            <Eyebrow color={GOLD_L}>Why it is a cohort</Eyebrow>
+            <Eyebrow color={GOLD_L}>Why there is still a room</Eyebrow>
             <p style={{ fontFamily: DISPLAY, fontSize: 'clamp(1.7rem, 3.6vw, 2.8rem)',
               letterSpacing: '-0.01em', color: WHITE, lineHeight: 1.06, margin: '0.4rem 0 1.1rem' }}>
-              Four summers. The same people.
+              The app teaches. The room is for wanting it.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, maxWidth: '70ch',
               marginBottom: '1rem' }}>
-              {DELIVERY.summerIntensive.whyCohort}
+              {pilot.whyInPerson}
             </p>
-            {(DELIVERY.summerIntensive.entrySummer || DELIVERY.summerIntensive.cohortName) && (
-              <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, maxWidth: '70ch',
-                marginBottom: '1rem' }}>
-                {[DELIVERY.summerIntensive.entrySummer, DELIVERY.summerIntensive.cohortName]
-                  .filter(Boolean).join(' ')}
-              </p>
-            )}
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE, maxWidth: '70ch',
-              fontWeight: 600 }}>
-              {DELIVERY.summerIntensive.theClaim}{' '}
+              fontWeight: 600, marginBottom: '1.75rem' }}>
+              {pilot.theClaim}{' '}
               <Link href="/pathway" style={{ color: GOLD_L, fontWeight: 400 }}>
                 What we do and do not grant
               </Link>.
+            </p>
+
+            <p style={{ fontSize: '0.66rem', fontWeight: 800, letterSpacing: '0.16em',
+              textTransform: 'uppercase' as const, color: GOLD_L, marginBottom: '1rem' }}>
+              What the tutor will and will not do
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gap: '0.9rem 1.5rem' }}>
+              {pilot.tutorRules.map((r) => (
+                <div key={r.title} style={{ display: 'flex', gap: '0.65rem', alignItems: 'flex-start' }}>
+                  <ShieldCheck size={15} color={GOLD} style={{ flexShrink: 0, marginTop: '3px' }} />
+                  <div>
+                    <p style={{ fontSize: '0.88rem', fontWeight: 700, color: WHITE, lineHeight: 1.5 }}>{r.title}</p>
+                    <p style={{ fontSize: '0.82rem', lineHeight: 1.7, color: MUTED }}>{r.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p style={{ fontSize: '0.8rem', lineHeight: 1.7, color: SLATE_3, maxWidth: '70ch',
+              marginTop: '1.25rem' }}>
+              These are commitments we put in writing to any district that hosts the program.
+              The data privacy agreement each district signs, not this list, is what binds us.{' '}
+              <Link href="/privacy" style={{ color: GOLD_L }}>What the app will keep, and for how long</Link>.
             </p>
           </div>
         </FadeIn>
@@ -263,31 +245,31 @@ export default function TeachersUi() {
               </p>
               <p style={{ fontSize: '0.98rem', lineHeight: 1.8, color: WHITE, maxWidth: '62ch',
                 marginBottom: '0.9rem', fontWeight: 600 }}>
-                {DELIVERY.summerIntensive.ask}
+                {pilot.ask}
               </p>
               <p style={{ fontSize: '0.92rem', lineHeight: 1.85, color: MUTED, maxWidth: '66ch',
                 marginBottom: '1.1rem' }}>
-                {DELIVERY.summerIntensive.detail}
+                {pilot.detail}
               </p>
               <p style={{ fontSize: '0.92rem', lineHeight: 1.85, color: WHITE, maxWidth: '66ch',
                 marginBottom: '1.1rem', paddingLeft: '1.1rem',
                 borderLeft: `3px solid ${GOLD}` }}>
-                {DELIVERY.summerIntensive.whoTeaches}{' '}
+                {pilot.whoHosts}{' '}
                 <Link href="/about" style={{ color: GOLD_L }}>Her story is here</Link>.
               </p>
               <p style={{ fontSize: '0.92rem', lineHeight: 1.85, color: MUTED, maxWidth: '66ch',
                 marginBottom: '1.75rem' }}>
-                If you sit anywhere near that decision, in a district office, a high school,
-                a county office of education or a summer learning program, one email is the
-                whole process. There is nothing to sign, no cost to the district, and no
-                second year to commit to.
+                If you sit anywhere near that decision, in a district office, a middle school
+                or a county office of education, one email starts it. It costs the district
+                nothing. The only things to sign are the ones that protect students: a data
+                privacy agreement, and a consent form for each family.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
                 <Link href="/partner#contact" className="btn-gold">
-                  Talk to us about a summer <Mail size={14} />
+                  Talk to us about a pilot <Mail size={14} />
                 </Link>
                 <Link href="/pathway" className="btn-ghost">
-                  What the four summers cover <ArrowUpRight size={13} />
+                  What the six years cover <ArrowUpRight size={13} />
                 </Link>
               </div>
               <p style={{ fontSize: '0.75rem', color: SLATE_3, marginTop: '1.5rem' }}>

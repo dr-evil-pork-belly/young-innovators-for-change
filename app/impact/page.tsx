@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import Ui from './ui';
 
 const DESC =
-  'No cohort has run, so there are no outcome numbers on this page. Instead: what has been '
+  'No program of ours has run, so there are no outcome numbers on this page. Instead: what has been '
   + 'built, the research it leans on including the paper that argues against the whole '
-  + 'category, how the first cohort will be measured, and the assumptions that would have '
+  + 'category, how the first pilot will be measured, and the assumptions that would have '
   + 'to fail for us to be wrong.';
 
 export const metadata: Metadata = {
