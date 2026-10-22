@@ -17,9 +17,9 @@ const CHAIN = [
     items: [`${PUBLISHED_WEEKS} weeks of curriculum, written in-house`,
             'A teacher, an aide or a caretaker willing to spend the time, which is the '
             + 'input we do not control and the one that decides everything',
-            'An app with an AI tutor, teaching only from lessons we write and check (not yet built)',
-            'Guest speakers from business, and someone to host them in person',
-            'Printing, materials, and a small seed fund per team',
+            'An app with an AI tutor, teaching only from lessons we write and check (first unit in preview, for adults)',
+            'Guest speakers and fireside chats from business, organized by our founder with each school',
+            'Printing for the books, and hosting and AI costs for the app',
             'A published research base, including the paper that argues against us'],
   },
   {
@@ -311,7 +311,7 @@ export default function MissionUi() {
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <Link href="/partner" className="btn-gold">Host the first pilot <ArrowUpRight size={14} /></Link>
               <Link href="/teachers" className="btn-ghost">If you teach <ArrowUpRight size={13} /></Link>
-              <Link href="/partner#contact" className="btn-ghost">If you fund <ArrowUpRight size={13} /></Link>
+              <Link href="/partner#give" className="btn-ghost">Make a gift <ArrowUpRight size={13} /></Link>
             </div>
           </div>
         </FadeIn>

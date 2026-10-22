@@ -215,7 +215,7 @@ export default function AlumniUi() {
             <div style={{ maxWidth: '60ch' }}>
               <Title size="clamp(1.6rem, 3.2vw, 2.5rem)">The way to make<br />this page real.</Title>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginTop: '1rem' }}>
-                One pilot, one middle school, one district willing to host it. Every commitment
+                One pilot year, and a district willing to go first. Every commitment
                 on this page stays hypothetical until that happens. The elementary books are
                 written and sitting there, free. What is missing is a district that says yes,
                 and the app we are building for it.

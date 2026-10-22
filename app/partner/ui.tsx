@@ -64,16 +64,16 @@ function Reveal({ children, delay = 0, className = '' }: {
 /**
  * ─── A NOTE ON THIS PAGE ─────────────────────────────────────────────────────
  *
- * This page does not solicit money and it must not start doing so until two
- * things are true, both tracked in 05-open-decisions.md:
+ * Gifts are invited here since 22 October 2026, the day Form CT-1 went to the
+ * California Registry of Charities and Fundraisers (`TRANSPARENCY.caRegistryFiled`).
+ * Two limits still hold:
  *
- *   1. Form CT-1 is filed with the California Registry of Charities and
- *      Fundraisers. California charities register within 30 days of first
- *      receiving charitable assets. `TRANSPARENCY.caRegistryConfirmed` is the
- *      flag; it is false today.
- *   2. The real cost of one classroom for one year has been computed and put
- *      into `content/org.ts`. No dollar figure appears on this page until it
- *      is a number somebody calculated.
+ *   1. There is no online payment form. A gift starts as a conversation
+ *      through the contact form; how it is paid is settled there, not promised
+ *      here.
+ *   2. The real cost of the program has not been computed (open decision 8).
+ *      No dollar figure, per student or per anything, appears on this page
+ *      until it is a number somebody calculated.
  *
  * The previous version of this page carried three sponsorship tiers with
  * invented perks, an invented budget allocation, and a hardcoded "5+ Active
@@ -101,7 +101,7 @@ const LANES = [
     icon:  BookOpen,
     label: 'Schools and districts',
     title: 'Design the implementation with us',
-    body:  'Every workbook and teacher guide is finished, mapped to California standards, and free to download today. What we are looking for is one district to work out the rest with: how the books reach classrooms, which teachers run them, and how those teachers, who know the students, let the ones who want more know that the Grades 7 to 12 program exists. It only works for a student who wants to be there, so that is the whole entry requirement.',
+    body:  'Every workbook and teacher guide is finished, mapped to California standards, and free to download today. What we are looking for is districts to work out the rest with: how the books reach classrooms, which teachers run them, and how those teachers, who know the students, let the ones who want more know that the Grades 7 to 12 program exists. It only works for a student who wants to be there, so that is the whole entry requirement.',
     href:  '#contact',
     cta:   'Start that conversation',
   },
@@ -110,10 +110,10 @@ const LANES = [
     icon:  Laptop,
     label: 'Districts and middle schools',
     title: 'Host the first pilot',
-    body:  `${DELIVERY.pilot.ask} One unit in the spring as a test, then the full Grade 7 `
-         + 'year: a teacher to sponsor it, a room for the in-person sessions, and a signed '
-         + 'student data privacy agreement. Nothing is bought and it costs the district '
-         + 'nothing. Cindy Ha, the founder, will host the sessions herself rather than hand '
+    body:  `${DELIVERY.pilot.ask} Each district gives a teacher to sponsor it, a room for `
+         + 'the in-person sessions, and a signed student data privacy agreement. Nothing is '
+         + 'bought and it costs a district nothing. Cindy Ha, the founder, brings in the '
+         + 'speakers and guests and sets dates with each school, rather than hand '
          + 'a district an app and wish it luck.'
          + (DELIVERY.pilot.preview.live
            ? ' The first unit is built, and educators can try it now with a passcode from us.'
@@ -126,20 +126,20 @@ const LANES = [
       : undefined,
   },
   {
-    id:    'funders',
+    id:    'give',
     icon:  Building2,
-    label: 'Foundations and grantmakers',
-    title: 'Fund the first pilot',
-    body:  'Nothing of ours has run with students yet. There are no outcome numbers to show you and we will not dress up the ones we do not have. What we can show you is the finished curriculum, the evaluation design we have already committed to in public, and a clean record you can pull up without asking us. Tell us what you would need to see and we will send it, or say plainly that it does not exist yet.',
+    label: 'Foundations, family funds and donors',
+    title: 'Make a founding gift',
+    body:  'The first pilot year is where a gift does the most: the app and the tutor, the in-person sessions, and the study that shows whether any of this works. We welcome grants and gifts of every size, including gifts large enough to underwrite the whole first year. Nothing of ours has run with students yet, so there are no outcome numbers to show you, and we will not dress up the ones we do not have. What we can show you is the finished curriculum, the evaluation design we have committed to in public, and a clean record you can check without asking us. Tell us what you would need to see.',
     href:  '#contact',
-    cta:   'Tell us what you need to see',
+    cta:   'Talk to us about a gift',
   },
   {
     id:    'individuals',
     icon:  Users,
     label: 'Individuals',
     title: 'Open a door',
-    body:  'The materials are free and they stay free, so there is nothing to buy and nothing to sponsor. The single most useful thing anyone can do right now is forward this to one teacher or one principal who might want to try a year of it.',
+    body:  'The materials are free and they stay free, so there is nothing to buy. You can make a gift of any size. Just as useful: forward this to one teacher or one principal who might want to try a year of it.',
     href:  '#contact',
     cta:   'Introduce us to someone',
   },
@@ -180,8 +180,10 @@ const FAQS = [
      + 'anything. We publish with no login and no email wall, so we cannot see who is '
      + 'doing it and we will not describe them on this site as though we could. The one '
      + 'program we intend to run ourselves is for Grades 7 to 12: self-paced lessons in an '
-     + 'app with an AI tutor, and in-person sessions with guests that Cindy Ha will host '
-     + 'herself. It is designed, not built, and we are still looking for a district '
+     + 'app with an AI tutor, and in-person speaker sessions and fireside chats that '
+     + 'Cindy Ha organizes with each school. It is designed, its first unit is in '
+     + 'preview for educators, and we are '
+     + 'still looking for a district '
      + 'willing to host the first pilot.',
   },
   {
@@ -189,8 +191,8 @@ const FAQS = [
     a: 'Yes, and we can tell you almost nothing about it. Teachers have written to say they are using the material with their classes, homeschool educators among them. We do not know how many there are, where they teach, or how far anyone has gone, because nothing we publish asks for a name, and we are not going to estimate a figure and present it as one. What has not happened is a delivered program with a roster and a measurement plan attached. A first partner is funding that, not joining something already running.',
   },
   {
-    q: 'Why is there no way to donate on this page?',
-    a: 'Two reasons, both procedural. California charities register with the Attorney General’s Registry of Charities and Fundraisers before soliciting, and that filing is not yet complete. And we have not finished computing what a classroom actually costs, so any figure we put here would be a guess. Both are being worked on. Until then, if you want to fund this, write to us and we will talk directly.',
+    q: 'How do I make a gift?',
+    a: 'Write to us through the form on this page, or at ' + ORG.contactEmail + ', and we will talk directly about the gift and how to make it. There is no online donation form yet. We filed our registration with the California Attorney General’s Registry of Charities and Fundraisers in October 2026. We have not finished computing what the program costs, so we do not put a price on a student or a school here; when that number is done it goes on this page with the math shown.',
   },
   {
     q: 'What do supporters get in return?',
@@ -222,8 +224,10 @@ function LaneCard({ lane, index }: { lane: typeof LANES[number]; index: number }
       transition={{ delay: index * 0.12 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      id={lane.id}
       className="relative flex flex-col"
       style={{
+        scrollMarginTop: '6rem',
         background:     hovered ? '#FFFFFF' : '#FFFFFF',
         border:         `1px solid ${hovered ? ROYAL_L : 'rgba(45,91,227,0.18)'}`,
         borderRadius:   '4px',

@@ -95,7 +95,8 @@ export default function TeachersUi() {
             delivery problem. Printed weeks hold the first. We do not believe paper holds
             the second, so from Grade 7 the lessons move to an app that lets each student
             go at their own pace, and the time we ask a school for goes to a room instead.
-            The second card is designed and not built, and it says so.
+            The second card is designed, and only its first unit exists, as a preview for
+            adults. It says so.
           </p>
         </FadeIn>
 
@@ -120,7 +121,7 @@ export default function TeachersUi() {
                       letterSpacing: '0.12em', textTransform: 'uppercase' as const,
                       color: live ? GREEN_L : SLATE_3, border: `1px solid ${live ? GREEN_L : SLATE_3}55`,
                       borderRadius: '2px', padding: '0.2rem 0.45rem' }}>
-                      {live ? 'Running today' : 'Not yet built'}
+                      {m.badge}
                     </span>
                   </div>
                   <h3 style={{ fontFamily: DISPLAY, fontSize: '1.6rem', letterSpacing: '-0.01em',
@@ -177,7 +178,7 @@ export default function TeachersUi() {
 
             <p style={{ fontSize: '0.66rem', fontWeight: 800, letterSpacing: '0.16em',
               textTransform: 'uppercase' as const, color: GOLD_L, marginBottom: '1rem' }}>
-              What the tutor will and will not do
+              What Pip, the tutor, will and will not do
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
               gap: '0.9rem 1.5rem' }}>
@@ -241,7 +242,7 @@ export default function TeachersUi() {
               <Eyebrow color={GOLD_L}>An open ask, and the only one on this site</Eyebrow>
               <p style={{ fontFamily: DISPLAY, fontSize: 'clamp(2rem, 4.4vw, 3.4rem)',
                 letterSpacing: '-0.01em', color: WHITE, lineHeight: 1.06, margin: '0.4rem 0 1.1rem' }}>
-                We need one district<br />to say yes.
+                We need districts<br />to say yes.
               </p>
               <p style={{ fontSize: '0.98rem', lineHeight: 1.8, color: WHITE, maxWidth: '62ch',
                 marginBottom: '0.9rem', fontWeight: 600 }}>

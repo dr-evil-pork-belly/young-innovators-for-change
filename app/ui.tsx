@@ -378,7 +378,7 @@ export default function HomePage() {
                them, because they were built and are free, not because they
                are the mission. Reordered 15 October 2026. */
             { num: '01', title: 'Leadership & Venture', href: '/pathway', cta: 'The ten-year ladder',
-              body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4, 5 and 6 are written and free. From Grade 7 it moves to an app, at each student’s own pace, with guest speakers in person. That part is designed, not built.' },
+              body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4, 5 and 6 are written and free. From Grade 7 it moves to an app, at each student’s own pace, with guest speakers in person. The first unit is written, and educators can try it in a preview. No student has used it yet.' },
             { num: '02', title: 'Financial Literacy', href: '/programs/financial-literacy', cta: 'The four money years',
               body: 'A child’s own money first, then a plan, then the gap between a price and a cost, then the numbers other people put in front of them. Grades 3 through 6 are written and free. This is the knowledge that usually arrives through a family, which is exactly why it belongs in a school.' },
             { num: '03', title: 'Mathematics', href: '/programs/discrete-math', cta: 'The six years',
@@ -509,7 +509,7 @@ export default function HomePage() {
                           textTransform: 'uppercase', color: live ? ROYAL_L : MUTED,
                           border: `1px solid ${live ? ROYAL_L : SLATE_3}66`, borderRadius: '2px',
                           padding: '0.18rem 0.42rem' }}>
-                          {live ? 'Running today' : 'Not yet built'}
+                          {m.badge}
                         </span>
                       </div>
                       <p style={{ fontFamily: "'Baloo 2 Variable', 'Baloo 2', 'Trebuchet MS', Verdana, sans-serif", fontSize: '1.5rem',
@@ -540,8 +540,8 @@ export default function HomePage() {
                     {DELIVERY.pilot.ask}
                   </p>
                   <p style={{ fontSize: '0.83rem', lineHeight: 1.75, color: MUTED, marginBottom: '1.1rem' }}>
-                    One unit in the spring as a test, then the full Grade 7 year. Cindy Ha
-                    will host the in-person sessions herself.
+                    Cindy Ha, the founder, brings in the speakers and guests for the
+                    in-person sessions, and intends to be at every one.
                   </p>
                   <Link href="/teachers" style={{ display: 'inline-flex', alignItems: 'center',
                     gap: '0.4rem', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em',
@@ -749,17 +749,17 @@ export default function HomePage() {
               maxWidth: '62ch', marginBottom: '2rem' }}>
               {PUBLISHED_YEARS.length} finished years, free to download and free to run, and
               teachers have written to say they are running them. What has never happened is
-              a classroom with a roster, a pre and post, and somebody watching. That is the
+              a program with a roster, a pre and post, and somebody watching. That is the
               only thing missing, and it is not something we can do by ourselves. If you
-              teach, take a year. If you fund, fund the first one anybody can check.
+              teach, take a year. If you give, make it the first program anybody can check.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link href="/resources" className="btn-primary">
                 Take a year, free
                 <ArrowUpRight size={14} />
               </Link>
-              <Link href="/partner" className="btn-secondary">
-                Fund the first measured one
+              <Link href="/partner#give" className="btn-secondary">
+                Make a gift
               </Link>
             </div>
           </InkSlab>

@@ -102,7 +102,7 @@ export default function ImpactUi() {
           ))}
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-          <Link href="/partner" className="btn-gold">Fund the first pilot <ArrowUpRight size={14} /></Link>
+          <Link href="/partner#give" className="btn-gold">Make a gift <ArrowUpRight size={14} /></Link>
           <Link href="/pathway#research" className="btn-ghost">
             Every study, in plain words <ArrowUpRight size={13} />
           </Link>
@@ -146,7 +146,7 @@ export default function ImpactUi() {
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
             Our business and money lessons are built on {RESEARCH.length} published studies,
             and {countervailing === 1 ? 'one of them argues' : `${countervailing} of them argue`} against
-            money classes like ours. None of them tested our lessons. Each one is below in
+            financial education like ours. None of them tested our lessons. Each one is below in
             plain words. The pathway page has the full detail on every study, including where
             it stops backing us up.
           </p>
@@ -184,7 +184,7 @@ export default function ImpactUi() {
         <FadeIn delay={0.3}>
           <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginTop: '1.5rem', maxWidth: '70ch' }}>
             Start with the study that argues against us. It found that what people learn in
-            a money class mostly wears off within two years. Our answer is to spread the
+            a financial education course mostly wears off within two years. Our answer is to spread the
             lessons over ten years instead of one course, but nobody has tested whether that
             works, including us.{' '}
             <Link href="/pathway#research" style={{ color: ROYAL_L, textDecoration: 'none',
@@ -271,7 +271,8 @@ export default function ImpactUi() {
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
               The first program we will run and measure is the Grade 7 pilot: self-paced
               lessons in an app with an AI tutor, plus in-person sessions with guests, for
-              every seventh grader in one middle school who wants it. {pilot.theClaim}
+              every seventh grader who wants it, in each middle school that hosts it.{' '}
+              {pilot.theClaim}
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
               Before the first lesson, we will post our plan for measuring it on the Open
@@ -384,9 +385,9 @@ export default function ImpactUi() {
                 so a school with its own copier runs a year for the cost of paper.
               </p>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginBottom: '0.9rem' }}>
-                We are still adding up what it costs to actually run the program: paying the
-                teacher a real wage, printing, supplies, and the small amount of starting money
-                students use in the weeks they run a business. We are keeping every step of the
+                We are still adding up what it costs to actually run the program: the app and
+                the AI tutor for each student, the in-person sessions and the people who host
+                them, and anything printed. We are keeping every step of the
                 math. When it is done, it goes here and on the partner page as one number, with
                 the math shown.
               </p>
@@ -448,7 +449,7 @@ export default function ImpactUi() {
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/partner" className="btn-gold">Fund the first pilot <ArrowUpRight size={14} /></Link>
+              <Link href="/partner#give" className="btn-gold">Make a gift <ArrowUpRight size={14} /></Link>
               <Link href="/governance" className="btn-ghost">Read the filings <ArrowUpRight size={13} /></Link>
             </div>
           </div>

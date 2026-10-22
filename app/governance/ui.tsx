@@ -230,8 +230,12 @@ export default function GovernanceUi() {
                 <li>No published annual report yet. The first one follows the first pilot.</li>
                 <li>No measured program outcomes. No program of ours has run with students.</li>
                 {!TRANSPARENCY.caRegistryConfirmed && (
-                  <li>California Registry of Charities standing is being confirmed and will be
-                  posted here with the registration number.</li>
+                  <li>{TRANSPARENCY.caRegistryFiled
+                    ? 'No California Registry of Charities number yet. Our registration was '
+                      + `filed on ${fmtDate(TRANSPARENCY.caRegistryFiled)}, and the number goes `
+                      + 'here when the Registry issues it.'
+                    : 'California Registry of Charities standing is being confirmed and will be '
+                      + 'posted here with the registration number.'}</li>
                 )}
               </ul>
             </Card>

@@ -49,7 +49,10 @@ export const ORG = {
   taxStatus: {
     status: 'determined' as 'determined' | 'pending' | 'fiscally-sponsored' | 'none',
     ein: '33-1544346',
-    determinationDate: '2024-10-20',
+    /** IRS determination letter date, 28 October 2024 (David, 22 Oct 2026).
+     *  It was 2024-10-20 until then, which is the date the Form 1023-EZ was
+     *  submitted (Pay.gov receipt), not the letter date. See claude/47. */
+    determinationDate: '2024-10-28',
     /** IRS deductibility code PC, public charity */
     deductibilityCode: 'PC',
     onPub78: true,
@@ -82,11 +85,11 @@ export const ORG = {
     country: 'United States',
   },
 
-  /** TODO, CONFIRM. The office is in San Dimas; the programs described on this
-   *  site are aimed at schools in the San Gabriel Valley. Grant applications ask
-   *  for both, and they ask separately. Make sure this line matches what you
-   *  put on an application. */
-  serviceArea: 'San Gabriel Valley, California',
+  /** Decided by David, 22 October 2026: the pilot is offered to school
+   *  districts across Southern California (an email to every district), not
+   *  only the San Gabriel Valley. The office is in San Dimas. Grant
+   *  applications ask for both, separately; this is the program line. */
+  serviceArea: 'Southern California',
 
   /** The monitored inbox. Every form submission is delivered here, and the
    *  address is printed on /governance so a program officer doing diligence can
@@ -127,9 +130,13 @@ export const TRANSPARENCY = {
   annualReportUrl: null as string | null,
   candidProfileUrl: null as string | null,
 
-  /** TODO, California charities that solicit donations register separately with
-   *  the Attorney General's Registry of Charities and Fundraisers and file annually.
-   *  Confirm standing, then set this to true so it appears on /governance. */
+  /** California charities register with the Attorney General's Registry of
+   *  Charities and Fundraisers and file annually. Form CT-1 was submitted by
+   *  David on 22 October 2026 (`caRegistryFiled`). Set `caRegistryConfirmed`
+   *  to true and fill `caRegistryNumber` only when the Registry issues the
+   *  number; that turns on the badge on /governance. Until then the site says
+   *  filed, never registered. */
+  caRegistryFiled: '2026-10-22' as string | null,
   caRegistryConfirmed: false,
   caRegistryNumber: null as string | null,
 };
@@ -152,7 +159,7 @@ export const TRANSPARENCY = {
 export const MISSION = {
   statement:
     'Young Innovators for Change exists so that children whose families have no '
-    + 'business background reach adulthood able to act on money rather than be '
+    + 'formal business background reach adulthood able to act on money rather than be '
     + 'acted upon.',
 
   /** Who the work is aimed at. Intent, not a description of who is reached. */
@@ -198,7 +205,8 @@ export const MISSION = {
   /** Say these before anything else, on any page that draws on the mission. */
   notYetTrue: [
     'No program of ours has run with students. The delivered program described on '
-    + 'this site is designed, not delivered, and the app it runs on is not built. '
+    + 'this site is designed, not delivered, and the app it runs on exists only as a '
+    + 'preview of its first unit, for adults. '
     + 'Teachers using the free material on their own are not a program we ran, and '
     + 'must never be counted as one.',
     'We do not know who downloads the free materials, and we will not describe them as '
@@ -517,7 +525,7 @@ export const CURRICULUM: Strand[] = [
             + 'leadership workbook is written for these grades.' },
       { band: 'Grades 6–8',  status: 'designed',
         note: 'From Grade 7, part of the Grades 7 to 12 program: lessons in an app, '
-            + 'and in-person sessions with guests. Designed, not built.' },
+            + 'and in-person sessions with guests. Designed, not written.' },
       { band: 'Grades 9–12', status: 'designed',
         note: 'Part of the Grades 7 to 12 program: lessons in an app, and in-person '
             + 'sessions with guests. Designed, not built.' },
@@ -535,7 +543,8 @@ export const CURRICULUM: Strand[] = [
             + 'each, standards-mapped and free. No Grade 3 year is written.' },
       { band: 'Grades 6–8',  status: 'published',
         note: 'Grade 6 complete: The Market Year, 36 weeks. From Grade 7 it moves '
-            + 'to the app, which is designed and not built. No printed year is planned.' },
+            + 'to the app. Its first Grade 7 unit is written and educators can try it in '
+            + 'a preview; no student has used it. No printed year is planned.' },
       { band: 'Grades 9–12', status: 'designed',
         note: 'Part of the Grades 7 to 12 program: lessons in an app, and in-person '
             + 'sessions with guests. Designed, not built.' },
@@ -553,7 +562,8 @@ export const CURRICULUM: Strand[] = [
             + 'Year, 36 weeks each.' },
       { band: 'Grades 6–8',  status: 'published',
         note: 'Grade 6 complete: The Asking Year, 36 weeks. From Grade 7 it moves '
-            + 'to the app, which is designed and not built. No printed year is planned.' },
+            + 'to the app. Its first Grade 7 unit is written and educators can try it in '
+            + 'a preview; no student has used it. No printed year is planned.' },
       { band: 'Grades 9–12', status: 'designed',
         note: 'Part of the Grades 7 to 12 program: lessons in an app, and in-person '
             + 'sessions with guests. Designed, not built.' },
@@ -681,20 +691,27 @@ export const PATHWAY: PathwayStage[] = [
         + 'ran it, so the first revision after one will be substantial.',
   },
   {
-    grade: 'Grade 7', status: 'planned',
+    // Designed since 21 October 2026: the year's units are mapped
+    // (claude/44-grades-7-12-course-map.md) and the first ones are written and
+    // verified. Stays short of 'published' until a student has used it.
+    // "See DELIVERY.pilot." used to end this note and rendered on /pathway.
+    grade: 'Grade 7', status: 'designed',
     concept: 'Cash against profit. Why a sale and money in hand are different events, '
-           + 'what inventory ties up, and how a profitable business runs out of money.',
-    mbaCourse: 'Financial accounting',
+           + 'what inventory ties up, and how a profitable business runs out of money. '
+           + 'Each student also picks the one venture they will carry through Grade 12.',
+    mbaCourse: 'Financial accounting and marketing',
     note: 'The first year of the Grades 7 to 12 app, and the year the first pilot '
-        + 'would teach. Planned, not written: nothing is published until it is checked '
-        + 'the way the books are. See DELIVERY.pilot.',
+        + 'teaches. Its units are mapped, the first ones are written and checked the way '
+        + 'the books are, and educators can try the first in a preview. No student has '
+        + 'used it.',
   },
   {
     grade: 'Grade 8', status: 'planned',
     concept: 'What capital costs. Interest, simple and compound, the arithmetic of a '
-           + 'loan, and the reason the same purchase costs two people different amounts.',
-    mbaCourse: 'Corporate finance',
-    note: 'Planned for the Grades 7 to 12 app, which is designed and not built.',
+           + 'loan, and the reason the same purchase costs two people different amounts. '
+           + 'Then the question for the student’s own venture: borrow or not, and how much.',
+    mbaCourse: 'Corporate finance and data analysis',
+    note: 'Planned for the Grades 7 to 12 app. Not written.',
   },
   {
     grade: 'Grade 9', status: 'designed',
@@ -710,7 +727,7 @@ export const PATHWAY: PathwayStage[] = [
     concept: 'How a group of people gets work done. Roles, delegation, incentives, and '
            + 'what happens to a plan when the people executing it are not the people '
            + 'who wrote it.',
-    mbaCourse: 'Organizational behavior',
+    mbaCourse: 'Organizational behavior and operations',
     note: 'Parts of it are outlined in the Leadership syllabus. Planned for the '
         + 'Grades 7 to 12 app. The full year is not written.',
   },
@@ -816,11 +833,15 @@ export const ASSUMPTIONS: { text: string; risk: string }[] = [
     risk: 'If it does, we widen the gap we set out to close, and this becomes one more '
         + 'program for students who were already ahead. It is the likeliest way for us to '
         + 'fail while looking like a success.' },
-  { text: 'That using real money, and spreading the lessons over years, makes the '
-        + 'learning last after the program ends.',
-    risk: 'The biggest review in our research list found that money classes had almost '
-        + 'no effect 20 months later. Our answer is to spread the lessons out and tie them '
-        + 'to real money. Neither has been tested.' },
+  // Until 22 October 2026 this said "using real money", which no book does:
+  // the market days run on play money. The bet is the venture thread instead.
+  { text: 'That spreading the lessons over years, and tying them to a venture each '
+        + 'student carries from Grade 7 to Grade 12, makes the learning last after the '
+        + 'program ends.',
+    risk: 'The biggest review in our research list found that financial education had '
+        + 'almost no effect 20 months later. Our answer is to spread the lessons out and '
+        + 'attach them to decisions the student is actually making about their own '
+        + 'venture. Neither has been tested.' },
   // The next two were added 21 October 2026 with the Grades 7 to 12 app. They
   // name the two ways the app could fail that the old summer room could not.
   { text: 'That a student will keep working through lessons on their own, with a '
@@ -949,14 +970,18 @@ export const DELIVERY = {
 
   /**
    * The two delivery models. Slow and printed for the elementary years; for the
-   * older ones, self-paced in an app plus a room. The second is DESIGNED: no
-   * lesson in it is written and the app is not built. Its status changes only
-   * when a student has used it.
+   * older ones, self-paced in an app plus a room. The second is DESIGNED: the
+   * first Grade 7 units are written and an adults-only preview of Unit 1 is
+   * live (claude/45), but the app students will use is not built. Its status
+   * changes only when a student has used it. `badge` is the small label each
+   * card carries on / and /teachers; it used to be computed from `status` and
+   * said "Not yet built" beside a sentence saying the first unit was built.
    */
   models: [
     {
       band: 'Grades 1 to 6',
       shape: 'Slow, weekly, inside the school year',
+      badge: 'Running today',
       who: 'The classroom teacher, the instructional aide, the after-school '
          + 'lead, or a caretaker at a kitchen table.',
       body: 'Thirty-six weeks, one assignment a week, sequenced against the '
@@ -971,17 +996,22 @@ export const DELIVERY = {
     {
       band: 'Grades 7 to 12',
       shape: 'At their own pace, with a room to meet in',
-      who: 'An AI tutor for the lessons, which tells students plainly that it is '
-         + 'one. Cindy Ha, the founder, hosting the in-person sessions, with a '
-         + 'teacher from the school in the room.',
+      badge: 'Preview, adults only',
+      who: 'Pip, an AI tutor for the lessons, which tells students plainly that it '
+         + 'is an AI. Guest speakers and fireside chats in person, organized by Cindy '
+         + 'Ha, the founder, and scheduled with each school, with a teacher from the '
+         + 'school in the room.',
       body: 'The ideas a business school teaches, spread over six years instead '
           + 'of two. Every student gets the same written lessons and works through '
           + 'them on their own time, as fast or as slowly as they need, with an AI '
           + 'tutor that explains, asks questions and gives feedback on their work. '
           + 'The tutor teaches from lessons we write and check; it does not make up '
           + 'the course. The room is for what an app cannot do: guest speakers from '
-          + 'business, and conversations about what is happening in it now. It is '
-          + 'designed, and not yet built.',
+          + 'business, and conversations about what is happening in it now. Each '
+          + 'student picks one venture in Grade 7 and builds on it every year through '
+          + 'Grade 12. The first unit is written and running as a preview for '
+          + 'educators. No student has used it, and the version students will use is '
+          + 'not built yet.',
       status: 'designed' as const,
     },
   ],
@@ -1005,8 +1035,21 @@ export const DELIVERY = {
           + 'may use it until a district has signed a data agreement and families '
           + 'have signed consent forms. Write to us for the passcode.',
     },
-    ask: 'We are looking for one school district willing to host the first '
-       + 'pilot: one middle school, and every seventh grader there who wants it.',
+    /**
+     * Decided 22 October 2026, by David: recruit districts in parallel and
+     * start them in sequence. The one-district rule existed because the summer
+     * cohort had 16 seats and a district that said yes could not be turned
+     * away; the app has no seat limit, so that reason is gone. Later the same
+     * day: no named first districts either; the ask goes by email to every
+     * district in Southern California (`ORG.serviceArea`). The first
+     * district to sign runs the spring test unit in one school; the full year
+     * can run in several districts from the fall. No number of districts is
+     * stated: the limit is how many rooms Cindy can host, which is not set.
+     */
+    ask: 'We are looking for school districts willing to host the first pilot '
+       + 'year. The first to sign runs the spring test unit in one middle school. '
+       + 'From the fall, the full Grade 7 year can run in more than one district at '
+       + 'once: the lessons run in an app, so nobody needs a seat.',
 
     /**
      * Decided 21 October 2026: one unit in the spring as a test, then the full
@@ -1015,11 +1058,11 @@ export const DELIVERY = {
      * decided (open decision 18), so this does not state one.
      */
     detail:
-      'The first pilot is one unit in the spring, as a test, and then the full '
-      + 'Grade 7 year the following fall. We ask a district for a teacher to '
-      + 'sponsor it, a room for the in-person sessions, help letting seventh '
-      + 'graders know it exists, and a signed student data privacy agreement. '
-      + 'Nothing is bought and it costs the district nothing. Nobody is handed an '
+      'We ask each district for a teacher to sponsor it, a room for the '
+      + 'in-person sessions, someone at each school to set their dates with us, '
+      + 'help letting seventh graders know it exists, and a '
+      + 'signed student data privacy agreement. Nothing is bought and it costs a '
+      + 'district nothing. Nobody is handed an '
       + 'app and wished luck, because a program has to be run by the people who '
       + 'wrote it before it can honestly be handed to anyone else.',
 
@@ -1033,7 +1076,8 @@ export const DELIVERY = {
       + 'them, and it cannot introduce them to someone who does this for a '
       + 'living. That is what the room is for: a guest lecture, or a fireside '
       + 'conversation about something happening in business now, with the other '
-      + 'students who chose to be there. The app is how this reaches every '
+      + 'students who chose to be there. It is the part of business school no '
+      + 'textbook holds: the people who do it. The app is how this reaches every '
       + 'student who wants it. The room is meant to be why they keep going.',
 
     /**
@@ -1060,16 +1104,20 @@ export const DELIVERY = {
      * legally, and the page says so.
      */
     tutorRules: [
+      // The tutor carries the mascot's name, Pip, and nothing else of a
+      // character (claude/43). Name only: keep these two rules saying so.
       { title: 'It says it is an AI',
-        body: 'Every screen where the tutor speaks says so. No student should ever '
-            + 'wonder whether a person is on the other end.' },
+        body: 'The tutor is called Pip, after the mascot on our books, and every '
+            + 'screen where it speaks says Pip is an AI, not a person. No student should '
+            + 'ever wonder whether a person is on the other end.' },
       { title: 'It stays on the lessons',
-        body: 'It does not play a character, keep up a friendship, or chat about '
-            + 'anything else. On a personal or safety topic it stops and points the '
-            + 'student to a trusted adult at school.' },
+        body: 'Pip is a name, not a character. It does not play one, keep up a '
+            + 'friendship, remember anything beyond a student\'s lessons and work, or '
+            + 'chat about anything else. On a personal or safety topic it stops and '
+            + 'points the student to a trusted adult at school.' },
       { title: 'Adults can read every conversation',
-        body: 'The school\'s sponsor and our staff can review what the tutor said to '
-            + 'any student, at any time.' },
+        body: 'The school\'s sponsor and our staff can review what Pip said to any '
+            + 'student, at any time.' },
       { title: 'The least data that works',
         body: 'Students join with a code from their school. We do not collect phone '
             + 'numbers, home addresses or personal email addresses.' },
@@ -1082,19 +1130,29 @@ export const DELIVERY = {
     ],
 
     /**
-     * Who hosts, and why that is the argument rather than a staffing note.
+     * Who runs the in-person side, and why that is the argument rather than a
+     * staffing note.
+     *
+     * Changed 22 October 2026 (David): Cindy does not host every session. She
+     * organizes and directs: recruits the speakers and guests, sets dates and
+     * times with each school's principal, and means to be at every speaker
+     * session and fireside chat herself until the program is too big for one
+     * person to reach every site. "Intends" is deliberate; it is a plan, not
+     * a guarantee, and the page must not promise more.
      *
      * Cindy Ha is listed in LEADERSHIP with a documented role, so she can be
-     * named here. Everything this draws on is already founder-attested on the
-     * About page: she built and sold a business first and met the formal
-     * material afterward. Nothing is added to her biography by this sentence.
+     * named here. The biography it draws on is already founder-attested on the
+     * About page. The key name `whoHosts` is kept so the pages need no change.
      */
     whoHosts:
-      'Cindy Ha will host the in-person sessions herself, with a teacher from '
-      + 'the school in the room. She built a business without this material and '
-      + 'met the formal version of it years later, which is the whole reason the '
-      + 'organization exists. The sessions are where what she learned late gets '
-      + 'handed over early, in person.',
+      'Cindy Ha, the founder, runs the in-person side. She brings in the speakers '
+      + 'and guests, works out the best dates and times with each school\'s '
+      + 'principal, and intends to be at every speaker session and fireside chat '
+      + 'herself, until the program grows past what one person can reach. She '
+      + 'built a business without this material and met the formal version of it '
+      + 'years later, which is the whole reason the organization exists. The '
+      + 'sessions are where people who do this for a living hand it to students '
+      + 'early, in person.',
   },
 } as const;
 
@@ -1144,7 +1202,7 @@ export const STUDENT_PRIVACY = {
     { item: 'Work the student submits',
       why: 'Each unit ends in something the student made, and they should be able '
          + 'to keep it.' },
-    { item: 'Conversations with the tutor',
+    { item: 'Conversations with Pip, the tutor',
       why: 'So the tutor can answer, and so the school sponsor and our staff can '
          + 'check what it told a student.' },
   ],
@@ -1314,9 +1372,9 @@ export const RESEARCH: Citation[] = [
     title: 'Financial Literacy, Financial Education, and Downstream Financial Behaviors',
     publication: 'Management Science 60(8), 1861 to 1883',
     url: 'https://doi.org/10.1287/mnsc.2013.1849',
-    plain: 'Across 168 studies, money classes barely changed how people actually handled '
-         + 'money. What they learned wore off, and even long classes had almost no effect '
-         + 'about two years later. They worked even less for lower-income families, who '
+    plain: 'Across 168 studies, financial education barely changed how people actually '
+         + 'handled money. What they learned wore off, and even long courses had almost no '
+         + 'effect about two years later. It worked even less for lower-income families, who '
          + 'are the children we serve. We built the program around this problem, but '
          + 'nobody, including us, has shown that spreading lessons over ten years solves '
          + 'it.',
@@ -1339,7 +1397,7 @@ export const RESEARCH: Citation[] = [
     publication: 'Journal of Financial Economics 145(2), 255 to 272',
     url: 'https://doi.org/10.1016/j.jfineco.2021.09.022',
     plain: 'A newer review of 76 experiments, with more than 160,000 people, found that '
-         + 'money classes do help people know more and handle money better, with effects '
+         + 'financial education does help people know more and handle money better, with effects '
          + 'at least three times larger than earlier studies found. This review and the '
          + 'one above disagree. We would rather tell you that than pick a side.',
     finding: 'A meta-analysis of 76 randomized experiments with over 160,000 participants. '
@@ -1357,7 +1415,7 @@ export const RESEARCH: Citation[] = [
     title: 'State Mandated Financial Education and the Credit Behavior of Young Adults',
     publication: 'Federal Reserve Board, Finance and Economics Discussion Series 2014-68',
     url: 'https://www.federalreserve.gov/pubs/feds/2014/201468/201468abs.html',
-    plain: 'After Georgia, Idaho and Texas began requiring money classes in school, young '
+    plain: 'After Georgia, Idaho and Texas began requiring personal finance in school, young '
          + 'people there later had better credit scores and fell behind on payments less '
          + 'often than young people in other states. It shows school lessons can pay off '
          + 'years later. It cannot tell you which lessons did it.',
@@ -1374,7 +1432,8 @@ export const RESEARCH: Citation[] = [
          + 'on Parents',
     publication: 'Journal of Financial Literacy and Wellbeing 1(1), 138 to 153',
     url: 'https://doi.org/10.1017/flw.2023.2',
-    plain: 'In Peru, high school students took a short money class. Three years later, in '
+    plain: 'In Peru, high school students took a short financial education course. Three '
+         + 'years later, in '
          + 'lower-income homes, the chance that a parent defaulted on a loan was 26 '
          + 'percent lower, and wealthier homes saw almost no change. So children can carry '
          + 'lessons home. But these were older students in another country taking a short '

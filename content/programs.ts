@@ -67,7 +67,8 @@ const leadership: ProgramSpec = {
     + 'scaling in difficulty from a Founders Track in the middle grades to an Executives '
     + 'Track in high school. Summer programs were cut in October 2026. From Grade 7 these '
     + 'ideas belong to the Grades 7 to 12 program, lessons in an app plus in-person '
-    + 'sessions, which is designed and not built.',
+    + 'sessions, which is designed. Only its first Grade 7 unit is written, as a preview '
+    + 'for educators.',
     'In the middle grades this is the one part of the program that is not really about '
     + 'business at all. A thirteen-year-old who can structure an argument, read a room '
     + 'and carry a decision is better off for it in every other part of their life, the '
@@ -173,7 +174,7 @@ const venture: ProgramSpec = {
     'The syllabus below was written for Grades 9 to 12 as an eight-week summer program. '
     + 'That format was cut in October 2026. From Grade 7 these ideas belong to the Grades '
     + '7 to 12 program, self-paced lessons in an app plus in-person sessions, which is '
-    + 'designed and not built.',
+    + 'designed. Only its first Grade 7 unit is written, as a preview for educators.',
   ],
   unitsLabel: 'The eight-week outline',
   unitsIntro:
@@ -293,7 +294,7 @@ const finance: ProgramSpec = {
     'The syllabus below was written for Grades 9 to 12 as an eight-week summer program. '
     + 'That format was cut in October 2026. From Grade 7 these ideas belong to the Grades '
     + '7 to 12 program, self-paced lessons in an app plus in-person sessions, which is '
-    + 'designed and not built. '
+    + 'designed. Only its first Grade 7 unit is written, as a preview for educators. '
     + 'Its content is credit scores, interest rates and index funds, and it belongs where '
     + 'a student is close to meeting those things. It is built so that a student leaves '
     + 'with their own budget, their own projection and their own plan, using their own '

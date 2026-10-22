@@ -50,9 +50,10 @@ export default function PrivacyUi() {
             <p style={{ marginBottom: '0.9rem' }}>
               {P.collecting
                 ? 'This page describes how the Grades 7 to 12 app handles student data today.'
-                : 'The Grades 7 to 12 app is not built yet, and we hold no data about any '
-                  + 'student. This page is what we commit to before the first one logs in, '
-                  + 'written now so that a district, a parent or a student can hold us to it.'}
+                : 'No student uses the Grades 7 to 12 app yet, and we hold no data about any '
+                  + 'student. A preview of its first unit is open to adults only, behind a '
+                  + 'passcode. This page is what we commit to before the first student logs '
+                  + 'in, written now so that a district, a parent or a student can hold us to it.'}
             </p>
             <p style={{ margin: 0 }}>{P.beforeStart}</p>
           </>
@@ -122,7 +123,7 @@ export default function PrivacyUi() {
               ))}
             </ul>
             <p style={{ ...BODY, marginTop: '1.5rem' }}>
-              The tutor runs on {P.provider.product}, made by {P.provider.name}.{' '}
+              Pip, the tutor, runs on {P.provider.product}, made by {P.provider.name}.{' '}
               {P.provider.noTraining}{' '}
               <a href={P.provider.termsUrl} target="_blank" rel="noopener noreferrer"
                 style={{ color: ROYAL_L }}>Read the terms</a>, and {P.provider.name}&rsquo;s{' '}

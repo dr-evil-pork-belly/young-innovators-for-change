@@ -260,9 +260,10 @@ export default function PathwayUi() {
             maxWidth: '74ch' }}>
             The written rungs are the bottom {written}, Grades 3 through 6, because that is
             where the work started rather than because they matter most. The elementary band
-            runs continuously now. Everything from Grade 7 up is the furthest out and the most
-            likely to change, and the thing most likely to change it is one teacher finishing
-            a year and telling us what actually happened.
+            runs continuously now. Grade 7 is being written now, for the first pilot.
+            Everything above it is the furthest out and the most likely to change, and the
+            thing most likely to change it is the first students working through Grade 7 and
+            telling us what actually happened.
           </p>
         </FadeIn>
       </Section>
@@ -354,8 +355,8 @@ export default function PathwayUi() {
             about how people remember, how children learn about money, what happens when
             teenagers run a business, and what keeps people motivated. We built the design on
             them. Each card says in plain words what the study found and where it stops
-            backing us up. Researchers disagree about whether money classes work at all, and
-            one of the strongest studies says they barely do.
+            backing us up. Researchers disagree about whether financial education works at
+            all, and one of the strongest studies says it barely does.
           </p>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
