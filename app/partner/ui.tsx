@@ -114,9 +114,16 @@ const LANES = [
          + 'year: a teacher to sponsor it, a room for the in-person sessions, and a signed '
          + 'student data privacy agreement. Nothing is bought and it costs the district '
          + 'nothing. Cindy Ha, the founder, will host the sessions herself rather than hand '
-         + 'a district an app and wish it luck.',
+         + 'a district an app and wish it luck.'
+         + (DELIVERY.pilot.preview.live
+           ? ' The first unit is built, and educators can try it now with a passcode from us.'
+           : ''),
     href:  '/teachers',
     cta:   'Read the ask',
+    // Only once the preview answers at its address (DELIVERY.pilot.preview.live).
+    extra: DELIVERY.pilot.preview.live
+      ? { href: DELIVERY.pilot.preview.url, cta: 'Try the first unit (passcode)' }
+      : undefined,
   },
   {
     id:    'funders',
@@ -260,6 +267,15 @@ function LaneCard({ lane, index }: { lane: typeof LANES[number]; index: number }
       }}>
         {lane.cta} <ArrowUpRight size={13} />
       </Link>
+      {lane.extra && (
+        <a href={lane.extra.href} target="_blank" rel="noopener noreferrer" style={{
+          display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.9rem',
+          color: ROYAL_L, fontSize: '0.75rem', fontWeight: 700,
+          letterSpacing: '0.1em', textTransform: 'uppercase' as const, textDecoration: 'none',
+        }}>
+          {lane.extra.cta} <Laptop size={13} />
+        </a>
+      )}
     </motion.div>
   );
 }
