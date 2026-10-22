@@ -989,6 +989,22 @@ export const DELIVERY = {
   /** The open ask. Change `status` only against a signed agreement. */
   pilot: {
     status: 'seeking' as 'seeking' | 'scheduled' | 'running',
+
+    /**
+     * The working preview of Unit 1, built 21 October 2026, a separate app at
+     * app.innovateyouth.org behind a passcode (the young-innovators-demo
+     * folder). Set `live` to true only once that address answers with the
+     * passcode page; until then /teachers shows nothing about it.
+     */
+    preview: {
+      live: true,
+      url: 'https://app.innovateyouth.org',
+      body: 'The first unit is built. Educators and district staff can try it the '
+          + 'way a seventh grader would, Pip the tutor included, and then see what '
+          + 'the teacher sponsor sees. It sits behind a passcode, because no student '
+          + 'may use it until a district has signed a data agreement and families '
+          + 'have signed consent forms. Write to us for the passcode.',
+    },
     ask: 'We are looking for one school district willing to host the first '
        + 'pilot: one middle school, and every seventh grader there who wants it.',
 

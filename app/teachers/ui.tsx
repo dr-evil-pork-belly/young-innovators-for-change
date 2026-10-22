@@ -264,10 +264,21 @@ export default function TeachersUi() {
                 nothing. The only things to sign are the ones that protect students: a data
                 privacy agreement, and a consent form for each family.
               </p>
+              {pilot.preview.live && (
+                <p style={{ fontSize: '0.92rem', lineHeight: 1.85, color: MUTED, maxWidth: '66ch',
+                  marginBottom: '1.75rem' }}>
+                  {pilot.preview.body}
+                </p>
+              )}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
                 <Link href="/partner#contact" className="btn-gold">
                   Talk to us about a pilot <Mail size={14} />
                 </Link>
+                {pilot.preview.live && (
+                  <a href={pilot.preview.url} className="btn-ghost" target="_blank" rel="noopener noreferrer">
+                    Try the first unit (passcode) <Laptop size={13} />
+                  </a>
+                )}
                 <Link href="/pathway" className="btn-ghost">
                   What the six years cover <ArrowUpRight size={13} />
                 </Link>
