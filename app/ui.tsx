@@ -378,7 +378,7 @@ export default function HomePage() {
                them, because they were built and are free, not because they
                are the mission. Reordered 15 October 2026. */
             { num: '01', title: 'Leadership & Venture', href: '/pathway', cta: 'The ten-year ladder',
-              body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4, 5 and 6 are written and free. From Grade 7 it moves to an app, at each student’s own pace, with guest speakers in person. The first unit is written, and educators can try it in a preview. No student has used it yet.' },
+              body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4, 5 and 6 are written and free. From Grade 7 it moves to an app, at each student’s own pace, with guest speakers in person. Grade 7, its first year, is written, and educators can try it in a preview. No student has used it yet.' },
             { num: '02', title: 'Financial Literacy', href: '/programs/financial-literacy', cta: 'The four money years',
               body: 'A child’s own money first, then a plan, then the gap between a price and a cost, then the numbers other people put in front of them. Grades 3 through 6 are written and free. This is the knowledge that usually arrives through a family, which is exactly why it belongs in a school.' },
             { num: '03', title: 'Mathematics', href: '/programs/discrete-math', cta: 'The six years',

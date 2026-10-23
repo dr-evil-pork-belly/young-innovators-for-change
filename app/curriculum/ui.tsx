@@ -235,7 +235,7 @@ export default function CurriculumUi() {
                 written, which makes the elementary band continuous. From Grade 7 it takes a
                 different shape: self-paced lessons in an app, with an AI tutor, and
                 in-person sessions with guests from business in place of classwork. Its
-                first unit is written, and educators can try it in a preview. No student has
+                first year, Grade 7, is written, and educators can try it in a preview. No student has
                 used it yet.{' '}
                 <Link href="/teachers" style={{ color: GOLD_L }}>Why the two shapes differ</Link>.
               </p>

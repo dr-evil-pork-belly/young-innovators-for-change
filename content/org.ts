@@ -206,7 +206,7 @@ export const MISSION = {
   notYetTrue: [
     'No program of ours has run with students. The delivered program described on '
     + 'this site is designed, not delivered, and the app it runs on exists only as a '
-    + 'preview of its first unit, for adults. '
+    + 'preview of its first year, Grade 7, for adults. '
     + 'Teachers using the free material on their own are not a program we ran, and '
     + 'must never be counted as one.',
     'We do not know who downloads the free materials, and we will not describe them as '
@@ -543,7 +543,7 @@ export const CURRICULUM: Strand[] = [
             + 'each, standards-mapped and free. No Grade 3 year is written.' },
       { band: 'Grades 6–8',  status: 'published',
         note: 'Grade 6 complete: The Market Year, 36 weeks. From Grade 7 it moves '
-            + 'to the app. Its first Grade 7 unit is written and educators can try it in '
+            + 'to the app. All eight Grade 7 units are written and educators can try them in '
             + 'a preview; no student has used it. No printed year is planned.' },
       { band: 'Grades 9–12', status: 'designed',
         note: 'Part of the Grades 7 to 12 program: lessons in an app, and in-person '
@@ -562,7 +562,7 @@ export const CURRICULUM: Strand[] = [
             + 'Year, 36 weeks each.' },
       { band: 'Grades 6–8',  status: 'published',
         note: 'Grade 6 complete: The Asking Year, 36 weeks. From Grade 7 it moves '
-            + 'to the app. Its first Grade 7 unit is written and educators can try it in '
+            + 'to the app. All eight Grade 7 units are written and educators can try them in '
             + 'a preview; no student has used it. No printed year is planned.' },
       { band: 'Grades 9–12', status: 'designed',
         note: 'Part of the Grades 7 to 12 program: lessons in an app, and in-person '
@@ -701,8 +701,8 @@ export const PATHWAY: PathwayStage[] = [
            + 'Each student also picks the one venture they will carry through Grade 12.',
     mbaCourse: 'Financial accounting and marketing',
     note: 'The first year of the Grades 7 to 12 app, and the year the first pilot '
-        + 'teaches. Its units are mapped, the first ones are written and checked the way '
-        + 'the books are, and educators can try the first in a preview. No student has '
+        + 'teaches. All eight of its units are written and checked the way the books '
+        + 'are, and educators can try them in a preview. No student has '
         + 'used it.',
   },
   {
@@ -971,7 +971,7 @@ export const DELIVERY = {
   /**
    * The two delivery models. Slow and printed for the elementary years; for the
    * older ones, self-paced in an app plus a room. The second is DESIGNED: the
-   * first Grade 7 units are written and an adults-only preview of Unit 1 is
+   * Grade 7's eight units are written and an adults-only preview of them is
    * live (claude/45), but the app students will use is not built. Its status
    * changes only when a student has used it. `badge` is the small label each
    * card carries on / and /teachers; it used to be computed from `status` and
@@ -1009,7 +1009,7 @@ export const DELIVERY = {
           + 'the course. The room is for what an app cannot do: guest speakers from '
           + 'business, and conversations about what is happening in it now. Each '
           + 'student picks one venture in Grade 7 and builds on it every year through '
-          + 'Grade 12. The first unit is written and running as a preview for '
+          + 'Grade 12. Grade 7, the first year, is written and running as a preview for '
           + 'educators. No student has used it, and the version students will use is '
           + 'not built yet.',
       status: 'designed' as const,
@@ -1021,7 +1021,8 @@ export const DELIVERY = {
     status: 'seeking' as 'seeking' | 'scheduled' | 'running',
 
     /**
-     * The working preview of Unit 1, built 21 October 2026, a separate app at
+     * The working preview of Grade 7 (Unit 1 from 21 October 2026, all eight units
+     * from 22 October), a separate app at
      * app.innovateyouth.org behind a passcode (the young-innovators-demo
      * folder). Set `live` to true only once that address answers with the
      * passcode page; until then /teachers shows nothing about it.
@@ -1029,7 +1030,7 @@ export const DELIVERY = {
     preview: {
       live: true,
       url: 'https://app.innovateyouth.org',
-      body: 'The first unit is built. Educators and district staff can try it the '
+      body: 'Grade 7 is built, all eight units. Educators and district staff can try it the '
           + 'way a seventh grader would, Pip the tutor included, and then see what '
           + 'the teacher sponsor sees. It sits behind a passcode, because no student '
           + 'may use it until a district has signed a data agreement and families '

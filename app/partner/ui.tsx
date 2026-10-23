@@ -116,13 +116,13 @@ const LANES = [
          + 'speakers and guests and sets dates with each school, rather than hand '
          + 'a district an app and wish it luck.'
          + (DELIVERY.pilot.preview.live
-           ? ' The first unit is built, and educators can try it now with a passcode from us.'
+           ? ' Grade 7 is built, all eight units, and educators can try it now with a passcode from us.'
            : ''),
     href:  '/teachers',
     cta:   'Read the ask',
     // Only once the preview answers at its address (DELIVERY.pilot.preview.live).
     extra: DELIVERY.pilot.preview.live
-      ? { href: DELIVERY.pilot.preview.url, cta: 'Try the first unit (passcode)' }
+      ? { href: DELIVERY.pilot.preview.url, cta: 'Try Grade 7 (passcode)' }
       : undefined,
   },
   {
@@ -181,7 +181,7 @@ const FAQS = [
      + 'doing it and we will not describe them on this site as though we could. The one '
      + 'program we intend to run ourselves is for Grades 7 to 12: self-paced lessons in an '
      + 'app with an AI tutor, and in-person speaker sessions and fireside chats that '
-     + 'Cindy Ha organizes with each school. It is designed, its first unit is in '
+     + 'Cindy Ha organizes with each school. It is designed, its first year, Grade 7, is in '
      + 'preview for educators, and we are '
      + 'still looking for a district '
      + 'willing to host the first pilot.',

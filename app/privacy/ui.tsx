@@ -51,7 +51,7 @@ export default function PrivacyUi() {
               {P.collecting
                 ? 'This page describes how the Grades 7 to 12 app handles student data today.'
                 : 'No student uses the Grades 7 to 12 app yet, and we hold no data about any '
-                  + 'student. A preview of its first unit is open to adults only, behind a '
+                  + 'student. A preview of its first year, Grade 7, is open to adults only, behind a '
                   + 'passcode. This page is what we commit to before the first student logs '
                   + 'in, written now so that a district, a parent or a student can hold us to it.'}
             </p>

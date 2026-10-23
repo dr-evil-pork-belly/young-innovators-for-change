@@ -17,7 +17,7 @@ const CHAIN = [
     items: [`${PUBLISHED_WEEKS} weeks of curriculum, written in-house`,
             'A teacher, an aide or a caretaker willing to spend the time, which is the '
             + 'input we do not control and the one that decides everything',
-            'An app with an AI tutor, teaching only from lessons we write and check (first unit in preview, for adults)',
+            'An app with an AI tutor, teaching only from lessons we write and check (Grade 7 in preview, for adults)',
             'Guest speakers and fireside chats from business, organized by our founder with each school',
             'Printing for the books, and hosting and AI costs for the app',
             'A published research base, including the paper that argues against us'],

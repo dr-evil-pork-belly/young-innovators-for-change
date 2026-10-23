@@ -95,7 +95,7 @@ export default function TeachersUi() {
             delivery problem. Printed weeks hold the first. We do not believe paper holds
             the second, so from Grade 7 the lessons move to an app that lets each student
             go at their own pace, and the time we ask a school for goes to a room instead.
-            The second card is designed, and only its first unit exists, as a preview for
+            The second card is designed, and only its first year, Grade 7, exists, as a preview for
             adults. It says so.
           </p>
         </FadeIn>
@@ -277,7 +277,7 @@ export default function TeachersUi() {
                 </Link>
                 {pilot.preview.live && (
                   <a href={pilot.preview.url} className="btn-ghost" target="_blank" rel="noopener noreferrer">
-                    Try the first unit (passcode) <Laptop size={13} />
+                    Try Grade 7 (passcode) <Laptop size={13} />
                   </a>
                 )}
                 <Link href="/pathway" className="btn-ghost">
