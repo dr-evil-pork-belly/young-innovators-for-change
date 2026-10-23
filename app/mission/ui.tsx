@@ -17,7 +17,7 @@ const CHAIN = [
     items: [`${PUBLISHED_WEEKS} weeks of curriculum, written in-house`,
             'A teacher, an aide or a caretaker willing to spend the time, which is the '
             + 'input we do not control and the one that decides everything',
-            'An app with an AI tutor, teaching only from lessons we write and check (Grade 7 in preview, for adults)',
+            'A web app with Pip, an AI tutor, teaching only from lessons we write and check (Grade 7 written and in preview for adults; Grades 8 to 12 next)',
             'Guest speakers and fireside chats from business, organized by our founder with each school',
             'Printing for the books, and hosting and AI costs for the app',
             'A published research base, including the paper that argues against us'],
@@ -74,8 +74,9 @@ export default function MissionUi() {
             <p style={{ marginBottom: '0.9rem' }}>
               So we write that material and publish every page of it free: mathematics and
               science across Grades 1&ndash;12, and leadership, entrepreneurship and
-              financial literacy from Grade 3 up. The barrier was never what a child could
-              understand. It was whether anybody put it in front of them.
+              financial literacy from Grade 3 up. The elementary years are printed
+              workbooks; from Grade 7 the lessons run in a web app. The barrier was never
+              what a child could understand. It was whether anybody put it in front of them.
             </p>
             <p style={{ margin: 0 }}>
               This page is the argument rather than the brochure. What we think the problem
@@ -158,8 +159,9 @@ export default function MissionUi() {
               d: 'Workbook, answer key, research paper. No email wall. A school '
                + 'that never speaks to us can still run the program.' },
             { t: 'Remove every barrier to trying', a: GREEN_L,
-              d: 'No cost, no devices, no subscription, no training week. Crayons, counters and a '
-               + 'photocopier. Programs that require purchase get adopted by schools that can purchase.' },
+              d: 'No cost, no subscription, no training week. Crayons, counters and a photocopier '
+               + 'for the elementary years; a browser and nothing to install from Grade 7. Programs '
+               + 'that require purchase get adopted by schools that can purchase.' },
             { t: 'Measure honestly, publish either way', a: ROYAL_L,
               d: 'We have pre-committed to the outcomes that would show the program does not work, '
                + 'and we will report them if we see them.' },

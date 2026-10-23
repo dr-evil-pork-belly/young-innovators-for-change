@@ -89,9 +89,10 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
                 there will not be until there is something true to report.
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE }}>
-                What is written is elementary material, free and ready to run today, one page
-                a week inside the school year. The bands below say where this line stands,
-                grade by grade.{' '}
+                What is written: the elementary workbooks, free and ready to run today, one
+                page a week inside the school year, and the Grade 7 year of our web app, open
+                to educators in a preview. The bands below say where this line stands, grade
+                by grade.{' '}
                 <Link href="/resources" style={{ color: GOLD_L, textDecoration: 'none',
                   borderBottom: `1px solid ${GOLD}55` }}>Take a finished year</Link>.
               </p>

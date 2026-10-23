@@ -93,10 +93,10 @@ export default function TeachersUi() {
             The same ideas are shaped twice, because a nine-year-old with a teacher beside
             them and a thirteen-year-old who can work on their own are not the same
             delivery problem. Printed weeks hold the first. We do not believe paper holds
-            the second, so from Grade 7 the lessons move to an app that lets each student
-            go at their own pace, and the time we ask a school for goes to a room instead.
-            The second card is designed, and only its first year, Grade 7, exists, as a preview for
-            adults. It says so.
+            the second, so from Grade 7 the lessons move to a web app that lets each
+            student go at their own pace, and the time we ask a school for goes to a room
+            instead. Grade 7 is built and open to educators in a preview, and Grades 8 to
+            12 come next. No student has used it yet, and the card says so.
           </p>
         </FadeIn>
 

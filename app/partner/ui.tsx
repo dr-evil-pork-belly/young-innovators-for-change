@@ -171,7 +171,9 @@ const FAQS = [
      + `${PUBLISHED_WEEKS} weeks in all, across mathematics, science, entrepreneurship `
      + 'and financial literacy. Each year is a student workbook plus a teacher guide, mapped '
      + 'to California standards, and each is on the resources page as a free download. '
-     + 'Nothing is behind a form or a fee.',
+     + 'Nothing is behind a form or a fee. Grade 7, the first year of the Grades 7 to 12 '
+     + 'program, is built too: all eight units run in our web app with Pip, the AI tutor, '
+     + 'in a passcode preview for educators. Grades 8 to 12 come next.',
   },
   {
     q: 'Who delivers this to students?',
@@ -179,12 +181,10 @@ const FAQS = [
      + 'does, and that is the half of this work that decides whether a child learns '
      + 'anything. We publish with no login and no email wall, so we cannot see who is '
      + 'doing it and we will not describe them on this site as though we could. The one '
-     + 'program we intend to run ourselves is for Grades 7 to 12: self-paced lessons in an '
-     + 'app with an AI tutor, and in-person speaker sessions and fireside chats that '
-     + 'Cindy Ha organizes with each school. It is designed, its first year, Grade 7, is in '
-     + 'preview for educators, and we are '
-     + 'still looking for a district '
-     + 'willing to host the first pilot.',
+     + 'program we intend to run ourselves is for Grades 7 to 12: self-paced lessons in our '
+     + 'web app with Pip, an AI tutor, and in-person speaker sessions and fireside chats '
+     + 'that Cindy Ha organizes with each school. Grade 7 is built and in preview for '
+     + 'educators, and we are looking for districts willing to host the first pilot.',
   },
   {
     q: 'Has any of it been taught to students?',
@@ -494,7 +494,7 @@ export default function PartnerPage() {
               The curriculum is written. <span style={{ color: ROYAL_L }}>The evidence is not.</span>
             </motion.h1>
             <motion.p variants={fadeUp} style={{ fontSize: '1.05rem', lineHeight: 1.75, color: MUTED, maxWidth: '620px', marginBottom: '2rem' }}>
-              {spellOut(PUBLISHED_YEARS.length)} finished school years, {PUBLISHED_WEEKS} weeks of material, free to anyone who wants them, and teachers already using them. What we cannot show you is a single measured classroom, because no program with a roster has run and nothing has been evaluated. That is the honest position, and closing it is the only thing we are asking anyone for.
+              {spellOut(PUBLISHED_YEARS.length)} finished school years, {PUBLISHED_WEEKS} weeks of material, free to anyone who wants them, and teachers already using them. From Grade 7, a web app with every Grade 7 unit written and an AI tutor named Pip, open to educators in a preview. What we cannot show you is a single measured classroom, because no program with a roster has run and nothing has been evaluated. That is the honest position, and closing it is the only thing we are asking anyone for.
             </motion.p>
             <motion.p variants={fadeUp} style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED, maxWidth: '620px', marginBottom: '2.5rem' }}>
               So this page leads with what we are not claiming, then shows you the public record, then gives you a form. If you are doing diligence, everything you need is on the way down.

@@ -9,7 +9,8 @@ const DESC =
   + 'Grades 1 to 6, financial literacy for Grades 3 to 6 and entrepreneurship for Grades 4 '
   + 'to 6. Workbook and full answer '
   + 'key for every year, mapped to California standards and proofed to print in black and '
-  + 'white. No account, no email wall. A California 501(c)(3).';
+  + 'white. From Grade 7, self-paced lessons in a web app with an AI tutor, in preview for '
+  + 'educators now. No account, no email wall. A California 501(c)(3).';
 
 export const metadata: Metadata = {
   description: DESC,

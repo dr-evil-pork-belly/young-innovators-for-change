@@ -66,9 +66,10 @@ const leadership: ProgramSpec = {
     + 'them one at a time. The syllabus below was written as an eight-week summer program, '
     + 'scaling in difficulty from a Founders Track in the middle grades to an Executives '
     + 'Track in high school. Summer programs were cut in October 2026. From Grade 7 these '
-    + 'ideas belong to the Grades 7 to 12 program, lessons in an app plus in-person '
-    + 'sessions, which is designed. Only its first Grade 7 unit is written, as a preview '
-    + 'for educators.',
+    + 'ideas belong to the Grades 7 to 12 program: lessons in our web app, plus guest '
+    + 'speakers and fireside chats in person. Its Grade 7 year is written and open to '
+    + 'educators in a preview. The years that carry these leadership ideas come later and '
+    + 'are not written yet.',
     'In the middle grades this is the one part of the program that is not really about '
     + 'business at all. A thirteen-year-old who can structure an argument, read a room '
     + 'and carry a decision is better off for it in every other part of their life, the '
@@ -138,10 +139,10 @@ const leadership: ProgramSpec = {
     // Grades 7 to 12 app now contradicts. Stated as the open question it is.
     { t: 'No equipment to buy',
       d: 'The outline runs with a room, paper, and a phone camera if one is available. '
-       + 'The app that replaces the summer format needs a screen, and a program that '
-       + 'needs a device per child can stop reaching the schools it was written for. '
-       + 'Whether students can use the devices they already have is a question the first '
-       + 'pilot has to answer.' },
+       + 'The Grades 7 to 12 program runs in a web app, so it needs a screen with a '
+       + 'browser but nothing to buy or install. A program that needs a device per child '
+       + 'can stop reaching the schools it was written for, so whether every student can '
+       + 'get to one is a question the first pilot has to answer.' },
   ],
   exists: [
     'The three strands, written as an eight-week summer outline',
@@ -173,8 +174,9 @@ const venture: ProgramSpec = {
     + 'Grades 4, 5 and 6, are written and free to download today.',
     'The syllabus below was written for Grades 9 to 12 as an eight-week summer program. '
     + 'That format was cut in October 2026. From Grade 7 these ideas belong to the Grades '
-    + '7 to 12 program, self-paced lessons in an app plus in-person sessions, which is '
-    + 'designed. Only its first Grade 7 unit is written, as a preview for educators.',
+    + '7 to 12 program: self-paced lessons in our web app, plus guest speakers in person. '
+    + 'Grade 7 is written, all eight units, and educators can try it now in a preview. '
+    + 'Grades 8 to 12 come next.',
   ],
   unitsLabel: 'The eight-week outline',
   unitsIntro:
@@ -269,9 +271,10 @@ const venture: ProgramSpec = {
     'The frameworks and worksheets each step is built around',
     'The pitch structure and the feedback form',
     'The Grade 4, 5 and 6 full-year versions, written and published in full',
+    'Grade 7 in the web app: all eight units written and checked, open to educators in a preview',
   ],
   notYet: [
-    'The Grades 7 to 12 lessons, in the app or in any other form',
+    'The Grades 8 to 12 lessons',
     'The student venture file',
     'The simplified financial model spreadsheet',
     'Any pitch panel, because no student has reached the end',
@@ -284,7 +287,7 @@ const finance: ProgramSpec = {
   slug: 'financial-literacy',
   strandKey: 'finance',
   name: 'Financial Literacy',
-  eyebrow: 'Enterprise track · Grades 3 to 6, and Grades 9 to 12',
+  eyebrow: 'Enterprise track · Grades 3 to 12',
   titleLines: ['THE MONEY KNOWLEDGE', 'THAT USUALLY ARRIVES', 'THROUGH A FAMILY.'],
   accent: 'green',
   lede: [
@@ -293,9 +296,9 @@ const finance: ProgramSpec = {
     + 'signed.',
     'The syllabus below was written for Grades 9 to 12 as an eight-week summer program. '
     + 'That format was cut in October 2026. From Grade 7 these ideas belong to the Grades '
-    + '7 to 12 program, self-paced lessons in an app plus in-person sessions, which is '
-    + 'designed. Only its first Grade 7 unit is written, as a preview for educators. '
-    + 'Its content is credit scores, interest rates and index funds, and it belongs where '
+    + '7 to 12 program: self-paced lessons in our web app, plus guest speakers in person. '
+    + 'Grade 7 is written and open to educators in a preview; Grades 8 to 12 come next. '
+    + 'This outline\'s content is credit scores, interest rates and index funds, and it belongs where '
     + 'a student is close to meeting those things. It is built so that a student leaves '
     + 'with their own budget, their own projection and their own plan, using their own '
     + 'numbers rather than a worksheet about somebody else.',
@@ -393,9 +396,10 @@ const finance: ProgramSpec = {
     + 'problems by a script that refuses to build the book if one disagrees',
     'An eight-week outline for Grades 9 to 12, with skills defined per week',
     'The sequence and the reasoning behind its order',
+    'Grade 7 in the web app: all eight units written and checked, open to educators in a preview',
   ],
   notYet: [
-    'The Grades 7 to 12 lessons and projection templates, in the app or in any other form',
+    'The Grades 8 to 12 lessons and projection templates',
     'A pre and post assessment',
     'Any delivery we have run ourselves, of the four elementary years or of the older '
     + 'material',

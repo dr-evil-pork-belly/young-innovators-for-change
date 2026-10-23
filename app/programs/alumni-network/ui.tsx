@@ -217,8 +217,8 @@ export default function AlumniUi() {
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginTop: '1rem' }}>
                 One pilot year, and a district willing to go first. Every commitment
                 on this page stays hypothetical until that happens. The elementary books are
-                written and sitting there, free. What is missing is a district that says yes,
-                and the app we are building for it.
+                written and sitting there, free, and the Grade 7 web app is built and open to
+                educators in a preview. What is missing is a district that says yes.
               </p>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>

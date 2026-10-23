@@ -233,10 +233,10 @@ export default function CurriculumUi() {
                 week, delivered by whoever is already in the room, because younger students
                 hold this better spread out than compressed. The Grades 4, 5 and 6 years are
                 written, which makes the elementary band continuous. From Grade 7 it takes a
-                different shape: self-paced lessons in an app, with an AI tutor, and
-                in-person sessions with guests from business in place of classwork. Its
-                first year, Grade 7, is written, and educators can try it in a preview. No student has
-                used it yet.{' '}
+                different shape: a web app where each student works at their own pace with
+                Pip, an AI tutor, and guest speakers from business in person in place of
+                classwork. Grade 7 is written, all eight units, and educators can try it now in
+                a preview. Grades 8 to 12 come next. No student has used it yet.{' '}
                 <Link href="/teachers" style={{ color: GOLD_L }}>Why the two shapes differ</Link>.
               </p>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
@@ -276,23 +276,21 @@ export default function CurriculumUi() {
             // and 02 the pre/post instrument for that classroom study. The classroom
             // pilot was dropped on 16 October and the Grade 7 app pilot became the
             // first measured program on 21 October (claude/42), so the list follows it.
-            { n: '01', a: GREEN_L, t: 'Write the Grade 7 year',
-              d: 'The first year of the Grades 7 to 12 app. Its units are mapped, the first '
-               + 'ones are written and checked the way the books are, and educators can try '
-               + 'the first in a preview. The rest of the year comes next.' },
-            { n: '02', a: GOLD_L, t: 'Run the first pilot, and measure it',
-              d: 'One unit in the spring as a test, then the full year. The plan for '
-               + 'measuring it goes up in public before the first lesson. Nothing else on '
-               + 'this list can substitute for students actually using it.' },
+            // 22 October 2026: "Write the Grade 7 year" came off the list once all
+            // eight units were written and running in the web app preview.
+            { n: '01', a: GREEN_L, t: 'Run the first pilot, and measure it',
+              d: 'Grade 7 is written and running in the web app. Next is one unit in the '
+               + 'spring as a test, then the full year. The plan for measuring it goes up in '
+               + 'public before the first lesson. Nothing else on this list can substitute '
+               + 'for students actually using it.' },
+            { n: '02', a: GOLD_L, t: 'Grades 8 to 12, in the same app',
+              d: 'The other five years of the web app are mapped, one idea a year, and come '
+               + 'next. None is written yet.' },
             { n: '03', a: ROYAL_L, t: 'Split the years into single weeks',
               d: `${PUBLISHED_WEEKS} two-page assignments currently ship as ${PUBLISHED_YEARS.length} `
                + 'all-or-nothing PDFs. One week is a far easier thing for a teacher to try, and '
                + 'each one names a standard a teacher might search for.' },
-            { n: '04', a: ROYAL_L, t: 'Then Grades 8 to 12',
-              d: 'Grades 3 to 6 are written, so the elementary band is complete. The other '
-               + 'five years of the app are mapped, one idea a year, and none is written '
-               + 'yet.' },
-            { n: '05', a: SLATE_3, t: 'Science, and the upper grades',
+            { n: '04', a: SLATE_3, t: 'Science, and the upper grades',
               d: 'Grades 1 to 6 science are written. High school science and the upper grades are '
                + 'still the largest part of the grid and the furthest out. We would rather say '
                + 'that plainly than imply they are nearly done.' },

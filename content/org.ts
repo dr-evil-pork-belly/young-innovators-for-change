@@ -158,9 +158,9 @@ export const TRANSPARENCY = {
  */
 export const MISSION = {
   statement:
-    'Young Innovators for Change exists so that children whose families have no '
-    + 'formal business background reach adulthood able to act on money rather than be '
-    + 'acted upon.',
+    'Young Innovators for Change exists so that children who would not otherwise learn '
+    + 'how business works reach adulthood able to act on money rather than be acted '
+    + 'upon.',
 
   /** Who the work is aimed at. Intent, not a description of who is reached. */
   population:
@@ -196,7 +196,7 @@ export const MISSION = {
     },
     {
       title: 'The program is aimed',
-      body: 'It runs in one place, with a roster, for the students the mission names, '
+      body: 'It runs in the districts that host it, with a roster, for the students the mission names, '
           + 'and it is measured. A download cannot name anyone. That is the whole '
           + 'reason the program exists.',
     },
@@ -204,9 +204,9 @@ export const MISSION = {
 
   /** Say these before anything else, on any page that draws on the mission. */
   notYetTrue: [
-    'No program of ours has run with students. The delivered program described on '
-    + 'this site is designed, not delivered, and the app it runs on exists only as a '
-    + 'preview of its first year, Grade 7, for adults. '
+    'No program of ours has run with students. The program described on this site has '
+    + 'not been delivered. Its first year, Grade 7, is written and running in our web app, '
+    + 'open to adults only as a preview. '
     + 'Teachers using the free material on their own are not a program we ran, and '
     + 'must never be counted as one.',
     'We do not know who downloads the free materials, and we will not describe them as '
@@ -524,11 +524,11 @@ export const CURRICULUM: Strand[] = [
         note: 'Designed as a summer program, and summer programs have been cut. No '
             + 'leadership workbook is written for these grades.' },
       { band: 'Grades 6–8',  status: 'designed',
-        note: 'From Grade 7, part of the Grades 7 to 12 program: lessons in an app, '
-            + 'and in-person sessions with guests. Designed, not written.' },
+        note: 'From Grade 7, part of the Grades 7 to 12 program: lessons in the web app, '
+            + 'and guest speakers in person. The leadership years are designed, not written.' },
       { band: 'Grades 9–12', status: 'designed',
-        note: 'Part of the Grades 7 to 12 program: lessons in an app, and in-person '
-            + 'sessions with guests. Designed, not built.' },
+        note: 'Part of the Grades 7 to 12 program: lessons in the web app, and guest '
+            + 'speakers in person. Designed, not written yet.' },
     ],
   },
   {
@@ -543,11 +543,11 @@ export const CURRICULUM: Strand[] = [
             + 'each, standards-mapped and free. No Grade 3 year is written.' },
       { band: 'Grades 6–8',  status: 'published',
         note: 'Grade 6 complete: The Market Year, 36 weeks. From Grade 7 it moves '
-            + 'to the app. All eight Grade 7 units are written and educators can try them in '
-            + 'a preview; no student has used it. No printed year is planned.' },
+            + 'to the web app. All eight Grade 7 units are written and educators can try them '
+            + 'in a preview; no student has used them yet. No printed year is planned.' },
       { band: 'Grades 9–12', status: 'designed',
-        note: 'Part of the Grades 7 to 12 program: lessons in an app, and in-person '
-            + 'sessions with guests. Designed, not built.' },
+        note: 'Part of the Grades 7 to 12 program: lessons in the web app, and guest '
+            + 'speakers in person. Designed, not written yet.' },
     ],
   },
   {
@@ -562,11 +562,11 @@ export const CURRICULUM: Strand[] = [
             + 'Year, 36 weeks each.' },
       { band: 'Grades 6–8',  status: 'published',
         note: 'Grade 6 complete: The Asking Year, 36 weeks. From Grade 7 it moves '
-            + 'to the app. All eight Grade 7 units are written and educators can try them in '
-            + 'a preview; no student has used it. No printed year is planned.' },
+            + 'to the web app. All eight Grade 7 units are written and educators can try them '
+            + 'in a preview; no student has used them yet. No printed year is planned.' },
       { band: 'Grades 9–12', status: 'designed',
-        note: 'Part of the Grades 7 to 12 program: lessons in an app, and in-person '
-            + 'sessions with guests. Designed, not built.' },
+        note: 'Part of the Grades 7 to 12 program: lessons in the web app, and guest '
+            + 'speakers in person. Designed, not written yet.' },
     ],
   },
 ];
@@ -700,10 +700,9 @@ export const PATHWAY: PathwayStage[] = [
            + 'what inventory ties up, and how a profitable business runs out of money. '
            + 'Each student also picks the one venture they will carry through Grade 12.',
     mbaCourse: 'Financial accounting and marketing',
-    note: 'The first year of the Grades 7 to 12 app, and the year the first pilot '
-        + 'teaches. All eight of its units are written and checked the way the books '
-        + 'are, and educators can try them in a preview. No student has '
-        + 'used it.',
+    note: 'The first year of the Grades 7 to 12 web app, and the year the first pilot '
+        + 'teaches. All eight units are written, checked the way the books are, and '
+        + 'running in the app as a preview for educators. No student has used it yet.',
   },
   {
     grade: 'Grade 8', status: 'planned',
@@ -711,7 +710,7 @@ export const PATHWAY: PathwayStage[] = [
            + 'loan, and the reason the same purchase costs two people different amounts. '
            + 'Then the question for the student’s own venture: borrow or not, and how much.',
     mbaCourse: 'Corporate finance and data analysis',
-    note: 'Planned for the Grades 7 to 12 app. Not written.',
+    note: 'Next in the web app, after Grade 7. Not written yet.',
   },
   {
     grade: 'Grade 9', status: 'designed',
@@ -720,7 +719,7 @@ export const PATHWAY: PathwayStage[] = [
            + 'disagree.',
     mbaCourse: 'Financial statement analysis',
     note: 'Parts of it are outlined in the Venture Lab and Financial Literacy '
-        + 'syllabi. Planned for the Grades 7 to 12 app. The full year is not written.',
+        + 'syllabi. Planned for the web app. The full year is not written.',
   },
   {
     grade: 'Grade 10', status: 'designed',
@@ -729,7 +728,7 @@ export const PATHWAY: PathwayStage[] = [
            + 'who wrote it.',
     mbaCourse: 'Organizational behavior and operations',
     note: 'Parts of it are outlined in the Leadership syllabus. Planned for the '
-        + 'Grades 7 to 12 app. The full year is not written.',
+        + 'web app. The full year is not written.',
   },
   {
     grade: 'Grade 11', status: 'planned',
@@ -768,8 +767,9 @@ export const NOT_AN_MBA: string[] = [
   // disclaimer, of all the sentences on the site, was the one still typing the
   // number by hand. Nothing else on this page may hardcode it either.
   `No student has completed this pathway. ${spellOut(pathwayPublishedCount())} of its `
-  + `${spellOut(PATHWAY.length).toLowerCase()} years are written, and nobody has run `
-  + 'any of them start to finish in a classroom yet.',
+  + `${spellOut(PATHWAY.length).toLowerCase()} years are published as books, Grade 7 is `
+  + 'written in the web app, and nobody has run any of them start to finish with '
+  + 'students yet.',
 ];
 
 /**
@@ -785,7 +785,7 @@ export const OPT_IN: { title: string; body: string }[] = [
   { title: 'Offered to every student, required of none',
     body: 'The pathway sits beside the school day rather than inside a graduation '
         + 'requirement. A student who is not interested this year loses nothing and '
-        + 'can start next year. From Grade 7 the lessons run in an app, so there is no '
+        + 'can start next year. From Grade 7 the lessons run in a web app, so there is no '
         + 'seat limit: every student who wants in gets in.' },
   { title: 'No test, no ranking, no prerequisite',
     body: 'There is no test to get in, no application to be ranked, and no prior '
@@ -996,22 +996,22 @@ export const DELIVERY = {
     {
       band: 'Grades 7 to 12',
       shape: 'At their own pace, with a room to meet in',
-      badge: 'Preview, adults only',
+      badge: 'Grade 7 preview, adults only',
       who: 'Pip, an AI tutor for the lessons, which tells students plainly that it '
          + 'is an AI. Guest speakers and fireside chats in person, organized by Cindy '
          + 'Ha, the founder, and scheduled with each school, with a teacher from the '
          + 'school in the room.',
       body: 'The ideas a business school teaches, spread over six years instead '
-          + 'of two. Every student gets the same written lessons and works through '
-          + 'them on their own time, as fast or as slowly as they need, with an AI '
-          + 'tutor that explains, asks questions and gives feedback on their work. '
-          + 'The tutor teaches from lessons we write and check; it does not make up '
-          + 'the course. The room is for what an app cannot do: guest speakers from '
-          + 'business, and conversations about what is happening in it now. Each '
-          + 'student picks one venture in Grade 7 and builds on it every year through '
-          + 'Grade 12. Grade 7, the first year, is written and running as a preview for '
-          + 'educators. No student has used it, and the version students will use is '
-          + 'not built yet.',
+          + 'of two, in a web app that runs in a browser with nothing to install. Every '
+          + 'student gets the same written lessons and works through them on their own '
+          + 'time, as fast or as slowly as they need, with Pip, an AI tutor that '
+          + 'explains, asks questions and gives feedback on their work. Pip teaches '
+          + 'from lessons we write and check; it does not make up the course. The room '
+          + 'is for what an app cannot do: guest speakers from business, and '
+          + 'conversations about what is happening in it now. Each student picks one '
+          + 'venture in Grade 7 and builds on it every year through Grade 12. Grade 7 '
+          + 'is written, all eight units, and running as a preview for educators. '
+          + 'Grades 8 to 12 come next. No student has used it yet.',
       status: 'designed' as const,
     },
   ],
@@ -1030,7 +1030,7 @@ export const DELIVERY = {
     preview: {
       live: true,
       url: 'https://app.innovateyouth.org',
-      body: 'Grade 7 is built, all eight units. Educators and district staff can try it the '
+      body: 'Grade 7 is built in the web app, all eight units. Educators and district staff can try it the '
           + 'way a seventh grader would, Pip the tutor included, and then see what '
           + 'the teacher sponsor sees. It sits behind a passcode, because no student '
           + 'may use it until a district has signed a data agreement and families '
@@ -1050,7 +1050,7 @@ export const DELIVERY = {
     ask: 'We are looking for school districts willing to host the first pilot '
        + 'year. The first to sign runs the spring test unit in one middle school. '
        + 'From the fall, the full Grade 7 year can run in more than one district at '
-       + 'once: the lessons run in an app, so nobody needs a seat.',
+       + 'once: the lessons run in a web app, so nobody needs a seat.',
 
     /**
      * Decided 21 October 2026: one unit in the spring as a test, then the full

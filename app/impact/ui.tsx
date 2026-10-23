@@ -270,8 +270,9 @@ export default function ImpactUi() {
           <FadeIn>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
               The first program we will run and measure is the Grade 7 pilot: self-paced
-              lessons in an app with an AI tutor, plus in-person sessions with guests, for
-              every seventh grader who wants it, in each middle school that hosts it.{' '}
+              lessons in our web app with Pip, an AI tutor, plus guest speakers in person,
+              for every seventh grader who wants it, in each middle school that hosts it.
+              All eight Grade 7 units are written and open to educators in a preview.{' '}
               {pilot.theClaim}
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>

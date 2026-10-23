@@ -6,7 +6,7 @@ import {
   useInView,
   type Variants,
 } from 'framer-motion';
-import { ArrowUpRight, GraduationCap, Users, MapPin, Star, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, GraduationCap, Users, MapPin, Star, ChevronRight, Laptop } from 'lucide-react';
 import Link from 'next/link';
 import { VERIFIED_STATS, PROGRAM_FACTS, FOUNDER, DELIVERY, usd, uscTwoYearTotal, spellOut } from '@/content/org';
 import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
@@ -224,7 +224,11 @@ export default function HomePage() {
                   mission in org.ts never changed; the home page had stopped
                   quoting it first. This headline states who it is for and what
                   they get, and the library appears third, as the proof the
-                  thing is real rather than as the product. */}
+                  thing is real rather than as the product.
+                  Rewritten again 22 October 2026, when Grade 7 went into the web
+                  app. The old line ("Some kids hear how business works at home.
+                  The rest can start in third grade.") did not read cleanly, and
+                  third grade was no longer the whole story. */}
               <motion.h1
                 variants={fadeUp}
                 style={{
@@ -238,8 +242,8 @@ export default function HomePage() {
                   textWrap:      'balance',
                 }}
               >
-                Some kids hear how business works at home. The
-                rest can <span style={{ color: CONNECT }}>start in third grade.</span>
+                Some kids grow up around business.{' '}
+                <span style={{ color: CONNECT }}>Every kid can learn it.</span>
               </motion.h1>
 
               <motion.p
@@ -247,11 +251,13 @@ export default function HomePage() {
                 style={{ fontSize: '1.05rem', lineHeight: 1.7, color: BODY, maxWidth: '56ch',
                   marginBottom: '1.25rem' }}
               >
-                Price, cost, margin, risk, credit and ownership: the ideas a graduate business
-                school compresses into two years for adults, written for children one
-                assignment a week, Grade 3 through high school. It is built for students in
-                lower-income communities whose families have no formal business background,
-                and it is free to anyone.
+                Price, cost, margin, risk, credit and ownership: the ideas a business school
+                packs into two years for adults, spread across the years a child is already
+                in school. Grades 3 to 6 run on printed workbooks, one assignment a week.
+                From Grade 7 the lessons move to a web app, where each student works at their
+                own pace with Pip, an AI tutor, and meets guest speakers in person. It is built
+                for kids in lower-income communities who will not hear any of this at the
+                dinner table, and it is free to anyone.
               </motion.p>
 
               <motion.p
@@ -260,10 +266,10 @@ export default function HomePage() {
                   marginBottom: '1.25rem' }}
               >
                 It is opt-in. Nobody is made to take it, and a student who wants it gets
-                helped all the way. The part we care about most happens after the worksheet:
-                a child who can price something goes home and explains it at the table, and
-                the household gets the idea too. That is the design. No program of ours has
-                run with students yet, and this site says so wherever it matters.
+                help all the way through. The part we care about most happens after the
+                lesson: a kid who can price something goes home and explains it at the table,
+                and the whole household learns it too. That is the design. No program of ours
+                has run with students yet, and this site says so wherever it matters.
               </motion.p>
 
               <motion.p
@@ -271,10 +277,12 @@ export default function HomePage() {
                 style={{ fontSize: '1.05rem', lineHeight: 1.7, color: BODY, maxWidth: '56ch',
                   marginBottom: '1.9rem' }}
               >
-                {spellOut(PUBLISHED_YEARS.length)} full school years are written and free this
-                minute, with mathematics and science for Grades 1 to 6 beside the business
-                line. A workbook teaches nobody; a teacher, an aide or a parent at a kitchen
-                table does. If that is you, take a year and start Monday.
+                {spellOut(PUBLISHED_YEARS.length)} school years of workbooks are written and
+                free to download today, with math and science for Grades 1 to 6 beside the
+                business line. Grade 7 is written too: all eight units run in the web app, open
+                to educators now as a preview until a district signs on to run it with
+                students. Grades 8 to 12 come next. If you teach Grades 1 to 6, take a year and
+                start Monday.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
@@ -286,12 +294,16 @@ export default function HomePage() {
                   Take a year, free
                   <ChevronRight size={14} />
                 </Link>
+                <Link href="/teachers" className="btn-secondary">
+                  See the Grade 7 app
+                  <Laptop size={14} />
+                </Link>
               </motion.div>
 
               {/* What has been built, not what it has achieved. */}
               <motion.div variants={fadeUp} className="hero-stats">
-                <StatPill value={String(PUBLISHED_WEEKS)} label="Weeks written" hue={CONNECT} />
-                <StatPill value={String(PUBLISHED_YEARS.length)} label="Full school years" hue={GROW} />
+                <StatPill value={String(PUBLISHED_WEEKS)} label="Workbook weeks" hue={CONNECT} />
+                <StatPill value={String(PUBLISHED_YEARS.length)} label="Workbook years" hue={GROW} />
                 <StatPill value="$0" label="Price, to anyone" hue={SPARK} />
               </motion.div>
             </motion.div>
@@ -303,7 +315,8 @@ export default function HomePage() {
               <p style={{ fontSize: '0.78rem', color: SUBTLE, marginTop: '1rem', maxWidth: '30ch',
                 textAlign: 'center' }}>
                 This is Pip. Pip is a graph: one vertex, five edges, no loops, and exactly one path
-                between any two parts. Pip is on the cover of all {PUBLISHED_YEARS.length} books.
+                between any two parts. Pip is on the cover of all {PUBLISHED_YEARS.length} books,
+                and an older Pip is the tutor in the Grade 7 app.
               </p>
             </motion.div>
           </div>
@@ -353,7 +366,7 @@ export default function HomePage() {
                 That is USC&rsquo;s own published figure for two years of a full-time MBA,
                 and Stanford asks more. It buys you how pricing, capital and ownership
                 actually work, at twenty-eight, on a payment plan. We write the same ideas
-                for children, one assignment a week, and charge nobody.
+                for children, spread across their school years, and charge nobody.
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED, marginBottom: '1rem' }}>
                 It is not a degree and we say so at length. It is the material, ten years
@@ -378,9 +391,9 @@ export default function HomePage() {
                them, because they were built and are free, not because they
                are the mission. Reordered 15 October 2026. */
             { num: '01', title: 'Leadership & Venture', href: '/pathway', cta: 'The ten-year ladder',
-              body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4, 5 and 6 are written and free. From Grade 7 it moves to an app, at each student’s own pace, with guest speakers in person. Grade 7, its first year, is written, and educators can try it in a preview. No student has used it yet.' },
+              body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4, 5 and 6 are written and free. From Grade 7 it moves to our web app: each student at their own pace with Pip, an AI tutor, and guest speakers in person. Grade 7 is written and open to educators in a preview, and Grades 8 to 12 come next. No student has used it yet.' },
             { num: '02', title: 'Financial Literacy', href: '/programs/financial-literacy', cta: 'The four money years',
-              body: 'A child’s own money first, then a plan, then the gap between a price and a cost, then the numbers other people put in front of them. Grades 3 through 6 are written and free. This is the knowledge that usually arrives through a family, which is exactly why it belongs in a school.' },
+              body: 'A child’s own money first, then a plan, then the gap between a price and a cost, then the numbers other people put in front of them. Grades 3 through 6 are written and free, and from Grade 7 it continues in the web app. This is the knowledge that usually arrives through a family, which is exactly why it belongs in a school.' },
             { num: '03', title: 'Mathematics', href: '/programs/discrete-math', cta: 'The six years',
               body: 'Sorting, maps, proofs, routes and rules, beside the state curriculum rather than on top of it. Six complete years, Grades 1 through 6, standards-mapped and downloadable today. It asks for reasoning rather than speed, which is why it reaches the child who is still shaky on regrouping.' },
             { num: '04', title: 'Science', href: '/curriculum', cta: 'Where it sits on the map',
@@ -749,14 +762,18 @@ export default function HomePage() {
               maxWidth: '62ch', marginBottom: '2rem' }}>
               {PUBLISHED_YEARS.length} finished years, free to download and free to run, and
               teachers have written to say they are running them. What has never happened is
-              a program with a roster, a pre and post, and somebody watching. That is the
-              only thing missing, and it is not something we can do by ourselves. If you
-              teach, take a year. If you give, make it the first program anybody can check.
+              a program with a roster, a pre and post, and somebody watching. The Grade 7 web
+              app is built for exactly that, and it needs a district to say yes. If you teach,
+              take a year. If you work for a district, host the first pilot. If you give,
+              make it the first program anybody can check.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link href="/resources" className="btn-primary">
                 Take a year, free
                 <ArrowUpRight size={14} />
+              </Link>
+              <Link href="/partner#pilot" className="btn-secondary">
+                Host the first pilot
               </Link>
               <Link href="/partner#give" className="btn-secondary">
                 Make a gift

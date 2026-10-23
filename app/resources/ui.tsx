@@ -434,7 +434,9 @@ export default function ResourcesUi() {
                 assignments, and the full teacher guide for every one of them.
               </strong>{' '}
               Plus the research paper underneath it. Nothing is a preview and nothing is
-              behind a form.
+              behind a form. These are the printed years, Grades 1 to 6; from Grade 7 the
+              lessons run in our web app instead,{' '}
+              <Link href="/teachers" style={{ color: CONNECT_INK, fontWeight: 600 }}>and here is how that works</Link>.
             </p>
             <p style={{ marginBottom: '0.9rem' }}>
               Run it in your classroom, adapt it for your district, or read it purely to

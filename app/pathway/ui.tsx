@@ -150,7 +150,9 @@ export default function PathwayUi() {
               A child in a Title I elementary school is not in a position to pay that, and
               will not be at twenty-two either. But that child is already sitting in a
               classroom for ten more years. The pathway is the argument that the constraint
-              was never the material. It was the compression, and the price.
+              was never the material. It was the compression, and the price. Grades 3 to 6
+              are printed workbooks. From Grade 7 the lessons move to a web app, with guest
+              speakers in person.
             </p>
           </>
         }
@@ -168,14 +170,16 @@ export default function PathwayUi() {
           <FadeIn>
             <Eyebrow color={GOLD_L}>Before anything else</Eyebrow>
             <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">
-              {written} of the {total} years<br />are actually<br />written.
+              {written} of the {total} years<br />are ready<br />to take today.
             </Title>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p style={{ ...BODY }}>
               {written} of the {total} rungs below exist as finished books a teacher could
-              photocopy tomorrow. The other {total - written} are a plan. The ladder labels
-              every rung, so you never have to guess which one you are reading.
+              photocopy tomorrow. Grade 7 is written as well: it runs in our web app, and
+              educators can try it in a preview until a district signs on to run it with
+              students. The other {total - written - 1} are a plan. The ladder labels every
+              rung, so you never have to guess which one you are reading.
             </p>
             <p style={{ ...BODY, marginBottom: 0, color: WHITE }}>
               No student has completed this pathway, because no student could have. It is
@@ -260,7 +264,8 @@ export default function PathwayUi() {
             maxWidth: '74ch' }}>
             The written rungs are the bottom {written}, Grades 3 through 6, because that is
             where the work started rather than because they matter most. The elementary band
-            runs continuously now. Grade 7 is being written now, for the first pilot.
+            runs continuously now. Grade 7 is written, in the web app, and waiting for the
+            first pilot.
             Everything above it is the furthest out and the most likely to change, and the
             thing most likely to change it is the first students working through Grade 7 and
             telling us what actually happened.

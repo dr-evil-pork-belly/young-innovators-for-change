@@ -50,9 +50,9 @@ export default function PrivacyUi() {
             <p style={{ marginBottom: '0.9rem' }}>
               {P.collecting
                 ? 'This page describes how the Grades 7 to 12 app handles student data today.'
-                : 'No student uses the Grades 7 to 12 app yet, and we hold no data about any '
-                  + 'student. A preview of its first year, Grade 7, is open to adults only, behind a '
-                  + 'passcode. This page is what we commit to before the first student logs '
+                : 'No student uses the Grades 7 to 12 web app yet, and we hold no data about any '
+                  + 'student. Its first year, Grade 7, is built and open to adults only, as a '
+                  + 'passcode preview. This page is what we commit to before the first student logs '
                   + 'in, written now so that a district, a parent or a student can hold us to it.'}
             </p>
             <p style={{ margin: 0 }}>{P.beforeStart}</p>
