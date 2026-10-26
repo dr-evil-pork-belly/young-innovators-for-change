@@ -9,6 +9,7 @@ import {
 } from '@/components/kit';
 import { MATH_LINE } from '@/content/mathLine';
 import { PUBLISHED_WEEKS, PUBLISHED_YEARS } from '@/content/published';
+import { gamesFor, type Game } from '@/content/games';
 
 /**
  * One card per book, not two.
@@ -40,6 +41,8 @@ type Book = {
   guide: string;
   guideMeta: string;
   guideDesc: string;
+  /** The book's key in content/games.ts, for the books whose money weeks run as games. */
+  play?: Game['grade'];
 };
 
 const STRAND_HUE = {
@@ -194,7 +197,7 @@ const SCIENCE_BOOKS: Book[] = [
 const ENTERPRISE_BOOKS: Book[] = [
   {
     name: 'The Venture Year',
-    strand: 'Entrepreneurship', grade: 4,
+    strand: 'Entrepreneurship', grade: 4, play: 'g4',
     move: 'One student, one product, one market day, and an honest answer about whether it made a profit.',
     workbook: '/downloads/venture-year-grade4.pdf', pages: 77,
     desc: '36 weekly assignments in entrepreneurship, two pages each. Students find a real '
@@ -209,7 +212,7 @@ const ENTERPRISE_BOOKS: Book[] = [
   },
   {
     name: 'The Numbers Year',
-    strand: 'Entrepreneurship', grade: 5,
+    strand: 'Entrepreneurship', grade: 5, play: 'g5',
     move: 'Write the forecast before you sell anything, then find out whether the change did anything.',
     workbook: '/downloads/numbers-year-grade5.pdf', pages: 77,
     desc: '36 weekly assignments, the second entrepreneurship year. Teams of two or three '
@@ -228,7 +231,7 @@ const ENTERPRISE_BOOKS: Book[] = [
   },
   {
     name: 'The Market Year',
-    strand: 'Entrepreneurship', grade: 6,
+    strand: 'Entrepreneurship', grade: 6, play: 'g6',
     move: 'Two teams, one category, and a price each of them has to defend against the other.',
     workbook: '/downloads/market-year-grade6.pdf', pages: 77,
     desc: '36 weekly assignments, the third and last elementary entrepreneurship year. '
@@ -387,6 +390,13 @@ function BookCard({ b, i }: { b: Book; i: number }) {
             <p style={{ fontSize: '0.72rem', color: SUBTLE, marginBottom: '0.55rem' }}>
               Workbook: PDF · {b.pages} pages. Guide: {b.guideMeta}.
             </p>
+            {b.play && (
+              <p style={{ fontSize: '0.79rem', lineHeight: 1.65, color: SUBTLE, marginBottom: '0.55rem' }}>
+                {gamesFor(b.play).length} of its weeks also run as games on this site, at the address printed on
+                the page. Nothing is stored and there is no login.{' '}
+                <Link href={`/play#${b.play}`} style={{ color: hue.ink, fontWeight: 600 }}>Play the money weeks</Link>.
+              </p>
+            )}
             <p style={{ fontSize: '0.79rem', lineHeight: 1.65, color: SUBTLE }}>{b.guideDesc}</p>
           </div>
         </div>

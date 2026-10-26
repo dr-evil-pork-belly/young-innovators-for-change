@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { ORG } from '@/content/org';
 import { MATH_LINE } from '@/content/mathLine';
+import { GAMES } from '@/content/games';
 
 /**
  * One entry per book in the math line, derived rather than listed, so adding a
@@ -11,6 +12,12 @@ const MATH_ROUTES = MATH_LINE.map((b) => ({
   priority: 0.85,
   changeFrequency: 'monthly' as const,
 }));
+
+/** One entry per game, derived from content/games.ts the same way. */
+const GAME_ROUTES = [
+  { path: '/play', priority: 0.8, changeFrequency: 'monthly' as const },
+  ...GAMES.map((g) => ({ path: `/play/${g.grade}/${g.week}`, priority: 0.6, changeFrequency: 'yearly' as const })),
+];
 
 const ROUTES = [
   { path: '',                              priority: 1.0,  changeFrequency: 'monthly' as const },
@@ -33,7 +40,7 @@ const ROUTES = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  return [...ROUTES, ...MATH_ROUTES].map(({ path, priority, changeFrequency }) => ({
+  return [...ROUTES, ...MATH_ROUTES, ...GAME_ROUTES].map(({ path, priority, changeFrequency }) => ({
     url: `${ORG.url}${path}`,
     lastModified: now,
     changeFrequency,

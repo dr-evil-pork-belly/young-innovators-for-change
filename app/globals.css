@@ -60,6 +60,9 @@
   }
 }
 
+/* A section reached by its id (/play#g5, /partner#contact) lands below the fixed navbar, not under it. */
+section[id] { scroll-margin-top: 5.5rem; }
+
 html {
   font-size: 16px;
   scroll-behavior: smooth;
