@@ -1139,19 +1139,31 @@ export const DELIVERY = {
  *
  * Decided by David, 21 October 2026: the AI provider is Anthropic, and
  * student data is deleted 60 days after the school year ends.
+ *
+ * Decided by David, 26 October 2026: the page names the provider by category,
+ * not by company. The amended COPPA rule asks the online notice for "the
+ * identities or specific categories" of third parties and the purpose
+ * (16 CFR 312.4(d)), so a category satisfies it; the company is named in every
+ * district data agreement and to any parent who asks (`onRequest`), which the
+ * page says. `provider` below is the record, and is NOT rendered. Counsel to
+ * confirm (claude/43, question 1). See claude/58.
  */
 export const STUDENT_PRIVACY = {
   collecting: false,
 
+  /** The record. Not rendered on the page; named in district agreements and on request. */
   provider: {
     name: 'Anthropic',
     product: 'Claude',
-    /** Commercial Terms, section B, checked 21 October 2026. */
-    noTraining: 'Anthropic’s commercial terms say it may not train its models on '
-      + 'what customers send it.',
+    /** Commercial Terms, section B, checked 21 October 2026: "Anthropic may
+     *  not train models on Customer Content from Services." */
     termsUrl: 'https://www.anthropic.com/legal/commercial-terms',
-    minorsUrl: 'https://support.claude.com/en/articles/9307344-responsible-use-of-anthropic-s-models-guidelines-for-organizations-serving-minors',
   },
+
+  /** Rendered under the who-can-see list, so the category stays checkable. */
+  onRequest:
+    'We name the AI provider in every district data agreement, and to any parent '
+    + 'who asks.',
 
   /** What the app will collect, and why each item is needed. */
   collected: [
@@ -1184,8 +1196,8 @@ export const STUDENT_PRIVACY = {
     'The student.',
     'The teacher at the school who sponsors the program.',
     'Our staff, to check that the tutor is teaching what the lessons say.',
-    'Anthropic, which processes each message to the tutor in order to write its '
-    + 'reply, and may not train its models on it.',
+    'The AI service that runs Pip, which processes each message only to write the '
+    + 'reply. Its terms forbid it from training its models on what we send.',
   ],
 
   /** The written retention policy COPPA requires in the online notice. */

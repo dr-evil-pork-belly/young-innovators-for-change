@@ -114,7 +114,7 @@ export default function PrivacyUi() {
           gap: 'clamp(2rem, 5vw, 4rem)', alignItems: 'start' }}>
           <FadeIn>
             <Eyebrow color={ROYAL_L}>Who can see it</Eyebrow>
-            <Title size="clamp(1.9rem, 4vw, 3.2rem)">Three kinds of people.<br />One company.</Title>
+            <Title size="clamp(1.9rem, 4vw, 3.2rem)">Three kinds of people.<br />One AI service.</Title>
           </FadeIn>
           <FadeIn delay={0.1}>
             <ul style={LIST}>
@@ -122,14 +122,7 @@ export default function PrivacyUi() {
                 <Item key={w} icon={Eye} color={ROYAL_L}>{w}</Item>
               ))}
             </ul>
-            <p style={{ ...BODY, marginTop: '1.5rem' }}>
-              Pip, the tutor, runs on {P.provider.product}, made by {P.provider.name}.{' '}
-              {P.provider.noTraining}{' '}
-              <a href={P.provider.termsUrl} target="_blank" rel="noopener noreferrer"
-                style={{ color: ROYAL_L }}>Read the terms</a>, and {P.provider.name}&rsquo;s{' '}
-              <a href={P.provider.minorsUrl} target="_blank" rel="noopener noreferrer"
-                style={{ color: ROYAL_L }}>rules for products used by young people</a>.
-            </p>
+            <p style={{ ...BODY, marginTop: '1.5rem' }}>{P.onRequest}</p>
           </FadeIn>
         </div>
       </Section>
