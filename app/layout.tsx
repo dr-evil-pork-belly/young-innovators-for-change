@@ -25,6 +25,7 @@ import '@fontsource-variable/baloo-2'
 import '@fontsource-variable/public-sans'
 import './globals.css'
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 import { ORG } from '@/content/org'
 
 export const metadata: Metadata = {
@@ -70,7 +71,9 @@ const orgJsonLd = {
   '@type': 'NGO',
   name: ORG.legalName,
   url: ORG.url,
+  legalName: ORG.legalName,
   taxID: ORG.taxStatus.ein,
+  email: ORG.contactEmail,
   nonprofitStatus: 'Nonprofit501c3',
   foundingDate: ORG.incorporation.initialFilingDate,
   address: {
@@ -100,6 +103,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         <main style={{ paddingTop: '4.5rem' }}>{children}</main>
+        <Footer />
       </body>
     </html>
   )

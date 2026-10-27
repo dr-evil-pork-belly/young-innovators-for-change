@@ -62,8 +62,9 @@ export const ORG = {
   /** verified, CA Secretary of State. Principal office of the corporation,
    *  the legal address of record, as filed on the Statement of Information of
    *  5 October 2026 (`incorporation.statementOfInfoFileNo`). It replaced the
-   *  original registered office at 28 Geary Street, Suite 650, San Francisco,
-   *  CA 94108. This is where the organization is, not where programs are
+   *  original office at 166 Geary St, Ste 1500, Box 2512, San Francisco,
+   *  CA 94108, which the IRS still has until a Form 8822-B is filed. This is
+   *  where the organization is, not where programs are
    *  delivered, see `serviceArea`. */
   address: {
     street:  '301 E Arrow Hwy, Ste 101',
