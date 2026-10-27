@@ -15,9 +15,9 @@ export default function PlayUi() {
           <p style={{ marginBottom: '0.9rem' }}>
             Some weeks of the enterprise workbooks are a thing you can run, not only read: a cost that
             spreads thinner the more you make, a price that sells fewer, a loss that turns into a profit
-            one sale at a time. Those weeks have a game here, at the address printed on the page.
+            one sale at a time. Those weeks have a game here.
           </p>
-          <p>Each game runs the week&rsquo;s own numbers. Nothing is stored, nothing is collected, and there is nothing to sign up for.</p>
+          <p>Each game runs the week&rsquo;s own numbers. Nothing is stored and there is nothing to sign up for.</p>
         </>} />
       {grades.map((g) => (
         <Section key={g} id={g}>

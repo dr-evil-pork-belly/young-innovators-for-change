@@ -140,19 +140,18 @@ export default function PathwayUi() {
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              A graduate business school takes the core of how commerce works and compresses
-              it into roughly two years, for adults, at a price. {MBA_COST.usc.school} puts
-              the two years of its full-time MBA at {usd(usc)} in tuition, fees and
-              insurance. {MBA_COST.stanford.school} puts the first nine months alone
+              A graduate business school compresses the core of how commerce works into
+              roughly two years, for adults, at a price. {MBA_COST.usc.school} puts the two
+              years of its full-time MBA at {usd(usc)} in tuition, fees and insurance.{' '}
+              {MBA_COST.stanford.school} puts the first nine months alone
               at {usd(MBA_COST.stanford.totalNineMonths)}.
             </p>
             <p style={{ margin: 0 }}>
-              A child in a Title I elementary school is not in a position to pay that, and
-              will not be at twenty-two either. But that child is already sitting in a
-              classroom for ten more years. The pathway is the argument that the constraint
-              was never the material. It was the compression, and the price. Grades 3 to 6
-              are printed workbooks. From Grade 7 the lessons move to a web app, with guest
-              speakers in person.
+              A child in a Title I elementary school cannot pay that, and will not be able to
+              at twenty-two either. But that child is already sitting in a classroom for ten
+              more years. The constraint was never the material. It was the compression, and
+              the price. Grades 3 to 6 are printed workbooks. From Grade 7 the lessons move
+              to a web app, with guest speakers in person.
             </p>
           </>
         }
@@ -175,16 +174,14 @@ export default function PathwayUi() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p style={{ ...BODY }}>
-              {written} of the {total} rungs below exist as finished books a teacher could
-              photocopy tomorrow. Grade 7 is written as well: it runs in our web app, and
-              educators can try it in a preview until a district signs on to run it with
-              students. The other {total - written - 1} are a plan. The ladder labels every
-              rung, so you never have to guess which one you are reading.
+              {written} of the {total} rungs below are finished books a teacher could
+              photocopy tomorrow. Grade 7 is written too, in our web app, open to educators
+              as a preview. The other {total - written - 1} are a plan. Every rung is
+              labeled, so you never have to guess which you are reading.
             </p>
             <p style={{ ...BODY, marginBottom: 0, color: WHITE }}>
               No student has completed this pathway, because no student could have. It is
-              published now because the shape of it is the thing worth arguing with, not
-              because it is done.
+              published now because the shape is worth arguing with, not because it is done.
             </p>
           </FadeIn>
         </div>
@@ -200,19 +197,17 @@ export default function PathwayUi() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p style={BODY}>
-              This is Cindy&rsquo;s account, and it is the reason the organization is built the
-              way it is. She had already run a business, profitably, for years. She went
-              through the two years anyway, and it was only inside them that the way a
-              business actually thinks became something she held rather than something she
-              improvised.
+              This is Cindy&rsquo;s account, and it is why the organization is built the way it
+              is. She had already run a business, profitably, for years. She went through the
+              two years anyway, and only inside them did the way a business thinks become
+              something she held rather than improvised.
             </p>
             <p style={BODY}>
-              Her read on that is not that the material is hard. It is that two years is a
-              compression schedule, priced and paced for adults who are already fluent in the
-              vocabulary, and that the compression is doing a lot of the damage. Spread the
-              same ideas over the years a child is in school anyway and there is no schedule
-              to keep up with. There is one idea a week, met again the next year in a slightly
-              larger form.
+              Her read is not that the material is hard. It is that two years is a compression
+              schedule, priced and paced for adults already fluent in the vocabulary, and the
+              compression does a lot of the damage. Spread the same ideas over the years a
+              child is in school anyway and there is no schedule to keep up with: one idea a
+              week, met again the next year in a slightly larger form.
             </p>
             <div style={{ borderLeft: `3px solid ${GOLD}`, paddingLeft: 'clamp(1.1rem, 3vw, 1.75rem)',
               margin: '2rem 0' }}>
@@ -229,9 +224,8 @@ export default function PathwayUi() {
             </div>
             <p style={{ ...BODY, marginBottom: 0, color: WHITE }}>
               She graduated at the top of her class at every stage, and says plainly that this
-              was effort rather than talent. That matters here for one reason: the pathway is
-              built for students willing to work, and she is not asking them for anything she
-              did not do.
+              was effort, not talent. That matters for one reason: the pathway is built for
+              students willing to work, and she is not asking anything of them she did not do.
             </p>
           </FadeIn>
         </div>
@@ -245,9 +239,9 @@ export default function PathwayUi() {
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '64ch',
             marginTop: '1rem' }}>
             Each row is a school year, what a student does in it, and the graduate course that
-            eventually formalizes the same idea. That last column is our own mapping. It is an
-            argument about the order things can be learned in, not a claim of equivalence, and
-            certainly not a claim of credit.
+            eventually formalizes the same idea. That last column is our own mapping: an
+            argument about the order things can be learned in, not a claim of equivalence or
+            credit.
           </p>
         </FadeIn>
 
@@ -262,13 +256,11 @@ export default function PathwayUi() {
         <FadeIn delay={0.2}>
           <p style={{ fontSize: '0.78rem', lineHeight: 1.7, color: SLATE_3, marginTop: '1.5rem',
             maxWidth: '74ch' }}>
-            The written rungs are the bottom {written}, Grades 3 through 6, because that is
-            where the work started rather than because they matter most. The elementary band
-            runs continuously now. Grade 7 is written, in the web app, and waiting for the
-            first pilot.
-            Everything above it is the furthest out and the most likely to change, and the
-            thing most likely to change it is the first students working through Grade 7 and
-            telling us what actually happened.
+            The written rungs are the bottom {written}, Grades 3 to 6, because that is where
+            the work started, not because they matter most. Grade 7 is written and waiting for
+            the first pilot. Everything above it is the most likely to change, and the thing
+            most likely to change it is the first students working through Grade 7 and telling
+            us what happened.
           </p>
         </FadeIn>
       </Section>
@@ -283,8 +275,8 @@ export default function PathwayUi() {
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '52ch',
               marginTop: '1rem' }}>
               There is a version of this page that ends with a student graduating high school
-              having quietly earned a business degree. It is a better sentence than it is a
-              true one, so here is the true one instead.
+              having quietly earned a business degree. It is a better sentence than a true one,
+              so here is the true one.
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -301,8 +293,8 @@ export default function PathwayUi() {
               maxWidth: '56ch' }}>
               What a student would have instead, if all ten years get written and they take
               them, is ten years of practice with the ideas a business degree covers, met
-              early enough to change what they can see. That is a smaller claim, and it is
-              the one we can defend.
+              early enough to change what they can see. A smaller claim, and one we can
+              defend.
             </p>
           </FadeIn>
         </div>
@@ -315,9 +307,9 @@ export default function PathwayUi() {
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">Nobody can be<br />made to want this.</Title>
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '64ch',
             marginTop: '1rem' }}>
-            The pathway is offered, never required, and that is a design constraint rather
-            than a courtesy. A student who does not want it will not absorb it, and a student
-            who does should not have to get past us to reach it.
+            The pathway is offered, never required. That is a design constraint, not a
+            courtesy: a student who does not want it will not absorb it, and a student who
+            does should not have to get past us to reach it.
           </p>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
@@ -337,13 +329,12 @@ export default function PathwayUi() {
             background: '#FFFFFF', border: '1px solid rgba(255,122,61,0.2)',
             borderRadius: '4px', maxWidth: '76ch' }}>
             <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, margin: 0 }}>
-              The honest risk in an opt-in design is that the students who opt in are the ones
-              who were already going to be fine, and that the program ends up widening the gap
-              it was built to close. We do not have an answer to that yet. It is written down
-              as a stated risk on the{' '}
+              The risk in an opt-in design is that the students who opt in were already going
+              to be fine, and the program widens the gap it was built to close. We do not have
+              an answer to that yet. It is listed as a risk on the{' '}
               <Link href="/impact" style={{ color: GOLD_L, textDecoration: 'none',
                 borderBottom: `1px solid ${GOLD}55` }}>evidence page</Link>, and it is one of
-              the first things the first pilot would need to measure.
+              the first things the pilot has to measure.
             </p>
           </div>
         </FadeIn>
@@ -358,10 +349,10 @@ export default function PathwayUi() {
             marginTop: '1rem' }}>
             None of these studies tested our program. They are what researchers have found
             about how people remember, how children learn about money, what happens when
-            teenagers run a business, and what keeps people motivated. We built the design on
-            them. Each card says in plain words what the study found and where it stops
-            backing us up. Researchers disagree about whether financial education works at
-            all, and one of the strongest studies says it barely does.
+            teenagers run a business, and what keeps people motivated. Each card says in plain
+            words what the study found and where it stops backing us up. Researchers disagree
+            about whether financial education works at all, and one of the strongest studies
+            says it barely does.
           </p>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
@@ -375,9 +366,8 @@ export default function PathwayUi() {
         <FadeIn delay={0.3}>
           <p style={{ fontSize: '0.82rem', lineHeight: 1.8, color: SLATE_3, marginTop: '2rem',
             maxWidth: '74ch' }}>
-            If you know this research and think we have described a study wrong, please tell
-            us. Every study on this page lives in one file in the site&rsquo;s code, the same
-            file that holds every other fact on this site.
+            If you know this research and think we have described a study wrong, tell us.
+            Every study here lives in the same file that holds every other fact on this site.
           </p>
         </FadeIn>
       </Section>
@@ -392,9 +382,8 @@ export default function PathwayUi() {
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
                 color: WHITE, marginBottom: '0.4rem' }}>Ten years starts with one.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '56ch' }}>
-                {written} of the {total} years are finished and free to download. The fastest
-                way to find out whether any of this holds up is for one teacher to run one of
-                them.
+                {written} of the {total} years are finished and free. The fastest way to find
+                out whether any of this holds up is for one teacher to run one of them.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>

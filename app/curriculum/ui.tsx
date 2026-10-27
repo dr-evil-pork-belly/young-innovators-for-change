@@ -89,8 +89,8 @@ export default function CurriculumUi() {
           <>
             <p style={{ marginBottom: '0.9rem' }}>
               We are building mathematics and science across Grades 1&ndash;12, and leadership,
-              entrepreneurship and financial literacy from Grade 3 upward. That is the plan. It
-              will take years, and most of the grid below still says so.
+              entrepreneurship and financial literacy from Grade 3 up. It will take years, and
+              most of the grid below still says so.
             </p>
             <p style={{ margin: 0 }}>
               Every cell carries an honest label, so nobody has to guess which parts are real.{' '}
@@ -162,16 +162,16 @@ export default function CurriculumUi() {
         <FadeIn delay={0.3}>
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '1.25rem', maxWidth: '72ch' }}>
             A band marked <em>published</em> means at least one complete year in it can be
-            downloaded and run today, and the note on the cell names exactly which grades those
-            are. Mathematics and science read published across three bands because Grades 1
-            through 6 are written; Grades 7 and 8 are not, and the cells say so.
+            downloaded and run today, and the cell names which grades. Mathematics and science
+            read published across three bands because Grades 1 to 6 are written; Grades 7 and 8
+            are not, and the cells say so.
           </p>
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '0.75rem', maxWidth: '72ch' }}>
             Much of this grid still says <em>planned</em>, and publishing it that way is the
             point. An organization founded in {foundedYear()} with {PUBLISHED_YEARS.length}{' '}
-            finished years of curriculum, {PUBLISHED_WEEKS} weekly assignments and no program
-            yet run with students is exactly what we are. The grid is how that becomes a K&ndash;12 program,
-            one honest cell at a time.
+            finished years, {PUBLISHED_WEEKS} weekly assignments and no program yet run with
+            students is what we are. The grid is how that becomes a K&ndash;12 program, one
+            honest cell at a time.
           </p>
         </FadeIn>
       </Section>
@@ -195,20 +195,17 @@ export default function CurriculumUi() {
                 Mathematics &amp; science
               </h3>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
-                Weekly enrichment that runs alongside the state curriculum. Reasoning-first,
-                low materials cost, printable in black and white, and sequenced so each week
+                Weekly enrichment alongside the state curriculum. Reasoning-first, low
+                materials cost, printable in black and white, and sequenced so each week
                 reinforces the standard the class is already teaching.
               </p>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
-                Grades 1 through 6 are written, as six separate school years that each teach one
-                new mathematical move: sort it, see it, count it, rule it out, cost it,
-                generalize it. Any one of them runs on its own, and the elementary band is now
-                continuous from Grade 1 to Grade 6.
+                Mathematics has six years, Grades 1 to 6, each teaching one new move: sort it,
+                see it, count it, rule it out, cost it, generalize it. Any one of them runs on
+                its own.
               </p>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
-                Science has six years: Look and Listen (Grade 1), Look Closer (Grade 2),
-                What Made That Happen? (Grade 3), Where Did It Go? (Grade 4), Too Small to See
-                (Grade 5) and Inside the System (Grade 6), thirty-six weeks each. Grades 7 and 8
+                Science has six years too, Grades 1 to 6, thirty-six weeks each. Grades 7 and 8
                 are deliberately unwritten, and high school science is not written yet.
               </p>
               <Link href="/programs/discrete-math" style={{ display: 'inline-flex', alignItems: 'center',
@@ -230,18 +227,15 @@ export default function CurriculumUi() {
               </h3>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
                 In the elementary grades this runs as a full school year, one assignment a
-                week, delivered by whoever is already in the room, because younger students
-                hold this better spread out than compressed. The Grades 4, 5 and 6 years are
-                written, which makes the elementary band continuous. From Grade 7 it takes a
+                week, delivered by whoever is already in the room. From Grade 7 it takes a
                 different shape: a web app where each student works at their own pace with
-                Pip, an AI tutor, and guest speakers from business in person in place of
-                classwork. Grade 7 is written, all eight units, and educators can try it now in
-                a preview. Grades 8 to 12 come next. No student has used it yet.{' '}
+                Pip, an AI tutor, plus guest speakers from business in person. Grade 7 is
+                written and open to educators in a preview. Grades 8 to 12 come next.{' '}
                 <Link href="/teachers" style={{ color: GOLD_L }}>Why the two shapes differ</Link>.
               </p>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
-                This is the knowledge that usually arrives through a family, not a school. That
-                is precisely why it belongs in one.
+                This is knowledge that usually arrives through a family, not a school. That is
+                why it belongs in one.
               </p>
               <Link href="/pathway" style={{ display: 'inline-flex', alignItems: 'center',
                 gap: '0.4rem', fontSize: '0.8rem', fontWeight: 600, color: GOLD_L,
@@ -257,8 +251,8 @@ export default function CurriculumUi() {
             border: '1px solid rgba(45,91,227,0.14)', borderRadius: '4px', maxWidth: '860px' }}>
             <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, margin: 0 }}>
               The two tracks share one idea: the material that decides how far a child gets is
-              usually rationed by what their family already knows or can pay for. We write it
-              properly once, then remove the price.
+              usually rationed by what their family knows or can pay for. We write it properly
+              once, then remove the price.
             </p>
           </div>
         </FadeIn>
@@ -280,20 +274,19 @@ export default function CurriculumUi() {
             // eight units were written and running in the web app preview.
             { n: '01', a: GREEN_L, t: 'Run the first pilot, and measure it',
               d: 'Grade 7 is written and running in the web app. Next is one unit in the '
-               + 'spring as a test, then the full year. The plan for measuring it goes up in '
-               + 'public before the first lesson. Nothing else on this list can substitute '
-               + 'for students actually using it.' },
+               + 'spring as a test, then the full year, with the measurement plan posted in '
+               + 'public before the first lesson. Nothing else on this list substitutes for '
+               + 'students using it.' },
             { n: '02', a: GOLD_L, t: 'Grades 8 to 12, in the same app',
-              d: 'The other five years of the web app are mapped, one idea a year, and come '
-               + 'next. None is written yet.' },
+              d: 'The other five years are mapped, one idea a year. None is written yet.' },
             { n: '03', a: ROYAL_L, t: 'Split the years into single weeks',
               d: `${PUBLISHED_WEEKS} two-page assignments currently ship as ${PUBLISHED_YEARS.length} `
-               + 'all-or-nothing PDFs. One week is a far easier thing for a teacher to try, and '
-               + 'each one names a standard a teacher might search for.' },
-            { n: '04', a: SLATE_3, t: 'Science, and the upper grades',
-              d: 'Grades 1 to 6 science are written. High school science and the upper grades are '
-               + 'still the largest part of the grid and the furthest out. We would rather say '
-               + 'that plainly than imply they are nearly done.' },
+               + 'all-or-nothing PDFs. One week is far easier for a teacher to try, and each '
+               + 'names a standard a teacher might search for.' },
+            { n: '04', a: SLATE_3, t: 'The upper grades',
+              d: 'High school science and the upper grades are the largest part of the grid '
+               + 'and the furthest out. We would rather say so than imply they are nearly '
+               + 'done.' },
           ].map((s, i) => (
             <FadeIn key={s.n} delay={i * 0.06}>
               <div style={{ borderTop: `2px solid ${s.a}`, paddingTop: '1rem', height: '100%' }}>
@@ -315,9 +308,9 @@ export default function CurriculumUi() {
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
                 color: WHITE, marginBottom: '0.4rem' }}>Green cells move faster than gray ones.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '56ch' }}>
-                Curriculum writers, subject specialists and funders all turn planned cells into
-                published ones. So does one teacher willing to run a year that already exists
-                and tell us where it broke.
+                Curriculum writers, subject specialists and funders turn planned cells into
+                published ones. So does one teacher willing to run a year that exists and tell
+                us where it broke.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>

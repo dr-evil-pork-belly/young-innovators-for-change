@@ -82,17 +82,15 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
             </div>
             <div>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-                The outline below is real and it is finished. It was written for a summer
-                program that has since been cut, and the lessons that would let anyone teach
-                it, in the Grades 7 to 12 app or anywhere else, are not written. No student
-                has worked through it, so there is nothing on this page about results, and
-                there will not be until there is something true to report.
+                The outline below is real and finished. It was written for a summer program
+                that has since been cut, and the lessons that would let anyone teach it are
+                not written. No student has worked through it, so there is nothing here about
+                results.
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE }}>
-                What is written: the elementary workbooks, free and ready to run today, one
-                page a week inside the school year, and the Grade 7 year of our web app, open
-                to educators in a preview. The bands below say where this line stands, grade
-                by grade.{' '}
+                What is written: the elementary workbooks, free and ready to run today, and the
+                Grade 7 year of our web app, open to educators in a preview. The bands below say
+                where this line stands, grade by grade.{' '}
                 <Link href="/resources" style={{ color: GOLD_L, textDecoration: 'none',
                   borderBottom: `1px solid ${GOLD}55` }}>Take a finished year</Link>.
               </p>
@@ -265,11 +263,11 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
           <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginTop: '2rem',
             maxWidth: '70ch' }}>
             We publish the right-hand column because a school deciding whether to wait for this
-            program needs to know how far away it is, and because a funder who finds the gap
-            themselves will reasonably wonder what else was left out.{' '}
+            program needs to know how far away it is, and a funder who finds the gap themselves
+            will wonder what else was left out.{' '}
             <Link href="/curriculum" style={{ color: ROYAL_L, textDecoration: 'none',
               borderBottom: '1px solid rgba(45,91,227,0.4)' }}>The full map</Link> carries the
-            same status for every grade band we have not reached.
+            same status for every grade band.
           </p>
         </FadeIn>
       </Section>
@@ -283,8 +281,8 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
               <Title size="clamp(1.6rem, 3.2vw, 2.5rem)">Want this one<br />built sooner?</Title>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginTop: '1rem' }}>
                 What moves a program from designed to written is a school willing to run the
-                first one and the funding to write the materials properly. If either of those is
-                you, that is the conversation we want to have.
+                first one and the funding to write the materials properly. If either is you,
+                that is the conversation we want to have.
               </p>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>

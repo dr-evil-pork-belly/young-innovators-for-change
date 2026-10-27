@@ -23,56 +23,56 @@ const COMMITMENTS = [
     icon: Lock, accent: GREEN_L,
     t: 'Nothing a student makes is ours to sell',
     d: 'A venture built in the program belongs to the student who built it. We take no '
-     + 'equity, no license, no right of first refusal, and no claim on anything they go on '
-     + 'to do with it. This is stated here because youth entrepreneurship programs have '
-     + 'not always been clear about it.',
+     + 'equity, no license, no right of first refusal, and no claim on anything they do with '
+     + 'it. We say so because youth entrepreneurship programs have not always been clear '
+     + 'about it.',
   },
   {
     icon: FileSignature, accent: ROYAL_L,
     t: 'Consent is separate from enrollment, and revocable',
     d: 'We will not use a student\'s name, face, work or story in fundraising or marketing '
      + 'without written permission from them and their guardian, asked for separately from '
-     + 'signing up, and withdrawable at any point afterward with the material taken down. '
-     + 'A child should not have to become a case study to get a free program.',
+     + 'signing up, and withdrawable at any time. A child should not have to become a case '
+     + 'study to get a free program.',
   },
   {
     icon: ShieldCheck, accent: GOLD_L,
     t: 'Student data does not leave',
     d: 'No student data is sold, traded, shared with partners or funders, or used to market '
-     + 'anything to a family. Measurement is reported at the classroom level. Individually '
-     + 'identifiable records stay with the school.',
+     + 'anything to a family. Measurement is reported at the classroom level. Identifiable '
+     + 'records stay with the school.',
   },
   {
     icon: Users, accent: GREEN_L,
     t: 'Access does not end at graduation',
-    d: 'Everything we publish stays free to everyone who has been through a program, and to '
-     + 'everyone who has not. There is no alumni tier, no paid upgrade, and no version of '
-     + 'this organization in which the good material sits behind a relationship.',
+    d: 'Everything we publish stays free to everyone, whether they have been through a '
+     + 'program or not. No alumni tier, no paid upgrade, no good material behind a '
+     + 'relationship.',
   },
   {
     icon: Compass, accent: ROYAL_L,
     t: 'A reference comes from a person or not at all',
-    d: 'If a graduate asks us to vouch for them, they get a letter from someone who actually '
-     + 'taught them, describing what that person actually saw. We will not generate '
-     + 'certificates of participation that imply more than attendance.',
+    d: 'If a graduate asks us to vouch for them, they get a letter from someone who taught '
+     + 'them, describing what that person saw. We will not generate certificates of '
+     + 'participation that imply more than attendance.',
   },
 ];
 
 const NOT_PROMISING = [
   'Internships or job placement. We have no employer relationships and will not imply that we do.',
   'Introductions to investors. Adults on a pitch panel are there to ask good questions, not to fund children.',
-  'Scholarships or financial awards. If that ever changes it will be announced with the criteria attached.',
+  'Scholarships or financial awards. If that changes it will be announced with the criteria attached.',
   'A guaranteed mentor. Mentorship depends on volunteers, and promising a person we have not recruited is how programs disappoint families.',
 ];
 
 const INTENT = [
   { t: 'A directory people opt into',
     d: 'Graduates choose to be listed. Nobody is added by default, and anyone can leave and '
-     + 'be removed from the record rather than archived.' },
+     + 'be removed rather than archived.' },
   { t: 'Older students teaching younger ones',
-    d: 'The most useful thing a high school graduate of the program can do is stand in front '
-     + 'of a room of seventh graders and tell them what the six years were like. It is also '
-     + 'the cheapest way for this to keep running without us.' },
+    d: 'The most useful thing a graduate can do is stand in front of a room of seventh '
+     + 'graders and tell them what the six years were like. It is also the cheapest way for '
+     + 'this to keep running without us.' },
   { t: 'A standing invitation back',
     d: 'Anyone who has been through a program can come back to a later in-person session as a '
      + 'guest, a panelist or a host, at whatever level of commitment they have room for.' },
@@ -89,14 +89,14 @@ export default function AlumniUi() {
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              No program of ours has run, so this organization has no alumni, no success stories and no
-              network. A page claiming otherwise would be the easiest lie on this website to
-              tell and the hardest one to walk back.
+              No program of ours has run, so we have no alumni, no success stories and no
+              network. A page claiming otherwise would be the easiest lie on this site to tell
+              and the hardest to walk back.
             </p>
             <p style={{ margin: 0 }}>
               So it does the opposite. What an organization owes the children who go through it
-              is easiest to decide honestly now, while it costs nothing, nobody is watching, and
-              there is no awkward case that makes us want to bend it.
+              is easiest to decide now, while it costs nothing and there is no awkward case that
+              makes us want to bend it.
             </p>
           </>
         }
@@ -118,9 +118,8 @@ export default function AlumniUi() {
           <Title size="clamp(1.9rem, 4vw, 3.2rem)">Five things that<br />will not change.</Title>
           <p style={{ fontSize: '0.92rem', lineHeight: 1.8, color: MUTED, maxWidth: '66ch',
             marginTop: '1rem' }}>
-            These are written as commitments rather than intentions, which means we expect to be
-            held to them, and that changing one would require saying so on this page with the
-            reason.
+            These are commitments, not intentions. We expect to be held to them, and changing
+            one means saying so on this page, with the reason.
           </p>
         </FadeIn>
 
@@ -163,9 +162,8 @@ export default function AlumniUi() {
             <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">What we are<br />not promising.</Title>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '52ch',
               marginTop: '1rem' }}>
-              Every item below is something organizations at our stage routinely imply and
-              rarely deliver. Naming them costs us nothing today and protects a family from
-              expecting something later.
+              Organizations at our stage routinely imply these and rarely deliver them. Naming
+              them costs us nothing today and protects a family from expecting them later.
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -189,8 +187,8 @@ export default function AlumniUi() {
           <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">What we want<br />this to become.</Title>
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '62ch',
             marginTop: '1rem' }}>
-            Design intent, written down so it can be argued with. None of it exists, and none of
-            it will until there are first students to build it around.
+            Design intent, written down so it can be argued with. None of it exists yet, and
+            none will until there are students to build it around.
           </p>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
@@ -215,10 +213,9 @@ export default function AlumniUi() {
             <div style={{ maxWidth: '60ch' }}>
               <Title size="clamp(1.6rem, 3.2vw, 2.5rem)">The way to make<br />this page real.</Title>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginTop: '1rem' }}>
-                One pilot year, and a district willing to go first. Every commitment
-                on this page stays hypothetical until that happens. The elementary books are
-                written and sitting there, free, and the Grade 7 web app is built and open to
-                educators in a preview. What is missing is a district that says yes.
+                One pilot year, and a district willing to go first. Every commitment on this
+                page stays hypothetical until then. The books are written and free, and the
+                Grade 7 web app is built. What is missing is a district that says yes.
               </p>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
@@ -229,8 +226,7 @@ export default function AlumniUi() {
           <p style={{ fontSize: '0.8rem', lineHeight: 1.7, color: SLATE_3, marginTop: '2rem',
             maxWidth: '72ch' }}>
             When there are graduates, this page will carry their names only where they and their
-            guardians have asked for that in writing, and it will still carry the commitments
-            above.
+            guardians have asked for it in writing, and it will still carry the commitments above.
           </p>
         </FadeIn>
       </Section>

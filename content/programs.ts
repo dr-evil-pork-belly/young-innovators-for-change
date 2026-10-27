@@ -59,34 +59,28 @@ const leadership: ProgramSpec = {
   titleLines: ['LEADING IS A SET', 'OF BEHAVIORS.', 'BEHAVIORS CAN BE TAUGHT.'],
   accent: 'royal',
   lede: [
-    'Most children are told that some people are natural leaders. That framing is both '
-    + 'wrong and expensive: it tells the quiet child the door is closed, and it tells the '
-    + 'loud one there is nothing left to learn.',
-    'This program treats leadership as a set of specific, nameable behaviors, and teaches '
-    + 'them one at a time. The syllabus below was written as an eight-week summer program, '
-    + 'scaling in difficulty from a Founders Track in the middle grades to an Executives '
-    + 'Track in high school. Summer programs were cut in October 2026. From Grade 7 these '
-    + 'ideas belong to the Grades 7 to 12 program: lessons in our web app, plus guest '
-    + 'speakers and fireside chats in person. Its Grade 7 year is written and open to '
-    + 'educators in a preview. The years that carry these leadership ideas come later and '
-    + 'are not written yet.',
-    'In the middle grades this is the one part of the program that is not really about '
-    + 'business at all. A thirteen-year-old who can structure an argument, read a room '
-    + 'and carry a decision is better off for it in every other part of their life, the '
-    + 'high school years they are walking toward included, whether or not they ever '
-    + 'start anything.',
+    'Most children are told that some people are natural leaders. That framing is wrong '
+    + 'and expensive: it tells the quiet child the door is closed, and the loud one that '
+    + 'there is nothing left to learn.',
+    'This program treats leadership as a set of nameable behaviors and teaches them one '
+    + 'at a time. The syllabus below was written as an eight-week summer program, since '
+    + 'cut. From Grade 7 these ideas belong to the web app program, with guest speakers '
+    + 'and fireside chats in person. The years that carry them are not written yet.',
+    'This is the one part of the program that is not really about business. A '
+    + 'thirteen-year-old who can structure an argument, read a room and carry a decision '
+    + 'is better off in every part of their life, whether or not they ever start anything.',
   ],
   unitsLabel: 'The three strands',
   unitsIntro:
-    'Leadership runs as three interleaved strands rather than eight separate topics, '
-    + 'because the skills only work together. A student who can structure an argument but '
-    + 'cannot read a room has learned debate, not leadership.',
+    'Leadership runs as three interleaved strands because the skills only work together. '
+    + 'A student who can structure an argument but cannot read a room has learned debate, '
+    + 'not leadership.',
   units: [
     {
       n: '01', when: 'Strand one', title: 'Emotional intelligence',
       tagline: 'Know yourself before you lead anyone else.',
-      desc: 'Self-awareness, empathy, emotional regulation and social fluency. This strand '
-          + 'runs first because every other skill in the program degrades without it.',
+      desc: 'Self-awareness, empathy, emotional regulation and social fluency. It runs '
+          + 'first because every other skill degrades without it.',
       items: [
         'Self-awareness mapping and a personal SWOT',
         'Reading the room: social and emotional cues',
@@ -99,8 +93,8 @@ const leadership: ProgramSpec = {
       n: '02', when: 'Strand two', title: 'Public speaking',
       tagline: 'An idea travels no further than the person explaining it.',
       desc: 'Vocal presence, structured argument and the ability to hold a room. Built '
-          + 'toward a five-minute presentation with questions afterward, because the '
-          + 'questions are where composure is actually tested.',
+          + 'toward a five-minute talk with questions afterward, because the questions '
+          + 'are where composure is tested.',
       items: [
         'Vocal projection, pace and deliberate silence',
         'Body language and non-verbal signal',
@@ -112,14 +106,13 @@ const leadership: ProgramSpec = {
     {
       n: '03', when: 'Strand three', title: 'Executive presence',
       tagline: 'Presence is not volume. It is earned attention.',
-      desc: 'The teachable components of the thing adults call presence: composure under '
-          + 'pressure, decisive language, and the ability to lead without holding a title. '
-          + 'This is the strand most obviously rationed by family background, which is '
-          + 'why it is in the program.',
+      desc: 'The teachable parts of what adults call presence: composure under pressure, '
+          + 'decisive language, and leading without a title. This is the strand most '
+          + 'rationed by family background, which is why it is here.',
       items: [
         'Posture, space and stillness',
         'Decisive language, and why hedging reads as uncertainty',
-        'First impressions, and what is actually being read',
+        'First impressions, and what is being read',
         'Speaking to adults as an equal',
       ],
       deliverable: 'A recorded before and after the student keeps',
@@ -127,22 +120,20 @@ const leadership: ProgramSpec = {
   ],
   principles: [
     { t: 'Behaviors, not traits',
-      d: 'Every objective in the syllabus is written as something a student does, so it '
-       + 'can be practiced and observed. "Be more confident" is not an objective. '
-       + '"Answer a question you were not expecting without filling the pause" is.' },
+      d: 'Every objective is written as something a student does, so it can be practiced '
+       + 'and observed. "Be more confident" is not an objective. "Answer a question you '
+       + 'were not expecting without filling the pause" is.' },
     { t: 'The quiet student is the point',
       d: 'A leadership program that rewards the child who already dominates the room has '
-       + 'taught nothing. The design deliberately measures change from a student\'s own '
-       + 'starting point rather than against the loudest person present.' },
+       + 'taught nothing. Change is measured from a student\'s own starting point, not '
+       + 'against the loudest person present.' },
     // Until 21 October 2026 this said "the moment a program needs a device per
     // child it stops reaching the schools it was written for", which the
     // Grades 7 to 12 app now contradicts. Stated as the open question it is.
     { t: 'No equipment to buy',
       d: 'The outline runs with a room, paper, and a phone camera if one is available. '
-       + 'The Grades 7 to 12 program runs in a web app, so it needs a screen with a '
-       + 'browser but nothing to buy or install. A program that needs a device per child '
-       + 'can stop reaching the schools it was written for, so whether every student can '
-       + 'get to one is a question the first pilot has to answer.' },
+       + 'The web app needs a screen with a browser, nothing to buy or install. Whether '
+       + 'every student can get to one is a question the first pilot has to answer.' },
   ],
   exists: [
     'The three strands, written as an eight-week summer outline',
@@ -167,28 +158,26 @@ const venture: ProgramSpec = {
   accent: 'gold',
   lede: [
     'Not a case study and not a simulation. Each student or team carries one venture the '
-    + 'whole way through: a problem they found themselves, a customer they actually spoke '
-    + 'to, a price they had to defend, and a pitch delivered to a panel at the end.',
-    'Grades 4 to 6 get these ideas as a full school year, one assignment a week, because '
-    + 'younger students learn this better spread out than compressed. All three years, '
-    + 'Grades 4, 5 and 6, are written and free to download today.',
-    'The syllabus below was written for Grades 9 to 12 as an eight-week summer program. '
-    + 'That format was cut in October 2026. From Grade 7 these ideas belong to the Grades '
-    + '7 to 12 program: self-paced lessons in our web app, plus guest speakers in person. '
-    + 'Grade 7 is written, all eight units, and educators can try it now in a preview. '
-    + 'Grades 8 to 12 come next.',
+    + 'whole way through: a problem they found, a customer they spoke to, a price they '
+    + 'had to defend, and a pitch to a panel at the end.',
+    'Grades 4 to 6 get these ideas as a full school year, one assignment a week. All '
+    + 'three years are written and free today.',
+    'The syllabus below was written for Grades 9 to 12 as an eight-week summer program, '
+    + 'since cut. From Grade 7 these ideas belong to the web app program, with guest '
+    + 'speakers in person. Grade 7 is written and open to educators in a preview. Grades '
+    + '8 to 12 come next.',
   ],
   unitsLabel: 'The eight-week outline',
   unitsIntro:
     'Every step ends in something the student made, not something they were shown. The '
-    + 'deliverables accumulate into a real venture file by the end.',
+    + 'deliverables add up to a venture file by the end.',
   units: [
     {
       n: '01', when: 'Weeks 1 to 2', title: 'Discover the problem',
       tagline: 'Ventures start with an obsession, not an idea.',
-      desc: 'Structured discovery rather than brainstorming. Students learn to observe the '
-          + 'world the way a founder does, identify a real unmet need, and separate a '
-          + 'symptom from a root cause.',
+      desc: 'Structured discovery rather than brainstorming. Students observe the world '
+          + 'the way a founder does, find a real unmet need, and separate a symptom from '
+          + 'a root cause.',
       items: ['Empathy interviews', 'Problem and solution fit map',
               'Customer journey sketch', 'Five whys root cause analysis'],
       deliverable: 'Problem statement canvas',
@@ -196,7 +185,7 @@ const venture: ProgramSpec = {
     {
       n: '02', when: 'Week 3', title: 'Know your customer',
       tagline: 'Build for one person, not for everyone.',
-      desc: 'The ideal customer profile. Students define exactly who they are building for, '
+      desc: 'The ideal customer profile. Students define who they are building for, '
           + 'then validate it with short interviews conducted outside the classroom.',
       items: ['Ideal customer profile framework', 'Short customer interviews',
               'Jobs to be done', 'Market sizing: TAM, SAM and SOM'],
@@ -216,8 +205,7 @@ const venture: ProgramSpec = {
       n: '04', when: 'Week 5', title: 'Run the numbers',
       tagline: 'If you cannot model it, you cannot run it.',
       desc: 'Unit economics, properly: cost per unit, pricing, gross margin, break-even, '
-          + 'and a twelve-month projection built in a simplified spreadsheet made for this '
-          + 'age group.',
+          + 'and a twelve-month projection in a spreadsheet simplified for this age.',
       items: ['Unit economics', 'Pricing strategy', 'Break-even calculation',
               'Twelve-month revenue projection'],
       deliverable: 'A twelve-month profit and loss model',
@@ -225,8 +213,8 @@ const venture: ProgramSpec = {
     {
       n: '05', when: 'Week 6', title: 'Go to market',
       tagline: 'A good product with no distribution is a hobby.',
-      desc: 'Channel strategy, customer acquisition and what product-market fit actually '
-          + 'means. Students write a thirty-day plan naming their first ten customers.',
+      desc: 'Channel strategy, customer acquisition and what product-market fit means. '
+          + 'Students write a thirty-day plan naming their first ten customers.',
       items: ['Channel selection', 'Acquisition cost and lifetime value',
               'The first ten customers exercise', 'Signals of product-market fit'],
       deliverable: 'A thirty-day go-to-market plan',
@@ -244,9 +232,8 @@ const venture: ProgramSpec = {
     {
       n: '07', when: 'Week 8', title: 'Pitch the room',
       tagline: 'The room is yours. Use it.',
-      desc: 'A five-minute pitch to a panel of adults from outside the school, followed by '
-          + 'five minutes of questions. The format is borrowed from real pitch meetings '
-          + 'because the questions are the part that teaches.',
+      desc: 'A five-minute pitch to a panel of adults from outside the school, then five '
+          + 'minutes of questions. The questions are the part that teaches.',
       items: ['Five-minute delivery', 'Live question handling',
               'Panel feedback, recorded', 'A venture file the student keeps'],
       deliverable: 'A live pitch and written panel feedback',
@@ -255,16 +242,15 @@ const venture: ProgramSpec = {
   principles: [
     { t: 'One venture, all the way through',
       d: 'The student does not switch projects. Carrying one idea from a vague problem to '
-       + 'a defended price is where the learning is, and it is the part that gets cut '
-       + 'from most entrepreneurship curricula.' },
+       + 'a defended price is where the learning is, and it is what most entrepreneurship '
+       + 'curricula cut.' },
     { t: 'Numbers before storytelling',
       d: 'The financial model comes in week five, two weeks before the deck. A pitch built '
-       + 'on top of real unit economics teaches something. One built first teaches '
-       + 'presentation.' },
+       + 'on real unit economics teaches something. One built first teaches presentation.' },
     { t: 'The panel is adults, not judges',
-      d: 'There is no winner. Every student pitches, every student gets written feedback, '
-       + 'and nothing is ranked. A competition format would sort the confident from the '
-       + 'rest, which is the outcome we are trying to avoid.' },
+      d: 'There is no winner. Every student pitches and gets written feedback, and nothing '
+       + 'is ranked. A competition would sort the confident from the rest, which is the '
+       + 'outcome we are trying to avoid.' },
   ],
   exists: [
     'An eight-week outline, with the deliverable defined for each step',
@@ -292,23 +278,19 @@ const finance: ProgramSpec = {
   accent: 'green',
   lede: [
     'Compound interest, credit, margin and risk are not difficult. They are simply not '
-    + 'taught, so most people meet them for the first time in a contract they have already '
-    + 'signed.',
-    'The syllabus below was written for Grades 9 to 12 as an eight-week summer program. '
-    + 'That format was cut in October 2026. From Grade 7 these ideas belong to the Grades '
-    + '7 to 12 program: self-paced lessons in our web app, plus guest speakers in person. '
-    + 'Grade 7 is written and open to educators in a preview; Grades 8 to 12 come next. '
-    + 'This outline\'s content is credit scores, interest rates and index funds, and it belongs where '
-    + 'a student is close to meeting those things. It is built so that a student leaves '
-    + 'with their own budget, their own projection and their own plan, using their own '
-    + 'numbers rather than a worksheet about somebody else.',
-    'Financial literacy in the elementary grades is a different subject, and four full '
-    + 'years of it are written and free to download today. Grade 3, The Choosing Year: '
-    + 'there is enough for one of two things, and every choice costs you the other. Grade '
-    + '4, The Planning Year: decide before you spend rather than while you are spending. '
-    + 'Grade 5, The Keeping Year: a price is what you pay once, a cost is what it keeps '
-    + 'costing. Grade 6, The Asking Year: the numbers other people put in front of you, and '
-    + 'what would have to be true for them to hold.',
+    + 'taught, so most people meet them first in a contract they have already signed.',
+    'The syllabus below was written for Grades 9 to 12 as an eight-week summer program, '
+    + 'since cut. From Grade 7 these ideas belong to the web app program, with guest '
+    + 'speakers in person. Grade 7 is written and open to educators in a preview; Grades '
+    + '8 to 12 come next. The outline covers credit scores, interest rates and index '
+    + 'funds, and a student leaves with their own budget, projection and plan, built on '
+    + 'their own numbers.',
+    'Financial literacy in the elementary grades is a different subject, and four years '
+    + 'of it are written and free today. Grade 3, The Choosing Year: there is enough for '
+    + 'one of two things, and every choice costs you the other. Grade 4, The Planning '
+    + 'Year: decide before you spend. Grade 5, The Keeping Year: a price is what you pay '
+    + 'once, a cost is what it keeps costing. Grade 6, The Asking Year: the numbers other '
+    + 'people put in front of you, and what would have to be true for them to hold.',
   ],
   unitsLabel: 'The eight-week outline',
   unitsIntro:
@@ -317,15 +299,15 @@ const finance: ProgramSpec = {
   units: [
     {
       n: '01', when: 'Week 1', title: 'Money fundamentals',
-      desc: 'Income, expenses, assets and liabilities: the four words that sit under every '
+      desc: 'Income, expenses, assets and liabilities: the four words under every '
           + 'financial outcome. Students learn to categorize, measure and act on each.',
       items: ['Reading a paycheck', 'Fixed and variable expenses',
               'Calculating net worth', 'Cash flow basics'],
     },
     {
       n: '02', when: 'Week 2', title: 'The budget blueprint',
-      desc: 'The 50/30/20 rule adapted to what a student actually has. They build a first '
-          + 'budget from real numbers rather than a hypothetical salary.',
+      desc: 'The 50/30/20 rule adapted to what a student has. They build a first budget '
+          + 'from real numbers rather than a hypothetical salary.',
       items: ['The 50/30/20 framework', 'Zero-based budgeting',
               'Needs against wants', 'A one-month budget simulation'],
     },
@@ -338,8 +320,8 @@ const finance: ProgramSpec = {
     },
     {
       n: '04', when: 'Week 4', title: 'Credit and debt',
-      desc: 'How credit scores are built, what an interest rate really costs, and the '
-          + 'arithmetic of a minimum payment. Taught before a student has ever held a card.',
+      desc: 'How credit scores are built, what an interest rate costs, and the arithmetic '
+          + 'of a minimum payment. Taught before a student has held a card.',
       items: ['How a credit score is calculated', 'APR and the true cost of debt',
               'Borrowing that builds against borrowing that traps',
               'Establishing credit deliberately'],
@@ -379,21 +361,21 @@ const finance: ProgramSpec = {
   principles: [
     { t: 'Their numbers, not a worksheet',
       d: 'Every exercise runs on figures the student supplies. A budget built from an '
-       + 'invented salary teaches arithmetic; a budget built from what they actually have '
-       + 'coming in teaches budgeting.' },
+       + 'invented salary teaches arithmetic; one built from what they have coming in '
+       + 'teaches budgeting.' },
     { t: 'Nothing is sold',
-      d: 'No product, platform, bank or brokerage appears anywhere in the material, and we '
-       + 'will not accept sponsorship that would put one there. Financial education paid '
-       + 'for by financial companies is marketing.' },
+      d: 'No product, platform, bank or brokerage appears in the material, and we will '
+       + 'not accept sponsorship that would put one there. Financial education paid for '
+       + 'by financial companies is marketing.' },
     { t: 'The mock portfolio is allowed to lose',
-      d: 'It is built in week five so that it has time to move, including downward. A '
-       + 'simulation that only ever goes up teaches the wrong lesson about risk.' },
+      d: 'It is built in week five so it has time to move, including downward. A '
+       + 'simulation that only goes up teaches the wrong lesson about risk.' },
   ],
   exists: [
     'Four elementary years, Grades 3 to 6: The Choosing Year, The Planning Year, '
     + 'The Keeping Year and The Asking Year. 36 weeks each, written and free',
-    'A teacher guide for each of the four, with every numeric answer recomputed from the '
-    + 'problems by a script that refuses to build the book if one disagrees',
+    'A teacher guide for each, with every numeric answer recomputed from the problems by '
+    + 'a script that refuses to build the book if one disagrees',
     'An eight-week outline for Grades 9 to 12, with skills defined per week',
     'The sequence and the reasoning behind its order',
     'Grade 7 in the web app: all eight units written and checked, open to educators in a preview',

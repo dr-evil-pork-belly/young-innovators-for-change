@@ -166,7 +166,7 @@ export const MISSION = {
   population:
     'Students in lower income communities, whose families have not had access to '
     + 'the ideas a business education formalizes, and who would otherwise meet them '
-    + 'for the first time as adults, priced.',
+    + 'first as adults, at a price.',
 
   /**
    * The phrase to use, and the reason to use it. "Teach kids how capitalism works"
@@ -175,7 +175,7 @@ export const MISSION = {
    * closer to what the material actually does.
    */
   agency:
-    'The subject is not financial literacy, it is economic agency: price, cost, '
+    'The subject is not financial literacy but economic agency: price, cost, '
     + 'margin, risk, credit and ownership, met early enough to change what a child '
     + 'can see.',
 
@@ -189,30 +189,26 @@ export const MISSION = {
   roles: [
     {
       title: 'The library is published, not aimed',
-      body: 'Every year of curriculum is free to anyone who finds it. A teacher who '
-          + 'wants more mathematics for the students in her class who ask for it should '
-          + 'take it, and that is how this organization started. It also tells us '
-          + 'nothing at all about who receives it.',
+      body: 'Every year of curriculum is free to anyone who finds it. That is how this '
+          + 'organization started, and it tells us nothing about who receives it.',
     },
     {
       title: 'The program is aimed',
-      body: 'It runs in the districts that host it, with a roster, for the students the mission names, '
-          + 'and it is measured. A download cannot name anyone. That is the whole '
-          + 'reason the program exists.',
+      body: 'It runs in the districts that host it, with a roster, for the students the '
+          + 'mission names, and it is measured. A download cannot name anyone. That is '
+          + 'why the program exists.',
     },
   ],
 
   /** Say these before anything else, on any page that draws on the mission. */
   notYetTrue: [
-    'No program of ours has run with students. The program described on this site has '
-    + 'not been delivered. Its first year, Grade 7, is written and running in our web app, '
-    + 'open to adults only as a preview. '
-    + 'Teachers using the free material on their own are not a program we ran, and '
-    + 'must never be counted as one.',
+    'No program of ours has run with students. Grade 7 is written and running in our web '
+    + 'app as a preview for adults. Teachers using the free material on their own are '
+    + 'not a program we ran, and we do not count them as one.',
     'We do not know who downloads the free materials, and we will not describe them as '
     + 'low income until we can.',
-    'Nothing here has been measured. The evaluation design is published. The results do '
-    + 'not exist.',
+    'Nothing has been measured. The evaluation design is published. The results do not '
+    + 'exist.',
   ],
 } as const;
 
@@ -479,9 +475,9 @@ export const GRADE_BANDS = ['Grades 1–2', 'Grades 3–5', 'Grades 6–8', 'Gra
 export const CURRICULUM: Strand[] = [
   {
     key: 'math', name: 'Mathematics', track: 'Academics',
-    blurb: 'Reasoning-first mathematics that sits beside the state curriculum rather than '
-         + 'repeating it. Discrete mathematics in the early grades, widening into proof, '
-         + 'modeling and applied problem solving.',
+    blurb: 'Reasoning-first mathematics that sits beside the state curriculum. Discrete '
+         + 'mathematics in the early grades, widening into proof, modeling and applied '
+         + 'problem solving.',
     bands: [
       { band: 'Grades 1–2',  status: 'published',
         note: 'Grades 1 and 2 complete: What Goes Together and Things Worth Noticing, '
@@ -497,8 +493,8 @@ export const CURRICULUM: Strand[] = [
   },
   {
     key: 'science', name: 'Science', track: 'Academics',
-    blurb: 'Investigation-led science built on the same principle as the mathematics: low '
-         + 'materials cost, high reasoning demand, and every lesson printable on a school copier.',
+    blurb: 'Investigation-led science on the same principle as the mathematics: low '
+         + 'materials cost, high reasoning demand, printable on a school copier.',
     bands: [
       { band: 'Grades 1–2',  status: 'published',
         note: 'Grades 1 and 2 complete: Look and Listen and Look Closer, 36 weeks each.' },
@@ -514,59 +510,53 @@ export const CURRICULUM: Strand[] = [
   {
     key: 'leadership', name: 'Leadership', track: 'Enterprise',
     blurb: 'Executive presence, decision-making and team dynamics, taught through real '
-         + 'scenarios rather than textbooks.',
+         + 'scenarios.',
     bands: [
       { band: 'Grades 1–2',  status: 'n/a' },
       // The Founders Track was a summer program. Summer programs were cut on
       // 21 October 2026 and Grades 1 to 6 are printed workbooks only, so this
       // band keeps its design and has no form of delivery.
       { band: 'Grades 3–5',  status: 'designed',
-        note: 'Designed as a summer program, and summer programs have been cut. No '
-            + 'leadership workbook is written for these grades.' },
+        note: 'Designed as a summer program, since cut. No leadership workbook is '
+            + 'written for these grades.' },
       { band: 'Grades 6–8',  status: 'designed',
-        note: 'From Grade 7, part of the Grades 7 to 12 program: lessons in the web app, '
-            + 'and guest speakers in person. The leadership years are designed, not written.' },
+        note: 'From Grade 7, part of the web app program with in-person guest speakers. '
+            + 'Designed, not written.' },
       { band: 'Grades 9–12', status: 'designed',
-        note: 'Part of the Grades 7 to 12 program: lessons in the web app, and guest '
-            + 'speakers in person. Designed, not written yet.' },
+        note: 'Part of the Grades 7 to 12 web app program. Designed, not written.' },
     ],
   },
   {
     key: 'venture', name: 'Entrepreneurship', track: 'Enterprise',
-    blurb: 'A full school year, one assignment a week: find a problem worth solving, design '
-         + 'something that fixes it, work out cost and price, sell it at a class market day, '
-         + 'then work out honestly whether it made a profit.',
+    blurb: 'A full school year, one assignment a week: find a problem, design a fix, work '
+         + 'out cost and price, sell it at a class market day, then find out whether it '
+         + 'made a profit.',
     bands: [
       { band: 'Grades 1–2',  status: 'n/a' },
       { band: 'Grades 3–5',  status: 'published',
         note: 'Grades 4 and 5 complete: The Venture Year and The Numbers Year, 36 weeks '
-            + 'each, standards-mapped and free. No Grade 3 year is written.' },
+            + 'each. No Grade 3 year is written.' },
       { band: 'Grades 6–8',  status: 'published',
-        note: 'Grade 6 complete: The Market Year, 36 weeks. From Grade 7 it moves '
-            + 'to the web app. All eight Grade 7 units are written and educators can try them '
-            + 'in a preview; no student has used them yet. No printed year is planned.' },
+        note: 'Grade 6 complete: The Market Year, 36 weeks. Grade 7 is written and runs '
+            + 'in the web app as a preview for educators. No printed year is planned.' },
       { band: 'Grades 9–12', status: 'designed',
-        note: 'Part of the Grades 7 to 12 program: lessons in the web app, and guest '
-            + 'speakers in person. Designed, not written yet.' },
+        note: 'Part of the Grades 7 to 12 web app program. Designed, not written.' },
     ],
   },
   {
     key: 'finance', name: 'Financial Literacy', track: 'Enterprise',
     blurb: 'Choosing, saving, giving and keeping track in the elementary grades, then '
-         + 'budgeting, credit and compounding when a student is close to meeting them. '
-         + 'The money knowledge most adults were never taught.',
+         + 'budgeting, credit and compounding when a student is about to meet them.',
     bands: [
       { band: 'Grades 1–2',  status: 'n/a' },
       { band: 'Grades 3–5',  status: 'published',
         note: 'Complete: The Choosing Year, The Planning Year and The Keeping '
             + 'Year, 36 weeks each.' },
       { band: 'Grades 6–8',  status: 'published',
-        note: 'Grade 6 complete: The Asking Year, 36 weeks. From Grade 7 it moves '
-            + 'to the web app. All eight Grade 7 units are written and educators can try them '
-            + 'in a preview; no student has used them yet. No printed year is planned.' },
+        note: 'Grade 6 complete: The Asking Year, 36 weeks. Grade 7 is written and runs '
+            + 'in the web app as a preview for educators. No printed year is planned.' },
       { band: 'Grades 9–12', status: 'designed',
-        note: 'Part of the Grades 7 to 12 program: lessons in the web app, and guest '
-            + 'speakers in person. Designed, not written yet.' },
+        note: 'Part of the Grades 7 to 12 web app program. Designed, not written.' },
     ],
   },
 ];
@@ -596,7 +586,7 @@ export const PROGRAM_FACTS: Stat[] = [
   // published PDFs by brand/mksite.py and counted separately there, so neither
   // number can quietly absorb the other.
   { value: String(PUBLISHED_STANDARDS + PUBLISHED_SCIENCE_STANDARDS), label: 'California Standards Matched',
-    note: `Different California math and science standards the lessons are matched to, across all ${PUBLISHED_WEEKS} weeks` },
+    note: `Distinct math and science standards across all ${PUBLISHED_WEEKS} weeks` },
   { value: '$0',   label: 'Cost to Students' },
   { value: '100%', label: 'Free to Download', note: 'Every workbook and teacher guide' },
 ];
@@ -607,12 +597,8 @@ export const PROGRAM_FACTS: Stat[] = [
  * once as "Three full years" and was wrong within a month.
  */
 export const AVAILABLE_NOW =
-  `${PUBLISHED_YEARS.length} full years, 36 weeks each: the complete Grades 1 to 6 discrete `
-  + 'mathematics line, plus The Venture Year (Grade 4 entrepreneurship) and The Numbers Year '
-  + '(Grade 5) and The Market Year (Grade 6), plus the complete Grades 3 to 6 '
-  + 'financial literacy line, and the complete Grades 1 to 6 science line: Look and '
-  + 'Listen (Grade 1), Look Closer (Grade 2), What Made That Happen? (Grade 3), Where '
-  + 'Did It Go? (Grade 4), Too Small to See (Grade 5) and Inside the System (Grade 6).';
+  `${PUBLISHED_YEARS.length} full years, 36 weeks each: mathematics and science for Grades `
+  + '1 to 6, financial literacy for Grades 3 to 6, and entrepreneurship for Grades 4 to 6.';
 
 // ─── The pathway ──────────────────────────────────────────────────────────────
 
@@ -658,37 +644,35 @@ export const PATHWAY: PathwayStage[] = [
            + 'month, saving that takes longer than expected, and a first look at what a '
            + 'home pays for.',
     mbaCourse: 'Microeconomics',
-    note: '36 weeks, written in full, free to download today. Nothing is sold in it: '
-        + 'that is Grade 4. This year is about the student\'s own money.',
+    note: '36 weeks, written in full, free today. Nothing is sold in it: that is Grade 4. '
+        + 'This year is about the student\'s own money.',
   },
   {
     grade: 'Grade 4', status: 'published', book: 'The Venture Year',
-    concept: 'One student, one product, one market day, whole dollars. Find a problem '
-           + 'worth solving, design something that fixes it, work out what it costs to '
-           + 'make and what to charge, sell it, then work out honestly whether it made '
-           + 'a profit.',
+    concept: 'One student, one product, one market day, whole dollars. Find a problem, '
+           + 'design a fix, work out what it costs and what to charge, sell it, then '
+           + 'find out whether it made a profit.',
     mbaCourse: 'Marketing and introductory accounting',
-    note: '36 weeks, written in full, free to download today.',
+    note: '36 weeks, written in full, free today.',
   },
   {
     grade: 'Grade 5', status: 'published', book: 'The Numbers Year',
     concept: 'A team of two or three with named roles and a profit split written as '
-           + 'fractions. A product line of three with one deliberately cut. Fixed and '
-           + 'variable costs pulled apart. A forecast, two selling sessions, one '
-           + 'deliberate change between them, and the honest answer to whether the '
-           + 'change did anything.',
+           + 'fractions. A product line of three with one cut. Fixed and variable costs '
+           + 'pulled apart. A forecast, two selling sessions, one change between them, '
+           + 'and the answer to whether the change did anything.',
     mbaCourse: 'Managerial accounting and operations',
-    note: '36 weeks, written in full, free to download today. The third trimester is '
-        + 'a controlled experiment rather than an event.',
+    note: '36 weeks, written in full, free today. The third trimester is a controlled '
+        + 'experiment.',
   },
   {
     grade: 'Grade 6', status: 'published', book: 'The Market Year',
     concept: 'A second seller appears. Pricing against somebody else’s price, '
            + 'substitutes, market share, and a response round where every team sees '
-           + 'every other team’s numbers and moves at the same time.',
+           + 'every other team’s numbers and moves at once.',
     mbaCourse: 'Competitive strategy',
-    note: '36 weeks, written in full, free to download today. Written before any class '
-        + 'ran it, so the first revision after one will be substantial.',
+    note: '36 weeks, written in full, free today. Written before any class ran it, so '
+        + 'the first revision after one will be substantial.',
   },
   {
     // Designed since 21 October 2026: the year's units are mapped
@@ -700,17 +684,17 @@ export const PATHWAY: PathwayStage[] = [
            + 'what inventory ties up, and how a profitable business runs out of money. '
            + 'Each student also picks the one venture they will carry through Grade 12.',
     mbaCourse: 'Financial accounting and marketing',
-    note: 'The first year of the Grades 7 to 12 web app, and the year the first pilot '
-        + 'teaches. All eight units are written, checked the way the books are, and '
-        + 'running in the app as a preview for educators. No student has used it yet.',
+    note: 'The first year of the web app and the year the first pilot teaches. All '
+        + 'eight units are written, checked, and running as a preview for educators. No '
+        + 'student has used it yet.',
   },
   {
     grade: 'Grade 8', status: 'planned',
-    concept: 'What capital costs. Interest, simple and compound, the arithmetic of a '
-           + 'loan, and the reason the same purchase costs two people different amounts. '
-           + 'Then the question for the student’s own venture: borrow or not, and how much.',
+    concept: 'What capital costs. Simple and compound interest, the arithmetic of a '
+           + 'loan, and why the same purchase costs two people different amounts. Then '
+           + 'the question for the student’s own venture: borrow or not, and how much.',
     mbaCourse: 'Corporate finance and data analysis',
-    note: 'Next in the web app, after Grade 7. Not written yet.',
+    note: 'Next in the web app. Not written yet.',
   },
   {
     grade: 'Grade 9', status: 'designed',
@@ -718,17 +702,15 @@ export const PATHWAY: PathwayStage[] = [
            + 'break-even, and the questions to ask when the numbers and the story '
            + 'disagree.',
     mbaCourse: 'Financial statement analysis',
-    note: 'Parts of it are outlined in the Venture Lab and Financial Literacy '
-        + 'syllabi. Planned for the web app. The full year is not written.',
+    note: 'Parts are outlined in the Venture Lab and Financial Literacy syllabi. The '
+        + 'full year is not written.',
   },
   {
     grade: 'Grade 10', status: 'designed',
     concept: 'How a group of people gets work done. Roles, delegation, incentives, and '
-           + 'what happens to a plan when the people executing it are not the people '
-           + 'who wrote it.',
+           + 'what happens to a plan when the people carrying it out did not write it.',
     mbaCourse: 'Organizational behavior and operations',
-    note: 'Parts of it are outlined in the Leadership syllabus. Planned for the '
-        + 'web app. The full year is not written.',
+    note: 'Parts are outlined in the Leadership syllabus. The full year is not written.',
   },
   {
     grade: 'Grade 11', status: 'planned',
@@ -754,13 +736,13 @@ export const PATHWAY: PathwayStage[] = [
  * the ideas arrive earlier, spread thinner, and free.
  */
 export const NOT_AN_MBA: string[] = [
-  'This is not a degree, and finishing it confers no credential of any kind.',
+  'This is not a degree. Finishing it confers no credential of any kind.',
   'It carries no academic credit, no college credit, and no articulation agreement '
   + 'with any institution.',
-  'Young Innovators for Change is not an accredited school and does not award '
-  + 'diplomas, certificates or transcripts.',
-  'It is not a substitute for a graduate business education, and a student who '
-  + 'completes it and later wants an MBA should go and get one.',
+  'Young Innovators for Change is not an accredited school and awards no diplomas, '
+  + 'certificates or transcripts.',
+  'It is not a substitute for a graduate business education. A student who completes '
+  + 'it and later wants an MBA should go and get one.',
   // This line said "Two of its ten years are written" from August until
   // 1 September 2026, by which point four were. pathwayPublishedCount() already
   // existed and the ladder heading above it was already using it; the
@@ -783,27 +765,24 @@ export const OPT_IN: { title: string; body: string }[] = [
   // chosen. Fit is unchanged, in David's words: a student who is hungry and has
   // a real interest in business. Family business background is not part of it.
   { title: 'Offered to every student, required of none',
-    body: 'The pathway sits beside the school day rather than inside a graduation '
-        + 'requirement. A student who is not interested this year loses nothing and '
-        + 'can start next year. From Grade 7 the lessons run in a web app, so there is no '
-        + 'seat limit: every student who wants in gets in.' },
+    body: 'The pathway sits beside the school day, not inside a graduation requirement. '
+        + 'A student who is not interested this year loses nothing and can start next '
+        + 'year. From Grade 7 the lessons run in a web app, so there is no seat limit.' },
   { title: 'No test, no ranking, no prerequisite',
-    body: 'There is no test to get in, no application to be ranked, and no prior '
-        + 'year to have completed. Wanting to do it is the entry criterion, which is '
-        + 'the opposite of how access to this material usually works.' },
+    body: 'No test to get in, no application to be ranked, no prior year to have '
+        + 'completed. Wanting to do it is the entry criterion.' },
   { title: 'The ceiling is not set by us',
-    body: 'A student who wants to go further than the year they are in should be handed '
-        + 'the next book, not held at their grade level. Every year is published in '
-        + 'full, so nothing is gated on our permission.' },
+    body: 'A student who wants to go further than their grade should be handed the next '
+        + 'book. Every year is published in full, so nothing waits on our permission.' },
   { title: 'Effort is the variable we are betting on',
-    body: 'The material is written to reward work rather than speed or prior exposure. '
-        + 'Whether that is enough is an open question, and it is on the evidence page '
-        + 'as one we could be wrong about.' },
+    body: 'The material rewards work rather than speed or prior exposure. Whether that '
+        + 'is enough is an open question, listed on the evidence page as one we could be '
+        + 'wrong about.' },
   // Was "Missing a summer does not cost your place" (20 October 2026). The
   // principle survived the cohort: a student who stops is not shut out.
   { title: 'Stopping does not close the door',
-    body: 'A student who stops can come back. The program asks students to keep '
-        + 'going. It does not shut out one who could not.' },
+    body: 'A student who stops can come back. The program asks students to keep going. '
+        + 'It does not shut out one who could not.' },
 ];
 
 // ─── Load-bearing assumptions ─────────────────────────────────────────────────
@@ -819,43 +798,38 @@ export const OPT_IN: { title: string; body: string }[] = [
 export const ASSUMPTIONS: { text: string; risk: string }[] = [
   { text: 'That an adult with the book in front of them will do the part the book '
         + 'cannot do.',
-    risk: 'Everything rests on this, and it is the part we control least. A year taught '
-        + 'without care is just a stack of worksheets. We can make the books short, correct '
-        + 'and free. We cannot supply the thirty-five minutes a week, and no book, however '
-        + 'good, replaces a person who cares whether the child in the third row understood '
-        + 'it.' },
+    risk: 'Everything rests on this, and it is the part we control least. We can make '
+        + 'the books short, correct and free. We cannot supply the thirty-five minutes a '
+        + 'week, or a person who cares whether the child in the third row understood it.' },
   { text: 'That what a child learns about money makes it home to their family.',
-    risk: 'The only real experiment that found this happening was a short course in high '
-        + 'schools in Peru. If it does not hold up here, half the reason this organization '
+    risk: 'The only experiment that found this happening was a short course in Peruvian '
+        + 'high schools. If it does not hold up here, half the reason this organization '
         + 'exists does nothing.' },
   { text: 'That a program students choose to join does not just attract the ones who '
         + 'were already going to be fine.',
-    risk: 'If it does, we widen the gap we set out to close, and this becomes one more '
-        + 'program for students who were already ahead. It is the likeliest way for us to '
-        + 'fail while looking like a success.' },
+    risk: 'If it does, we widen the gap we set out to close. It is the likeliest way for '
+        + 'us to fail while looking like a success.' },
   // Until 22 October 2026 this said "using real money", which no book does:
   // the market days run on play money. The bet is the venture thread instead.
   { text: 'That spreading the lessons over years, and tying them to a venture each '
-        + 'student carries from Grade 7 to Grade 12, makes the learning last after the '
-        + 'program ends.',
+        + 'student carries from Grade 7 to Grade 12, makes the learning last.',
     risk: 'The biggest review in our research list found that financial education had '
         + 'almost no effect 20 months later. Our answer is to spread the lessons out and '
-        + 'attach them to decisions the student is actually making about their own '
-        + 'venture. Neither has been tested.' },
+        + 'attach them to decisions about the student\'s own venture. Neither has been '
+        + 'tested.' },
   // The next two were added 21 October 2026 with the Grades 7 to 12 app. They
   // name the two ways the app could fail that the old summer room could not.
   { text: 'That a student will keep working through lessons on their own, with a '
         + 'tutor that is not a person.',
-    risk: 'If students start and drift off, the app reaches many students and teaches '
-        + 'few. The in-person sessions are our answer to that, and they have not been '
-        + 'tested.' },
+    risk: 'If students start and drift off, the app reaches many and teaches few. The '
+        + 'in-person sessions are our answer, and they have not been tested.' },
   { text: 'That an AI tutor teaches the lessons we wrote, and nothing else.',
     risk: 'A tutor that is confidently wrong teaches a child something false. Ours works '
         + 'only from lessons we have written and checked, and adults can read every '
-        + 'conversation it has. Neither safeguard has been tried with a student yet.' },
+        + 'conversation it has. Neither safeguard has been tried with a student.' },
   { text: 'That a school district will host a program from an organization with no '
         + 'track record.',
-    risk: 'This is the assumption we are testing first, and the one most likely to fail.' },
+    risk: 'The assumption we are testing first, and the one most likely to fail.' },
 ];
 
 // ─── Delivery ─────────────────────────────────────────────────────────────────
@@ -898,35 +872,32 @@ export const DELIVERY = {
   /** What publishing openly costs us in knowledge, said plainly. */
   anonymity:
     'Everything is published with no email wall, no login and no license. That '
-    + 'was a deliberate choice and we would make it again. It also means we '
-    + 'cannot see who is teaching this. We do not know your name, your school '
-    + 'or your grade, so we cannot thank you by name and we will not describe '
-    + 'you on this site as though we could.',
+    + 'was deliberate. It also means we cannot see who is teaching this. We do '
+    + 'not know your name, your school or your grade, and we will not describe '
+    + 'you on this site as though we did.',
 
   /** What we owe whoever is delivering it. Each line is a commitment we can keep today. */
   commitments: [
     { title: 'Every answer, recomputed rather than remembered',
-      body: 'The teacher guide carries the answer to every problem in the book, '
-          + 'and each one is recomputed from the problem as printed by a script '
-          + 'that refuses to build the book if a single answer disagrees. You '
-          + 'should not have to check our arithmetic at ten at night.' },
+      body: 'The teacher guide carries the answer to every problem, each one '
+          + 'recomputed from the problem as printed by a script that refuses to '
+          + 'build the book if a single answer disagrees. You should not have to '
+          + 'check our arithmetic at ten at night.' },
     { title: 'Prep that fits inside a prep period',
-      body: 'Each week is two pages, front and back, with the common wrong '
-          + 'answers and what to say to a student who is stuck written out '
-          + 'beside them. There is no training week and no certification.' },
+      body: 'Each week is two pages, with the common wrong answers and what to '
+          + 'say to a stuck student written out beside them. No training week, '
+          + 'no certification.' },
     { title: 'It prints on the copier you already have',
       body: 'Every page was proofed in grayscale. Structure lives in the '
-          + 'linework and color is accent only, so a black-and-white classroom '
-          + 'copy loses nothing.' },
+          + 'linework and color is accent only, so a black-and-white copy loses '
+          + 'nothing.' },
     { title: 'Nothing to sign, nothing to buy, no account',
       body: 'You can run a full year without ever telling us you exist. That is '
-          + 'the design, not an oversight, and it is why the log is a count '
-          + 'rather than a roster.' },
+          + 'the design, and it is why our log is a count rather than a roster.' },
     { title: 'Tell us where it breaks',
       body: 'A teacher who writes in November to say week twelve falls apart is '
-          + 'giving this curriculum something no funder can. We would rather '
-          + 'hear that than a compliment, and we will say in the revision notes '
-          + 'that it came from a classroom.' },
+          + 'giving this curriculum something no funder can. We would rather hear '
+          + 'that than a compliment.' },
   ],
 
   /**
@@ -959,13 +930,12 @@ export const DELIVERY = {
   inUse: {
     known:
       'The material is being taught. Teachers have written to tell us so, '
-      + 'homeschool educators among them, and some of them wrote only to say '
-      + 'thank you.',
+      + 'homeschool educators among them.',
     unknown:
-      'We do not know how many there are, where they teach, how far into a '
-      + 'year anyone has gone, or whether any of it is working. Nothing we '
-      + 'publish asks for a name, so there is no roster to consult, and we are '
-      + 'not going to estimate one and call it a figure.',
+      'We do not know how many there are, where they teach, how far anyone has '
+      + 'gone, or whether any of it is working. Nothing we publish asks for a '
+      + 'name, so there is no roster, and we will not estimate one and call it a '
+      + 'figure.',
   },
 
   /**
@@ -986,32 +956,29 @@ export const DELIVERY = {
          + 'lead, or a caretaker at a kitchen table.',
       body: 'Thirty-six weeks, one assignment a week, sequenced against the '
           + 'California pacing guide so it reinforces what the class is already '
-          + 'doing that month. The mathematics and science years run from Grade 1, '
-          + 'the money years from Grade 3 and the venture years from Grade 4. It is '
-          + 'built this way because '
-          + 'it asks for the one resource an elementary school actually has, '
-          + 'which is a little time every week for a long time.',
+          + 'doing that month. Mathematics and science run from Grade 1, the money '
+          + 'years from Grade 3 and the venture years from Grade 4. It asks for the '
+          + 'one resource an elementary school has: a little time every week for a '
+          + 'long time.',
       status: 'published' as const,
     },
     {
       band: 'Grades 7 to 12',
       shape: 'At their own pace, with a room to meet in',
       badge: 'Grade 7 preview, adults only',
-      who: 'Pip, an AI tutor for the lessons, which tells students plainly that it '
-         + 'is an AI. Guest speakers and fireside chats in person, organized by Cindy '
-         + 'Ha, the founder, and scheduled with each school, with a teacher from the '
-         + 'school in the room.',
-      body: 'The ideas a business school teaches, spread over six years instead '
-          + 'of two, in a web app that runs in a browser with nothing to install. Every '
-          + 'student gets the same written lessons and works through them on their own '
-          + 'time, as fast or as slowly as they need, with Pip, an AI tutor that '
-          + 'explains, asks questions and gives feedback on their work. Pip teaches '
-          + 'from lessons we write and check; it does not make up the course. The room '
-          + 'is for what an app cannot do: guest speakers from business, and '
-          + 'conversations about what is happening in it now. Each student picks one '
-          + 'venture in Grade 7 and builds on it every year through Grade 12. Grade 7 '
-          + 'is written, all eight units, and running as a preview for educators. '
-          + 'Grades 8 to 12 come next. No student has used it yet.',
+      who: 'Pip, an AI tutor that tells students plainly it is an AI. Guest speakers '
+         + 'and fireside chats in person, organized by Cindy Ha, the founder, with a '
+         + 'teacher from the school in the room.',
+      body: 'The ideas a business school teaches, spread over six years instead of '
+          + 'two, in a web app with nothing to install. Every student works through '
+          + 'the same written lessons at their own pace with Pip, an AI tutor that '
+          + 'explains, asks questions and gives feedback. Pip teaches from lessons we '
+          + 'write and check; it does not make up the course. The room is for what an '
+          + 'app cannot do: guest speakers from business, and conversations about what '
+          + 'is happening in it now. Each student picks one venture in Grade 7 and '
+          + 'builds on it through Grade 12. Grade 7 is written and running as a '
+          + 'preview for educators. Grades 8 to 12 come next. No student has used it '
+          + 'yet.',
       status: 'designed' as const,
     },
   ],
@@ -1030,11 +997,11 @@ export const DELIVERY = {
     preview: {
       live: true,
       url: 'https://app.innovateyouth.org',
-      body: 'Grade 7 is built in the web app, all eight units. Educators and district staff can try it the '
-          + 'way a seventh grader would, Pip the tutor included, and then see what '
-          + 'the teacher sponsor sees. It sits behind a passcode, because no student '
-          + 'may use it until a district has signed a data agreement and families '
-          + 'have signed consent forms. Write to us for the passcode.',
+      body: 'Grade 7 is built in the web app, all eight units. Educators and district '
+          + 'staff can try it the way a seventh grader would, Pip included, then see '
+          + 'what the teacher sponsor sees. It sits behind a passcode because no '
+          + 'student may use it until a district has signed a data agreement and '
+          + 'families have signed consent forms. Write to us for the passcode.',
     },
     /**
      * Decided 22 October 2026, by David: recruit districts in parallel and
@@ -1047,10 +1014,10 @@ export const DELIVERY = {
      * can run in several districts from the fall. No number of districts is
      * stated: the limit is how many rooms Cindy can host, which is not set.
      */
-    ask: 'We are looking for school districts willing to host the first pilot '
-       + 'year. The first to sign runs the spring test unit in one middle school. '
-       + 'From the fall, the full Grade 7 year can run in more than one district at '
-       + 'once: the lessons run in a web app, so nobody needs a seat.',
+    ask: 'We are looking for school districts to host the first pilot year. The '
+       + 'first to sign runs a spring test unit in one middle school. From the fall, '
+       + 'the full Grade 7 year can run in several districts at once, because the '
+       + 'lessons run in a web app and nobody needs a seat.',
 
     /**
      * Decided 21 October 2026: one unit in the spring as a test, then the full
@@ -1059,13 +1026,12 @@ export const DELIVERY = {
      * decided (open decision 18), so this does not state one.
      */
     detail:
-      'We ask each district for a teacher to sponsor it, a room for the '
-      + 'in-person sessions, someone at each school to set their dates with us, '
-      + 'help letting seventh graders know it exists, and a '
-      + 'signed student data privacy agreement. Nothing is bought and it costs a '
-      + 'district nothing. Nobody is handed an '
-      + 'app and wished luck, because a program has to be run by the people who '
-      + 'wrote it before it can honestly be handed to anyone else.',
+      'We ask each district for a teacher to sponsor it, a room for the in-person '
+      + 'sessions, someone at each school to set dates with us, help letting seventh '
+      + 'graders know it exists, and a signed student data privacy agreement. It '
+      + 'costs a district nothing. Nobody is handed an app and wished luck: a program '
+      + 'has to be run by the people who wrote it before it can be handed to anyone '
+      + 'else.',
 
     /**
      * Why there is a room at all, when the lessons run in an app. This
@@ -1073,13 +1039,12 @@ export const DELIVERY = {
      * slogan. "Is meant to be" is deliberate: nothing here has been tried.
      */
     whyInPerson:
-      'An app can teach the ideas. It cannot make a thirteen-year-old want '
-      + 'them, and it cannot introduce them to someone who does this for a '
-      + 'living. That is what the room is for: a guest lecture, or a fireside '
-      + 'conversation about something happening in business now, with the other '
-      + 'students who chose to be there. It is the part of business school no '
-      + 'textbook holds: the people who do it. The app is how this reaches every '
-      + 'student who wants it. The room is meant to be why they keep going.',
+      'An app can teach the ideas. It cannot make a thirteen-year-old want them, '
+      + 'or introduce them to someone who does this for a living. That is what the '
+      + 'room is for: a guest lecture, or a fireside conversation about something '
+      + 'happening in business now, with the other students who chose to be there. '
+      + 'The app is how this reaches every student who wants it. The room is meant '
+      + 'to be why they keep going.',
 
     /**
      * The founder's sentence for what the six years add up to, and the
@@ -1109,8 +1074,7 @@ export const DELIVERY = {
       // character (claude/43). Name only: keep these two rules saying so.
       { title: 'It says it is an AI',
         body: 'The tutor is called Pip, after the mascot on our books, and every '
-            + 'screen where it speaks says Pip is an AI, not a person. No student should '
-            + 'ever wonder whether a person is on the other end.' },
+            + 'screen where it speaks says Pip is an AI, not a person.' },
       { title: 'It stays on the lessons',
         body: 'Pip is a name, not a character. It does not play one, keep up a '
             + 'friendship, remember anything beyond a student\'s lessons and work, or '
@@ -1147,13 +1111,10 @@ export const DELIVERY = {
      */
     whoHosts:
       'Cindy Ha, the founder, runs the in-person side. She brings in the speakers '
-      + 'and guests, works out the best dates and times with each school\'s '
-      + 'principal, and intends to be at every speaker session and fireside chat '
-      + 'herself, until the program grows past what one person can reach. She '
-      + 'built a business without this material and met the formal version of it '
-      + 'years later, which is the whole reason the organization exists. The '
-      + 'sessions are where people who do this for a living hand it to students '
-      + 'early, in person.',
+      + 'and guests, sets dates with each school\'s principal, and intends to be at '
+      + 'every session herself until the program grows past what one person can '
+      + 'reach. She built a business without this material and met the formal '
+      + 'version of it years later, which is why the organization exists.',
   },
 } as const;
 
@@ -1305,8 +1266,7 @@ export const RESEARCH: Citation[] = [
     url: 'https://www.hup.harvard.edu/books/9780674710016',
     plain: 'Children can learn big ideas early if you keep coming back to them, a little '
          + 'deeper each year. That is the shape of our program. It is an idea from 1960, '
-         + 'not a test, so it tells us the plan makes sense. It does not tell us the plan '
-         + 'works.',
+         + 'not a test: it says the plan makes sense, not that it works.',
     finding: 'Sets out the spiral curriculum: "A curriculum as it develops should revisit '
            + 'these basic ideas repeatedly, building upon them until the student has grasped '
            + 'the full formal apparatus that goes with them" (p. 13), on the hypothesis that '
@@ -1324,8 +1284,8 @@ export const RESEARCH: Citation[] = [
     url: 'https://files.consumerfinance.gov/f/documents/092016_cfpb_BuildingBlocksReport_ModelAndRecommendations_web.pdf',
     plain: 'Children form money habits between about ages 6 and 12, and learn the formal '
          + 'rules as teenagers. That is why our early grades build habits and the later '
-         + 'grades teach the reasoning. It is a guide built from research, not a test of '
-         + 'any program.',
+         + 'grades teach the reasoning. It is a research summary, not a test of any '
+         + 'program.',
     finding: 'Places executive function in early childhood (ages 3 to 5), financial habits '
            + 'and norms in middle childhood (ages 6 to 12), and explicit financial knowledge '
            + 'and decision-making skills in adolescence and young adulthood (ages 13 to 21).',
@@ -1340,10 +1300,10 @@ export const RESEARCH: Citation[] = [
     publication: 'Psychological Bulletin 132(3), 354 to 380',
     url: 'https://doi.org/10.1037/0033-2909.132.3.354',
     plain: 'People remember more when they learn a little at a time over a long stretch '
-         + 'than when they cram. The longer you need to remember something, the more you '
-         + 'should spread it out. That is why this is one lesson a week for ten years. One '
-         + 'limit: most of these studies tested word lists in a lab, not business lessons '
-         + 'in a classroom.',
+         + 'than when they cram, and the longer they need to remember it, the more it '
+         + 'should be spread out. That is why this is one lesson a week for ten years. '
+         + 'One limit: most of these studies tested word lists in a lab, not business '
+         + 'lessons in a classroom.',
     finding: '839 assessments across 317 experiments in 184 articles. Spaced study beats '
            + 'massed study, and the gap that produces the best retention grows as the delay '
            + 'before the test grows.',
@@ -1373,12 +1333,11 @@ export const RESEARCH: Citation[] = [
     title: 'Financial Literacy, Financial Education, and Downstream Financial Behaviors',
     publication: 'Management Science 60(8), 1861 to 1883',
     url: 'https://doi.org/10.1287/mnsc.2013.1849',
-    plain: 'Across 168 studies, financial education barely changed how people actually '
-         + 'handled money. What they learned wore off, and even long courses had almost no '
-         + 'effect about two years later. It worked even less for lower-income families, who '
-         + 'are the children we serve. We built the program around this problem, but '
-         + 'nobody, including us, has shown that spreading lessons over ten years solves '
-         + 'it.',
+    plain: 'Across 168 studies, financial education barely changed how people handled '
+         + 'money. What they learned wore off, and even long courses had almost no effect '
+         + 'two years later. It worked even less for lower-income families, who are the '
+         + 'children we serve. We built the program around this problem, but nobody, '
+         + 'including us, has shown that spreading lessons over ten years solves it.',
     finding: 'A meta-analysis of 168 papers covering 201 studies. Interventions to improve '
            + 'financial literacy explained 0.1 percent of the variance in the financial '
            + 'behaviors studied, effects decayed over time, and even large interventions with '
@@ -1398,9 +1357,9 @@ export const RESEARCH: Citation[] = [
     publication: 'Journal of Financial Economics 145(2), 255 to 272',
     url: 'https://doi.org/10.1016/j.jfineco.2021.09.022',
     plain: 'A newer review of 76 experiments, with more than 160,000 people, found that '
-         + 'financial education does help people know more and handle money better, with effects '
-         + 'at least three times larger than earlier studies found. This review and the '
-         + 'one above disagree. We would rather tell you that than pick a side.',
+         + 'financial education does help people know more and handle money better, with '
+         + 'effects at least three times larger than earlier studies found. This review '
+         + 'and the one above disagree, and we would rather say so than pick a side.',
     finding: 'A meta-analysis of 76 randomized experiments with over 160,000 participants. '
            + 'Financial education has positive causal effects on financial knowledge and on '
            + 'downstream behavior, comparable in size to educational interventions in other '
@@ -1434,9 +1393,8 @@ export const RESEARCH: Citation[] = [
     publication: 'Journal of Financial Literacy and Wellbeing 1(1), 138 to 153',
     url: 'https://doi.org/10.1017/flw.2023.2',
     plain: 'In Peru, high school students took a short financial education course. Three '
-         + 'years later, in '
-         + 'lower-income homes, the chance that a parent defaulted on a loan was 26 '
-         + 'percent lower, and wealthier homes saw almost no change. So children can carry '
+         + 'years later, in lower-income homes, parents were 26 percent less likely to '
+         + 'default on a loan; wealthier homes saw almost no change. So children can carry '
          + 'lessons home. But these were older students in another country taking a short '
          + 'course, so it does not prove our program will do the same.',
     finding: 'A randomized controlled trial across 300 public high schools in Peru. '
@@ -1464,9 +1422,9 @@ export const RESEARCH: Citation[] = [
     url: 'https://doi.org/10.1016/j.jebo.2014.12.020',
     plain: 'In Sweden, teenagers who ran a small business in high school were followed for '
          + 'up to 16 years. They were more likely to start a company and earned more from '
-         + 'it. Their companies were no more likely to last. The study compared similar '
-         + 'students rather than running an experiment, and they were teenagers, not '
-         + 'nine-year-olds.',
+         + 'it, but their companies were no more likely to last. The study compared '
+         + 'similar students rather than running an experiment, and they were teenagers, '
+         + 'not nine-year-olds.',
     finding: 'Swedish students who took part in the Junior Achievement Company Program in high '
            + 'school, followed for up to 16 years, were more likely to start a firm and earned '
            + 'higher entrepreneurial incomes than matched peers. There was no effect on firm '
@@ -1483,9 +1441,9 @@ export const RESEARCH: Citation[] = [
     publication: 'American Psychologist 55(1), 68 to 78',
     url: 'https://doi.org/10.1037/0003-066X.55.1.68',
     plain: 'People stay motivated when they have a real choice, feel they can do the work, '
-         + 'and feel connected to others. Interest that is chosen lasts, and interest that '
-         + 'is forced usually does not. That is why joining is optional. The risk is that '
-         + 'the children who sign up are not the ones who needed it most.',
+         + 'and feel connected to others. Chosen interest lasts; forced interest usually '
+         + 'does not. That is why joining is optional. The risk is that the children who '
+         + 'sign up are not the ones who needed it most.',
     finding: 'Sustained motivation depends on three conditions being met: autonomy, competence '
            + 'and relatedness. Interest that is chosen holds; interest that is imposed tends '
            + 'not to.',

@@ -43,28 +43,28 @@ const RUNG = [CONNECT_L, SPARK_L, GROW_L];
  */
 const ANATOMY_G2 = [
   ['In class this week', 'The standard the class is already working on, so the sheet reinforces Tuesday’s lesson.'],
-  ['Number Warm-Up', 'Two minutes of ordinary grade-level fluency. The page starts on familiar ground.'],
+  ['Number Warm-Up', 'Two minutes of grade-level fluency. The page starts on familiar ground.'],
   ['The Adventure', 'The main activity, with every map, grid and diagram printed on the page.'],
   ['Talk About It', 'One question answered out loud. Short answers, long reasons.'],
-  ['★ Challenge Zone', 'Genuinely harder, and not expected of everyone.'],
+  ['★ Challenge Zone', 'Harder, and not expected of everyone.'],
 ];
 
 const ANATOMY_G1 = [
   ['In class this week', 'For the teacher: the standard the class is already working on.'],
   ['Number Warm-Up', 'Two minutes of counting out loud. The page starts on familiar ground.'],
-  ['One sentence', 'The task, in a sentence a first grader can decode: never more than twelve words, and every word on a first-grade list.'],
+  ['One sentence', 'The task, in a sentence a first grader can decode: twelve words at most, every one on a first-grade list.'],
   ['The picture', 'The task itself, not an illustration of it. Remove the sentence and a teacher can still tell what the page wants.'],
   ['Room to draw', 'The rest of the page, left open to work in.'],
 ];
 
 const ANATOMY_LATER = (artifact: string) => [
   ['In class this week', 'The standard the class is already working on, so the sheet reinforces Tuesday’s lesson.'],
-  ['Number Warm-Up', 'Two minutes of ordinary grade-level fluency. The page starts on familiar ground.'],
+  ['Number Warm-Up', 'Two minutes of grade-level fluency. The page starts on familiar ground.'],
   ['Words to keep', 'The two or three terms this week needs, defined where the student meets them.'],
   ['The main activity', 'Every map, grid, graph and diagram printed on the page, nothing to prepare.'],
   ['More to try', 'The practice set, on page two.'],
   [`Add to your ${artifact.replace(/^The /, '')}`, 'The week’s page of the artifact the student builds across the year.'],
-  ['Talk About It, then ★ Challenge Zone', 'One question out loud, a hint, then something genuinely harder.'],
+  ['Talk About It, then ★ Challenge Zone', 'One question out loud, a hint, then something harder.'],
 ];
 
 function Stat({ value, label, sub, accent }: {
@@ -198,8 +198,8 @@ export default function MathBookUi({ book }: { book: MathBook }) {
               </p>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '52ch',
                 marginTop: '0.9rem' }}>
-                It is built one page a week, in the student’s own words, and it is the reason the
-                year holds together rather than reading as thirty-six unrelated puzzles.
+                It is built one page a week, in the student’s own words, and it is why the year
+                holds together instead of reading as thirty-six unrelated puzzles.
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -290,8 +290,8 @@ export default function MathBookUi({ book }: { book: MathBook }) {
         </div>
 
         <p style={{ fontSize: '0.75rem', color: SLATE_3, marginTop: '1.25rem', maxWidth: '72ch' }}>
-          This is the book’s own table of contents, read out of the source rather than retyped
-          here. The fourth column is the line printed under the title on the student’s page.
+          This is the book’s own table of contents, read out of the source. The fourth column
+          is the line printed under the title on the student’s page.
         </p>
       </Section>
 
@@ -309,9 +309,9 @@ export default function MathBookUi({ book }: { book: MathBook }) {
             <p style={{ fontSize: '0.82rem', lineHeight: 1.75, color: MUTED, marginBottom: '1.1rem',
               maxWidth: '52ch' }}>
               This is enrichment: it reinforces and extends these standards rather than delivering
-              them. No standard here is taught to mastery by this program alone. The list is the
-              set of codes actually named in the “In class this week” line across the 36 weeks,
-              counted from the published book.
+              them. No standard here is taught to mastery by this program alone. The list is every
+              code named in the “In class this week” line across the 36 weeks, counted from the
+              published book.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
               {book.standards.map((code) => (
@@ -350,8 +350,7 @@ export default function MathBookUi({ book }: { book: MathBook }) {
               maxWidth: '48ch' }}>
               {book.checks > 0
                 ? 'The answers in that guide are checked against the problems as the workbook '
-                  + 'states them by a script that ships with the source and runs on every build: '
-                  + `${book.checks.toLocaleString('en-US')} checks.`
+                  + `states them, on every build: ${book.checks.toLocaleString('en-US')} checks.`
                 : 'This guide predates the checking script the later books ship with, so its '
                   + 'answers have been read rather than recomputed. Writing that check is on the list.'}
             </p>
@@ -397,7 +396,7 @@ export default function MathBookUi({ book }: { book: MathBook }) {
                   The end of the line
                 </div>
                 <div style={{ fontSize: '0.82rem', lineHeight: 1.7, color: MUTED }}>
-                  Grade 6 is the last book in this line. What follows it is not written yet, and
+                  Grade 6 is the last book in this line. What follows is not written yet, and
                   the <Link href="/curriculum" style={{ color: GOLD }}>curriculum map</Link> says
                   so cell by cell.
                 </div>
@@ -408,8 +407,7 @@ export default function MathBookUi({ book }: { book: MathBook }) {
           <div style={{ marginTop: '2.5rem', display: 'flex', alignItems: 'center',
             justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.25rem' }}>
             <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '54ch' }}>
-              No year in this line has been run start to finish in a classroom yet. If you would
-              be the first teacher to do it, we would like to hear from you.
+              If you run this year in a classroom, we would like to hear how it went.
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <Link href="/partner#contact" className="btn-gold">Write to us <ArrowUpRight size={14} /></Link>

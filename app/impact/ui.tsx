@@ -38,9 +38,9 @@ const MATH_SOURCES = [
     cite: 'Rosenstein, Franzblau & Roberts (eds.), 1997',
     title: 'Discrete Mathematics in the Schools',
     where: 'DIMACS Vol. 36 · American Mathematical Society and NCTM',
-    says: 'The founding case that discrete math (the math of counting, networks and logic '
-        + 'puzzles) can and should be taught in school, starting as early as kindergarten, '
-        + 'as a way to teach reasoning rather than one more topic fighting for time.',
+    says: 'The founding case that discrete math (counting, networks and logic puzzles) can '
+        + 'and should be taught in school from kindergarten on, as a way to teach reasoning '
+        + 'rather than one more topic fighting for time.',
     strength: 'An argument, not a test',
   },
   {
@@ -48,8 +48,8 @@ const MATH_SOURCES = [
     title: 'Math for seven-year-olds',
     where: 'Second-grade classroom account',
     says: 'Children aged seven and eight learned map-coloring puzzles and the Seven Bridges '
-        + 'of Königsberg (can you find a walk that crosses every bridge exactly once?), then '
-        + 'made up puzzles of their own. Almost exactly the content of Weeks 17, 18, 26 and 27.',
+        + 'of Königsberg, then made up puzzles of their own. Almost exactly the content of '
+        + 'Weeks 17, 18, 26 and 27.',
     strength: 'Shows it can be done',
   },
   {
@@ -66,7 +66,7 @@ const MATH_SOURCES = [
     title: 'Graph theory and combinatorial calculus',
     where: 'ZDM – Mathematics Education 54, 847–864',
     says: 'A careful study showing students can turn real situations into network diagrams '
-        + 'and reason about how things can be arranged when there are rules to follow.',
+        + 'and reason about arrangements under rules.',
     strength: 'Careful study, but eighth grade',
   },
 ];
@@ -84,8 +84,8 @@ export default function ImpactUi() {
           <>
             <p style={{ marginBottom: '0.9rem' }}>
               Most groups put their best numbers on this page. We do not have any yet. So this
-              page shows what we do have: what we have built, the research behind it, how we
-              will measure the first group of students, and what would prove us wrong.
+              page shows what we do have: what we built, the research behind it, how we will
+              measure the first students, and what would prove us wrong.
             </p>
             <p style={{ margin: 0 }}>
               When we have results, good or bad, they will go here.
@@ -130,9 +130,9 @@ export default function ImpactUi() {
         {!hasOutcomeStats && (
           <FadeIn delay={0.3}>
             <p style={{ fontSize: '0.82rem', color: SLATE_3, marginTop: '2rem', maxWidth: '68ch' }}>
-              Notice what is missing: how many students we have served, which districts we work
-              with, and test score gains. We have none of those numbers, because the program has
-              not run yet. They will be added here when they are real.
+              Notice what is missing: students served, districts, test score gains. We have none
+              of those numbers, because the program has not run yet. They go here when they are
+              real.
             </p>
           </FadeIn>
         )}
@@ -144,11 +144,11 @@ export default function ImpactUi() {
           <Eyebrow color={GOLD}>The research</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">What the research<br />does and does not show.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
-            Our business and money lessons are built on {RESEARCH.length} published studies,
+            Our business and money lessons rest on {RESEARCH.length} published studies,
             and {countervailing === 1 ? 'one of them argues' : `${countervailing} of them argue`} against
-            financial education like ours. None of them tested our lessons. Each one is below in
-            plain words. The pathway page has the full detail on every study, including where
-            it stops backing us up.
+            financial education like ours. None tested our lessons. Each is below in plain
+            words; the pathway page has the full detail, including where each stops backing
+            us up.
           </p>
         </FadeIn>
 
@@ -184,9 +184,9 @@ export default function ImpactUi() {
         <FadeIn delay={0.3}>
           <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginTop: '1.5rem', maxWidth: '70ch' }}>
             Start with the study that argues against us. It found that what people learn in
-            a financial education course mostly wears off within two years. Our answer is to spread the
-            lessons over ten years instead of one course, but nobody has tested whether that
-            works, including us.{' '}
+            a financial education course mostly wears off within two years. Our answer is to
+            spread the lessons over ten years, but nobody has tested whether that works,
+            including us.{' '}
             <Link href="/pathway#research" style={{ color: ROYAL_L, textDecoration: 'none',
               borderBottom: '1px solid rgba(45,91,227,0.4)' }}>
               Every study, with its limits
@@ -201,9 +201,9 @@ export default function ImpactUi() {
           <Eyebrow>The mathematics line</Eyebrow>
           <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">Four sources, and<br />a gap we could not close.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
-            The discrete math years rest on different research. Four sources make that case.
-            Each one says what it actually shows, including where a study is too small, or
-            used older students, to prove what we would like it to prove.
+            The discrete math years rest on different research. Four sources make that case,
+            and each is labeled with what it shows, including where a study is too small, or
+            used older students, to prove what we would like.
           </p>
         </FadeIn>
 
@@ -238,10 +238,10 @@ export default function ImpactUi() {
                   No one has tested a program like this at this age.
                 </p>
                 <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: MUTED, maxWidth: '70ch' }}>
-                  We could not find a single study that compared young elementary students who
-                  got a discrete math program with students who did not, and measured the
-                  results. Anyone who tells you the evidence here is strong is overstating it.
-                  The working paper lays out the case, and the gap, in full.
+                  We could not find one study that compared young elementary students who got
+                  a discrete math program with students who did not. Anyone who tells you the
+                  evidence here is strong is overstating it. The working paper lays out the
+                  case, and the gap, in full.
                 </p>
               </div>
             </div>
@@ -271,24 +271,22 @@ export default function ImpactUi() {
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
               The first program we will run and measure is the Grade 7 pilot: self-paced
               lessons in our web app with Pip, an AI tutor, plus guest speakers in person,
-              for every seventh grader who wants it, in each middle school that hosts it.
-              All eight Grade 7 units are written and open to educators in a preview.{' '}
+              for every seventh grader who wants it in each middle school that hosts it.{' '}
               {pilot.theClaim}
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              Before the first lesson, we will post our plan for measuring it on the Open
-              Science Framework, a public site where researchers lock in their plans ahead of
-              time. That way, what we measure, who we compare, and what result would count
-              against us are all set in public before we have any data. We cannot change them
-              later to look better.
+              Before the first lesson, we will post our measurement plan on the Open Science
+              Framework, a public site where researchers lock in their plans ahead of time.
+              What we measure, who we compare, and what result would count against us are
+              then set in public before we have any data, and we cannot change them later to
+              look better.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE }}>
-              We have not posted it yet because no school district has agreed to host the
-              program. A plan written before we know the place, the dates and the number of
-              students would have to be rewritten later, and quietly rewriting it is exactly
-              what posting it in advance is meant to prevent. Because anyone who wants in
-              gets in, the students who join will not be a random draw, and the plan will say
-              how it deals with that rather than pretend otherwise. {pilot.ask}{' '}
+              We have not posted it yet because no district has agreed to host the program.
+              A plan written before we know the place, the dates and the number of students
+              would have to be rewritten, and quiet rewriting is what posting in advance is
+              meant to prevent. Because anyone who wants in gets in, the students who join
+              will not be a random draw, and the plan will say how it handles that. {pilot.ask}{' '}
               <Link href="/partner" style={{ color: GOLD_L, textDecoration: 'none',
                 borderBottom: `1px solid ${GOLD}55` }}>That is what we are asking for</Link>.
             </p>
@@ -303,7 +301,7 @@ export default function ImpactUi() {
               <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex',
                 flexDirection: 'column', gap: '0.65rem' }}>
                 {[
-                  'The questions we are testing (the list below), and for each one, the result that would mean we were wrong',
+                  'The questions we are testing (the list below), and for each, the result that would mean we were wrong',
                   'What we measure and when, including a check-in after the program ends',
                   'Which students we compare with which, and why that is the fairest comparison we can make',
                   'A promise to publish the results here, good or bad, with the data when families agree to share it',
@@ -323,9 +321,8 @@ export default function ImpactUi() {
           <p style={{ fontSize: '0.8rem', lineHeight: 1.75, color: SLATE_3, marginTop: '2rem', maxWidth: '74ch' }}>
             Until October 16, 2026, this page described a different plan: a study in Grade 2
             classrooms, with five measures and three results we said in advance would show it
-            failed. We dropped that study because we are no longer running a classroom pilot.
-            The Grade 7 pilot above is now the first one we will measure. We are saying so
-            here instead of quietly deleting the old promise.
+            failed. We dropped it because we are no longer running a classroom pilot. We say
+            so here instead of quietly deleting the old promise.
           </p>
         </FadeIn>
       </Section>
@@ -336,10 +333,9 @@ export default function ImpactUi() {
           <Eyebrow color="#B42318">What we are betting on</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">What would show<br />we are wrong.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '62ch', marginTop: '1rem' }}>
-            These are the things that have to be true for this to work. Each one says how it
-            could turn out to be false. Measuring the first pilot is how we will test
-            them. The mission page shows the same list, pulled from the same place, so the two
-            always match.
+            What has to be true for this to work, and how each could turn out false. The first
+            pilot is how we test them. The mission page shows the same list from the same
+            source, so the two always match.
           </p>
         </FadeIn>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
@@ -373,28 +369,26 @@ export default function ImpactUi() {
             <Eyebrow>Cost</Eyebrow>
             <Title size="clamp(1.8rem, 3.6vw, 2.9rem)">What a program<br />actually costs.</Title>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '52ch', marginTop: '1rem' }}>
-              We have not published it yet, and not because it is embarrassing. We have not
-              finished working it out, and a number made up for a web page is not the same as a
-              number someone actually calculated.
+              We have not published it yet. We have not finished working it out, and a number
+              made up for a web page is not a number someone calculated.
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <div style={{ background: '#FFFFFF', border: '1px solid rgba(255,122,61,0.16)',
               borderRadius: '4px', padding: '1.6rem 1.8rem' }}>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginBottom: '0.9rem' }}>
-                The materials cost nothing. Every workbook and teacher guide is free to download,
-                so a school with its own copier runs a year for the cost of paper.
+                The materials cost nothing. Every workbook and teacher guide is free, so a
+                school with its own copier runs a year for the cost of paper.
               </p>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, marginBottom: '0.9rem' }}>
-                We are still adding up what it costs to actually run the program: the app and
-                the AI tutor for each student, the in-person sessions and the people who host
-                them, and anything printed. We are keeping every step of the
-                math. When it is done, it goes here and on the partner page as one number, with
-                the math shown.
+                We are still adding up what it costs to run the program: the app and the AI
+                tutor for each student, the in-person sessions and the people who host them,
+                and anything printed. When it is done, it goes here and on the partner page as
+                one number, with the math shown.
               </p>
               <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: WHITE }}>
                 If you are deciding whether to fund us and need the number sooner, ask. We will
-                send what we have and tell you what it leaves out.
+                send what we have and say what it leaves out.
               </p>
             </div>
           </FadeIn>
@@ -411,8 +405,7 @@ export default function ImpactUi() {
               <Title size="clamp(1.7rem, 3.4vw, 2.8rem)">This space is for<br />our first students.</Title>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '58ch', marginTop: '1rem' }}>
                 When students, teachers and families have something to say about the programs,
-                their words will appear here with their permission and their real names, and not
-                before.
+                their words will appear here with their permission, and not before.
               </p>
             </div>
           </FadeIn>
@@ -444,9 +437,9 @@ export default function ImpactUi() {
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
                 color: WHITE, marginBottom: '0.4rem' }}>Check us before you fund us.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '56ch' }}>
-                Our registration, tax filings and the gaps we still have are all public,
-                including the board seats we have not filled yet. If something you need is
-                missing, ask and we will send it. {ORG.legalName} · EIN {ORG.taxStatus.ein}.
+                Our registration, tax filings and open gaps are all public, including the
+                board seats we have not filled. If something you need is missing, ask.{' '}
+                {ORG.legalName} · EIN {ORG.taxStatus.ein}.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>

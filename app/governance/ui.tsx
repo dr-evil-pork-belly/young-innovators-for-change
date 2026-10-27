@@ -24,9 +24,9 @@ export default function GovernanceUi() {
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              Our registration, our filings, who runs the organization, and the things we have
-              not done yet. Every item below is either a public record you can pull up yourself
-              or an open gap we are naming before you have to ask.
+              Our registration, our filings, who runs the organization, and what we have not
+              done yet. Every item below is a public record you can pull up yourself, or a gap
+              we are naming before you have to ask.
             </p>
             <p style={{ margin: 0 }}>
               We are a young organization. The honest version of that is more useful to a funder
@@ -112,7 +112,6 @@ export default function GovernanceUi() {
           </div>
           <p style={{ fontSize: '0.78rem', color: SLATE_3, marginTop: '0.9rem', maxWidth: '62ch' }}>
             The California search is by entity name or number. Ours is {inc.entityNumber}.
-            We link the search rather than a session URL because those expire.
           </p>
         </FadeIn>
       </Section>
@@ -181,10 +180,10 @@ export default function GovernanceUi() {
                   </p>
                   <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: MUTED, marginBottom: '0.9rem' }}>
                     California public benefit corporations are governed by a board, and most
-                    funders expect at least three unrelated members. We are actively recruiting
-                    and we would rather say so here than leave the question open. If you have
-                    governed a small education nonprofit, or you work in K&ndash;12 curriculum,
-                    school administration, or nonprofit finance, we would like to talk.
+                    funders expect at least three unrelated members. We are recruiting, and we
+                    would rather say so than leave the question open. If you have governed a
+                    small education nonprofit, or work in K&ndash;12 curriculum, school
+                    administration or nonprofit finance, we would like to talk.
                   </p>
                   <Link href="/partner#contact" className="btn-ghost">
                     Talk to us about the board <ArrowUpRight size={13} />
@@ -211,10 +210,10 @@ export default function GovernanceUi() {
                 <p style={{ fontSize: '0.9rem', fontWeight: 700, color: WHITE }}>What we file</p>
               </div>
               <p style={{ fontSize: '0.85rem', lineHeight: 1.75, color: MUTED }}>
-                We file Form {TRANSPARENCY.form990Form} annually. Our most recent filing covers
-                tax period {TRANSPARENCY.form990LatestPeriod} and attests gross receipts at or
-                below ${TRANSPARENCY.grossReceiptsUnder.toLocaleString()}. That filing is public
-                through the IRS search linked above.
+                We file Form {TRANSPARENCY.form990Form} annually. The most recent covers tax
+                period {TRANSPARENCY.form990LatestPeriod} and attests gross receipts at or
+                below ${TRANSPARENCY.grossReceiptsUnder.toLocaleString()}. It is public through
+                the IRS search linked above.
               </p>
             </Card>
           </FadeIn>
@@ -266,9 +265,9 @@ export default function GovernanceUi() {
               <p style={{ fontFamily: DISPLAY, fontSize: '1.8rem', letterSpacing: '-0.01em',
                 color: WHITE, marginBottom: '0.4rem' }}>Something missing?</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '52ch' }}>
-                If you are assessing us for a grant and a document you need is not on this
-                page, ask for it by name. We would rather send it than have you guess, and we
-                would rather tell you it does not exist than let you assume it does.
+                If you are assessing us for a grant and a document you need is not here, ask
+                for it by name. We would rather send it than have you guess, and rather say it
+                does not exist than let you assume it does.
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end',

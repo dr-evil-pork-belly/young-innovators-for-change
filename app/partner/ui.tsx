@@ -101,7 +101,7 @@ const LANES = [
     icon:  BookOpen,
     label: 'Schools and districts',
     title: 'Design the implementation with us',
-    body:  'Every workbook and teacher guide is finished, mapped to California standards, and free to download today. What we are looking for is districts to work out the rest with: how the books reach classrooms, which teachers run them, and how those teachers, who know the students, let the ones who want more know that the Grades 7 to 12 program exists. It only works for a student who wants to be there, so that is the whole entry requirement.',
+    body:  'Every workbook and teacher guide is finished, mapped to California standards, and free today. We are looking for districts to work out the rest with: how the books reach classrooms, which teachers run them, and how those teachers let the students who want more know the Grades 7 to 12 program exists. Wanting to be there is the whole entry requirement.',
     href:  '#contact',
     cta:   'Start that conversation',
   },
@@ -111,12 +111,11 @@ const LANES = [
     label: 'Districts and middle schools',
     title: 'Host the first pilot',
     body:  `${DELIVERY.pilot.ask} Each district gives a teacher to sponsor it, a room for `
-         + 'the in-person sessions, and a signed student data privacy agreement. Nothing is '
-         + 'bought and it costs a district nothing. Cindy Ha, the founder, brings in the '
-         + 'speakers and guests and sets dates with each school, rather than hand '
-         + 'a district an app and wish it luck.'
+         + 'the in-person sessions, and a signed student data privacy agreement. It costs a '
+         + 'district nothing. Cindy Ha, the founder, brings in the speakers and sets dates '
+         + 'with each school.'
          + (DELIVERY.pilot.preview.live
-           ? ' Grade 7 is built, all eight units, and educators can try it now with a passcode from us.'
+           ? ' Grade 7 is built, and educators can try it now with a passcode from us.'
            : ''),
     href:  '/teachers',
     cta:   'Read the ask',
@@ -130,7 +129,7 @@ const LANES = [
     icon:  Building2,
     label: 'Foundations, family funds and donors',
     title: 'Make a founding gift',
-    body:  'The first pilot year is where a gift does the most: the app and the tutor, the in-person sessions, and the study that shows whether any of this works. We welcome grants and gifts of every size, including gifts large enough to underwrite the whole first year. Nothing of ours has run with students yet, so there are no outcome numbers to show you, and we will not dress up the ones we do not have. What we can show you is the finished curriculum, the evaluation design we have committed to in public, and a clean record you can check without asking us. Tell us what you would need to see.',
+    body:  'The first pilot year is where a gift does the most: the app and the tutor, the in-person sessions, and the study that shows whether any of this works. We welcome grants and gifts of every size, including one large enough to underwrite the whole first year. There are no outcome numbers to show you yet. What we can show you is the finished curriculum, the evaluation design we have committed to in public, and a clean record you can check without asking us. Tell us what you would need to see.',
     href:  '#contact',
     cta:   'Talk to us about a gift',
   },
@@ -139,7 +138,7 @@ const LANES = [
     icon:  Users,
     label: 'Individuals',
     title: 'Open a door',
-    body:  'The materials are free and they stay free, so there is nothing to buy. You can make a gift of any size. Just as useful: forward this to one teacher or one principal who might want to try a year of it.',
+    body:  'The materials are free and stay free. You can make a gift of any size. Just as useful: forward this to one teacher or principal who might try a year of it.',
     href:  '#contact',
     cta:   'Introduce us to someone',
   },
@@ -151,52 +150,49 @@ const NOT_CLAIMING: string[] = [
   ...(!hasOutcomeStats
     ? ['No program of ours has run with students. We publish no outcome statistics, no engagement figures, and no claim about test scores.']
     : []),
-  'No usage figures. Teachers have told us they use the free material and we are glad of it, but an inbox is not a roster, so there is no number here and there will not be an estimate.',
-  'No district, school or city named as a user of these materials. A teacher downloading a free PDF has not asked to be associated with us, and neither has her employer.',
+  'No usage figures. Teachers have told us they use the free material, but an inbox is not a roster, so there is no number here and no estimate.',
+  'No district, school or city named as a user. A teacher downloading a free PDF has not asked to be associated with us, and neither has her employer.',
   'No partner districts. We have not delivered a program in a school, and we will not name a district we do not serve.',
   ...(!hasTestimonials
-    ? ['No testimonials. A quote goes on this site only with written permission from the speaker, or from a guardian for a minor.']
+    ? ['No testimonials. A quote goes on this site only with written permission from the speaker, or a guardian for a minor.']
     : []),
   ...(!hasAdvisors
-    ? ['No advisory board. A person is named only after agreeing in writing, with a current title they would state themselves.']
+    ? ['No advisory board. A person is named only after agreeing in writing, with a title they would state themselves.']
     : []),
-  'No credential of any kind. Young Innovators for Change grants no degree, no credit, no certificate, and holds no articulation with any institution.',
+  'No credential of any kind. We grant no degree, no credit, no certificate, and hold no articulation with any institution.',
 ];
 
 // ─── FAQ. Every answer traces to org.ts or a public record. ───────────────────
 const FAQS = [
   {
-    q: 'What has actually been built?',
+    q: 'What has been built?',
     a: `${spellOut(PUBLISHED_YEARS.length)} complete 36-week years of curriculum, `
      + `${PUBLISHED_WEEKS} weeks in all, across mathematics, science, entrepreneurship `
      + 'and financial literacy. Each year is a student workbook plus a teacher guide, mapped '
-     + 'to California standards, and each is on the resources page as a free download. '
-     + 'Nothing is behind a form or a fee. Grade 7, the first year of the Grades 7 to 12 '
-     + 'program, is built too: all eight units run in our web app with Pip, the AI tutor, '
-     + 'in a passcode preview for educators. Grades 8 to 12 come next.',
+     + 'to California standards and free on the resources page. Grade 7, the first year of '
+     + 'the Grades 7 to 12 program, is built too: all eight units run in our web app with '
+     + 'Pip, the AI tutor, in a passcode preview for educators. Grades 8 to 12 come next.',
   },
   {
     q: 'Who delivers this to students?',
-    a: 'Not us, for the elementary years. A teacher, an instructional aide or a caretaker '
-     + 'does, and that is the half of this work that decides whether a child learns '
-     + 'anything. We publish with no login and no email wall, so we cannot see who is '
-     + 'doing it and we will not describe them on this site as though we could. The one '
-     + 'program we intend to run ourselves is for Grades 7 to 12: self-paced lessons in our '
-     + 'web app with Pip, an AI tutor, and in-person speaker sessions and fireside chats '
-     + 'that Cindy Ha organizes with each school. Grade 7 is built and in preview for '
-     + 'educators, and we are looking for districts willing to host the first pilot.',
+    a: 'For the elementary years, not us. A teacher, an aide or a caretaker does, and that '
+     + 'is the half of the work that decides whether a child learns anything. We publish '
+     + 'with no login and no email wall, so we cannot see who is doing it. The one program '
+     + 'we intend to run ourselves is Grades 7 to 12: self-paced lessons in our web app with '
+     + 'Pip, and in-person speaker sessions that Cindy Ha organizes with each school. We are '
+     + 'looking for districts to host the first pilot.',
   },
   {
     q: 'Has any of it been taught to students?',
-    a: 'Yes, and we can tell you almost nothing about it. Teachers have written to say they are using the material with their classes, homeschool educators among them. We do not know how many there are, where they teach, or how far anyone has gone, because nothing we publish asks for a name, and we are not going to estimate a figure and present it as one. What has not happened is a delivered program with a roster and a measurement plan attached. A first partner is funding that, not joining something already running.',
+    a: 'Yes, and we can tell you almost nothing about it. Teachers have written to say they are using the material, homeschool educators among them. We do not know how many there are, where they teach, or how far anyone has gone, because nothing we publish asks for a name. What has not happened is a program with a roster and a measurement plan. A first partner is funding that, not joining something already running.',
   },
   {
     q: 'How do I make a gift?',
-    a: 'Write to us through the form on this page, or at ' + ORG.contactEmail + ', and we will talk directly about the gift and how to make it. There is no online donation form yet. We filed our registration with the California Attorney General’s Registry of Charities and Fundraisers in October 2026. We have not finished computing what the program costs, so we do not put a price on a student or a school here; when that number is done it goes on this page with the math shown.',
+    a: 'Write to us through the form on this page, or at ' + ORG.contactEmail + ', and we will talk directly about the gift and how to make it. There is no online donation form yet. We filed with the California Attorney General’s Registry of Charities and Fundraisers in October 2026. We have not finished computing what the program costs, so we put no price on a student or a school here; when that number is done it goes on this page with the math shown.',
   },
   {
     q: 'What do supporters get in return?',
-    a: 'Recognition by name, and nothing else. No branded curriculum, no exclusive rights, no advertising, no seat that carries authority over what gets taught. Curriculum decisions stay with the organization. This is a deliberate limit rather than an oversight.',
+    a: 'Recognition by name, and nothing else. No branded curriculum, no exclusive rights, no advertising, no seat with authority over what gets taught. That is a deliberate limit.',
   },
   {
     q: 'Is a contribution tax-deductible?',
@@ -204,7 +200,7 @@ const FAQS = [
   },
   {
     q: 'How can I check that this organization is what it says it is?',
-    a: 'Every claim about the corporation on this site is in a public record you can pull up without asking us for anything. The records section above has the EIN, the California entity number, and links to the two search tools. If something does not match, tell us and we will fix it.',
+    a: 'Every claim about the corporation on this site is in a public record you can pull up without asking us. The records section above has the EIN, the California entity number, and links to both search tools. If something does not match, tell us and we will fix it.',
   },
 ];
 
@@ -387,8 +383,8 @@ function ContactForm() {
           Message sent
         </h3>
         <p style={{ fontSize: '0.9rem', color: MUTED, lineHeight: 1.7, maxWidth: '340px' }}>
-          Thank you. It landed in a monitored inbox, and a person reads that inbox rather than
-          an autoresponder. In the meantime, everything we have built is free to take.
+          Thank you. A person reads that inbox, not an autoresponder. In the meantime,
+          everything we have built is free to take.
         </p>
       </motion.div>
     );
@@ -494,10 +490,10 @@ export default function PartnerPage() {
               The curriculum is written. <span style={{ color: ROYAL_L }}>The evidence is not.</span>
             </motion.h1>
             <motion.p variants={fadeUp} style={{ fontSize: '1.05rem', lineHeight: 1.75, color: MUTED, maxWidth: '620px', marginBottom: '2rem' }}>
-              {spellOut(PUBLISHED_YEARS.length)} finished school years, {PUBLISHED_WEEKS} weeks of material, free to anyone who wants them, and teachers already using them. From Grade 7, a web app with every Grade 7 unit written and an AI tutor named Pip, open to educators in a preview. What we cannot show you is a single measured classroom, because no program with a roster has run and nothing has been evaluated. That is the honest position, and closing it is the only thing we are asking anyone for.
+              {spellOut(PUBLISHED_YEARS.length)} finished school years, {PUBLISHED_WEEKS} weeks of material, free to anyone, and teachers already using them. From Grade 7, a web app with an AI tutor named Pip, open to educators in a preview. What we cannot show you is a single measured classroom, because no program with a roster has run. Closing that gap is the only thing we are asking anyone for.
             </motion.p>
             <motion.p variants={fadeUp} style={{ fontSize: '0.95rem', lineHeight: 1.75, color: MUTED, maxWidth: '620px', marginBottom: '2.5rem' }}>
-              So this page leads with what we are not claiming, then shows you the public record, then gives you a form. If you are doing diligence, everything you need is on the way down.
+              This page leads with what we are not claiming, then the public record, then a form. If you are doing diligence, everything you need is on the way down.
             </motion.p>
             {/* A funding page with no button in its hero. Diligence readers scroll;
                 the ones who already know what they want should not have to. */}
@@ -552,8 +548,8 @@ export default function PartnerPage() {
               </h2>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED, maxWidth: '40ch' }}>
                 We get asked, kindly and often, to bring the program first to schools whose
-                families could buy this education several times over. The answer is no, and
-                this is why.
+                families could buy this education several times over. The answer is no. Here
+                is why.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
@@ -562,12 +558,11 @@ export default function PartnerPage() {
                 them and we do not restrict them.
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1.1rem' }}>
-                Our own money and attention are different. Those go to public school
-                districts in {ORG.serviceArea} where most students qualify for free or
-                reduced-price meals. The best evidence we have found on financial education
-                shows its effect concentrating in lower-income households, including a
-                measurable spillover to parents, with almost no effect in higher-income
-                households
+                Our own money and attention go to public school districts in{' '}
+                {ORG.serviceArea} where most students qualify for free or reduced-price
+                meals. The best evidence we have found shows financial education working in
+                lower-income households, with a measurable spillover to parents, and barely
+                at all in higher-income ones
                 {SPILLOVER && (
                   <>
                     {' '}(<a href={SPILLOVER.url} target="_blank" rel="noopener noreferrer"
@@ -579,10 +574,10 @@ export default function PartnerPage() {
                 children we are built for will not, unless someone brings it to them.
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE, marginBottom: '1.5rem' }}>
-                If you lead a school that does not fit that description and want the
-                materials, download them. They are yours. If you want to help us reach the
-                districts we are built for, an introduction to a superintendent in a
-                lower-income district is the most useful thing you can offer.
+                If you lead a school that does not fit that description, download the
+                materials. They are yours. If you want to help us reach the districts we are
+                built for, an introduction to a superintendent in one is the most useful thing
+                you can offer.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href="#contact" className="btn-primary">
@@ -608,7 +603,7 @@ export default function PartnerPage() {
                   What we are not claiming.
                 </h2>
                 <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED, maxWidth: '38ch' }}>
-                  A funder who finds one inflated claim rereads every other claim differently, including the true ones. So this list comes before the pitch rather than after it.
+                  A funder who finds one inflated claim rereads every other claim differently, including the true ones. So this list comes before the pitch.
                 </p>
               </Reveal>
               <Reveal delay={0.1}>
@@ -700,7 +695,7 @@ export default function PartnerPage() {
                   Say hello in three lines.
                 </h2>
                 <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: MUTED, marginBottom: '2rem' }}>
-                  Who you are, what you are looking at, and what would be useful. Whether you run a classroom, a foundation, or neither, this form goes to a monitored inbox rather than a ticket system. Tell us what you would need to see and we will send it if it exists, or say so if it does not.
+                  Who you are, what you are looking at, and what would be useful. This form goes to a monitored inbox, not a ticket system. Tell us what you need to see and we will send it if it exists, or say so if it does not.
                 </p>
               </Reveal>
               <Reveal delay={0.1}>

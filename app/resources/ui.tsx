@@ -66,18 +66,17 @@ const MATH_BOOKS: Book[] = MATH_LINE.map((b) => ({
   pages: b.pages,
   desc: '36 weekly assignments, two pages each, plus a contents spread and a certificate. '
       + `Sequenced against a typical California Grade ${b.grade} pacing guide and proofed in `
-      + 'grayscale so it prints on a classroom copier.',
+      + 'grayscale for a classroom copier.',
   guide: b.guide,
   guideMeta: 'Web page · all 36 weeks',
   guideDesc: 'Answer keys for the main activity, the practice set and the Challenge Zone, plus a '
-      + 'running note and the standards tie for every week. Written so a teacher needs no '
-      + 'prior background in the mathematics.'
+      + 'running note and the standards tie for every week. A teacher needs no background in '
+      + 'the mathematics.'
       + (b.checks > 0
           ? ' A script that ships with the source checks the answers against the problems '
             + `as printed, ${b.checks.toLocaleString('en-US')} checks in all.`
-          : ' The later books ship a script that recomputes every numeric answer from the '
-            + 'problems. This guide predates it, so its answers have been read rather than '
-            + 'recomputed.'),
+          : ' This guide predates the checking script the later books ship with, so its '
+            + 'answers have been read rather than recomputed.'),
 }));
 
 /**
@@ -93,15 +92,14 @@ const SCIENCE_BOOKS: Book[] = [
     workbook: '/downloads/look-and-listen-grade1.pdf', pages: 77,
     desc: '36 weekly investigations, two pages each: plants and animals and the parts that '
         + 'help them, sound, light and shadows, then the sun, the moon and the stars. Each '
-        + 'page 1 has one sentence a six-year-old reads alone, and an adult reads the rest '
-        + 'aloud. Every table of results is labeled as practice data.',
+        + 'page 1 has one sentence a six-year-old reads alone; an adult reads the rest aloud. '
+        + 'Every table of results is labeled as practice data.',
     guide: '/downloads/look-and-listen-grade1-teacher-guide.html',
     guideMeta: 'Web page · all 36 weeks',
-    guideDesc: 'The point of each week, the specific wrong turn it produces, and every answer, '
-        + 'all 106 of them checked by a script that ships with the source: every number is '
-        + 'recomputed from the practice data, and every worded answer is held to its expected '
-        + 'wording. A second script checks every sentence a child reads alone against a '
-        + 'first-grade word list.',
+    guideDesc: 'The point of each week, the wrong turn it produces, and every answer, '
+        + 'all 106 of them checked by a script that ships with the source: numbers recomputed from the '
+        + 'practice data, worded answers held to their expected wording. A second script checks '
+        + 'every sentence a child reads alone against a first-grade word list.',
   },
   {
     name: 'Look Closer',
@@ -114,10 +112,10 @@ const SCIENCE_BOOKS: Book[] = [
         + 'of results is labeled as practice data.',
     guide: '/downloads/look-closer-grade2-teacher-guide.html',
     guideMeta: 'Web page · all 36 weeks',
-    guideDesc: 'The point of each week, the specific wrong turn it produces, and every answer, '
-        + 'all 143 of them checked by a script that ships with the source: every number is '
-        + 'recomputed from the practice data, and every worded answer is held to its expected '
-        + 'wording. The same script checks that every fair test changes exactly one thing.',
+    guideDesc: 'The point of each week, the wrong turn it produces, and every answer, '
+        + 'all 143 of them checked by a script that ships with the source: numbers recomputed from the '
+        + 'practice data, worded answers held to their expected wording. The same script checks '
+        + 'that every fair test changes exactly one thing.',
   },
   {
     name: 'What Made That Happen?',
@@ -131,11 +129,10 @@ const SCIENCE_BOOKS: Book[] = [
         + 'numbers are the real ones.',
     guide: '/downloads/what-made-that-happen-grade3-teacher-guide.html',
     guideMeta: 'Web page · all 36 weeks',
-    guideDesc: 'The point of each week, the specific wrong turn it produces, and every answer, '
-        + 'all 142 of them checked by a script that ships with the source: every number is '
-        + 'recomputed from the practice data, and every worded answer is held to its expected '
-        + 'wording. The same script checks that every table the book calls a fair test '
-        + 'changes exactly one thing.',
+    guideDesc: 'The point of each week, the wrong turn it produces, and every answer, '
+        + 'all 142 of them checked by a script that ships with the source: numbers recomputed from the '
+        + 'practice data, worded answers held to their expected wording. The same script checks '
+        + 'that every fair test changes exactly one thing.',
   },
   {
     name: 'Where Did It Go?',
@@ -149,11 +146,11 @@ const SCIENCE_BOOKS: Book[] = [
         + 'gather. Every table of results is labeled as practice data.',
     guide: '/downloads/where-did-it-go-grade4-teacher-guide.html',
     guideMeta: 'Web page · all 36 weeks',
-    guideDesc: 'The point of each week, the specific wrong turn it produces, and every answer, '
-        + 'all 129 of them checked by a script that ships with the source: every number is '
-        + 'recomputed from the practice data, and every worded answer is held to its expected '
-        + 'wording. The same script checks that every fair test changes exactly one thing, and '
-        + 'that no page of the workbook says energy is used up.',
+    guideDesc: 'The point of each week, the wrong turn it produces, and every answer, '
+        + 'all 129 of them checked by a script that ships with the source: numbers recomputed from the '
+        + 'practice data, worded answers held to their expected wording. The same script checks '
+        + 'that every fair test changes exactly one thing, and that no page says energy is '
+        + 'used up.',
   },
   {
     name: 'Too Small to See',
@@ -167,11 +164,11 @@ const SCIENCE_BOOKS: Book[] = [
         + 'practice data except one page of real estimates of Earth\'s water.',
     guide: '/downloads/too-small-to-see-grade5-teacher-guide.html',
     guideMeta: 'Web page · all 36 weeks',
-    guideDesc: 'The point of each week, the specific wrong turn it produces, and every answer, '
-        + 'all 140 of them checked by a script that ships with the source: every number is '
-        + 'recomputed from the practice data, and every worded answer is held to its expected '
-        + 'wording. The same script checks that every fair test changes exactly one thing, and '
-        + 'that no page of the workbook tells a child to taste anything.',
+    guideDesc: 'The point of each week, the wrong turn it produces, and every answer, '
+        + 'all 140 of them checked by a script that ships with the source: numbers recomputed from the '
+        + 'practice data, worded answers held to their expected wording. The same script checks '
+        + 'that every fair test changes exactly one thing, and that no page tells a child to '
+        + 'taste anything.',
   },
   {
     name: 'Inside the System',
@@ -185,12 +182,11 @@ const SCIENCE_BOOKS: Book[] = [
         + 'are in degrees Celsius, and every table of results is labeled as practice data.',
     guide: '/downloads/inside-the-system-grade6-teacher-guide.html',
     guideMeta: 'Web page · all 36 weeks',
-    guideDesc: 'The point of each week, the specific wrong turn it produces, and every answer, '
-        + 'all 146 of them checked by a script that ships with the source: the 115 that come '
-        + 'from a page’s numbers are recomputed from the practice data, and the 31 worded '
-        + 'answers are held to their sample wording. The same script checks that every fair '
-        + 'test, and every version of the '
-        + 'week 35 design, changes exactly one thing.',
+    guideDesc: 'The point of each week, the wrong turn it produces, and every answer, '
+        + 'all 146 of them checked by a script that ships with the source: the 115 numeric answers are '
+        + 'recomputed from the practice data, and the 31 worded answers are held to their '
+        + 'sample wording. The same script checks that every fair test, and every version of '
+        + 'the week 35 design, changes exactly one thing.',
   },
 ];
 
@@ -203,12 +199,12 @@ const ENTERPRISE_BOOKS: Book[] = [
     desc: '36 weekly assignments in entrepreneurship, two pages each. Students find a real '
         + 'problem, design something that fixes it, work out cost and price, and sell it at a '
         + 'class market day in week 31. Real products and real customers, on play money in a '
-        + 'closed classroom economy, so students run their own money box.',
+        + 'closed classroom economy.',
     guide: '/downloads/venture-year-teacher-guide.html',
     guideMeta: 'Web page · all 36 weeks',
-    guideDesc: 'The point of each week, every arithmetic answer, the specific wrong turn each '
-        + 'week produces, and an honest note wherever a question is a judgment call rather '
-        + 'than something with a right answer.',
+    guideDesc: 'The point of each week, every arithmetic answer, the wrong turn each week '
+        + 'produces, and a note wherever a question is a judgment call rather than one with a '
+        + 'right answer.',
   },
   {
     name: 'The Numbers Year',
@@ -225,7 +221,7 @@ const ENTERPRISE_BOOKS: Book[] = [
     // own verify.py reports, so it has been removed rather than corrected to a
     // second number nothing on this site can check. The math cards above carry
     // counts because those are read out of the books at generation time.
-    guideDesc: 'Every arithmetic answer, the point of each week, and the specific wrong turn it '
+    guideDesc: 'Every arithmetic answer, the point of each week, and the wrong turn it '
         + 'produces. Every numeric answer is recomputed from the problems by a script that '
         + 'ships with the source.',
   },
@@ -240,10 +236,10 @@ const ENTERPRISE_BOOKS: Book[] = [
         + 'every team sees every other team’s numbers and moves at the same time.',
     guide: '/downloads/market-year-grade6-teacher-guide.html',
     guideMeta: 'Web page · all 36 weeks',
-    guideDesc: 'The point of each week, the specific wrong turn it produces, and every numeric '
-        + 'answer. All 176 of them are recomputed from the problems by a script that ships '
-        + 'with the source and fails if any answer goes unchecked. Where a question is a judgment call, and this year has many, '
-        + 'the guide says so rather than inventing something to mark against.',
+    guideDesc: 'The point of each week, the wrong turn it produces, and every numeric answer. '
+        + 'All 176 of them are recomputed from the problems by a script that ships with the '
+        + 'source. Where a question is a judgment call, and this year has many, the guide says '
+        + 'so rather than inventing something to mark against.',
   },
 ];
 
@@ -253,35 +249,31 @@ const MONEY_BOOKS: Book[] = [
     strand: 'Financial literacy', grade: 3,
     move: 'There is enough for one of two things, and every choice costs you the other.',
     workbook: '/downloads/choosing-year-grade3.pdf', pages: 77,
-    desc: '36 weekly assignments about a student’s own money. There is enough for one of '
-        + 'two things, and every choice costs them the other. Counting, comparing prices, '
+    desc: '36 weekly assignments about a student’s own money. Counting, comparing prices, '
         + 'a ledger kept for a month, saving that takes longer than expected, and what a '
         + 'thing costs in hours rather than dollars. Nothing is sold in it.',
     guide: '/downloads/choosing-year-grade3-teacher-guide.html',
     guideMeta: 'Web page · all 36 weeks',
-    guideDesc: 'The point of each week, the specific wrong turn it produces, and every numeric '
-        + 'answer, all 236 of them recomputed from the problems by a script that ships with '
-        + 'the source. No page asks a child what anything costs at their house, and the '
-        + 'guide says what to do if one volunteers an amount anyway.',
+    guideDesc: 'The point of each week, the wrong turn it produces, and every numeric answer, '
+        + 'all 236 of them recomputed from the problems by a script that ships with the '
+        + 'source. No page asks a child what anything costs at their house, and the guide '
+        + 'says what to do if one volunteers an amount anyway.',
   },
   {
     name: 'The Planning Year',
     strand: 'Financial literacy', grade: 4,
     move: 'Decide before you spend rather than while you are spending.',
     workbook: '/downloads/planning-year-grade4.pdf', pages: 77,
-    desc: '36 weekly assignments about deciding before you spend rather than while you '
-        + 'are spending. Money to the cent, a plan with categories that add up, and the '
-        + 'record kept beside it that says what really happened. The repeating costs get '
-        + 'multiplied out, and the year ends by asking whether the plan itself was right, '
-        + 'which is a different question from whether it was kept.',
+    desc: '36 weekly assignments on deciding before you spend. Money to the cent, a plan '
+        + 'with categories that add up, and the record kept beside it that says what really '
+        + 'happened. Repeating costs get multiplied out, and the year ends by asking whether '
+        + 'the plan was right, which is a different question from whether it was kept.',
     guide: '/downloads/planning-year-grade4-teacher-guide.html',
     guideMeta: 'Web page · all 36 weeks',
-    guideDesc: 'The point of each week, the specific wrong turn it produces, and every '
-        + 'answer, all 249 of them: the 243 with a single right answer are rechecked by a '
-        + 'script that ships with the source, and the 6 that are the student’s own are named '
-        + 'as such. No plan a student writes is marked right or wrong: what can be '
-        + 'marked is whether it adds up, and the guide says so on every week that asks for '
-        + 'one.',
+    guideDesc: 'The point of each week, the wrong turn it produces, and every answer, '
+        + 'all 249 of them: the 243 with a single right answer are rechecked by a script that ships '
+        + 'with the source, and the 6 that are the student’s own are named as such. No plan '
+        + 'a student writes is marked right or wrong, only whether it adds up.',
   },
   {
     name: 'The Keeping Year',
@@ -295,12 +287,10 @@ const MONEY_BOOKS: Book[] = [
         + 'owed, and writing an agreement down before it is needed.',
     guide: '/downloads/keeping-year-grade5-teacher-guide.html',
     guideMeta: 'Web page · all 36 weeks',
-    guideDesc: 'The point of each week, the specific wrong turn it produces, and every '
-        + 'answer, all 258 of them: 230 are recomputed from the problems by a script that '
-        + 'ships with the source, 9 are checked against the page’s own words, and 19 are '
-        + 'named as the student’s own. No decision a student writes is marked right or wrong: what '
-        + 'can be marked is the arithmetic inside it, and the guide says so on every week '
-        + 'that asks for one.',
+    guideDesc: 'The point of each week, the wrong turn it produces, and every answer, '
+        + 'all 258 of them: 230 recomputed from the problems by a script that ships with the source, '
+        + '9 checked against the page’s own words, and 19 named as the student’s own. No '
+        + 'decision a student writes is marked right or wrong, only the arithmetic inside it.',
   },
   {
     name: 'The Asking Year',
@@ -308,19 +298,18 @@ const MONEY_BOOKS: Book[] = [
     move: 'The numbers other people put in front of you, and what would have to be true for them to hold.',
     workbook: '/downloads/asking-year-grade6.pdf', pages: 77,
     desc: '36 weekly assignments on the numbers other people put in front of you. Percent '
-        + 'done properly first, because a student who cannot find twenty percent of a price '
-        + 'cannot check anything, then what a percent is a percent OF, what "up to" '
+        + 'done properly first, then what a percent is a percent OF, what "up to" '
         + 'guarantees, why two discounts in a row do not add, and how the same money looks '
         + 'in two frames. The last trimester is the asking itself: what would have to be '
         + 'true, who benefits from yes, and what to do when a claim cannot be checked.',
     guide: '/downloads/asking-year-grade6-teacher-guide.html',
     guideMeta: 'Web page · all 36 weeks',
-    guideDesc: 'The point of each week, the specific wrong turn it produces, and every '
-        + 'answer, all 338 of them: the 332 with a single right answer are rechecked by a '
-        + 'script that ships with the source, and the 6 that are the student’s own are named '
-        + 'as such. Half this year is claims rather than sums, and where a question has '
-        + 'no single right answer the guide says so and says what a good answer contains. '
-        + 'Nothing in the book accuses anybody of dishonesty and the guide says that too.',
+    guideDesc: 'The point of each week, the wrong turn it produces, and every answer, '
+        + 'all 338 of them: the 332 with a single right answer are rechecked by a script that ships '
+        + 'with the source, and the 6 that are the student’s own are named as such. Half this '
+        + 'year is claims rather than sums; where a question has no single right answer the '
+        + 'guide says what a good answer contains. Nothing in the book accuses anybody of '
+        + 'dishonesty, and the guide says that too.',
   },
 ];
 
@@ -341,8 +330,8 @@ const DOCUMENTS = [
     meta: 'PDF · working paper · 10 pages',
     icon: FlaskConical,
     desc: 'The case for discrete mathematics as early-elementary enrichment: the literature, the '
-        + 'standards argument, the equity case, plus an explicit account of what the evidence '
-        + 'does not support, including the absence of any efficacy trial at this grade.',
+        + 'standards argument, the equity case, and a plain account of what the evidence does '
+        + 'not support, including the absence of any efficacy trial at this grade.',
   },
 ];
 
@@ -392,8 +381,8 @@ function BookCard({ b, i }: { b: Book; i: number }) {
             </p>
             {b.play && (
               <p style={{ fontSize: '0.79rem', lineHeight: 1.65, color: SUBTLE, marginBottom: '0.55rem' }}>
-                {gamesFor(b.play).length} of its weeks also run as games on this site, at the address printed on
-                the page. Nothing is stored and there is no login.{' '}
+                {gamesFor(b.play).length} of its weeks also run as games on this site. Nothing is
+                stored and there is no login.{' '}
                 <Link href={`/play#${b.play}`} style={{ color: hue.ink, fontWeight: 600 }}>Play the money weeks</Link>.
               </p>
             )}
@@ -445,16 +434,13 @@ export default function ResourcesUi() {
               </strong>{' '}
               Plus the research paper underneath it. Nothing is a preview and nothing is
               behind a form. These are the printed years, Grades 1 to 6; from Grade 7 the
-              lessons run in our web app instead,{' '}
+              lessons run in our web app,{' '}
               <Link href="/teachers" style={{ color: CONNECT_INK, fontWeight: 600 }}>and here is how that works</Link>.
             </p>
-            <p style={{ marginBottom: '0.9rem' }}>
-              Run it in your classroom, adapt it for your district, or read it purely to
-              decide whether we know what we are doing. All three are the point. You owe us
-              no report, no email and no account.
-            </p>
             <p style={{ margin: 0 }}>
-              And if a year of this works, it will be because of{' '}
+              Run it in your classroom, adapt it for your district, or read it to decide
+              whether we know what we are doing. You owe us no report, no email and no
+              account. And if a year of this works, it will be because of{' '}
               <Link href="/teachers" style={{ color: CONNECT_INK, fontWeight: 600 }}>the person who ran it</Link>,
               not the paper.
             </p>
@@ -482,35 +468,34 @@ export default function ResourcesUi() {
         <StrandBlock
           title="Mathematics"
           hue={STRAND_HUE['Mathematics']}
-          note={'Six school years of discrete mathematics, Grades 1 to 6. One assignment a week, '
-                + 'two pages, sequenced against the California pacing guide so each week lands near '
-                + 'the standard the class is already teaching. Each year stands alone: starting at '
-                + 'Grade 5 leaves nothing missing.'}
+          note={'Six school years, Grades 1 to 6. One two-page assignment a week, sequenced '
+                + 'against the California pacing guide so each week lands near the standard the '
+                + 'class is already teaching. Each year stands alone.'}
           books={MATH_BOOKS}
         />
         <StrandBlock
           title="Science"
           hue={STRAND_HUE['Science']}
-          note={'Six school years, Grades 1 to 6, complete. Looking and listening, then the '
-                + 'land and what things are made of, then causes, where energy goes, what is too '
-                + 'small or too far to see, and systems from a cell to the climate, with materials a '
-                + 'classroom mostly already has and every step printable in black and white.'}
+          note={'Six school years, Grades 1 to 6. Looking and listening, then land and '
+                + 'materials, then causes, energy, what is too small or too far to see, and systems '
+                + 'from a cell to the climate. Materials a classroom mostly already has, printable '
+                + 'in black and white.'}
           books={SCIENCE_BOOKS}
         />
         <StrandBlock
           title="Entrepreneurship"
           hue={STRAND_HUE['Entrepreneurship']}
-          note={'Three school years, Grades 4 to 6. One student, one product and one market day in '
-                + 'the first year. Then teams with a written profit split, a forecast made before '
-                + 'anything is sold, and finally a rival pricing against you in the open.'}
+          note={'Three school years, Grades 4 to 6. One student, one product and one market day '
+                + 'in the first year. Then teams with a written profit split and a forecast, and '
+                + 'finally a rival pricing against you in the open.'}
           books={ENTERPRISE_BOOKS}
         />
         <StrandBlock
           title="Financial literacy"
           hue={STRAND_HUE['Financial literacy']}
           note={'Four school years, Grades 3 to 6. A child\'s own money first, then a plan, then the '
-                + 'difference between what a thing costs once and what it keeps costing, then the '
-                + 'numbers other people put in front of them and how to check one.'}
+                + 'difference between a price and a cost, then the numbers other people put in '
+                + 'front of them and how to check one.'}
           books={MONEY_BOOKS}
         />
 
@@ -566,8 +551,8 @@ export default function ResourcesUi() {
             <Title size="clamp(1.8rem, 3.4vw, 2.7rem)">The materials are<br />the argument.</Title>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.8, color: BODY, maxWidth: '54ch', marginTop: '1rem' }}>
               A curriculum you cannot read is a claim you have to take on trust. Publishing the
-              whole thing, including the answer key and the research caveats, is the fastest way
-              to show a teacher, a principal or a funder exactly what they would be getting.
+              whole thing, answer key and research caveats included, is the fastest way to show
+              a teacher, a principal or a funder what they would be getting.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.8, color: BODY, maxWidth: '54ch' }}>
               It also means a school that never talks to us can still run the program. That is a
@@ -582,12 +567,12 @@ export default function ResourcesUi() {
                 Using these materials
               </p>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: BODY, marginBottom: '0.75rem' }}>
-                Teachers and schools may print, copy and use everything here at no cost. Attribution
-                is appreciated but not required. We would rather it get used.
+                Teachers and schools may print, copy and use everything here at no cost.
+                Attribution is appreciated but not required. We would rather it get used.
               </p>
               <p style={{ fontSize: '0.9rem', lineHeight: 1.75, color: BODY, marginBottom: '1.25rem' }}>
-                If you adapt it for another grade or another district, we would genuinely like to
-                hear how it went, including if it did not work.
+                If you adapt it for another grade or district, we would like to hear how it
+                went, including if it did not work.
               </p>
               <Link href="/partner#contact" className="btn-secondary">Tell us how it went <ArrowUpRight size={14} /></Link>
             </div>
@@ -606,19 +591,18 @@ export default function ResourcesUi() {
                 <p style={{ fontSize: '0.92rem', lineHeight: 1.75, color: '#D7DFEC', maxWidth: '58ch' }}>
                   Assessment instruments and a teacher training deck next. Then these{' '}
                   {PUBLISHED_WEEKS} weeks split into single downloadable assignments, so trying
-                  one costs a teacher an afternoon instead of a year. Science is
-                  complete for Grades 1 to 6. The upper-grade enterprise material is further
-                  out, and we would rather say that than imply it is nearly done.
+                  one costs a teacher an afternoon instead of a year. The upper-grade enterprise
+                  material is further out, and we would rather say so than imply it is nearly
+                  done.
                 </p>
               </div>
               <Link href="/teachers" className="btn-primary">What running a year involves <ArrowUpRight size={14} /></Link>
             </div>
           </InkSlab>
           <p style={{ fontSize: '0.82rem', color: SUBTLE, marginTop: '1.5rem', maxWidth: '72ch' }}>
-            Nothing here has been taught start to finish in a classroom yet, and none of it carries
-            an outcome claim, because no program of ours has run to draw one from. What you can check today
-            is whether the material is any good, which is the whole reason it is all sitting here
-            in the open.
+            None of this carries an outcome claim, because no program of ours has run to draw one
+            from. What you can check today is whether the material is any good, which is why it
+            is all here in the open.
           </p>
         </FadeIn>
       </Section>

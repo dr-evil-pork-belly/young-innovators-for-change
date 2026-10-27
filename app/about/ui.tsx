@@ -91,15 +91,15 @@ export default function AboutUi() {
         lede={
           <>
             <p style={{ marginBottom: '0.9rem' }}>
-              {FOUNDER.name} grew up in {FOUNDER.raisedIn}, went through Los Angeles public
-              schools doing exactly what was asked of her, and came out the other side without
-              ever having been told how a business actually works. She found out by opening
-              one: nine hundred square feet, renovated by hand.
+              {FOUNDER.name} grew up in {FOUNDER.raisedIn}, did everything Los Angeles public
+              schools asked of her, and came out the other side never having been told how a
+              business works. She found out by opening one: nine hundred square feet,
+              renovated by hand.
             </p>
             <p style={{ margin: 0 }}>
-              She went back for {mba} afterward, and discovered a whole field she had spent
-              years improvising against. Young Innovators for Change exists because of the
-              order of those two things.
+              She went back for {mba} afterward and found a whole field she had spent years
+              improvising against. Young Innovators for Change exists because of the order of
+              those two things.
             </p>
           </>
         }
@@ -133,13 +133,12 @@ export default function AboutUi() {
         >
           <p style={BODY}>
             There was not much. Cramped living quarters, both parents working, and afternoons
-            that belonged to the neighborhood kids and whatever could be done with a patch
-            of dirt.
+            that belonged to the neighborhood kids and a patch of dirt.
           </p>
           <p style={BODY}>
-            School had one thing she stayed late for. Teachers in her LAUSD elementary put
+            School had one thing she stayed late for. Teachers at her LAUSD elementary put
             out board games at the end of the day, and she stayed to play them. Nobody made
-            her, and nothing about it was graded.
+            her, and nothing was graded.
           </p>
           <div style={{ marginTop: '1.75rem', padding: '1.35rem 1.6rem',
             background: 'rgba(255,122,61,0.06)', border: '1px solid rgba(255,122,61,0.2)',
@@ -149,10 +148,10 @@ export default function AboutUi() {
               Worth noticing
             </p>
             <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED }}>
-              The first thing this organization finished is thirty-six weeks of second-grade
+              The first thing this organization finished was thirty-six weeks of second-grade
               mathematics taught almost entirely through games, maps and puzzles. That was not
-              planned as a tribute to anything. People who remember learning that way tend to
-              build that way.{' '}
+              planned as a tribute. People who remember learning that way tend to build that
+              way.{' '}
               <Link href="/curriculum" style={{ color: GOLD_L, textDecoration: 'none',
                 borderBottom: `1px solid ${GOLD}55` }}>See the curriculum</Link>.
             </p>
@@ -167,21 +166,20 @@ export default function AboutUi() {
           title={<>She did every<br />single thing<br />the system asked.</>}
         >
           <p style={BODY}>
-            She mastered what was taught, in the order it was taught. The honors track. The AP
-            classes. The SAT, studied for the hard way. It got her into {FOUNDER.college}, and a
-            term abroad in {FOUNDER.studiedAbroad} widened the frame further. She worked through
-            most of high school and college, because the money had to come from somewhere.
+            She mastered what was taught, in the order it was taught. The honors track, the AP
+            classes, the SAT studied for the hard way. It got her into {FOUNDER.college}, and a
+            term abroad in {FOUNDER.studiedAbroad} widened the frame. She worked through most
+            of high school and college, because the money had to come from somewhere.
           </p>
           <p style={BODY}>
             She {FOUNDER.academicRecord}. She is specific about the second half of that
-            sentence, and it is not modesty. Finishing first was the return on hours nobody
-            saw, which is the only reason it is worth mentioning at all here.
+            sentence. Finishing first was the return on hours nobody saw, which is the only
+            reason it is worth mentioning here.
           </p>
           <p style={BODY}>
-            That is thirteen years of doing it right, followed by four more. And none of it
-            included how money works. Not how a price gets set, not what a margin is, not what
-            it costs to borrow, not why one shop survives its third year and the one beside it
-            does not.
+            Seventeen years of doing it right, and none of it included how money works. Not
+            how a price gets set, not what a margin is, not what it costs to borrow, not why
+            one shop survives its third year and the one beside it does not.
           </p>
           <p style={{ ...BODY, marginBottom: 0, color: WHITE }}>
             That is not a complaint about her teachers. It was not in the curriculum. In most
@@ -198,21 +196,20 @@ export default function AboutUi() {
           title={<>Nine hundred<br /><span style={{ color: GOLD_L }}>square feet.</span></>}
         >
           <p style={BODY}>
-            After college came a job at a payroll company. A few years of duties that did not
-            need her, and the particular flatness of work that asks for nothing. She left it to
-            open a shop.
+            After college came a job at a payroll company: a few years of work that did not
+            need her and asked for nothing. She left it to open a shop.
           </p>
           <p style={BODY}>
-            She did the renovation herself. Saved every dollar that could be saved and put in
-            sweat wherever sweat could stand in for cash. The {FOUNDER.business.startedFrom} grew
-            into a profitable {FOUNDER.business.grewInto} business. She kept learning, kept
-            pushing, and {FOUNDER.business.exit}.
+            She did the renovation herself, saved every dollar she could, and put in sweat
+            wherever sweat could stand in for cash. The {FOUNDER.business.startedFrom} grew
+            into a profitable {FOUNDER.business.grewInto} business, and she{' '}
+            {FOUNDER.business.exit}.
           </p>
           <PullQuote>{FOUNDER.quotes.theBusiness}</PullQuote>
           <p style={{ ...BODY, marginBottom: 0 }}>
-            This is the part of the record that matters most to a school or a funder deciding
-            whether to take this organization seriously: she has actually run something. Payroll,
-            inventory, suppliers, pricing, a landlord, a third year. Not a case study of it.
+            This is the part of the record that matters most to a school or a funder: she has
+            run something. Payroll, inventory, suppliers, pricing, a landlord, a third year.
+            Not a case study of it.
           </p>
         </Spread>
       </Section>
@@ -224,21 +221,21 @@ export default function AboutUi() {
           title={<>The whole field<br />was already<br />there.</>}
         >
           <p style={BODY}>
-            Somewhere along the way she wanted to know what the academy had that the doing had
-            not taught her, and went back for {mba}.
+            She wanted to know what the academy had that the doing had not taught her, and
+            went back for {mba}.
           </p>
           <p style={BODY}>
-            What she found was not a set of tricks. It was a discipline, pricing, capital,
-            operations, strategy, the structure of how firms actually behave, a body of
-            knowledge she had been improvising against, blind, for years, and had beaten it anyway.
+            What she found was not a set of tricks. It was a discipline: pricing, capital,
+            operations, strategy, how firms behave. A body of knowledge she had been
+            improvising against, blind, for years, and had beaten anyway.
           </p>
           <PullQuote accent={ROYAL_L}>{FOUNDER.quotes.theMBA}</PullQuote>
           <p style={BODY}>
             The other thing she took from it was about pace. Two years is a compression
             schedule, priced and timed for adults who already speak the language, and she
-            came out convinced that the compression was doing real damage to how much of it
-            people actually keep. Spread over the years a child is in a classroom anyway,
-            there is no schedule to keep up with.{' '}
+            came out convinced the compression costs people most of what they learn. Spread
+            over the years a child is in a classroom anyway, there is no schedule to keep up
+            with.{' '}
             <Link href="/pathway" style={{ color: ROYAL_L, textDecoration: 'none',
               borderBottom: '1px solid rgba(45,91,227,0.4)' }}>
               That idea became the ten-year pathway
@@ -264,19 +261,17 @@ export default function AboutUi() {
           <FadeIn>
             <p style={BODY}>
               Every kid on her block could have used this. Not so they would all become
-              founders, most will not, and that was never the goal. Understanding how money,
-              pricing, ownership and risk actually work changes what a person is able to see,
-              and it changes it permanently.
+              founders; most will not, and that was never the goal. Understanding how money,
+              pricing, ownership and risk work changes what a person can see, permanently.
             </p>
             <p style={BODY}>
-              Handed to someone at nine instead of at thirty-five, it compounds the way anything
-              else does. Twenty-six extra years of seeing the world that way is not a marginal
-              advantage, and it is exactly the head start that the families who already know
-              have always been able to give their own children.
+              Handed to someone at nine instead of thirty-five, it compounds. Twenty-six extra
+              years of seeing the world that way is the head start families who already know
+              have always given their own children.
             </p>
             <p style={{ ...BODY, marginBottom: 0, color: WHITE }}>
-              That gap has never been about ability. It is about who happened to be in the room
-              when somebody explained it.
+              That gap was never about ability. It is about who happened to be in the room when
+              somebody explained it.
             </p>
           </FadeIn>
 
@@ -291,9 +286,8 @@ export default function AboutUi() {
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1.1rem' }}>
                 Two tracks. Mathematics and science across Grades 1–12, because reasoning is the
                 floor everything else stands on. Leadership, entrepreneurship and financial
-                literacy from Grade 3 up, because that is the part nobody was going to teach
-                them. Published free, with an honest status on every grade band we have not
-                reached yet.
+                literacy from Grade 3 up, because nobody else was going to teach it. Published
+                free, with an honest status on every grade band we have not reached.
               </p>
               <Link href="/curriculum" className="btn-ghost">
                 The full map <ArrowUpRight size={13} />
@@ -314,14 +308,14 @@ export default function AboutUi() {
           {[
             { t: 'She is not a credentialed educator', a: GREEN_L,
               d: 'No teaching credential, no education doctorate, no classroom career. The '
-               + 'curriculum is built against published standards and published research, and '
-               + 'both are cited so you can check the work rather than trust the author.' },
+               + 'curriculum is built on published standards and research, both cited, so you '
+               + 'can check the work rather than trust the author.' },
             { t: 'She has not run a school', a: GREEN_L,
-              d: 'No program of ours has run with students and no outcome has been measured. What we '
-               + 'would count, and what would tell us the program does not work, is written '
-               + 'down in advance on the evidence page.' },
+              d: 'No program of ours has run with students and no outcome has been measured. '
+               + 'What would tell us the program does not work is written down in advance on '
+               + 'the evidence page.' },
             { t: 'One business is not a proof', a: GREEN_L,
-              d: 'That she built and sold a company says she can operate. It does not establish '
+              d: 'That she built and sold a company says she can operate. It does not show '
                + 'that teaching this to nine-year-olds changes their lives. Nobody has shown '
                + 'that yet, including us.' },
           ].map((c) => (
@@ -337,10 +331,9 @@ export default function AboutUi() {
         <FadeIn delay={0.2}>
           <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginTop: '2rem',
             maxWidth: '70ch' }}>
-            A founder&rsquo;s story is the easiest place on a website to quietly inflate, which is
-            why this section exists. The materials are published in full, workbook, answer key,
-            research paper, so that the argument rests on them and not on the
-            biography above.{' '}
+            A founder&rsquo;s story is the easiest place on a website to inflate, which is why
+            this section exists. The materials are published in full so the argument rests on
+            them, not on the biography above.{' '}
             <Link href="/resources" style={{ color: ROYAL_L, textDecoration: 'none',
               borderBottom: '1px solid rgba(45,91,227,0.4)' }}>Read them yourself</Link>.
           </p>
@@ -354,9 +347,9 @@ export default function AboutUi() {
           <Title size="clamp(1.9rem, 4vw, 3.2rem)">The people actually<br />doing the work.</Title>
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '62ch',
             marginTop: '1rem' }}>
-            This lists the people whose role is documented, and nobody else. There is no advisory
-            board on this page because there is not yet an advisory board, and names we cannot
-            stand behind are worse than an empty section.
+            Only people whose role is documented. There is no advisory board here because there
+            is not yet an advisory board, and names we cannot stand behind are worse than an
+            empty section.
           </p>
         </FadeIn>
 
@@ -405,10 +398,9 @@ export default function AboutUi() {
                 </p>
                 <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED }}>
                   A California public benefit corporation needs a board, and most funders expect
-                  at least three unrelated directors. Ours is not seated yet. We say so here and
-                  on the governance page rather than leaving you to work it out from a filing.
-                  Educators, school administrators, operators and finance people are exactly who
-                  we are looking for.
+                  at least three unrelated directors. Ours is not seated yet, and we say so here
+                  rather than leaving you to find it in a filing. Educators, school
+                  administrators, operators and finance people are who we are looking for.
                 </p>
               </div>
               <Link href="/governance" className="btn-ghost">
@@ -431,8 +423,8 @@ export default function AboutUi() {
               {ORG.legalName} was incorporated in {ORG.incorporation.state} on{' '}
               {fmtDate(ORG.incorporation.initialFilingDate)} and recognized by the IRS as a
               501(c)(3) public charity on {fmtDate(ORG.taxStatus.determinationDate)}. Both records
-              are public and both are linked from the governance page, along with the things we
-              have not done yet.
+              are public and linked from the governance page, along with what we have not done
+              yet.
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>

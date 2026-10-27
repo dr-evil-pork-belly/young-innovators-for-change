@@ -15,10 +15,10 @@ const CHAIN = [
     stage: 'Inputs',
     accent: SLATE_3,
     items: [`${PUBLISHED_WEEKS} weeks of curriculum, written in-house`,
-            'A teacher, an aide or a caretaker willing to spend the time, which is the '
-            + 'input we do not control and the one that decides everything',
-            'A web app with Pip, an AI tutor, teaching only from lessons we write and check (Grade 7 written and in preview for adults; Grades 8 to 12 next)',
-            'Guest speakers and fireside chats from business, organized by our founder with each school',
+            'A teacher, an aide or a caretaker willing to spend the time: the input we do '
+            + 'not control and the one that decides everything',
+            'A web app with Pip, an AI tutor, teaching only from lessons we write and check (Grade 7 in preview; Grades 8 to 12 next)',
+            'Guest speakers and fireside chats, organized by our founder with each school',
             'Printing for the books, and hosting and AI costs for the app',
             'A published research base, including the paper that argues against us'],
   },
@@ -26,14 +26,14 @@ const CHAIN = [
     stage: 'Activities',
     accent: ROYAL_L,
     items: ['Publishing every year in full, free to anyone (running today)',
-            'A delivered program with a roster for Grades 7 to 12: self-paced lessons, and in-person sessions with guests (not yet run)',
+            'A Grades 7 to 12 program with a roster: self-paced lessons and in-person sessions (not yet run)',
             'Family sessions where the student teaches the adult (not yet run)',
             'Teacher orientation and support'],
   },
   {
     stage: 'Outputs',
     accent: GOLD,
-    items: ['Students enrolled, and weeks actually completed',
+    items: ['Students enrolled, and weeks completed',
             'Ventures launched, priced and sold',
             'Family sessions attended',
             'Materials downloaded and reused'],
@@ -50,7 +50,7 @@ const CHAIN = [
     stage: 'Long-term outcome',
     accent: GOLD_L,
     items: ['Adults who can price something, read a cost, judge a risk and understand what '
-            + 'owning a share of something means',
+            + 'owning a share means',
             'and who can help a household decide rather than watch it be decided'],
   },
 ];
@@ -72,16 +72,14 @@ export default function MissionUi() {
               {MISSION.statement} {MISSION.agency}
             </p>
             <p style={{ marginBottom: '0.9rem' }}>
-              So we write that material and publish every page of it free: mathematics and
-              science across Grades 1&ndash;12, and leadership, entrepreneurship and
-              financial literacy from Grade 3 up. The elementary years are printed
-              workbooks; from Grade 7 the lessons run in a web app. The barrier was never
-              what a child could understand. It was whether anybody put it in front of them.
+              So we write that material and publish every page free: printed workbooks for
+              the elementary years, a web app from Grade 7. The barrier was never what a
+              child could understand. It was whether anybody put it in front of them.
             </p>
             <p style={{ margin: 0 }}>
-              This page is the argument rather than the brochure. What we think the problem
-              is, what we actually do about it, what would have to be true for that to work,
-              and the specific results that would tell us we were wrong.
+              This page is the argument, not the brochure: the problem, what we do about it,
+              what has to be true for that to work, and the results that would tell us we
+              were wrong.
             </p>
           </>
         }
@@ -102,33 +100,30 @@ export default function MissionUi() {
           <FadeIn delay={0.1}>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
               Nobody sits a child down and teaches them how a price gets set. It is absorbed,
-              at a table, across years, in a household where somebody already knows. Which
-              means it is a distribution problem wearing the costume of an aptitude problem.
+              at a table, across years, in a household where somebody already knows. It is a
+              distribution problem dressed as an aptitude problem.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              A child in a household that runs a business hears cost, margin and risk
-              discussed for eighteen years before anyone calls it a subject. A child in a
-              household that does not hears none of it, then arrives at adulthood expected to
-              make the same decisions with none of the practice. Both children then get told
-              the difference was talent.
+              A child in a household that does not run a business hears none of it, then
+              arrives at adulthood expected to make the same decisions with none of the
+              practice. Both children are then told the difference was talent.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              The same pattern shows up earlier, and more quietly, in mathematics. By the end of
-              second grade a child is expected to add and subtract fluently within twenty. The
-              standards also ask for argument, structure and perseverance, but in most classrooms
-              those are carried on the back of computational work, so a child who is slow to
-              regroup gets fewer chances to argue, to notice structure, to be <em>seen reasoning</em>.
-              A narrow skill quietly becomes a broad identity.
+              The same pattern shows up earlier, and more quietly, in mathematics. The
+              standards ask for argument, structure and perseverance, but in most classrooms
+              those ride on computational work, so a child who is slow to regroup gets fewer
+              chances to argue, to notice structure, to be <em>seen reasoning</em>. A narrow
+              skill becomes a broad identity.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED }}>
-              Our answer to the first of those is to stop compressing it.{' '}
+              Our answer to the first problem is to stop compressing it.{' '}
               <Link href="/pathway" style={{ color: GOLD_L, textDecoration: 'none',
                 borderBottom: `1px solid ${GOLD}55` }}>
                 The ten-year pathway
               </Link>{' '}
-              sets out which ideas land in which grade, what is written and what is not, and the
-              published research the design leans on, including the paper that argues the whole
-              category does not work.
+              sets out which ideas land in which grade, what is written, and the research the
+              design leans on, including the paper that argues the whole category does not
+              work.
             </p>
           </FadeIn>
         </div>
@@ -152,19 +147,19 @@ export default function MissionUi() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '1rem' }}>
           {[
             { t: 'Write the curriculum ourselves', a: ROYAL_L,
-              d: 'Not a workshop series or a licensed kit. Full years of material, week by week, '
-               + 'mapped to the standards a class is already teaching that month, with an honest '
-               + 'status published on every grade band we have not reached yet.' },
+              d: 'Not a workshop series or a licensed kit. Full years, week by week, mapped to '
+               + 'the standards a class is already teaching that month, with an honest status '
+               + 'on every grade band we have not reached.' },
             { t: 'Publish all of it, free', a: GOLD,
-              d: 'Workbook, answer key, research paper. No email wall. A school '
-               + 'that never speaks to us can still run the program.' },
+              d: 'Workbook, answer key, research paper. No email wall. A school that never '
+               + 'speaks to us can still run the program.' },
             { t: 'Remove every barrier to trying', a: GREEN_L,
-              d: 'No cost, no subscription, no training week. Crayons, counters and a photocopier '
-               + 'for the elementary years; a browser and nothing to install from Grade 7. Programs '
-               + 'that require purchase get adopted by schools that can purchase.' },
+              d: 'No cost, no subscription, no training week. Crayons, counters and a '
+               + 'photocopier for the elementary years; a browser from Grade 7. Programs that '
+               + 'require purchase get adopted by schools that can purchase.' },
             { t: 'Measure honestly, publish either way', a: ROYAL_L,
-              d: 'We have pre-committed to the outcomes that would show the program does not work, '
-               + 'and we will report them if we see them.' },
+              d: 'We have committed in advance to the outcomes that would show the program does '
+               + 'not work, and we will report them if we see them.' },
           ].map((c, i) => (
             <FadeIn key={c.t} delay={i * 0.07}>
               <Card accent={c.a}>
@@ -183,9 +178,9 @@ export default function MissionUi() {
           <Eyebrow color={GOLD_L}>Theory of change</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">From what we put in<br />to what we hope changes.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '62ch', marginTop: '1rem' }}>
-            Read left to right. Everything to the left of the outcomes is something we control and
-            can report on today. Everything to the right is a claim we have not yet earned, which
-            is why it is written as intent rather than achievement.
+            Read left to right. Everything left of the outcomes is something we control and can
+            report on today. Everything to the right is a claim we have not earned yet, so it is
+            written as intent.
           </p>
         </FadeIn>
 
@@ -219,7 +214,7 @@ export default function MissionUi() {
           <div style={{ marginTop: '1.5rem', maxWidth: '70ch' }}>
             <p style={{ fontSize: '0.78rem', color: SLATE_3, marginBottom: '0.75rem' }}>
               The two right-hand columns are shaded because nothing in them has been measured.
-              The evaluation design that would test them is published in full on the{' '}
+              The evaluation design is on the{' '}
               <Link href="/impact" style={{ color: GOLD_L }}>evidence page</Link>.
             </p>
             <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex',
@@ -240,7 +235,7 @@ export default function MissionUi() {
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">What has to be true.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '60ch', marginTop: '1rem' }}>
             Every theory of change rests on assumptions. Most organizations leave them implicit.
-            Ours are listed here with the specific way each one could fail.
+            Ours are listed here, each with the way it could fail.
           </p>
         </FadeIn>
 
@@ -287,8 +282,8 @@ export default function MissionUi() {
               ))}
             </ul>
             <p style={{ fontSize: '0.82rem', lineHeight: 1.75, color: SLATE_3, marginTop: '1.5rem', maxWidth: '52ch' }}>
-              This is a policy, not a slogan. Every factual claim on this site is held in a single
-              file, and anything not in it does not appear on the page.
+              This is a policy, not a slogan. Every factual claim on this site lives in a single
+              file, and anything not in it does not appear on a page.
             </p>
           </FadeIn>
         </div>
@@ -304,10 +299,9 @@ export default function MissionUi() {
               <p style={{ fontFamily: DISPLAY, fontSize: '2rem', letterSpacing: '-0.01em',
                 color: WHITE, marginBottom: '0.4rem' }}>Everything above turns on one pilot.</p>
               <p style={{ fontSize: '0.85rem', color: MUTED, maxWidth: '54ch' }}>
-                Teachers are running this material on their own already. What nobody has done
-                is run it with a roster and measure what happened, which is why everything to
-                the right of the outputs above is still intent rather than achievement. We can
-                finish the curriculum alone. We cannot finish the argument alone.
+                Teachers are already running this material on their own. Nobody has run it with
+                a roster and measured what happened. We can finish the curriculum alone. We
+                cannot finish the argument alone.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>

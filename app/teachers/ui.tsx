@@ -25,10 +25,8 @@ export default function TeachersUi() {
           <>
             <p style={{ marginBottom: '0.9rem' }}>
               A workbook on a shelf teaches nobody. It is paper until an adult opens it with
-              a child, reads the week before the week happens, notices which student has
-              gone quiet, and decides to spend the extra twenty minutes. That decision is
-              the program. Everything we publish is the part that can be done alone, at a
-              desk, by someone who will never meet your students.
+              a child, reads the week ahead, notices which student has gone quiet, and
+              decides to spend the extra twenty minutes. That decision is the program.
             </p>
             <p style={{ marginBottom: '0.9rem' }}>
               {DELIVERY.claim}
@@ -63,22 +61,18 @@ export default function TeachersUi() {
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
               Some of you have written anyway. {DELIVERY.inUse.known} Those messages are
-              the entire evidence base for the sentence that follows, and they are worth
-              more than that makes them sound: it is being taught, and if a child has
-              learned one thing from these pages, an adult did that. Not the paper, and
+              the whole evidence base for one sentence: it is being taught, and if a child
+              has learned one thing from these pages, an adult did that. Not the paper, and
               not us.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1rem' }}>
-              What we will not do is turn an inbox into a number. {DELIVERY.inUse.unknown}{' '}
-              A funder who wants to know how many classrooms are running this deserves a
-              real answer, and the real answer today is that we do not have one.
+              What we will not do is turn an inbox into a number. {DELIVERY.inUse.unknown}
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED }}>
-              It is the ordinary, unglamorous work that carries this: the aide who reruns
-              week nine because half the room missed it, the teacher who photocopies on
-              her own prep, the grandparent working through the money year at a kitchen
-              table because nobody else was going to. None of that shows up in a download
-              count. All of it is the actual program.
+              The ordinary work carries this: the aide who reruns week nine because half the
+              room missed it, the teacher who photocopies on her own prep, the grandparent
+              working through the money year at a kitchen table. None of that shows up in a
+              download count. All of it is the program.
             </p>
           </FadeIn>
         </div>
@@ -90,13 +84,10 @@ export default function TeachersUi() {
           <Eyebrow>How it is delivered</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">Two speeds,<br />one for each age.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '64ch', marginTop: '1rem' }}>
-            The same ideas are shaped twice, because a nine-year-old with a teacher beside
-            them and a thirteen-year-old who can work on their own are not the same
-            delivery problem. Printed weeks hold the first. We do not believe paper holds
-            the second, so from Grade 7 the lessons move to a web app that lets each
-            student go at their own pace, and the time we ask a school for goes to a room
-            instead. Grade 7 is built and open to educators in a preview, and Grades 8 to
-            12 come next. No student has used it yet, and the card says so.
+            A nine-year-old with a teacher beside them and a thirteen-year-old who can work
+            alone are not the same delivery problem. Printed weeks hold the first. From Grade
+            7 the lessons move to a web app where each student sets their own pace, and the
+            time we ask a school for goes to a room instead.
           </p>
         </FadeIn>
 
@@ -145,8 +136,7 @@ export default function TeachersUi() {
         <FadeIn delay={0.25}>
           <p style={{ fontSize: '0.8rem', color: SLATE_3, marginTop: '1.5rem', maxWidth: '70ch' }}>
             {PUBLISHED_YEARS.length} full school years, {PUBLISHED_WEEKS} weeks in all, are
-            written and free to download today. Which grades those cover, and which are
-            still only designed, is set out honestly on the{' '}
+            written and free today. Which grades those cover is on the{' '}
             <Link href="/curriculum" style={{ color: GOLD_L }}>curriculum map</Link>.
           </p>
         </FadeIn>
@@ -194,8 +184,8 @@ export default function TeachersUi() {
             </div>
             <p style={{ fontSize: '0.8rem', lineHeight: 1.7, color: SLATE_3, maxWidth: '70ch',
               marginTop: '1.25rem' }}>
-              These are commitments we put in writing to any district that hosts the program.
-              The data privacy agreement each district signs, not this list, is what binds us.{' '}
+              We put these in writing for any district that hosts the program. The data
+              privacy agreement each district signs, not this list, is what binds us.{' '}
               <Link href="/privacy" style={{ color: GOLD_L }}>What the app will keep, and for how long</Link>.
             </p>
           </div>
@@ -208,9 +198,9 @@ export default function TeachersUi() {
           <Eyebrow color={GREEN_L}>Our side of it</Eyebrow>
           <Title size="clamp(1.9rem, 4vw, 3.4rem)">If you are going to<br />carry this, here is<br />what we owe you.</Title>
           <p style={{ fontSize: '0.9rem', color: MUTED, maxWidth: '60ch', marginTop: '1rem' }}>
-            We cannot make the twenty minutes appear. What we can do is make sure not one
-            of them is wasted on checking our work, hunting for an answer key, or
-            reprinting something that came out gray.
+            We cannot make the twenty minutes appear. We can make sure none of them are
+            wasted checking our work, hunting for an answer key, or reprinting something
+            that came out gray.
           </p>
         </FadeIn>
 
@@ -261,9 +251,9 @@ export default function TeachersUi() {
               <p style={{ fontSize: '0.92rem', lineHeight: 1.85, color: MUTED, maxWidth: '66ch',
                 marginBottom: '1.75rem' }}>
                 If you sit anywhere near that decision, in a district office, a middle school
-                or a county office of education, one email starts it. It costs the district
-                nothing. The only things to sign are the ones that protect students: a data
-                privacy agreement, and a consent form for each family.
+                or a county office of education, one email starts it. The only things to sign
+                are the ones that protect students: a data privacy agreement, and a consent
+                form for each family.
               </p>
               {pilot.preview.live && (
                 <p style={{ fontSize: '0.92rem', lineHeight: 1.85, color: MUTED, maxWidth: '66ch',
@@ -302,12 +292,12 @@ export default function TeachersUi() {
           <FadeIn delay={0.1}>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1.25rem' }}>
               Take a book. Take one week of it. Run it in an after-school hour, a small
-              group, or a single kitchen table. Nothing is gated, nothing expires, and no
-              one here will ever ask you to account for it.
+              group, or at a kitchen table. Nothing is gated, nothing expires, and no one
+              here will ask you to account for it.
             </p>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: MUTED, marginBottom: '1.75rem' }}>
-              If it works, that was you. If it breaks, write and tell us where, and the
-              next revision will be better because a real classroom found the seam.
+              If it works, that was you. If it breaks, tell us where, and the next revision
+              will be better because a real classroom found the seam.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
               <Link href="/resources" className="btn-gold">Every book and guide <Download size={14} /></Link>

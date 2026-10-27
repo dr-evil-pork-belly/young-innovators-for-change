@@ -63,39 +63,36 @@ const FAQS = [
   {
     q: 'How much does a teacher have to prepare?',
     a: 'Nothing beyond photocopying. Every map, grid, graph and diagram is printed on the '
-     + 'page. The teacher guide carries the answer key, a running note and the challenge '
-     + 'answers for all 36 weeks.',
+     + 'page, and the teacher guide carries the answers and a running note for all 36 weeks.',
   },
   {
     q: 'Do the years have to be run in order?',
-    a: 'No. Each book is a complete standalone year written against its own grade’s '
-     + 'standards, and none of them assumes the year before. A class that starts at Grade 5 '
-     + 'is not missing a prerequisite. Run in sequence they do build: the same objects come '
-     + 'back doing harder work, and a few weeks say so out loud.',
+    a: 'No. Each book is a complete year written against its own grade’s standards, and '
+     + 'none assumes the year before. Run in sequence they do build: the same objects come '
+     + 'back doing harder work.',
   },
   {
     q: 'Will it print on a classroom copier?',
-    a: 'Yes. Every book is proofed in grayscale and every text style is checked against a '
-     + 'print contrast threshold before it ships. Structure lives in the linework and color '
-     + 'is accent only, so nothing stops working when the copier strips it.',
+    a: 'Yes. Every book is proofed in grayscale before it ships. Structure lives in the '
+     + 'linework and color is accent only, so nothing stops working when the copier strips it.',
   },
   {
     q: 'Is discrete math too hard for elementary students?',
-    a: 'It needs very little computational fluency, which is exactly why it works as '
-     + 'enrichment. A student still shaky on regrouping can reason well about a map coloring, '
-     + 'and be asked to prove it. What it does demand is explanation, and that is the point. '
-     + 'The Grade 1 book goes further and assumes the child cannot yet read the page: every '
-     + 'week is one sentence and a picture, and the picture is the task.',
+    a: 'It needs very little computational fluency, which is why it works as enrichment. A '
+     + 'student still shaky on regrouping can reason well about a map coloring, and be asked '
+     + 'to prove it. What it demands is explanation, and that is the point. The Grade 1 book '
+     + 'assumes the child cannot yet read the page: every week is one sentence and a picture, '
+     + 'and the picture is the task.',
   },
   {
     q: 'How do you know the answer keys are right?',
     a: (CHECKED.length === MATH_LINE.length
        ? 'Every one of the books ships'
        : `${CHECKED.length} of the ${MATH_LINE.length} books ship`)
-     + ' a script that checks the teacher guide’s answers against the problems '
-     + `as the workbook states them: ${MATH_CHECK_COUNT.toLocaleString('en-US')} checks across `
-     + 'them, rerun on every build, so a fix to a page that changes an answer fails the build '
-     + 'until the guide agrees.'
+     + ' a script that checks the teacher guide’s answers against the problems as the '
+     + `workbook states them: ${MATH_CHECK_COUNT.toLocaleString('en-US')} checks, rerun on `
+     + 'every build, so a page fix that changes an answer fails the build until the guide '
+     + 'agrees.'
      + (UNCHECKED.length
        ? ` ${UNCHECKED.map((b) => b.title).join(' and ')} is not machine checked yet.`
        : ''),
@@ -207,16 +204,16 @@ export default function DiscreteMathLineUi() {
 
                   <motion.p variants={fadeUp} style={{ fontSize: '1rem', lineHeight: 1.75, color: MUTED,
                     maxWidth: '54ch', marginBottom: '1.25rem' }}>
-                    {Spell(MATH_LINE.length)} complete
-                    school years of sorting, maps, proofs, routes and rules, one weekly assignment
-                    at a time. Discrete mathematics needs very little computational fluency, which
-                    is exactly why it works as enrichment: a student still shaky on regrouping can
-                    reason well about a map coloring, and be asked to prove it.
+                    {Spell(MATH_LINE.length)} complete school years of sorting, maps, proofs,
+                    routes and rules, one weekly assignment at a time. Discrete mathematics needs
+                    very little computational fluency, which is why it works as enrichment: a
+                    student still shaky on regrouping can reason well about a map coloring, and
+                    be asked to prove it.
                   </motion.p>
                   <motion.p variants={fadeUp} style={{ fontSize: '1rem', lineHeight: 1.75, color: MUTED,
                     maxWidth: '54ch', marginBottom: '2.25rem' }}>
-                    Each year teaches one new mathematical move. Read them in order and they make
-                    a sentence: {MATH_MOVES.join(', ')}.
+                    Each year teaches one new move. Read them in order and they make a
+                    sentence: {MATH_MOVES.join(', ')}.
                   </motion.p>
 
                   <motion.div variants={fadeUp} style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
@@ -243,7 +240,7 @@ export default function DiscreteMathLineUi() {
                       fontWeight: 700 }}>Meet Pip</p>
                     <p style={{ textAlign: 'center', fontSize: '0.75rem', color: MUTED, lineHeight: 1.6,
                       marginTop: '0.4rem' }}>
-                      One dot, five lines. Pip is a graph: the exact object the students spend
+                      One dot, five lines. Pip is a graph: the object the students spend
                       {' '}{spell(MATH_LINE.length)} years proving things about.
                     </p>
                   </div>
@@ -284,10 +281,10 @@ export default function DiscreteMathLineUi() {
           <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: MUTED, maxWidth: '62ch' }}>
             The years are not the same year with bigger numbers. Grade 1 asks a child to hold a
             rule in their head while they use it. Grade 2 shows them that mathematics has parts
-            that are not arithmetic. Each year after that adds a different kind of move and reuses
-            the same objects, shapes, graphs, maps, coins and codes, as material for it. That
-            order is also the order in which the moves are hard: a first grader can follow a rule,
-            a third grader can be systematic, a sixth grader can hold a variable.
+            that are not arithmetic. Each year after that adds a new kind of move and reuses the
+            same objects, shapes, graphs, maps, coins and codes, as material for it. A first
+            grader can follow a rule, a third grader can be systematic, a sixth grader can hold a
+            variable.
           </p>
         </FadeIn>
 
@@ -366,8 +363,8 @@ export default function DiscreteMathLineUi() {
             <p style={{ fontSize: '0.92rem', lineHeight: 1.8, color: MUTED, maxWidth: '56ch' }}>
               Discrete mathematics asks how things connect, how many arrangements exist, and
               whether something is possible at all. Because it leans on reasoning rather than
-              computation, it reaches students that arithmetic practice leaves behind, and it
-              stretches the ones who finish early.
+              computation, it reaches students arithmetic practice leaves behind, and stretches
+              the ones who finish early.
             </p>
           </FadeIn>
 
@@ -375,23 +372,22 @@ export default function DiscreteMathLineUi() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {[
                 { icon: Lightbulb, accent: CONNECT_L, title: 'It gives them proof',
-                  text: 'A whole year of the line, Grade 4, is about things that cannot be done: '
-                      + 'two colors will not work, five dots cannot each have three lines, the '
-                      + 'bridge walk is impossible. Explaining why is a kind of thinking the '
-                      + 'regular curriculum rarely asks for at this age.' },
+                  text: 'A whole year, Grade 4, is about things that cannot be done: two colors '
+                      + 'will not work, five dots cannot each have three lines, the bridge walk '
+                      + 'is impossible. Explaining why is a kind of thinking the regular '
+                      + 'curriculum rarely asks for at this age.' },
                 { icon: Shapes, accent: GROW_L, title: 'It feeds the pacing guide',
                   text: 'Loops are repeated addition. Grids are arrays. Binary is place value. '
-                      + 'Factor rectangles are 4.OA.4 in disguise, and some students arrive at '
-                      + 'arrays through the loop who never got there through the array.' },
+                      + 'Factor rectangles are 4.OA.4 in disguise, and some students reach arrays '
+                      + 'through the loop who never got there through the array.' },
                 { icon: Sparkles, accent: SPARK_L, title: 'It needs almost nothing',
                   text: 'Crayons, counters and a photocopier. No devices, no kits, no '
-                      + 'subscription, no training week before you can start.' },
+                      + 'subscription, no training week.' },
                 { icon: Layers, accent: CONNECT_L, title: 'It is checked, not asserted',
                   text: `Every one of the ${MATH_CHECK_COUNT.toLocaleString('en-US')} numeric `
                       + `answers in the ${CHECKED.length} newest teacher guides is recomputed `
-                      + 'from the problem as the workbook states it, by a script that ships with '
-                      + 'the source and runs on every build. If a fix to a page changes an '
-                      + 'answer, the build fails until the guide agrees.' },
+                      + 'from the problem as the workbook states it, on every build. If a page '
+                      + 'fix changes an answer, the build fails until the guide agrees.' },
               ].map((c) => {
                 const Icon = c.icon;
                 return (
@@ -426,8 +422,8 @@ export default function DiscreteMathLineUi() {
               What teachers ask.
             </h2>
             <p style={{ fontSize: '0.85rem', lineHeight: 1.8, color: MUTED, maxWidth: '46ch' }}>
-              Anything not answered here is worth an email. We would rather field the question
-              than have a school guess.
+              Anything not answered here is worth an email. We would rather answer than have a
+              school guess.
             </p>
           </FadeIn>
           <FadeIn delay={0.12}>
@@ -456,8 +452,8 @@ export default function DiscreteMathLineUi() {
                 marginBottom: '2rem' }}>
                 Every year in this line is free to download and free to run. One page a week,
                 the answers in the guide, and no account, license or permission in the way.
-                No year has been run start to finish yet, and the first teacher to do it will
-                change how every later book gets written.
+                The first teacher to tell us how a whole year went will change how every later
+                book gets written.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
                 <Link href="/resources" className="btn-gold">
