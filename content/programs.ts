@@ -164,8 +164,8 @@ const venture: ProgramSpec = {
     + 'three years are written and free today.',
     'The syllabus below was written for Grades 9 to 12 as an eight-week summer program, '
     + 'since cut. From Grade 7 these ideas belong to the web app program, with guest '
-    + 'speakers in person. Grade 7 is written and open to educators in a preview. Grades '
-    + '8 to 12 come next.',
+    + 'speakers in person. Grade 7 is written and open to educators in a preview, with '
+    + 'Grade 8 beside it as a draft. Grades 9 to 12 come next.',
   ],
   unitsLabel: 'The eight-week outline',
   unitsIntro:
@@ -258,9 +258,10 @@ const venture: ProgramSpec = {
     'The pitch structure and the feedback form',
     'The Grade 4, 5 and 6 full-year versions, written and published in full',
     'Grade 7 in the web app: all eight units written and checked, open to educators in a preview',
+    'Grade 8 in the web app: all eight units written as a draft, in the same preview',
   ],
   notYet: [
-    'The Grades 8 to 12 lessons',
+    'Grade 9 in the web app (its eight units are drafted), and the Grades 10 to 12 lessons',
     'The student venture file',
     'The simplified financial model spreadsheet',
     'Any pitch panel, because no student has reached the end',
@@ -281,8 +282,8 @@ const finance: ProgramSpec = {
     + 'taught, so most people meet them first in a contract they have already signed.',
     'The syllabus below was written for Grades 9 to 12 as an eight-week summer program, '
     + 'since cut. From Grade 7 these ideas belong to the web app program, with guest '
-    + 'speakers in person. Grade 7 is written and open to educators in a preview; Grades '
-    + '8 to 12 come next. The outline covers credit scores, interest rates and index '
+    + 'speakers in person. Grade 7 is written and open to educators in a preview, with '
+    + 'Grade 8 beside it as a draft; Grades 9 to 12 come next. The outline covers credit scores, interest rates and index '
     + 'funds, and a student leaves with their own budget, projection and plan, built on '
     + 'their own numbers.',
     'Financial literacy in the elementary grades is a different subject, and four years '
@@ -379,9 +380,11 @@ const finance: ProgramSpec = {
     'An eight-week outline for Grades 9 to 12, with skills defined per week',
     'The sequence and the reasoning behind its order',
     'Grade 7 in the web app: all eight units written and checked, open to educators in a preview',
+    'Grade 8 in the web app: all eight units written as a draft, in the same preview',
   ],
   notYet: [
-    'The Grades 8 to 12 lessons and projection templates',
+    'Grade 9 in the web app (its eight units are drafted), and the Grades 10 to 12 lessons '
+    + 'and projection templates',
     'A pre and post assessment',
     'Any delivery we have run ourselves, of the four elementary years or of the older '
     + 'material',

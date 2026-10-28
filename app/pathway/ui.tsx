@@ -175,8 +175,9 @@ export default function PathwayUi() {
           <FadeIn delay={0.1}>
             <p style={{ ...BODY }}>
               {written} of the {total} rungs below are finished books a teacher could
-              photocopy tomorrow. Grade 7 is written too, in our web app, open to educators
-              as a preview. The other {total - written - 1} are a plan. Every rung is
+              photocopy tomorrow. Grades 7 and 8 are written too, in our web app, open to
+              educators as a preview (Grade 8 as a draft). The other {total - written - 2} are
+              a plan. Every rung is
               labeled, so you never have to guess which you are reading.
             </p>
             <p style={{ ...BODY, marginBottom: 0, color: WHITE }}>
@@ -258,7 +259,7 @@ export default function PathwayUi() {
             maxWidth: '74ch' }}>
             The written rungs are the bottom {written}, Grades 3 to 6, because that is where
             the work started, not because they matter most. Grade 7 is written and waiting for
-            the first pilot. Everything above it is the most likely to change, and the thing
+            the first pilot, and Grade 8 is written as a draft. Everything above them is the most likely to change, and the thing
             most likely to change it is the first students working through Grade 7 and telling
             us what happened.
           </p>

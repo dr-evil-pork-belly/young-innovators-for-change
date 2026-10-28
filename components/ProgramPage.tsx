@@ -89,7 +89,8 @@ export default function ProgramPage({ spec }: { spec: ProgramSpec }) {
               </p>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.85, color: WHITE }}>
                 What is written: the elementary workbooks, free and ready to run today, and the
-                Grade 7 year of our web app, open to educators in a preview. The bands below say
+                Grade 7 year of our web app, open to educators in a preview, with Grade 8 beside it
+                as a draft. The bands below say
                 where this line stands, grade by grade.{' '}
                 <Link href="/resources" style={{ color: GOLD_L, textDecoration: 'none',
                   borderBottom: `1px solid ${GOLD}55` }}>Take a finished year</Link>.

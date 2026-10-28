@@ -17,7 +17,7 @@ const CHAIN = [
     items: [`${PUBLISHED_WEEKS} weeks of curriculum, written in-house`,
             'A teacher, an aide or a caretaker willing to spend the time: the input we do '
             + 'not control and the one that decides everything',
-            'A web app with Pip, an AI tutor, teaching only from lessons we write and check (Grade 7 in preview; Grades 8 to 12 next)',
+            'A web app with Pip, an AI tutor, teaching only from lessons we write and check (Grades 7 and 8 in preview; Grades 9 to 12 next)',
             'Guest speakers and fireside chats, organized by our founder with each school',
             'Printing for the books, and hosting and AI costs for the app',
             'A published research base, including the paper that argues against us'],
@@ -307,7 +307,6 @@ export default function MissionUi() {
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <Link href="/partner" className="btn-gold">Host the first pilot <ArrowUpRight size={14} /></Link>
               <Link href="/teachers" className="btn-ghost">If you teach <ArrowUpRight size={13} /></Link>
-              <Link href="/partner#give" className="btn-ghost">Make a gift <ArrowUpRight size={13} /></Link>
             </div>
           </div>
         </FadeIn>

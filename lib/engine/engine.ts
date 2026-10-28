@@ -44,8 +44,15 @@ export type Scenario = {
   /** Largest weekly swing in demand, in percent of the adjusted demand. 0 = none. */
   demandSwingPct: number;
   fixedCosts: number;
-  /** Annual interest rate on the loan, whole percent. */
+  /** Annual interest rate on the loan, whole percent. Charged weekly (rate / 52) on what was owed at the start of the turn. */
   loanRate: number;
+  /**
+   * Interest per turn instead, whole percent (Grade 8: 1 percent a month).
+   * When set it replaces loanRate, and it is charged on what is owed once this
+   * turn's borrowing has arrived: Dani borrows on September 1 and pays
+   * September's interest on the whole loan. Rounded up, like every cost.
+   */
+  loanRatePerTurn?: number;
   /** Most the bank will lend in total. 0 = no bank in this scenario. */
   loanLimit: number;
   /** Weekly pay per employee. */
@@ -156,8 +163,62 @@ export const DANI_2027: Scenario = {
   demandSchedule: [0, 30, 25, 30, 35, 45],
 };
 
+/**
+ * Grade 8 Unit 1: Dani's second year, September to February (g8 unit01
+ * case). She starts with $600, buys a case of 500 blanks at $3 each in
+ * September, and her aunt lends at 1 percent a month. The account may go
+ * below zero, because a loan too small to cover the case is the lesson.
+ */
+export const G8_DANI: Scenario = {
+  id: 'g8u1-dani',
+  code: 5,
+  startCash: 600,
+  startInventory: 0,
+  unitCost: 3,
+  referencePrice: 15,
+  demandBase: 30,
+  demandSwingPct: 0,
+  fixedCosts: 60,
+  loanRate: 0,
+  loanRatePerTurn: 1,
+  loanLimit: 1500,
+  wage: 0,
+  weeks: 6,
+  lotSize: 500,
+  sellCost: 2,
+  demandSchedule: [30, 25, 30, 40, 0, 30],
+  allowNegativeCash: true,
+};
+
+/**
+ * Grade 8 Unit 8: the next September to February with a Sunday market (g8
+ * unit08 case). She starts with $600 and 700 blanks already paid for, so a
+ * bag costs her only its $2 of ink in cash. Two tables a month, $60 each.
+ * The schedule is the likely scenario (6 bags a Saturday on that year's
+ * calendar, plus 25 on Sundays, January rained out); the bad and good
+ * scenarios come in as each month's demand.
+ */
+export const G8_SUNDAY: Scenario = {
+  ...G8_DANI,
+  id: 'g8u8-sunday',
+  code: 6,
+  startInventory: 700,
+  fixedCosts: 120,
+  loanLimit: 1200,
+  demandSchedule: [55, 49, 49, 55, 0, 49],
+};
+
+/** The same months without the Sunday market: Saturdays only, one table. */
+export const G8_SATURDAY: Scenario = {
+  ...G8_SUNDAY,
+  id: 'g8u8-saturday',
+  code: 7,
+  fixedCosts: 60,
+  demandSchedule: [30, 24, 24, 30, 0, 24],
+};
+
 /** Every scenario a save code can name. Never reuse a code. */
-export const SCENARIOS: readonly Scenario[] = [G7_UNIT1, G7_DANI, MARCUS, DANI_2027];
+export const SCENARIOS: readonly Scenario[] = [G7_UNIT1, G7_DANI, MARCUS, DANI_2027, G8_DANI, G8_SUNDAY, G8_SATURDAY];
 
 export function scenarioByCode(code: number): Scenario | undefined {
   return SCENARIOS.find((s) => s.code === code);
@@ -363,6 +424,19 @@ export function weeklyInterest(balance: number, annualRatePct: number): number {
   return ceilDiv(balance * annualRatePct, 100 * 52);
 }
 
+/**
+ * Interest due this turn. With a per-turn rate it is that percent of what is
+ * owed after this turn's borrowing; otherwise the weekly rate on what was
+ * owed at the start of the turn (the Grade 7 rule, unchanged).
+ */
+export function turnInterest(s: Scenario, startBalance: number, borrow = 0): number {
+  if (s.loanRatePerTurn !== undefined) {
+    const owed = startBalance + borrow;
+    return owed > 0 && s.loanRatePerTurn > 0 ? ceilDiv(owed * s.loanRatePerTurn, 100) : 0;
+  }
+  return weeklyInterest(startBalance, s.loanRate);
+}
+
 // ----------------------------------------------------------------- engine
 
 export function newGame(scenario: Scenario, seed: number): State {
@@ -383,16 +457,16 @@ export function newGame(scenario: Scenario, seed: number): State {
 }
 
 /** Bills that must be paid before the stand opens this week. */
-export function dueBeforeOpening(state: State): number {
+export function dueBeforeOpening(state: State, borrow = 0): number {
   const s = state.scenario;
   return s.fixedCosts
     + total(state.payables.filter((d) => d.week === state.week))
-    + weeklyInterest(state.loanBalance, s.loanRate);
+    + turnInterest(s, state.loanBalance, borrow);
 }
 
 /** Cash the student can spend on this week's order after the bills above. Can be negative. */
 export function freeCash(state: State, borrow = 0): number {
-  return state.cash + borrow - dueBeforeOpening(state);
+  return state.cash + borrow - dueBeforeOpening(state, borrow);
 }
 
 /** Most units the student can order and pay for now. */
@@ -447,7 +521,7 @@ export function playWeek(state: State, partial: Partial<Decision>): TurnOutcome 
   // A scenario that allows negative cash skips the refusal: the overdraft
   // is the lesson there.
   const orderCost = d.order * s.unitCost;
-  const reserved = dueBeforeOpening(state);
+  const reserved = dueBeforeOpening(state, d.borrow);
   if (!s.allowNegativeCash && !d.payLater && d.order > 0 && cash - reserved < orderCost) {
     const free = cash - reserved;
     const units = Math.max(0, Math.floor(free / s.unitCost));
@@ -505,7 +579,7 @@ export function playWeek(state: State, partial: Partial<Decision>): TurnOutcome 
   // scenario keeps cash at or above zero, anything the cash does not cover
   // rolls to next turn as a late payable. When it allows negative cash, every
   // bill is paid and the account shows the minus sign.
-  const interest = weeklyInterest(state.loanBalance, s.loanRate);
+  const interest = turnInterest(s, state.loanBalance, d.borrow);
   const wages = d.employees * s.wage;
   const payablesDue = total(payables.filter((p) => p.week === week));
   payables = payables.filter((p) => p.week !== week);
@@ -516,7 +590,8 @@ export function playWeek(state: State, partial: Partial<Decision>): TurnOutcome 
   paid += payNow;
   if (late > 0) payables = [...payables, { week: week + 1, amount: late }];
 
-  const repay = Math.min(d.repay, state.loanBalance, s.allowNegativeCash ? d.repay : Math.max(cash, 0));
+  // What was borrowed this turn can be repaid this turn (Grade 8's first payment is due in the month of the loan).
+  const repay = Math.min(d.repay, state.loanBalance + d.borrow, s.allowNegativeCash ? d.repay : Math.max(cash, 0));
   cash -= repay;
   paid += repay;
   const loanBalance = state.loanBalance + d.borrow - repay;

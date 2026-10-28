@@ -51,7 +51,7 @@ const COLUMNS: { heading: string; links: { label: string; href: string }[] }[] =
       { label: 'Governance and filings', href: '/governance' },
       { label: 'Student privacy',       href: '/privacy' },
       { label: 'Partner with us',       href: '/partner' },
-      { label: 'Make a gift',           href: '/partner#give' },
+      { label: 'For funders',           href: '/partner#fund' },
     ],
   },
 ];

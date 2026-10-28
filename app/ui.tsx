@@ -266,8 +266,8 @@ export default function HomePage() {
               >
                 {spellOut(PUBLISHED_YEARS.length)} school years of workbooks are written and
                 free today, with math and science for Grades 1 to 6 beside the business line.
-                Grade 7 is written and open to educators as a preview. No program of ours has
-                run with students yet, and this site says so wherever it matters. If you teach
+                Grades 7 and 8 are written and open to educators as a preview, Grade 8 as a
+                draft. No program of ours has run with students yet, and this site says so wherever it matters. If you teach
                 Grades 1 to 6, take a year and start Monday.
               </motion.p>
 
@@ -281,7 +281,7 @@ export default function HomePage() {
                   <ChevronRight size={14} />
                 </Link>
                 <Link href="/teachers" className="btn-secondary">
-                  See the Grade 7 app
+                  See the web app
                   <Laptop size={14} />
                 </Link>
               </motion.div>
@@ -302,7 +302,7 @@ export default function HomePage() {
                 textAlign: 'center' }}>
                 This is Pip. Pip is a graph: one vertex, five edges, no loops. Pip is on the
                 cover of all {PUBLISHED_YEARS.length} books, and an older Pip is the tutor in
-                the Grade 7 app.
+                the web app.
               </p>
             </motion.div>
           </div>
@@ -376,7 +376,7 @@ export default function HomePage() {
                them, because they were built and are free, not because they
                are the mission. Reordered 15 October 2026. */
             { num: '01', title: 'Leadership & Venture', href: '/pathway', cta: 'The ten-year ladder',
-              body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4 to 6 are written and free. From Grade 7 it moves to our web app, with Pip the AI tutor and guest speakers in person. Grade 7 is in preview for educators; Grades 8 to 12 come next.' },
+              body: 'One student, one product, one market day. Then a team, a profit split written as fractions, and a rival who prices against you. Grades 4 to 6 are written and free. From Grade 7 it moves to our web app, with Pip the AI tutor and guest speakers in person. Grades 7 and 8 are in preview for educators, Grade 8 as a draft; Grades 9 to 12 come next.' },
             { num: '02', title: 'Financial Literacy', href: '/programs/financial-literacy', cta: 'The four money years',
               body: 'A child’s own money first, then a plan, then the gap between a price and a cost, then the numbers other people put in front of them. Grades 3 to 6 are written and free, and from Grade 7 it continues in the web app. This is knowledge that usually arrives through a family, which is why it belongs in a school.' },
             { num: '03', title: 'Mathematics', href: '/programs/discrete-math', cta: 'The six years',
@@ -748,8 +748,8 @@ export default function HomePage() {
               to say they are running them. What has never happened is a program with a
               roster, a pre and post, and somebody watching. The Grade 7 web app is built for
               that, and it needs a district to say yes. If you teach, take a year. If you work
-              for a district, host the first pilot. If you give, make it the first program
-              anybody can check.
+              for a district, host the first pilot. If you fund education, make it the first
+              program anybody can check.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link href="/resources" className="btn-primary">
@@ -759,8 +759,8 @@ export default function HomePage() {
               <Link href="/partner#pilot" className="btn-secondary">
                 Host the first pilot
               </Link>
-              <Link href="/partner#give" className="btn-secondary">
-                Make a gift
+              <Link href="/partner#fund" className="btn-secondary">
+                For funders
               </Link>
             </div>
           </InkSlab>

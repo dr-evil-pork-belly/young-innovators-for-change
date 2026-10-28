@@ -230,7 +230,8 @@ export default function CurriculumUi() {
                 week, delivered by whoever is already in the room. From Grade 7 it takes a
                 different shape: a web app where each student works at their own pace with
                 Pip, an AI tutor, plus guest speakers from business in person. Grade 7 is
-                written and open to educators in a preview. Grades 8 to 12 come next.{' '}
+                written and open to educators in a preview, with Grade 8 beside it as a
+                draft. Grades 9 to 12 come next.{' '}
                 <Link href="/teachers" style={{ color: GOLD_L }}>Why the two shapes differ</Link>.
               </p>
               <p style={{ fontSize: '0.87rem', lineHeight: 1.8, color: MUTED, marginBottom: '1rem' }}>
@@ -270,6 +271,10 @@ export default function CurriculumUi() {
             // and 02 the pre/post instrument for that classroom study. The classroom
             // pilot was dropped on 16 October and the Grade 7 app pilot became the
             // first measured program on 21 October (claude/42), so the list follows it.
+            // 27 October 2026: 02 said "The other five years are mapped ... None is
+            // written yet." until Grade 8 went into the preview as a draft, then
+            // "The other four years ... None of them is written yet." until the
+            // Grade 9 units were drafted the same day.
             // 22 October 2026: "Write the Grade 7 year" came off the list once all
             // eight units were written and running in the web app preview.
             { n: '01', a: GREEN_L, t: 'Run the first pilot, and measure it',
@@ -278,7 +283,9 @@ export default function CurriculumUi() {
                + 'public before the first lesson. Nothing else on this list substitutes for '
                + 'students using it.' },
             { n: '02', a: GOLD_L, t: 'Grades 8 to 12, in the same app',
-              d: 'The other five years are mapped, one idea a year. None is written yet.' },
+              d: 'Grade 8 is written as a draft and sits in the preview beside Grade 7. Grade '
+               + '9 is drafted but not in the app yet. Grades 10 to 12 are mapped, one idea a '
+               + 'year, and none of them is written.' },
             { n: '03', a: ROYAL_L, t: 'Split the years into single weeks',
               d: `${PUBLISHED_WEEKS} two-page assignments currently ship as ${PUBLISHED_YEARS.length} `
                + 'all-or-nothing PDFs. One week is far easier for a teacher to try, and each '

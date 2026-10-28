@@ -267,7 +267,7 @@ export default function TeachersUi() {
                 </Link>
                 {pilot.preview.live && (
                   <a href={pilot.preview.url} className="btn-ghost" target="_blank" rel="noopener noreferrer">
-                    Try Grade 7 (passcode) <Laptop size={13} />
+                    Try the web app (passcode) <Laptop size={13} />
                   </a>
                 )}
                 <Link href="/pathway" className="btn-ghost">

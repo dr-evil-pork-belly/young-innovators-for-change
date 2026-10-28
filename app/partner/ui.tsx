@@ -64,13 +64,14 @@ function Reveal({ children, delay = 0, className = '' }: {
 /**
  * ─── A NOTE ON THIS PAGE ─────────────────────────────────────────────────────
  *
- * Gifts are invited here since 22 October 2026, the day Form CT-1 went to the
+ * Funding is invited here since 22 October 2026, the day Form CT-1 went to the
  * California Registry of Charities and Fundraisers (`TRANSPARENCY.caRegistryFiled`).
- * Two limits still hold:
+ * Since 28 October 2026 the ask is to foundations and institutional funders
+ * only; the individual "make a gift" asks were removed site-wide. Two limits
+ * still hold:
  *
- *   1. There is no online payment form. A gift starts as a conversation
- *      through the contact form; how it is paid is settled there, not promised
- *      here.
+ *   1. There is no online payment form, and no page should imply one. A grant
+ *      starts as a conversation through the contact form.
  *   2. The real cost of the program has not been computed (open decision 8).
  *      No dollar figure, per student or per anything, appears on this page
  *      until it is a number somebody calculated.
@@ -115,30 +116,35 @@ const LANES = [
          + 'district nothing. Cindy Ha, the founder, brings in the speakers and sets dates '
          + 'with each school.'
          + (DELIVERY.pilot.preview.live
-           ? ' Grade 7 is built, and educators can try it now with a passcode from us.'
+           ? ' Grade 7 is built, Grade 8 is there as a draft, and educators can try both now '
+             + 'with a passcode from us.'
            : ''),
     href:  '/teachers',
     cta:   'Read the ask',
     // Only once the preview answers at its address (DELIVERY.pilot.preview.live).
     extra: DELIVERY.pilot.preview.live
-      ? { href: DELIVERY.pilot.preview.url, cta: 'Try Grade 7 (passcode)' }
+      ? { href: DELIVERY.pilot.preview.url, cta: 'Try the web app (passcode)' }
       : undefined,
   },
+  // Until 28 October 2026 this lane was "Make a founding gift", addressed to
+  // donors of every size, and the individuals lane below invited a gift too.
+  // Both asks came out: there is no way to give online, and the funding the
+  // organization is pursuing is institutional. This lane is for grantmakers.
   {
-    id:    'give',
+    id:    'fund',
     icon:  Building2,
-    label: 'Foundations, family funds and donors',
-    title: 'Make a founding gift',
-    body:  'The first pilot year is where a gift does the most: the app and the tutor, the in-person sessions, and the study that shows whether any of this works. We welcome grants and gifts of every size, including one large enough to underwrite the whole first year. There are no outcome numbers to show you yet. What we can show you is the finished curriculum, the evaluation design we have committed to in public, and a clean record you can check without asking us. Tell us what you would need to see.',
+    label: 'Foundations and institutional funders',
+    title: 'Fund the first pilot year',
+    body:  'The first pilot year is where a grant does the most: the app and the tutor, the in-person sessions, and the study that shows whether any of this works. We are looking for foundation and institutional partners, including one able to underwrite the whole first year. There are no outcome numbers to show you yet. What we can show you is the finished curriculum, the evaluation design we have committed to in public, and a clean record you can check without asking us. Tell us what you would need to see.',
     href:  '#contact',
-    cta:   'Talk to us about a gift',
+    cta:   'Talk to us about a grant',
   },
   {
     id:    'individuals',
     icon:  Users,
     label: 'Individuals',
     title: 'Open a door',
-    body:  'The materials are free and stay free. You can make a gift of any size. Just as useful: forward this to one teacher or principal who might try a year of it.',
+    body:  'The materials are free and stay free. The most useful thing you can do is forward this to one teacher, principal or program officer who should see it.',
     href:  '#contact',
     cta:   'Introduce us to someone',
   },
@@ -170,8 +176,9 @@ const FAQS = [
      + `${PUBLISHED_WEEKS} weeks in all, across mathematics, science, entrepreneurship `
      + 'and financial literacy. Each year is a student workbook plus a teacher guide, mapped '
      + 'to California standards and free on the resources page. Grade 7, the first year of '
-     + 'the Grades 7 to 12 program, is built too: all eight units run in our web app with '
-     + 'Pip, the AI tutor, in a passcode preview for educators. Grades 8 to 12 come next.',
+     + 'the Grades 7 to 12 program, is also built: all eight units run in our web app with '
+     + 'Pip, the AI tutor, in a passcode preview for educators. Grade 8 is there as a '
+     + 'draft. Grades 9 to 12 come next.',
   },
   {
     q: 'Who delivers this to students?',
@@ -187,16 +194,16 @@ const FAQS = [
     a: 'Yes, and we can tell you almost nothing about it. Teachers have written to say they are using the material, homeschool educators among them. We do not know how many there are, where they teach, or how far anyone has gone, because nothing we publish asks for a name. What has not happened is a program with a roster and a measurement plan. A first partner is funding that, not joining something already running.',
   },
   {
-    q: 'How do I make a gift?',
-    a: 'Write to us through the form on this page, or at ' + ORG.contactEmail + ', and we will talk directly about the gift and how to make it. There is no online donation form yet. We filed with the California Attorney General’s Registry of Charities and Fundraisers in October 2026. We have not finished computing what the program costs, so we put no price on a student or a school here; when that number is done it goes on this page with the math shown.',
+    q: 'How does a foundation start a conversation?',
+    a: 'Write to us through the form on this page, or at ' + ORG.contactEmail + '. Tell us your program area and what you would need to see, and we will send it if it exists or say so if it does not. We filed with the California Attorney General’s Registry of Charities and Fundraisers in October 2026. We have not finished computing what the program costs, so we put no price on a student or a school here; when that number is done it goes on this page with the math shown.',
   },
   {
-    q: 'What do supporters get in return?',
+    q: 'What do funders get in return?',
     a: 'Recognition by name, and nothing else. No branded curriculum, no exclusive rights, no advertising, no seat with authority over what gets taught. That is a deliberate limit.',
   },
   {
-    q: 'Is a contribution tax-deductible?',
-    a: `${taxLine() ?? ''} Any contribution is acknowledged in writing for your records, and we recommend consulting your own tax advisor.`,
+    q: 'What is your tax status?',
+    a: `${taxLine() ?? ''} Every grant is acknowledged in writing for your records.`,
   },
   {
     q: 'How can I check that this organization is what it says it is?',

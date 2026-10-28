@@ -102,7 +102,7 @@ export default function ImpactUi() {
           ))}
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-          <Link href="/partner#give" className="btn-gold">Make a gift <ArrowUpRight size={14} /></Link>
+          <Link href="/partner#fund" className="btn-gold">For funders <ArrowUpRight size={14} /></Link>
           <Link href="/pathway#research" className="btn-ghost">
             Every study, in plain words <ArrowUpRight size={13} />
           </Link>
@@ -443,7 +443,7 @@ export default function ImpactUi() {
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link href="/partner#give" className="btn-gold">Make a gift <ArrowUpRight size={14} /></Link>
+              <Link href="/partner#fund" className="btn-gold">Talk to us about a grant <ArrowUpRight size={14} /></Link>
               <Link href="/governance" className="btn-ghost">Read the filings <ArrowUpRight size={13} /></Link>
             </div>
           </div>

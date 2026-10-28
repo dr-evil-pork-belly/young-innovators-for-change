@@ -203,8 +203,8 @@ export const MISSION = {
 
   /** Say these before anything else, on any page that draws on the mission. */
   notYetTrue: [
-    'No program of ours has run with students. Grade 7 is written and running in our web '
-    + 'app as a preview for adults. Teachers using the free material on their own are '
+    'No program of ours has run with students. Grade 7 is written and Grade 8 is a draft, '
+    + 'both running in our web app as a preview for adults. Teachers using the free material on their own are '
     + 'not a program we ran, and we do not count them as one.',
     'We do not know who downloads the free materials, and we will not describe them as '
     + 'low income until we can.',
@@ -539,9 +539,11 @@ export const CURRICULUM: Strand[] = [
             + 'each. No Grade 3 year is written.' },
       { band: 'Grades 6–8',  status: 'published',
         note: 'Grade 6 complete: The Market Year, 36 weeks. Grade 7 is written and runs '
-            + 'in the web app as a preview for educators. No printed year is planned.' },
+            + 'in the web app as a preview for educators, and Grade 8 runs there as a '
+            + 'draft. No printed year is planned.' },
       { band: 'Grades 9–12', status: 'designed',
-        note: 'Part of the Grades 7 to 12 web app program. Designed, not written.' },
+        note: 'Part of the Grades 7 to 12 web app program. Grade 9 is drafted and not yet '
+            + 'in the web app. Grades 10 to 12 are designed, not written.' },
     ],
   },
   {
@@ -555,9 +557,11 @@ export const CURRICULUM: Strand[] = [
             + 'Year, 36 weeks each.' },
       { band: 'Grades 6–8',  status: 'published',
         note: 'Grade 6 complete: The Asking Year, 36 weeks. Grade 7 is written and runs '
-            + 'in the web app as a preview for educators. No printed year is planned.' },
+            + 'in the web app as a preview for educators, and Grade 8 runs there as a '
+            + 'draft. No printed year is planned.' },
       { band: 'Grades 9–12', status: 'designed',
-        note: 'Part of the Grades 7 to 12 web app program. Designed, not written.' },
+        note: 'Part of the Grades 7 to 12 web app program. Grade 9 is drafted and not yet '
+            + 'in the web app. Grades 10 to 12 are designed, not written.' },
     ],
   },
 ];
@@ -690,12 +694,20 @@ export const PATHWAY: PathwayStage[] = [
         + 'student has used it yet.',
   },
   {
-    grade: 'Grade 8', status: 'planned',
-    concept: 'What capital costs. Simple and compound interest, the arithmetic of a '
-           + 'loan, and why the same purchase costs two people different amounts. Then '
-           + 'the question for the student’s own venture: borrow or not, and how much.',
+    // Planned until 27 October 2026, with the note "Next in the web app. Not
+    // written yet." All eight units are now written (claude/57) and in the same
+    // preview as Grade 7, marked there as a draft. The concept was rewritten to
+    // match the units as written: the old one promised "why the same purchase
+    // costs two people different amounts", which no unit teaches.
+    grade: 'Grade 8', status: 'designed',
+    concept: 'What capital costs, and what records can tell you. Interest, compound '
+           + 'growth, the arithmetic of a loan, whether a purchase is worth borrowing '
+           + 'for, and a lender against a partner. Then reading records, lines that '
+           + 'predict, and how often a prediction was wrong. The question for the '
+           + 'student’s own venture: borrow or not, and how much.',
     mbaCourse: 'Corporate finance and data analysis',
-    note: 'Next in the web app. Not written yet.',
+    note: 'All eight units are written as a draft and open to educators in the same '
+        + 'preview as Grade 7. No student has used it yet.',
   },
   {
     grade: 'Grade 9', status: 'designed',
@@ -703,8 +715,8 @@ export const PATHWAY: PathwayStage[] = [
            + 'break-even, and the questions to ask when the numbers and the story '
            + 'disagree.',
     mbaCourse: 'Financial statement analysis',
-    note: 'Parts are outlined in the Venture Lab and Financial Literacy syllabi. The '
-        + 'full year is not written.',
+    note: 'All eight units are drafted. They are not in the web app yet, and no student '
+        + 'has used them.',
   },
   {
     grade: 'Grade 10', status: 'designed',
@@ -751,7 +763,7 @@ export const NOT_AN_MBA: string[] = [
   // number by hand. Nothing else on this page may hardcode it either.
   `No student has completed this pathway. ${spellOut(pathwayPublishedCount())} of its `
   + `${spellOut(PATHWAY.length).toLowerCase()} years are published as books, Grade 7 is `
-  + 'written in the web app, and nobody has run any of them start to finish with '
+  + 'written in the web app with Grade 8 there as a draft, and nobody has run any of them start to finish with '
   + 'students yet.',
 ];
 
@@ -966,7 +978,7 @@ export const DELIVERY = {
     {
       band: 'Grades 7 to 12',
       shape: 'At their own pace, with a room to meet in',
-      badge: 'Grade 7 preview, adults only',
+      badge: 'Grades 7 and 8 preview, adults only',
       who: 'Pip, an AI tutor that tells students plainly it is an AI. Guest speakers '
          + 'and fireside chats in person, organized by Cindy Ha, the founder, with a '
          + 'teacher from the school in the room.',
@@ -978,8 +990,8 @@ export const DELIVERY = {
           + 'app cannot do: guest speakers from business, and conversations about what '
           + 'is happening in it now. Each student picks one venture in Grade 7 and '
           + 'builds on it through Grade 12. Grade 7 is written and running as a '
-          + 'preview for educators. Grades 8 to 12 come next. No student has used it '
-          + 'yet.',
+          + 'preview for educators, with Grade 8 beside it as a draft. Grades 9 to 12 '
+          + 'come next. No student has used it yet.',
       status: 'designed' as const,
     },
   ],
@@ -990,7 +1002,7 @@ export const DELIVERY = {
 
     /**
      * The working preview of Grade 7 (Unit 1 from 21 October 2026, all eight units
-     * from 22 October), a separate app at
+     * from 22 October; Grade 8 beside it as a draft from 27 October), a separate app at
      * app.innovateyouth.org behind a passcode (the young-innovators-demo
      * folder). Set `live` to true only once that address answers with the
      * passcode page; until then /teachers shows nothing about it.
@@ -998,9 +1010,9 @@ export const DELIVERY = {
     preview: {
       live: true,
       url: 'https://app.innovateyouth.org',
-      body: 'Grade 7 is built in the web app, all eight units. Educators and district '
-          + 'staff can try it the way a seventh grader would, Pip included, then see '
-          + 'what the teacher sponsor sees. It sits behind a passcode because no '
+      body: 'Grade 7 is built in the web app, all eight units, and Grade 8 is there '
+          + 'too as a draft. Educators and district staff can try it the way a student '
+          + 'would, Pip included, then see what the teacher sponsor sees. It sits behind a passcode because no '
           + 'student may use it until a district has signed a data agreement and '
           + 'families have signed consent forms. Write to us for the passcode.',
     },
