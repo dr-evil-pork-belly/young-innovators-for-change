@@ -128,22 +128,22 @@ export function ladderPeaks11() {
 
 // ============================================= Week 12: The Market Detective
 
-export type Stall = { name: string; price: number; pack: number; sold: number; costPerCup: number };
-/** All four sell drinks. Price is per pack; cost is per cup. */
+export type Stall = { name: string; price: number; pack: number; sold: number; costPerCard: number };
+/** All four sell packs of critter cards they drew themselves. Price is per pack; cost is per card. */
 export const STALLS = [
-  { name: 'Ana', price: 200, pack: 1, sold: 18, costPerCup: 80 },
-  { name: 'Ben', price: 360, pack: 2, sold: 12, costPerCup: 80 },
-  { name: 'Cass', price: 150, pack: 1, sold: 24, costPerCup: 160 },
-  { name: 'Dev', price: 500, pack: 3, sold: 9, costPerCup: 90 },
+  { name: 'Ana', price: 200, pack: 1, sold: 18, costPerCard: 80 },
+  { name: 'Ben', price: 360, pack: 2, sold: 12, costPerCard: 80 },
+  { name: 'Cass', price: 150, pack: 1, sold: 24, costPerCard: 160 },
+  { name: 'Dev', price: 500, pack: 3, sold: 9, costPerCard: 90 },
 ] as const;
 
-/** Price per cup to the cent. The book prints 5.00 / 3 as 1.67. */
-export const perCup = (s: Stall) => Math.round(s.price / s.pack);
-/** A stall's day on the engine: a pack is the unit, its cost is the cups in it. */
+/** Price per card to the cent. The book prints 5.00 / 3 as 1.67. */
+export const perCard = (s: Stall) => Math.round(s.price / s.pack);
+/** A stall's day on the engine: a pack is the unit, its cost is the cards in it. */
 export function stallRow(s: Stall) {
-  const d = day(s.sold, s.price, s.costPerCup * s.pack, 0);
-  const marginPack = s.price - s.costPerCup * s.pack;
-  return { ...s, perCup: perCup(s), revenue: d.revenue, marginPack, marginPct: pct(marginPack, s.price), profit: d.profit, cups: s.sold * s.pack };
+  const d = day(s.sold, s.price, s.costPerCard * s.pack, 0);
+  const marginPack = s.price - s.costPerCard * s.pack;
+  return { ...s, perCard: perCard(s), revenue: d.revenue, marginPack, marginPct: pct(marginPack, s.price), profit: d.profit, cards: s.sold * s.pack };
 }
 export function detective(stalls: readonly Stall[]) {
   const rows = stalls.map(stallRow);
@@ -151,7 +151,7 @@ export function detective(stalls: readonly Stall[]) {
   const revs = rows.map((r) => r.revenue);
   return {
     rows,
-    cheapestPerCup: by((r) => r.perCup, true),
+    cheapestPerCard: by((r) => r.perCard, true),
     mostMoney: by((r) => r.revenue),
     mostPacks: by((r) => r.sold),
     losing: rows.filter((r) => r.profit < 0).map((r) => r.name),

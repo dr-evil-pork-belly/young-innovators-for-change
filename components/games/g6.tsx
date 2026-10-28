@@ -246,20 +246,20 @@ export function W12() {
     <>
       <Card>
         <p style={H}>The Saturday market, four stalls</p>
-        <Table head={['Stall', 'Price', 'Pack', 'Packs sold', 'Cost per cup']} rows={G.STALLS.map((s) => [s.name, $(s.price), `${s.pack} cup${s.pack > 1 ? 's' : ''}`, s.sold, $(s.costPerCup)])} />
-        <Note>All four sell drinks. This is everything you can see. Every question below is one of the eleven weeks; say which one you used.</Note>
+        <Table head={['Stall', 'Price', 'Pack', 'Packs sold', 'Cost per card']} rows={G.STALLS.map((s) => [s.name, $(s.price), `${s.pack} card${s.pack > 1 ? 's' : ''}`, s.sold, $(s.costPerCard)])} />
+        <Note>All four sell packs of critter cards they drew themselves. This is everything you can see. Every question below is one of the eleven weeks; say which one you used.</Note>
       </Card>
       <Gap />
       <Card>
         <p style={H}>Answer with the right tool</p>
-        <Checked label="Ben, per cup" want={d.rows[1].perCup} />
-        <Checked label="Dev, per cup (to the cent)" want={d.rows[3].perCup} />
-        <Pick text="Cheapest per cup?" options={names} want={d.cheapestPerCup} />
+        <Checked label="Ben, per card" want={d.rows[1].perCard} />
+        <Checked label="Dev, per card (to the cent)" want={d.rows[3].perCard} />
+        <Pick text="Cheapest per card?" options={names} want={d.cheapestPerCard} />
         <Checked label="Ana's margin, in dollars" want={d.rows[0].marginPack} />
         <Checked label="Ana's margin, as a percent" want={d.rows[0].marginPct} money={false} />
         <Pick text="Who took the most money? It is not who sold the most packs." options={names} want={d.mostMoney} />
         <Checked label="Cass's profit, with its sign" want={d.rows[2].profit} />
-        <CheckedRatio label="Ana to Cass, cups sold, simplest form" want={G.ratio(d.rows[0].cups, d.rows[2].cups)} />
+        <CheckedRatio label="Ana to Cass, cards sold, simplest form" want={G.ratio(d.rows[0].cards, d.rows[2].cards)} />
         <Checked label="The four revenues: the range" want={d.range} />
         <Pick text="One stall is losing money and does not obviously look like it. Which?" options={names} want={d.losing[0]} />
       </Card>

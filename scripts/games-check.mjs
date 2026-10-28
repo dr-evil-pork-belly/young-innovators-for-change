@@ -143,14 +143,14 @@ eq(G6.LADDER11.map((r) => G6.ladderRow11(r.price).profit).join(','), '-1200,900,
 eq(G6.ladderPeaks11().revenue, 300, 'g6 week 11: revenue peaks at $3.00'); eq(G6.ladderPeaks11().profit, 400, 'g6 week 11: profit peaks at $4.00');
 ok(G6.LADDER11.every((r, i) => i === 0 || r.sold < G6.LADDER11[i - 1].sold), 'g6 week 11: the ladder slopes down');
 { let t = false; try { G6.ladderRow11(250); } catch { t = true; } ok(t, 'g6 week 11: a price not on the ladder is refused'); }
-// week 12 (guide: per cup 2.00, 1.80, 1.50, 1.67; cheapest Cass; Ana margin 1.20 and 60%; revenues 36, 43.20, 36, 45; most money Dev; Cass profit -2.40; Ana to Cass 3 to 4; range 9.00)
+// week 12 (guide: per card 2.00, 1.80, 1.50, 1.67; cheapest Cass; Ana margin 1.20 and 60%; revenues 36, 43.20, 36, 45; most money Dev; Cass profit -2.40; Ana to Cass 3 to 4; range 9.00)
 const d12 = G6.detective(G6.STALLS);
-eq(d12.rows.map((r) => r.perCup).join(','), '200,180,150,167', 'g6 week 12: per cup'); eq(d12.cheapestPerCup, 'Cass', 'g6 week 12: cheapest per cup');
+eq(d12.rows.map((r) => r.perCard).join(','), '200,180,150,167', 'g6 week 12: per card'); eq(d12.cheapestPerCard, 'Cass', 'g6 week 12: cheapest per card');
 eq(d12.rows[0].marginPack, 120, 'g6 week 12: Ana margin $'); eq(d12.rows[0].marginPct, 60, 'g6 week 12: Ana margin %');
 eq(d12.rows.map((r) => r.revenue).join(','), '3600,4320,3600,4500', 'g6 week 12: revenues'); eq(d12.mostMoney, 'Dev', 'g6 week 12: most money');
 ok(d12.mostMoney !== d12.mostPacks, 'g6 week 12: the most money is not who sold the most packs');
 eq(d12.rows[2].profit, -240, 'g6 week 12: Cass profit -2.40'); eq(d12.losing.join(), 'Cass', 'g6 week 12: one stall is losing money');
-eq(G6.ratio(d12.rows[0].cups, d12.rows[2].cups), '3 to 4', 'g6 week 12: Ana to Cass'); eq(d12.range, 900, 'g6 week 12: revenue range');
+eq(G6.ratio(d12.rows[0].cards, d12.rows[2].cards), '3 to 4', 'g6 week 12: Ana to Cass, cards sold'); eq(d12.range, 900, 'g6 week 12: revenue range');
 // week 20 (guide: under 3.60; margins 2.00, 1.60, 3.00; sales for $30: 15, 19, 10; 25% more to stand still; war margins 0.92 and 0.63)
 const c20 = G6.threeChoices();
 eq(c20.under.price, 360, 'g6 week 20 warm-up: 10% under $4.00'); eq(c20.over.price, 500, 'g6 week 20: 25% over');
